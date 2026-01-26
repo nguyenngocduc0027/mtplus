@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="zxx">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <!-- Link of CSS files -->
+        <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+        <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
+        <link rel="stylesheet" href="assets/css/scrollcue.min.css">
+        <link rel="stylesheet" href="assets/css/remixicon.css">
+        <link rel="stylesheet" href="assets/css/header.css">
+        <link rel="stylesheet" href="assets/css/style.css">
+        <link rel="stylesheet" href="assets/css/footer.css">
+        <link rel="stylesheet" href="assets/css/responsive.css">
+        <link rel="stylesheet" href="assets/css/dark-theme.css">
+        
+        <title>Renius - Building Construction & Renovation Company HTML Template</title>
+        <link rel="icon" type="image/png" href="assets/img/favicon.png">
+    </head>
+    <body>
+
+       <!--  Preloader Start -->
+        <div class="preloader-area" id="preloader">
+            <div class="spinner">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+        <!--  Preloader End -->
+
+        <!-- Theme Switcher Start -->
+        <div class="switch-theme-mode">
+            <label id="switch" class="switch">
+                <input type="checkbox" onchange="toggleTheme()" id="slider">
+                <span class="slider round"></span>
+            </label>
+        </div>
+        <!-- Theme Switcher End -->
+
+        <!-- Custom Cursor -->
+        <div class="cursor"><span class="cursor-text"></span></div>
+        <div class="cursor-inner"></div>
+
+        <div id="smooth-wrapper">
+            <div id="smooth-content">
+
+                <!-- Navbar Start -->
+                <div class="navbar-area style-four position-relative" id="navbar">
+                    <div class="container-fluid">
+                        <div class="navbar-wrapper d-flex justify-content-between align-items-center">
+                            <a href="index.html" class="navbar-brand">
+                                <img src="assets/img/logo.png" alt="Logo" class="logo-light">
+                                <img src="assets/img/logo-white.png" alt="Logo" class="logo-dark">
+                            </a>
+                            <div class="menu-area me-auto">
+                                <div class="overlay"></div>
+                                <nav class="menu">
+                                    <div class="menu-mobile-header">
+                                        <button type="button" class="menu-mobile-arrow bg-transparent border-0"><i class="ri-arrow-left-s-line"></i></button>
+                                        <div class="menu-mobile-title"></div>
+                                        <button type="button" class="menu-mobile-close bg-transparent border-0"><i class="ri-close-line"></i></button>
+                                    </div>
+                                    <ul class="menu-section p-0 mb-0 lh-1">
+                                        <li class="menu-item-has-children">
+                                            <a href="javascript:void(0)">Home<i class="ri-add-line"></i></a>
+                                            <ul class="menu-subs menu-column-1">
+                                                <li class="list-item">
+                                                    <a href="index.html">Home - Renovation</a>
+                                                </li>
+                                                <li class="list-item">
+                                                    <a href="index-2.html">Home - Building Construction</a>
+                                                </li>
+                                                <li class="list-item">
+                                                    <a href="index-3.html">Home - Build Craft</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class="menu-item-has-children">
+                                            <a href="javascript:void(0)">Pages<i class="ri-add-line"></i></a>
+                                            <ul class="menu-subs menu-column-1">
+                                                <li><a href="about.html">About Us</a></li>
+                                                <li class="menu-item-has-children">
+                                                    <a href="javascript:void(0)">Services<i class="ri-add-line"></i></a>
+                                                    <ul class="menu-subs menu-column-1">
+                                                        <li><a href="services.html">Services</a></li>
+                                                        <li><a href="service-single.html">Service Single</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li class="menu-item-has-children">
+                                                    <a href="javascript:void(0)">Team<i class="ri-add-line"></i></a>
+                                                    <ul class="menu-subs menu-column-1">
+                                                        <li><a href="team.html">Team</a></li>
+                                                        <li><a href="team-single.html">Team Single</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li class="menu-item-has-children">
+                                                    <a href="javascript:void(0)">Careers<i class="ri-add-line"></i></a>
+                                                    <ul class="menu-subs menu-column-1">
+                                                        <li><a href="careers.html">Careers</a></li>
+                                                        <li><a href="career-single.html">Career Single</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li><a href="awards.html">Awards</a></li>
+                                                <li><a href="location.html">Location</a></li>
+                                                <li><a href="pricing-plan.html">Pricing Plan</a></li>
+                                                <li><a href="testimonials.html">Testimonials</a></li>
+                                                <li><a href="faq.html">FAQ</a></li>
+                                                <li><a href="terms-conditions.html">Terms & Conditions</a></li>
+                                                <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                                                <li><a href="error-404.html">Error 404</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="menu-item-has-children">
+                                            <a href="javascript:void(0)" class="active">Properties<i class="ri-add-line"></i></a>
+                                            <ul class="menu-subs menu-column-1">
+                                                 <li><a href="properties.html">Properties</a></li>
+                                                <li><a href="property-single.html" class="active">Property Single</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="menu-item-has-children">
+                                            <a href="javascript:void(0)">Projects<i class="ri-add-line"></i></a>
+                                            <ul class="menu-subs menu-column-1">
+                                                 <li><a href="projects.html">Projects</a></li>
+                                                 <li><a href="project-single.html">Project Single</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="menu-item-has-children">
+                                            <a href="javascript:void(0)">Blog<i class="ri-add-line"></i></a>
+                                            <ul class="menu-subs menu-column-1">
+                                                <li class="menu-item-has-children"><a href="javascript:void(0)">Blog Layout<i class="ri-add-line"></i></a>
+                                                    <ul class="menu-subs menu-column-1">
+                                                        <li><a href="blog-left-sidebar.html">Blog Left Sidebar</a></li>
+                                                        <li><a href="blog-right-sidebar.html">Blog Right Sidebar</a></li>
+                                                        <li><a href="blog-grid.html">Blog Grid</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li class="menu-item-has-children"><a href="javascript:void(0)">Blog Details Layout<i class="ri-add-line"></i></a>
+                                                    <ul class="menu-subs menu-column-1">
+                                                        <li><a href="blog-details-left-sidebar.html">Blog Details Left Sidebar</a></li>
+                                                        <li><a href="blog-details-right-sidebar.html">Blog Details Right Sidebar</a></li>
+                                                        <li><a href="blog-details-no-sidebar.html">Blog Details No Sidebar</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li class="menu-item-has-children"><a href="javascript:void(0)">Others<i class="ri-add-line"></i></a>
+                                                    <ul class="menu-subs menu-column-1">
+                                                        <li><a href="posts-by-author.html">Posts By Author</a></li>
+                                                        <li><a href="posts-by-date.html">Posts By Date</a></li>
+                                                        <li><a href="posts-by-category.html">Posts By Category</a></li>
+                                                        <li><a href="posts-by-tag.html">Posts By Tag</a></li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="contact.html">Contact Us</a></li>
+                                    </ul>
+                                </nav>
+                            </div>
+                            <div class="other-options d-flex flex-wrap align-items-center justify-content-end">
+                                <div class="option-item d-flex flex-wrap align-items-center">
+                                    <div class="mobile-options position-relative d-lg-none">
+                                        <button class="dropdown-toggle  text-center bg-transparent border-0 p-0 transition" type="button" data-bs-toggle="dropdown" aria-expanded="true">
+                                            <i class="ri-more-fill"></i>
+                                        </button>
+                                        <div class="dropdown-menu dropdown-menu-centered mobile-option-list top-1 border-0" data-bs-popper="static">
+                                            <div class="dropdown-item">
+                                                <div class="contact-link d-flex flex-wrap align-items-center position-relative transition">
+                                                    <span class="contact-icon d-flex flex-column align-items-center justify-content-center rounded-circle transition"><img src="assets/img/icons/phone.svg" alt="Icon" class="transition"></span>
+                                                    <div>
+                                                        <span class="text-white d-block">Call Us:</span>
+                                                        <span class="text_primary fw-semibold">+6857 886 960</span>
+                                                    </div>
+                                                    <a href="tel:6857886960" class="position-absolute top-0 start-0 w-100 h-100"></a>
+                                                </div>
+                                            </div>
+                                            <div class="dropdown-item">
+                                                <a href="contact.html" class="btn style-two d-inline-flex flex-wrap align-items-center p-0"><span class="btn-text d-inline-block fw-semibold position-relative transition">Get In Touch</span><span class="btn-icon position-relative d-flex flex-column align-items-center justify-content-center rounded-circle transition"><img src="assets/img/icons/up-right-arrow-black.svg" alt="Image"></span></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="contact-link d-lg-flex flex-wrap align-items-center position-relative d-none transition">
+                                        <span class="contact-icon d-flex flex-column align-items-center justify-content-center rounded-circle transition"><img src="assets/img/icons/phone.svg" alt="Icon" class="transition"></span>
+                                        <div class="d-xl-inline d-none">
+                                            <span class="text-title d-block fw-semibold">Call Us:</span>
+                                            <span class="text_primary fw-semibold">+6857 886 960</span>
+                                        </div>
+                                        <a href="tel:6857886960" class="position-absolute top-0 start-0 w-100 h-100"></a>
+                                    </div>
+                                </div>
+                                <div class="option-item d-lg-block d-none">
+                                    <a href="contact.html" class="btn style-two d-inline-flex flex-wrap align-items-center p-0"><span class="btn-text d-inline-block fw-semibold position-relative transition">Get In Touch</span><span class="btn-icon position-relative d-flex flex-column align-items-center justify-content-center rounded-circle transition"><img src="assets/img/icons/up-right-arrow-black.svg" alt="Image"></span></a>
+                                </div>
+                                <div class="option-item d-lg-none">
+                                    <button type="button" class="menu-mobile-trigger">
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Navbar End -->
+
+                <!-- Breadcrumb Section Start -->
+                <div class="breadcrumb-area position-relative z-1">
+                    <img src="assets/img/breadcrumb/br-line-shape.png" alt="Shape" class="br-line-shape position-absolute top-0 start-0 w-100 h-100 z-n1">
+                    <img src="assets/img/breadcrumb/br-shape-1.png" alt="Shape" class="br-shape-one position-absolute z-n1 bounce">
+                    <img src="assets/img/breadcrumb/br-shape-2.png" alt="Shape" class="br-shape-two position-absolute bottom-0 z-n1 moveHorizontal">
+                    <div class="container-fluid px-xxl-5">
+                        <div class="row">
+                            <div class="col-md-10 offset-md-1 text-center">
+                                <h2 class="section-title style-one fw-black text-title">Property Single</h2>
+                                <ul class="br-menu list-unstyled">
+                                    <li><a href="index.html"><img src="assets/img/icons/home-icon.svg" alt="Icon">HOME</a></li>
+                                    <li><a href="properties.html">PROPERTIES</a></li>
+                                    <li>PROPERTY SINGLE</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Breadcrumb Section End -->
+
+                <!-- Property Details Start -->
+                <div class="container ptb-120">
+                    <div class="row">
+                        <div class="col-xl-8">
+                            <div class="property-desc">
+                                <div class="row align-items-center mb-30">
+                                    <div class="col-lg-7 col-md-8 mb-sm-20">
+                                        <h1 class="font-secondary fw-black mb-0">Loft In Mid-City Paradise</h1>
+                                    </div>
+                                    <div class="col-lg-5 col-md-4 text-md-end">
+                                        <p class="fw-medium position-relative text-title mb-0"><img src="assets/img/icons/pin-orange.svg" alt="Icon" class="position-relative top-n2 me-1">200 Terrace, London</p>
+                                    </div>
+                                </div>
+                                <p>Indulge in luxury living at our penthouse near downtown, where sophistication meets convenience. With breathtaking views and contemporary design.</p>
+                                <div class="single-img position-relative round-10 mb-35">
+                                    <img src="assets/img/properties/single-property-1.jpg" alt="Image" class="round-10">
+                                    <div class="property-price position-absolute end-0 bg_primary text-white z-1"><span class="fw-bold">$546</span>/Month</div>
+                                </div>
+                                <div class="single-para">
+                                    <h6>About Property</h6>
+                                    <p>A property deed is a written legal document that transfers ownership of a property from one party to another. It includes essential details such as the names of the current and new owners, a legal description of the property, and the date of the transfer. Deeds are signed by the current owner and typically require witnesses and a notary public to ensure their validity.</p>
+                                    <ul class="feature-item-list style-one list-unstyled">
+                                        <li class="position-relative"><span class="text-title fw-semibold">Warranty Deed:</span> Guarantees that the seller owns the property free and clear and has the legal right to sell it. Provides the highest level of protection to the buyer.</li>
+                                        <li class="position-relative"><span class="text-title fw-semibold">Quitclaim Deed:</span> Transfers the seller's interest in the property without making any guarantees about the title. Often used in situations where the transfer is between family members or in less formal transactions.</li>
+                                        <li class="position-relative"><span class="text-title fw-semibold">Grant Deed: </span>Similar to a warranty deed but may not provide as much protection. It implies that the property has not been sold to anyone else</li>
+                                    </ul>
+                                </div>
+                                <div class="single-para">
+                                    <h6>Property Video</h6>
+                                    <div class="single-property-video position-relative z-1 round-10 mt-4">
+                                         <a data-fslightbox="" href="https://www.youtube.com/watch?v=u31qwQUeGuM" class="play-icon position-absolute d-flex flex-column align-items-center justify-content-center rounded-circle bg_primary"><i class="ri-play-large-fill"></i></a>
+                                    </div>
+                                </div>
+                                <div class="single-para">
+                                    <h6>Property Amenities</h6>
+                                    <ul class="single-property-amenities d-flex flex-wrap  justify-content-between list-unstyled mb-0">
+                                        <li class="position-relative">7 Bedrooms</li>
+                                        <li class="position-relative">Gym for all</li>
+                                        <li class="position-relative">Air Conditioning</li>
+                                        <li class="position-relative">3 Garage</li>
+                                        <li class="position-relative">CC Camera</li>
+                                        <li class="position-relative">Internet</li>
+                                        <li class="position-relative">Security System</li>
+                                        <li class="position-relative">Swimming Pool</li>
+                                        <li class="position-relative">Dishwasher</li>
+                                        <li class="position-relative">Clinic</li>
+                                        <li class="position-relative">Fencing</li>
+                                        <li class="position-relative">Supermarket</li>
+                                        <li class="position-relative">Outdoor Kitchen</li>
+                                        <li class="position-relative">Refrigerator</li>
+                                        <li class="position-relative">Indoor Game</li>
+                                    </ul>
+                                </div>
+                                <div class="single-para">
+                                    <h6>Location</h6>
+                                    <div class="single-img round-10">
+                                        <img src="assets/img/properties/single-property-3.jpg" alt="Image" class="round-10">
+                                    </div>
+                                </div>
+                                <form action="#" class="comment-form style-two bg-gray form-wrapper style-one round-10">
+                                    <h4 class="fs-20 fw-bold text-title mb-20">Be the first to review “Affordable Green Villa House”</h2>
+                                    <div class="form-group position-relative mb-15">
+                                        <input type="text" required class="w-100 ht-50 bg-white border-0 outline-0 round-5 text-para" placeholder="Review Title">
+                                    </div>
+                                    <div class="form-group mb-15">
+                                        <span class="fw-medium d-block text-title">Your rating</span>
+                                        <div class="add-star-rating d-flex flex-wrap justify-content-start mt-1">
+                                            <input type="radio" id="star5" name="rating" value="5"><label for="star5"></label>
+                                            <input type="radio" id="star4" name="rating" value="4"><label for="star4"></label>
+                                            <input type="radio" id="star3" name="rating" value="3"><label for="star3"></label>
+                                            <input type="radio" id="star2" name="rating" value="2"><label for="star2"></label>
+                                            <input type="radio" id="star1" name="rating" value="1"><label for="star1"></label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group mb-15">
+                                        <input type="email" placeholder="Email" required class="w-100 ht-50 bg-white border-0 outline-0 round-5 text-para">
+                                    </div>
+                                    <div class="form-group mb-15">
+                                        <textarea name="messages" id="messages" cols="30" rows="10" placeholder="Your review"  class="w-100 ht-152 bg-white border-0 outline-0 round-5 text-para resize-0"></textarea>
+                                    </div>
+                                    <div class="form-check checkbox style-one mb-25">
+                                        <input class="form-check-input" type="checkbox" id="test_2"
+                                        >
+                                        <label class="form-check-label" for="test_2" class="fw-medium">
+                                            Save my name, email, and website in this browser for the next time I comment.
+                                        </label>
+                                    </div>
+                                    <button class="btn style-one d-inline-flex flex-wrap align-items-center p-0"><span class="btn-text d-inline-block fw-semibold position-relative transition">Submit Review</span><span class="btn-icon position-relative d-flex flex-column align-items-center justify-content-center rounded-circle transition"><i class="ri-arrow-right-up-line"></i></span></button>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="col-xl-4">
+                            <aside class="sidebar mt-lg-50">
+                                <div class="sidebar-widget bg-gray round-10">
+                                    <h3 class="sidebar-widget-title fs-20 fw-semibold text-title border-0 pb-0 mb-15"><img src="assets/img/icons/floor-plan.svg" alt="Icon" class="position-relative">Room Plan</h3>
+                                    <p>Additional amenities include features:  two-car garage, energy systems,</p>
+                                    <ul class="property-info-list list-unstyled">
+                                        <li class="d-flex flex-wrap align-items-center justify-content-between">
+                                            <span>Total area</span>
+                                            <span><b class="fw-semibold text-title me-1">158</b>Sq ft</span>
+                                        </li>
+                                        <li class="d-flex flex-wrap align-items-center justify-content-between">
+                                            <span>Bedroom</span>
+                                            <span><b class="fw-semibold text-title me-1">18</b>Sq ft</span>
+                                        </li>
+                                        <li class="d-flex flex-wrap align-items-center justify-content-between">
+                                            <span>Bathroom</span>
+                                            <span><b class="fw-semibold text-title me-1">22</b>Sq ft</span>
+                                        </li>
+                                        <li class="d-flex flex-wrap align-items-center justify-content-between">
+                                            <span>Kitchen</span>
+                                            <span><b class="fw-semibold text-title me-1">21</b>Sq ft</span>
+                                        </li>
+                                        <li class="d-flex flex-wrap align-items-center justify-content-between">
+                                            <span>Livingroom</span>
+                                            <span><b class="fw-semibold text-title me-1">41</b>Sq ft</span>
+                                        </li>
+                                        <li class="d-flex flex-wrap align-items-center justify-content-between">
+                                            <span>Windows</span>
+                                            <span>3</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="sidebar-widget category-widget bg-gray round-10">
+                                    <h3 class="sidebar-widget-title fs-18 fw-semibold text-title mb-15">Book A Visit</h3>
+                                    <form action="#" class="form-wrapper style-one">
+                                        <div class="form-group mb-12">
+                                            <input type="text" class="w-100 ht-50 bg-white border-0 outline-0 round-5 text-para" placeholder="Name">
+                                        </div>
+                                        <div class="form-group mb-12">
+                                            <input type="text" class="w-100 ht-50 bg-white border-0 outline-0 round-5 text-para" placeholder="Email">
+                                        </div>
+                                        <div class="form-group mb-12">
+                                            <input type="text" class="w-100 ht-50 bg-white border-0 outline-0 round-5 text-para" placeholder="Real Estate">
+                                        </div>
+                                        <div class="form-group mb-12">
+                                            <textarea class="w-100 ht-50 bg-white border-0 outline-0 round-5 text-para" placeholder="Message"></textarea>
+                                        </div>
+                                        <button class="btn style-one d-block w-100"><span class="btn-text d-block w-100 fw-semibold position-relative transition">Submit Message</span></button>
+                                    </form>
+                                </div>
+                                <div class="sidebar-widget tags-widget bg-gray round-10">
+                                    <h3 class="sidebar-widget-title fs-18 fw-semibold text-title mb-15">Featured properties</h3>
+                                     <div class="rp-post-wrap mb-20">
+                                        <div class="rp-post-card d-flex flex-wrap align-items-center">
+                                            <div class="rp-post-img">
+                                                <img src="assets/img/properties/property-thumb-1.jpg" alt="Post Thumb">
+                                            </div>
+                                            <div class="rp-post-info">
+                                                <h5 class="fs-15 fw-bold mb-1"><a href="blog-details-right-sidebar.html" class="text-title hover-text-primary transition">Affordable Urban Room</a></h5>
+                                                <span class="position-relative d-block mb-1"><i class="ri-map-pin-2-line"></i>40 Journal Square , NJ, USA</span>
+                                                <p class="mb-0">Price: <b class="text_primary fw-semibold">$15.000</b></p>
+                                            </div>
+                                        </div>
+                                        <div class="rp-post-card d-flex flex-wrap align-items-center">
+                                            <div class="rp-post-img">
+                                                <img src="assets/img/properties/property-thumb-2.jpg" alt="Post Thumb">
+                                            </div>
+                                            <div class="rp-post-info">
+                                                <h5 class="fs-15 fw-bold mb-0"><a href="blog-details-right-sidebar.html" class="text-title hover-text-primary transition">Northwest Office Space</a></h5>
+                                                <span class="position-relative d-block mb-1"><i class="ri-map-pin-2-line"></i>14th Street, Florida, USA</span>
+                                                <p class="mb-0">Price: <b class="text_primary fw-semibold">$34.000</b></p>
+                                            </div>
+                                        </div>
+                                        <div class="rp-post-card d-flex flex-wrap align-items-center">
+                                            <div class="rp-post-img">
+                                                <img src="assets/img/properties/property-thumb-3.jpg" alt="Post Thumb">
+                                            </div>
+                                            <div class="rp-post-info">
+                                                <h5 class="fs-15 fw-bold mb-0"><a href="blog-details-right-sidebar.html" class="text-title hover-text-primary transition">Diamond Manco Apartment</a></h5>
+                                                <span class="position-relative d-block mb-1"><i class="ri-map-pin-2-line"></i>3rd Ave, New York, USA</span>
+                                                <p class="mb-0">Price: <b class="text_primary fw-semibold">$25.000</b></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <a href="properties.html" class="link style-one fw-semibold">View All Properties <img src="assets/img/icons/right-long-arrow-orange.svg" alt="icon"></a>
+                                </div>
+                            </aside>
+                        </div>
+                    </div>
+                </div>
+                <!-- Property Details End -->
+
+                <!-- Footer Section Start -->
+                <footer class="footer-area style-one bg-optional position-relative z-1 pt-120">
+                    <div class="container">
+                        <div class="row justify-content-center pb-90">
+                            <div class="col-lg-3 col-md-6">
+                                <div class="footer-widget mb-30" data-cue="slideInUp">
+                                    <h4 class="footer-widget-title position-relative fs-20 font-primary fw-bold text-white">Quick Links</h4>
+                                    <ul class="footer-menu style-one list-unstyled mb-0">
+                                        <li><a href="services.html">Service</a></li>
+                                        <li><a href="pricing-plan.html">Pricing</a></li>
+                                        <li><a href="projects.html">Projects</a></li>
+                                        <li><a href="team.html">Team</a></li>
+                                        <li><a href="about.html">About</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                             <div class="col-lg-3 col-md-6 ps-xxl-5">
+                                <div class="footer-widget mb-30" data-cue="slideInUp">
+                                    <h4 class="footer-widget-title position-relative fs-20 font-primary fw-bold text-white">Explore</h4>
+                                    <ul class="footer-menu style-one list-unstyled mb-0">
+                                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                                        <li><a href="terms-conditions.html">Terms of Service</a></li>
+                                        <li><a href="faq.html">FAQ</a></li>
+                                        <li><a href="careers.html">Careers</a></li>
+                                        <li><a href="contact.html">Contact Us</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                             <div class="col-lg-3 col-md-6 ps-xxl-5">
+                                <div class="footer-widget mb-30 ps-xxl-4" data-cue="slideInUp">
+                                    <h4 class="footer-widget-title position-relative fs-20 font-primary fw-bold text-white">Company</h4>
+                                    <ul class="footer-menu style-one list-unstyled mb-0">
+                                        <li><a href="location.html">Location</a></li>
+                                        <li><a href="projects.html">Works</a></li>
+                                        <li><a href="projects.html">Studio</a></li>
+                                        <li><a href="blog-right-sidebar.html">News</a></li>
+                                        <li><a href="properties.html">Categories</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                             <div class="col-lg-3 col-md-6 ps-xxl-5">
+                                <div class="footer-widget mb-30 ps-xxl-5" data-cue="slideInUp">
+                                    <h4 class="footer-widget-title position-relative fs-20 font-primary fw-bold text-white">Address</h4>
+                                    <ul class="contact-info-list list-unstyled mb-0">
+                                        <li><span class="fw-bold text-white me-1">Address:</span> 952 Bad Hill St, Asheville, NC 28, USA</li>
+                                        <li><span class="fw-bold text-white me-1">Email:</span><a href="mailto:hello@renius.com">hello@renius.com</a></li>
+                                        <li><span class="fw-bold text-white me-1">Phone:</span><a href="tel:96768678869">+96 76867 8869</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="footer-large-text font-optional fw-black round-10">
+                                    <span>R</span>
+                                    <span>E</span>
+                                    <span>N</span>
+                                    <span>I</span>
+                                    <span>U</span>
+                                    <span>S</span>
+                                </div>
+                            </div>
+                            <div class="col-md-5">
+                                <div class="social-share d-flex flex-wrap align-items-center justify-content-md-start justify-content-center mb-sm-10">
+                                    <span class="text-alto fw-semibold me-2">Follow Us: </span>
+                                    <ul class="social-profile style-two list-unstyled mb-0">
+                                        <li><a href="https://www.facebook.com/" target="_blank" class="d-flex flex-column align-items-center justify-content-center rounded-circle"><i class="ri-facebook-fill"></i></a></li>
+                                        <li><a href="https://x.com/?lang=en" target="_blank" class="d-flex flex-column align-items-center justify-content-center rounded-circle"><i class="ri-twitter-x-line"></i></a></li>
+                                        <li><a href="https://www.instagram.com/" target="_blank" class="d-flex flex-column align-items-center justify-content-center rounded-circle"><i class="ri-instagram-line"></i></a></li>
+                                        <li><a href="https://www.linkedin.com/" target="_blank" class="d-flex flex-column align-items-center justify-content-center rounded-circle"><i class="ri-linkedin-fill"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-7 text-md-end text-center">
+                                <p class="copyright-text mb-0 text-white"><i class="ri-copyright-line"></i><span class="text_secondary fw-medium">Renius</span> is Proudly Owned by <a href="https://support.envytheme.com/" class="link style-three fw-medium">EnvyTheme</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+                <!-- Footer End -->
+
+            </div>
+        </div>
+        <!-- Back to Top -->
+        <div id="progress-wrap" class="progress-wrap style-one">
+            <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+              <path id="progress-path" d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"/>
+            </svg>
+        </div>
+
+        <!-- Link of JS files -->
+        <script src="assets/js/bootstrap.bundle.min.js"></script>
+        <script src="assets/js/megamenu.js"></script>
+        <script src="assets/js/swiper-bundle.min.js"></script>
+        <script src="assets/js/fslightbox.js"></script>
+        <script src="assets/js/gsap.min.js"></script>
+        <script src="assets/js/scrollTrigger.min.js"></script>
+        <script src="assets/js/lenis.min.js"></script>
+        <script src="assets/js/scrollToPlugin.js"></script>
+        <script src="assets/js/SplitText.min.js"></script>
+        <script src="assets/js/customEase.js"></script>
+        <script src="assets/js/scrollcue.min.js"></script>
+        <script src="assets/js/main.js"></script>
+    </body>
+</html>

@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="zxx">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <!-- Link of CSS files -->
+        <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+        <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
+        <link rel="stylesheet" href="assets/css/scrollcue.min.css">
+        <link rel="stylesheet" href="assets/css/remixicon.css">
+        <link rel="stylesheet" href="assets/css/header.css">
+        <link rel="stylesheet" href="assets/css/style.css">
+        <link rel="stylesheet" href="assets/css/footer.css">
+        <link rel="stylesheet" href="assets/css/responsive.css">
+        <link rel="stylesheet" href="assets/css/dark-theme.css">
+        
+        <title>Renius - Building Construction & Renovation Company HTML Template</title>
+        <link rel="icon" type="image/png" href="assets/img/favicon.png">
+    </head>
+    <body>
+
+       <!--  Preloader Start -->
+        <div class="preloader-area" id="preloader">
+            <div class="spinner">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+        <!--  Preloader End -->
+
+        <!-- Theme Switcher Start -->
+        <div class="switch-theme-mode">
+            <label id="switch" class="switch">
+                <input type="checkbox" onchange="toggleTheme()" id="slider">
+                <span class="slider round"></span>
+            </label>
+        </div>
+        <!-- Theme Switcher End -->
+
+        <!-- Custom Cursor -->
+        <div class="cursor"><span class="cursor-text"></span></div>
+        <div class="cursor-inner"></div>
+
+        <div id="smooth-wrapper">
+            <div id="smooth-content">
+
+                <!-- Navbar Start -->
+                <div class="navbar-area style-four position-relative" id="navbar">
+                    <div class="container-fluid">
+                        <div class="navbar-wrapper d-flex justify-content-between align-items-center">
+                            <a href="index.html" class="navbar-brand">
+                                <img src="assets/img/logo.png" alt="Logo" class="logo-light">
+                                <img src="assets/img/logo-white.png" alt="Logo" class="logo-dark">
+                            </a>
+                            <div class="menu-area me-auto">
+                                <div class="overlay"></div>
+                                <nav class="menu">
+                                    <div class="menu-mobile-header">
+                                        <button type="button" class="menu-mobile-arrow bg-transparent border-0"><i class="ri-arrow-left-s-line"></i></button>
+                                        <div class="menu-mobile-title"></div>
+                                        <button type="button" class="menu-mobile-close bg-transparent border-0"><i class="ri-close-line"></i></button>
+                                    </div>
+                                    <ul class="menu-section p-0 mb-0 lh-1">
+                                        <li class="menu-item-has-children">
+                                            <a href="javascript:void(0)">Home<i class="ri-add-line"></i></a>
+                                            <ul class="menu-subs menu-column-1">
+                                                <li class="list-item">
+                                                    <a href="index.html">Home - Renovation</a>
+                                                </li>
+                                                <li class="list-item">
+                                                    <a href="index-2.html">Home - Building Construction</a>
+                                                </li>
+                                                <li class="list-item">
+                                                    <a href="index-3.html">Home - Build Craft</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class="menu-item-has-children">
+                                            <a href="javascript:void(0)">Pages<i class="ri-add-line"></i></a>
+                                            <ul class="menu-subs menu-column-1">
+                                                <li><a href="about.html">About Us</a></li>
+                                                <li class="menu-item-has-children">
+                                                    <a href="javascript:void(0)">Services<i class="ri-add-line"></i></a>
+                                                    <ul class="menu-subs menu-column-1">
+                                                        <li><a href="services.html">Services</a></li>
+                                                        <li><a href="service-single.html">Service Single</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li class="menu-item-has-children">
+                                                    <a href="javascript:void(0)">Team<i class="ri-add-line"></i></a>
+                                                    <ul class="menu-subs menu-column-1">
+                                                        <li><a href="team.html">Team</a></li>
+                                                        <li><a href="team-single.html">Team Single</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li class="menu-item-has-children">
+                                                    <a href="javascript:void(0)">Careers<i class="ri-add-line"></i></a>
+                                                    <ul class="menu-subs menu-column-1">
+                                                        <li><a href="careers.html">Careers</a></li>
+                                                        <li><a href="career-single.html">Career Single</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li><a href="awards.html">Awards</a></li>
+                                                <li><a href="location.html">Location</a></li>
+                                                <li><a href="pricing-plan.html">Pricing Plan</a></li>
+                                                <li><a href="testimonials.html">Testimonials</a></li>
+                                                <li><a href="faq.html">FAQ</a></li>
+                                                <li><a href="terms-conditions.html">Terms & Conditions</a></li>
+                                                <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                                                <li><a href="error-404.html">Error 404</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="menu-item-has-children">
+                                            <a href="javascript:void(0)">Properties<i class="ri-add-line"></i></a>
+                                            <ul class="menu-subs menu-column-1">
+                                                 <li><a href="properties.html">Properties</a></li>
+                                                <li><a href="property-single.html">Property Single</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="menu-item-has-children">
+                                            <a href="javascript:void(0)">Projects<i class="ri-add-line"></i></a>
+                                            <ul class="menu-subs menu-column-1">
+                                                 <li><a href="projects.html">Projects</a></li>
+                                                 <li><a href="project-single.html">Project Single</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="menu-item-has-children">
+                                            <a href="javascript:void(0)" class="active">Blog<i class="ri-add-line"></i></a>
+                                            <ul class="menu-subs menu-column-1">
+                                                <li class="menu-item-has-children"><a href="javascript:void(0)">Blog Layout<i class="ri-add-line"></i></a>
+                                                    <ul class="menu-subs menu-column-1">
+                                                        <li><a href="blog-left-sidebar.html">Blog Left Sidebar</a></li>
+                                                        <li><a href="blog-right-sidebar.html">Blog Right Sidebar</a></li>
+                                                        <li><a href="blog-grid.html">Blog Grid</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li class="menu-item-has-children"><a href="javascript:void(0)">Blog Details Layout<i class="ri-add-line"></i></a>
+                                                    <ul class="menu-subs menu-column-1">
+                                                        <li><a href="blog-details-left-sidebar.html">Blog Details Left Sidebar</a></li>
+                                                        <li><a href="blog-details-right-sidebar.html">Blog Details Right Sidebar</a></li>
+                                                        <li><a href="blog-details-no-sidebar.html">Blog Details No Sidebar</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li class="menu-item-has-children"><a href="javascript:void(0)" class="active">Others<i class="ri-add-line"></i></a>
+                                                    <ul class="menu-subs menu-column-1">
+                                                        <li><a href="posts-by-author.html">Posts By Author</a></li>
+                                                        <li><a href="posts-by-date.html">Posts By Date</a></li>
+                                                        <li><a href="posts-by-category.html" class="active">Posts By Category</a></li>
+                                                        <li><a href="posts-by-tag.html">Posts By Tag</a></li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="contact.html">Contact Us</a></li>
+                                    </ul>
+                                </nav>
+                            </div>
+                            <div class="other-options d-flex flex-wrap align-items-center justify-content-end">
+                                <div class="option-item d-flex flex-wrap align-items-center">
+                                    <div class="mobile-options position-relative d-lg-none">
+                                        <button class="dropdown-toggle  text-center bg-transparent border-0 p-0 transition" type="button" data-bs-toggle="dropdown" aria-expanded="true">
+                                            <i class="ri-more-fill"></i>
+                                        </button>
+                                        <div class="dropdown-menu dropdown-menu-centered mobile-option-list top-1 border-0" data-bs-popper="static">
+                                            <div class="dropdown-item">
+                                                <div class="contact-link d-flex flex-wrap align-items-center position-relative transition">
+                                                    <span class="contact-icon d-flex flex-column align-items-center justify-content-center rounded-circle transition"><img src="assets/img/icons/phone.svg" alt="Icon" class="transition"></span>
+                                                    <div>
+                                                        <span class="text-white d-block">Call Us:</span>
+                                                        <span class="text_primary fw-semibold">+6857 886 960</span>
+                                                    </div>
+                                                    <a href="tel:6857886960" class="position-absolute top-0 start-0 w-100 h-100"></a>
+                                                </div>
+                                            </div>
+                                            <div class="dropdown-item">
+                                                <a href="contact.html" class="btn style-two d-inline-flex flex-wrap align-items-center p-0"><span class="btn-text d-inline-block fw-semibold position-relative transition">Get In Touch</span><span class="btn-icon position-relative d-flex flex-column align-items-center justify-content-center rounded-circle transition"><img src="assets/img/icons/up-right-arrow-black.svg" alt="Image"></span></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="contact-link d-lg-flex flex-wrap align-items-center position-relative d-none transition">
+                                        <span class="contact-icon d-flex flex-column align-items-center justify-content-center rounded-circle transition"><img src="assets/img/icons/phone.svg" alt="Icon" class="transition"></span>
+                                        <div class="d-xl-inline d-none">
+                                            <span class="text-title d-block fw-semibold">Call Us:</span>
+                                            <span class="text_primary fw-semibold">+6857 886 960</span>
+                                        </div>
+                                        <a href="tel:6857886960" class="position-absolute top-0 start-0 w-100 h-100"></a>
+                                    </div>
+                                </div>
+                                <div class="option-item d-lg-block d-none">
+                                    <a href="contact.html" class="btn style-two d-inline-flex flex-wrap align-items-center p-0"><span class="btn-text d-inline-block fw-semibold position-relative transition">Get In Touch</span><span class="btn-icon position-relative d-flex flex-column align-items-center justify-content-center rounded-circle transition"><img src="assets/img/icons/up-right-arrow-black.svg" alt="Image"></span></a>
+                                </div>
+                                <div class="option-item d-lg-none">
+                                    <button type="button" class="menu-mobile-trigger">
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Navbar End -->
+
+                <!-- Breadcrumb Section Start -->
+                <div class="breadcrumb-area position-relative z-1">
+                    <img src="assets/img/breadcrumb/br-line-shape.png" alt="Shape" class="br-line-shape position-absolute top-0 start-0 w-100 h-100 z-n1">
+                    <img src="assets/img/breadcrumb/br-shape-1.png" alt="Shape" class="br-shape-one position-absolute z-n1 bounce">
+                    <img src="assets/img/breadcrumb/br-shape-2.png" alt="Shape" class="br-shape-two position-absolute bottom-0 z-n1 moveHorizontal">
+                    <div class="container-fluid px-xxl-5">
+                        <div class="row">
+                            <div class="col-md-10 offset-md-1 text-center">
+                                <h2 class="section-title style-one fw-black text-title">Posts By Category</h2>
+                                <ul class="br-menu list-unstyled">
+                                    <li><a href="index.html"><img src="assets/img/icons/home-icon.svg" alt="Icon">HOME</a></li>
+                                    <li>CATEGORY</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Breadcrumb Section End -->
+
+                <!-- Blog Section Start -->
+                <div class="container ptb-120">
+                    <div class="row">
+                        <div class="col-xl-8">
+                            <div class="row justify-content-center">
+                                <div class="col-md-6">
+                                    <div class="blog-card style-one position-relative mb-30">
+                                        <div class="blog-img position-relative overflow-hidden round-20">
+                                            <img src="assets/img/blog/blog-1.jpg" alt="Blog" class="round-20">
+                                            <a href="posts-by-date.html" class="blog-date bg-white text-title position-absolute d-flex flex-column align-items-center justify-content-center round-10"><span class="font-secondary fs-24 fw-black d-block">12</span> Jul</a>
+                                        </div>
+                                        <ul class="blog-metainfo list-unstyled">
+                                            <li class="fs-15 d-inline-block position-relative">By <a href="posts-by-author.html">Admin</a></li>
+                                            <li class="fs-15 d-inline-block position-relative">1 Comment</li>
+                                        </ul>
+                                        <h3 class="fs-24 fw-black"><a href="blog-details-right-sidebar.html" class="text-title link-hover-primary fw-bold transition">Top Kitchen Renovation Tips To Maximize Space And Style</a></h3>
+                                        <a href="blog-details-right-sidebar.html" class="link style-one fw-semibold">Read More<img src="assets/img/icons/right-arrow-small.svg" alt="Icon"></a>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="blog-card style-one position-relative mb-30">
+                                        <div class="blog-img position-relative overflow-hidden round-20">
+                                            <img src="assets/img/blog/blog-2.jpg" alt="Blog" class="round-20">
+                                            <a href="posts-by-date.html" class="blog-date bg-white text-title position-absolute d-flex flex-column align-items-center justify-content-center round-10"><span class="font-secondary fs-24 fw-black d-block">11</span>Jul</a>
+                                        </div>
+                                        <ul class="blog-metainfo list-unstyled">
+                                            <li class="fs-15 d-inline-block position-relative">By <a href="posts-by-author.html">Admin</a></li>
+                                            <li class="fs-15 d-inline-block position-relative">No Comment</li>
+                                        </ul>
+                                        <h3 class="fs-24 fw-black"><a href="blog-details-right-sidebar.html" class="text-title link-hover-primary fw-bold transition">Outdoor Renovation Trends That Will Elevate Your Backyard</a></h3>
+                                        <a href="blog-details-right-sidebar.html" class="link style-one">Read More <img src="assets/img/icons/right-arrow-small.svg" alt="Icon"></a>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="blog-card style-one position-relative mb-30">
+                                        <div class="blog-img position-relative overflow-hidden round-20">
+                                            <img src="assets/img/blog/blog-3.jpg" alt="Blog" class="round-20">
+                                            <a href="posts-by-date.html" class="blog-date bg-white text-title position-absolute d-flex flex-column align-items-center justify-content-center round-10"><span class="font-secondary fs-24 fw-black d-block">10</span> Jul</a>
+                                        </div>
+                                        <ul class="blog-metainfo list-unstyled">
+                                            <li class="fs-15 d-inline-block position-relative">By <a href="posts-by-author.html">Admin</a></li>
+                                            <li class="fs-15 d-inline-block position-relative">No Comment</li>
+                                        </ul>
+                                        <h3 class="fs-24 fw-black"><a href="blog-details-right-sidebar.html" class="text-title link-hover-primary fw-bold transition">Avoid These Common Mistakes During Your Home Renovation</a></h3>
+                                        <a href="blog-details-right-sidebar.html" class="link style-one fw-semibold">Read More<img src="assets/img/icons/right-arrow-small.svg" alt="Icon"></a>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="blog-card style-one position-relative mb-30">
+                                        <div class="blog-img position-relative overflow-hidden round-20">
+                                            <img src="assets/img/blog/blog-4.jpg" alt="Blog" class="round-20">
+                                            <a href="posts-by-date.html" class="blog-date bg-white text-title position-absolute d-flex flex-column align-items-center justify-content-center round-10"><span class="font-secondary fs-24 fw-black d-block">09</span> Jul</a>
+                                        </div>
+                                        <ul class="blog-metainfo list-unstyled">
+                                            <li class="fs-15 d-inline-block position-relative">By <a href="posts-by-author.html">Admin</a></li>
+                                            <li class="fs-15 d-inline-block position-relative">No Comment</li>
+                                        </ul>
+                                        <h3 class="fs-24 fw-black"><a href="blog-details-right-sidebar.html" class="text-title link-hover-primary fw-bold transition">5 Trends Shaping The Future Of Real Estate Development In 2025</a></h3>
+                                        <a href="blog-details-right-sidebar.html" class="link style-one fw-semibold">Read More<img src="assets/img/icons/right-arrow-small.svg" alt="Icon"></a>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="blog-card style-one position-relative mb-30">
+                                        <div class="blog-img position-relative overflow-hidden round-20">
+                                            <img src="assets/img/blog/blog-5.jpg" alt="Blog" class="round-20">
+                                            <a href="posts-by-date.html" class="blog-date bg-white text-title position-absolute d-flex flex-column align-items-center justify-content-center round-10"><span class="font-secondary fs-24 fw-black d-block">08</span> Jul</a>
+                                        </div>
+                                        <ul class="blog-metainfo list-unstyled">
+                                            <li class="fs-15 d-inline-block position-relative">By <a href="posts-by-author.html">Admin</a></li>
+                                            <li class="fs-15 d-inline-block position-relative">No Comment</li>
+                                        </ul>
+                                        <h3 class="fs-24 fw-black"><a href="blog-details-right-sidebar.html" class="text-title link-hover-primary fw-bold transition">Expect When Partnering With A Full-Service Construction Group</a></h3>
+                                        <a href="blog-details-right-sidebar.html" class="link style-one fw-semibold">Read More<img src="assets/img/icons/right-arrow-small.svg" alt="Icon"></a>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="blog-card style-one position-relative mb-30">
+                                        <div class="blog-img position-relative overflow-hidden round-20">
+                                            <img src="assets/img/blog/blog-6.jpg" alt="Blog" class="round-20">
+                                            <a href="posts-by-date.html" class="blog-date bg-white text-title position-absolute d-flex flex-column align-items-center justify-content-center round-10"><span class="font-secondary fs-24 fw-black d-block">03</span> Jul</a>
+                                        </div>
+                                        <ul class="blog-metainfo list-unstyled">
+                                            <li class="fs-15 d-inline-block position-relative">By <a href="posts-by-author.html">Admin</a></li>
+                                            <li class="fs-15 d-inline-block position-relative">No Comment</li>
+                                        </ul>
+                                        <h3 class="fs-24 fw-black"><a href="blog-details-right-sidebar.html" class="text-title link-hover-primary fw-bold transition">Inside A Renius Project The Phases Of Commercial Construction</a></h3>
+                                        <a href="blog-details-right-sidebar.html" class="link style-one fw-semibold">Read More<img src="assets/img/icons/right-arrow-small.svg" alt="Icon"></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <ul class="page-nav pagination justify-content-center mb-0 mt-lg-4">
+                                <li class="page-item">
+                                    <a class="page-link d-flex flex-column align-items-center justify-content-center rounded-circle" href="blog-right-sidebar.html" aria-label="Previous">
+                                        <img src="assets/img/icons/left-long-arrow-gray.svg" alt="Icon">
+                                    </a>
+                                </li>
+                                <li class="page-item"><a class="page-link d-flex flex-column align-items-center justify-content-center rounded-circle active" href="blog-right-sidebar.html">01</a></li>
+                                <li class="page-item"><a class="page-link d-flex flex-column align-items-center justify-content-center rounded-circle" href="blog-right-sidebar.html">02</a></li>
+                                <li class="page-item"><a class="page-link d-flex flex-column align-items-center justify-content-center rounded-circle" href="blog-right-sidebar.html">03</a></li>
+                                <li class="page-item">
+                                    <a class="page-link d-flex flex-column align-items-center justify-content-center rounded-circle" href="blog-right-sidebar.html" aria-label="Next">
+                                       <img src="assets/img/icons/right-long-arrow-gray.svg" alt="Icon">
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-xl-4">
+                            <aside class="sidebar mt-lg-50">
+                                <div class="sidebar-widget search-widget bg-gray round-10">
+                                    <form action="#" class="position-relative">
+                                        <input type="search" placeholder="Search" class="w-100 bg-white border-0 round-10 text-para outline-0">
+                                        <button class="position-absolute top-0 h-100 bg-transparent border-0"><img src="assets/img/icons/search-icon.svg" alt="Icon"></button>
+                                    </form>
+                                </div>
+                                <div class="sidebar-widget category-widget bg-gray round-10">
+                                    <h3 class="sidebar-widget-title fs-18 fw-semibold text-title mb-15">Categories</h3>
+                                    <ul class="list-unstyled mb-0">
+                                        <li><a href="posts-by-category.html" class="position-relative"><img src="assets/img/icons/circle-arrow.svg" alt="Icon" class="position-absolute">Building</a></li>
+                                        <li><a href="posts-by-category.html" class="position-relative"><img src="assets/img/icons/circle-arrow.svg" alt="Icon" class="position-absolute">Construction</a></li>
+                                        <li><a href="posts-by-category.html" class="position-relative"><img src="assets/img/icons/circle-arrow.svg" alt="Icon" class="position-absolute">Real Estate</a></li>
+                                        <li><a href="posts-by-category.html" class="position-relative"><img src="assets/img/icons/circle-arrow.svg" alt="Icon" class="position-absolute">Property</a></li>
+                                        <li><a href="posts-by-category.html" class="position-relative"><img src="assets/img/icons/circle-arrow.svg" alt="Icon" class="position-absolute">Architectural Design</a></li>
+                                        <li><a href="posts-by-category.html" class="position-relative"><img src="assets/img/icons/circle-arrow.svg" alt="Icon" class="position-absolute">Residential</a></li>
+                                    </ul>
+                                </div>
+                                <div class="sidebar-widget category-widget bg-gray round-10">
+                                    <h3 class="sidebar-widget-title fs-18 fw-semibold text-title mb-15">Recent Posts</h3>
+                                     <div class="rp-post-wrap">
+                                        <div class="rp-post-card d-flex flex-wrap align-items-center">
+                                            <div class="rp-post-img">
+                                                <img src="assets/img/blog/post-thumb-1.jpg" alt="Post Thumb">
+                                            </div>
+                                            <div class="rp-post-info">
+                                                <a href="posts-by-date.html" class="fs-15 fw-medium text_primary link-hover-primary d-block mb-1">19 Jul, 2025</a>
+                                                <h5 class="fs-15 fw-bold mb-0"><a href="blog-details-right-sidebar.html" class="text-title hover-text-primary transition">From Blueprint To Reality How Renius Delivers Complex</a></h5>
+                                            </div>
+                                        </div>
+                                        <div class="rp-post-card d-flex flex-wrap align-items-center">
+                                            <div class="rp-post-img">
+                                                <img src="assets/img/blog/post-thumb-2.jpg" alt="Post Thumb">
+                                            </div>
+                                            <div class="rp-post-info">
+                                                <a href="posts-by-date.html" class="fs-15 fw-medium text_primary link-hover-primary d-block mb-1">16 Jul, 2025</a>
+                                                <h5 class="fs-15 fw-bold mb-0"><a href="blog-details-right-sidebar.html" class="text-title hover-text-primary transition">5 Trends Shaping The Future Real Estate In 2025</a></h5>
+                                            </div>
+                                        </div>
+                                        <div class="rp-post-card d-flex flex-wrap align-items-center">
+                                            <div class="rp-post-img">
+                                                <img src="assets/img/blog/post-thumb-3.jpg" alt="Post Thumb">
+                                            </div>
+                                            <div class="rp-post-info">
+                                                <a href="posts-by-date.html" class="fs-15 fw-medium text_primary link-hover-primary d-block mb-1">10 May, 2025</a>
+                                                <h5 class="fs-15 fw-bold mb-0"><a href="blog-details-right-sidebar.html" class="text-title hover-text-primary transition">The Phases Of Commercial Construction Explained</a></h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="sidebar-widget tags-widget bg-gray round-10">
+                                    <h3 class="sidebar-widget-title fs-18 fw-semibold text-title mb-15">Tags</h3>
+                                    <ul class="list-unstyled mb-0">
+                                        <li><a href="posts-by-tag.html">Business</a></li>
+                                        <li><a href="posts-by-tag.html">Development</a></li>
+                                        <li><a href="posts-by-tag.html">Design</a></li>
+                                        <li><a href="posts-by-tag.html">Marketing</a></li>
+                                        <li><a href="posts-by-tag.html">Real Estate</a></li>
+                                    </ul>
+                                </div>
+                            </aside>
+                        </div>
+                    </div>
+                </div>
+                <!-- Blog Details End -->
+
+                <!-- Footer Section Start -->
+                <footer class="footer-area style-one bg-optional position-relative z-1 pt-120">
+                    <div class="container">
+                        <div class="row justify-content-center pb-90">
+                            <div class="col-lg-3 col-md-6">
+                                <div class="footer-widget mb-30" data-cue="slideInUp">
+                                    <h4 class="footer-widget-title position-relative fs-20 font-primary fw-bold text-white">Quick Links</h4>
+                                    <ul class="footer-menu style-one list-unstyled mb-0">
+                                        <li><a href="services.html">Service</a></li>
+                                        <li><a href="pricing-plan.html">Pricing</a></li>
+                                        <li><a href="projects.html">Projects</a></li>
+                                        <li><a href="team.html">Team</a></li>
+                                        <li><a href="about.html">About</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                             <div class="col-lg-3 col-md-6 ps-xxl-5">
+                                <div class="footer-widget mb-30" data-cue="slideInUp">
+                                    <h4 class="footer-widget-title position-relative fs-20 font-primary fw-bold text-white">Explore</h4>
+                                    <ul class="footer-menu style-one list-unstyled mb-0">
+                                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                                        <li><a href="terms-conditions.html">Terms of Service</a></li>
+                                        <li><a href="faq.html">FAQ</a></li>
+                                        <li><a href="careers.html">Careers</a></li>
+                                        <li><a href="contact.html">Contact Us</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                             <div class="col-lg-3 col-md-6 ps-xxl-5">
+                                <div class="footer-widget mb-30 ps-xxl-4" data-cue="slideInUp">
+                                    <h4 class="footer-widget-title position-relative fs-20 font-primary fw-bold text-white">Company</h4>
+                                    <ul class="footer-menu style-one list-unstyled mb-0">
+                                        <li><a href="location.html">Location</a></li>
+                                        <li><a href="projects.html">Works</a></li>
+                                        <li><a href="projects.html">Studio</a></li>
+                                        <li><a href="blog-right-sidebar.html">News</a></li>
+                                        <li><a href="properties.html">Categories</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                             <div class="col-lg-3 col-md-6 ps-xxl-5">
+                                <div class="footer-widget mb-30 ps-xxl-5" data-cue="slideInUp">
+                                    <h4 class="footer-widget-title position-relative fs-20 font-primary fw-bold text-white">Address</h4>
+                                    <ul class="contact-info-list list-unstyled mb-0">
+                                        <li><span class="fw-bold text-white me-1">Address:</span> 952 Bad Hill St, Asheville, NC 28, USA</li>
+                                        <li><span class="fw-bold text-white me-1">Email:</span><a href="mailto:hello@renius.com">hello@renius.com</a></li>
+                                        <li><span class="fw-bold text-white me-1">Phone:</span><a href="tel:96768678869">+96 76867 8869</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="footer-large-text font-optional fw-black round-10">
+                                    <span>R</span>
+                                    <span>E</span>
+                                    <span>N</span>
+                                    <span>I</span>
+                                    <span>U</span>
+                                    <span>S</span>
+                                </div>
+                            </div>
+                            <div class="col-md-5">
+                                <div class="social-share d-flex flex-wrap align-items-center justify-content-md-start justify-content-center mb-sm-10">
+                                    <span class="text-alto fw-semibold me-2">Follow Us: </span>
+                                    <ul class="social-profile style-two list-unstyled mb-0">
+                                        <li><a href="https://www.facebook.com/" target="_blank" class="d-flex flex-column align-items-center justify-content-center rounded-circle"><i class="ri-facebook-fill"></i></a></li>
+                                        <li><a href="https://x.com/?lang=en" target="_blank" class="d-flex flex-column align-items-center justify-content-center rounded-circle"><i class="ri-twitter-x-line"></i></a></li>
+                                        <li><a href="https://www.instagram.com/" target="_blank" class="d-flex flex-column align-items-center justify-content-center rounded-circle"><i class="ri-instagram-line"></i></a></li>
+                                        <li><a href="https://www.linkedin.com/" target="_blank" class="d-flex flex-column align-items-center justify-content-center rounded-circle"><i class="ri-linkedin-fill"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-7 text-md-end text-center">
+                                <p class="copyright-text mb-0 text-white"><i class="ri-copyright-line"></i><span class="text_secondary fw-medium">Renius</span> is Proudly Owned by <a href="https://support.envytheme.com/" class="link style-three fw-medium">EnvyTheme</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+                <!-- Footer End -->
+
+            </div>
+        </div>
+        <!-- Back to Top -->
+        <div id="progress-wrap" class="progress-wrap style-one">
+            <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+              <path id="progress-path" d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"/>
+            </svg>
+        </div>
+
+        <!-- Link of JS files -->
+        <script src="assets/js/bootstrap.bundle.min.js"></script>
+        <script src="assets/js/megamenu.js"></script>
+        <script src="assets/js/swiper-bundle.min.js"></script>
+        <script src="assets/js/fslightbox.js"></script>
+        <script src="assets/js/gsap.min.js"></script>
+        <script src="assets/js/scrollTrigger.min.js"></script>
+        <script src="assets/js/lenis.min.js"></script>
+        <script src="assets/js/scrollToPlugin.js"></script>
+        <script src="assets/js/SplitText.min.js"></script>
+        <script src="assets/js/customEase.js"></script>
+        <script src="assets/js/scrollcue.min.js"></script>
+        <script src="assets/js/main.js"></script>
+    </body>
+</html>

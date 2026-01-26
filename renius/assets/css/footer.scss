@@ -1,0 +1,118 @@
+/*---------------------------------
+    Footer CSS 
+-----------------------------------*/
+.footer-area{
+    padding-bottom: 34px;
+    &.style-one{
+        border-radius: 40px;
+        margin: {
+            bottom: 14px;
+            left: 10px;
+            right: 10px;
+        };
+    }
+    .footer-large-text{
+        background-color: #190E12;
+        display: flex;
+        justify-content: space-between;
+        color: #402E34;
+        font-size: 15.8vw;
+        line-height: 0.85;
+        padding: 37px 15px;
+        margin-bottom: 34px;
+        span{
+            display: inline-block;
+        }
+    }
+}
+.footer-widget{
+    .footer-widget-title{
+        padding-bottom: 14px;
+        margin-bottom: 13px;
+        &:after{
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            content: "";
+            width: 65%;
+            height: 1px;
+            border-bottom: 1px dashed rgba(255,255,255,0.30);
+        }
+    }
+    .footer-menu{
+        &.style-one{
+            li{
+                margin-bottom: 10px;
+                &:last-child{
+                    margin-bottom: 0;
+                }
+                a{
+                    position: relative;
+                    color: var(--altoColor);
+                    &:after{
+                        position: absolute;
+                        bottom: 0;
+                        left: 0;
+                        content: "";
+                        width: 0;
+                        height: 1px;
+                        visibility: hidden;
+                        opacity: 0;
+                        background-color: var(--primaryColor);
+                        transition: var(--transition);
+                    }
+                    &:hover{
+                        color: var(--primaryColor);
+                        &:after{
+                            width: 100%;
+                            visibility: visible;
+                            opacity: 1;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .contact-info-list{
+        li{
+            margin-bottom: 11px;
+            color: rgba(255,255,255,0.50);
+            &:last-child{
+                margin-bottom: 0;
+            }
+            a{
+                color: rgba(255,255,255,0.50);
+                &:hover{
+                    color: var(--primaryColor);
+                }
+            }
+        }
+    }
+}
+// Min width 1600px //
+@media only screen and (min-width: 1600px) {
+    .footer-area{
+        &.style-one{
+            margin: {
+                bottom: 18px;
+                left: 20px;
+                right: 20px;
+            };
+            .container-fluid{
+                padding: {
+                    left: 47px;
+                    right: 47px;
+                }
+            }
+           
+        }
+        &.style-two{
+            .container-fluid{
+                padding: {
+                    left: 68px;
+                    right: 68px;
+                }
+            }
+        }
+    }
+}
