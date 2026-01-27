@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="/frontend/assets/css/dark-theme.css">
 
     <title>{{ config('app.name', 'Laravel') }} - Home</title>
-    <link rel="icon" type="image/png" href="/frontend/uploads/favicon/favicon.ico">
+    <link rel="icon" type="image/png" href="/frontend/assets/img/favicon.png">
 </head>
 
 <body>
@@ -56,7 +56,7 @@
                 <div class="container-fluid">
                     <div class="navbar-wrapper d-flex justify-content-between align-items-center">
                         <a href="index.html" class="navbar-brand">
-                            <img width="120px" src="/frontend/uploads/logo/logoheader.png" alt="Logo">
+                            <img width="120px" src="/frontend/assets/img/logo-white.png" alt="Logo">
                         </a>
                         <div class="menu-area me-auto">
                             <div class="overlay"></div>
