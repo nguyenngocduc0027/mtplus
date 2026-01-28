@@ -1,0 +1,152 @@
+<!-- Navbar Start -->
+<div class="navbar-area style-one position-relative" id="navbar">
+    <div class="container-fluid">
+        <div class="navbar-wrapper d-flex justify-content-between align-items-center">
+            <a href="{{ route('home') }}" class="navbar-brand">
+                <img width="120px" src="{{ asset('frontend/assets/img/logo-white.png') }}" alt="Logo">
+            </a>
+            <div class="menu-area me-auto">
+                <div class="overlay"></div>
+                <nav class="menu">
+                    <div class="menu-mobile-header">
+                        <button type="button" class="menu-mobile-arrow bg-transparent border-0"><i
+                                class="ri-arrow-left-s-line"></i></button>
+                        <div class="menu-mobile-title"></div>
+                        <button type="button" class="menu-mobile-close bg-transparent border-0"><i
+                                class="ri-close-line"></i></button>
+                    </div>
+                    <ul class="menu-section p-0 mb-0 lh-1">
+                        <li class="menu-item-has-children">
+                            <a href="javascript:void(0)" class="">{{ __('common.about') }}<i
+                                    class="ri-add-line"></i></a>
+                            <ul class="menu-subs menu-column-1">
+                                <li class="menu-item-has-children">
+                                    <a href="javascript:void(0)">{{ __('common.company_overview') }}<i
+                                            class="ri-add-line"></i></a>
+                                    <ul class="menu-subs menu-column-1">
+                                        <li><a href="javascript:void(0)">{{ __('common.areas_of_operation') }}</a></li>
+                                        <li><a href="javascript:void(0)">{{ __('common.mission') }}</a></li>
+                                        <li><a href="javascript:void(0)">{{ __('common.vision') }}</a></li>
+                                        <li><a href="javascript:void(0)">{{ __('common.core_values') }}</a></li>
+                                        <li><a
+                                                href="javascript:void(0)">{{ __('common.capabilities_and_experience') }}</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="list-item"><a href="javascript:void(0)"
+                                        class="">{{ __('common.team') }}</a></li>
+                                <li class="list-item"><a href="javascript:void(0)"
+                                        class="">{{ __('common.partners_customers') }}</a></li>
+                            </ul>
+                        </li>
+                        <li class="menu-item-has-children">
+                            <a href="javascript:void(0)" class="">{{ __('common.service') }}<i
+                                    class="ri-add-line"></i></a>
+                            <ul class="menu-subs menu-column-1">
+                                <li class="list-item"><a href="javascript:void(0)"
+                                        class="">{{ __('common.investment_consulting') }}</a></li>
+                                <li class="list-item"><a href="javascript:void(0)"
+                                        class="">{{ __('common.trade_and_distribution') }}</a></li>
+                                <li class="list-item"><a href="javascript:void(0)"
+                                        class="">{{ __('common.technology_solution') }}</a></li>
+                            </ul>
+                        </li>
+                        <li class="menu-item-has-children">
+                            <a href="javascript:void(0)" class="">{{ __('common.project') }}<i
+                                    class="ri-add-line"></i></a>
+                            <ul class="menu-subs menu-column-1">
+                                <li class="list-item"><a href="javascript:void(0)"
+                                        class="">{{ __('common.futured_projects') }}</a></li>
+                                <li class="list-item"><a href="javascript:void(0)"
+                                        class="">{{ __('common.futured_clients') }}</a></li>
+                            </ul>
+                        </li>
+                        <li class="menu-item-has-children">
+                            <a href="javascript:void(0)" class="">{{ __('common.news') }}<i
+                                    class="ri-add-line"></i></a>
+                            <ul class="menu-subs menu-column-1">
+                                <li class="menu-item-has-children">
+                                    <a href="javascript:void(0)">{{ __('common.company_news') }}<i
+                                            class="ri-add-line"></i></a>
+                                    <ul class="menu-subs menu-column-1">
+                                        <li><a href="javascript:void(0)">{{ __('common.activities_events') }}</a></li>
+                                        <li><a href="javascript:void(0)">{{ __('common.announcements') }}</a></li>
+                                    </ul>
+                                </li>
+                                <li class="list-item"><a href="javascript:void(0)"
+                                        class="">{{ __('common.news') }}</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="javascript:void(0)" class="">{{ __('common.career') }}</a></li>
+                        <li><a href="javascript:void(0)" class="">{{ __('common.contact') }}</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="other-options d-flex flex-wrap align-items-center justify-content-end">
+                <div class="option-item d-flex flex-wrap align-items-center">
+                    <div class="mobile-options position-relative d-lg-none">
+                        <button class="dropdown-toggle  text-center bg-transparent border-0 p-0 transition"
+                            type="button" data-bs-toggle="dropdown" aria-expanded="true">
+                            <i class="ri-more-fill"></i>
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-centered mobile-option-list top-1 border-0"
+                            data-bs-popper="static">
+                            <div class="dropdown-item">
+                                <div
+                                    class="contact-link d-flex flex-wrap align-items-center position-relative transition">
+                                    <span
+                                        class="contact-icon d-flex flex-column align-items-center justify-content-center rounded-circle transition"><img
+                                            src="{{ asset('frontend/assets/img/icons/phone.svg') }}" alt="Icon"
+                                            class="transition"></span>
+                                    <div>
+                                        <span class="text-white d-block">{{ __('common.call_us') }}:</span>
+                                        <span class="text_primary fw-semibold">+6857 886 960</span>
+                                    </div>
+                                    <a href="tel:6857886960" class="position-absolute top-0 start-0 w-100 h-100"></a>
+                                </div>
+                            </div>
+                            <div class="dropdown-item">
+                                <a href="contact.html"
+                                    class="btn style-two d-inline-flex flex-wrap align-items-center p-0"><span
+                                        class="btn-text d-inline-block fw-semibold position-relative transition">{{ __('common.get_in_touch') }}</span></a>
+                                <a href="{{ app()->getLocale() == 'en' ? url('lang/vi') : url('lang/en') }}"
+                                    class="btn style-two d-inline-flex flex-wrap align-items-center p-0"><span
+                                        class="btn-icon position-relative d-flex flex-column align-items-center justify-content-center rounded-circle transition"><i
+                                            class="ri-translate"></i></span></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div
+                        class="contact-link d-lg-flex flex-wrap align-items-center position-relative d-none transition">
+                        <span
+                            class="contact-icon d-flex flex-column align-items-center justify-content-center rounded-circle transition"><img
+                                src="{{ asset('frontend/assets/img/icons/phone.svg') }}" alt="Icon" class="transition"></span>
+                        <div class="d-xl-inline d-none">
+                            <span class="text-white d-block">{{ __('common.call_us') }}:</span>
+                            <span class="text_primary fw-semibold">+6857 886 960</span>
+                        </div>
+                        <a href="tel:6857886960" class="position-absolute top-0 start-0 w-100 h-100"></a>
+                    </div>
+                </div>
+                <div class="option-item d-lg-block d-none">
+                    <a href="javascript:void(0)"
+                        class="btn style-two d-inline-flex flex-wrap align-items-center p-0"><span
+                            class="btn-text d-inline-block fw-semibold position-relative transition">{{ __('common.get_in_touch') }}</span></a>
+                    <a href="{{ app()->getLocale() == 'en' ? url('lang/vi') : url('lang/en') }}"
+                        class="btn style-two d-inline-flex flex-wrap align-items-center p-0"><span
+                            class="btn-icon position-relative d-flex flex-column align-items-center justify-content-center rounded-circle transition"><i
+                                class="ri-translate"></i></span></a>
+                </div>
+                <div class="option-item d-lg-none">
+                    <button type="button" class="menu-mobile-trigger">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Navbar End -->
