@@ -67,7 +67,7 @@
     <div class="team-area style-one position-relative ptb-20">
         <div class="container">
             <div class="row justify-content-center">
-                @for ($i = 1; $i <= 8; $i++)
+                @for ($i = 1; $i <= 4; $i++)
                     <div class="col-xxl-3 col-xl-4 col-lg-4 col-md-6">
                         <div class="team-card style-one img-hover-zoom mb-45">
                             <div class="team-img round-10 img-zoom position-relative overflow-hidden">

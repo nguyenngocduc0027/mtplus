@@ -55,4 +55,6 @@ return [
     'our_awards' => 'GIẢI THƯỞNG CỦA CHÚNG TÔI',
     'send_message' => 'Gửi tin nhắn',
     'detail_project' => 'Chi tiết dự án',
+    'detail_news' => 'Chi tiết tin tức',
+    'career_detail' => 'Chi tiết cơ hội nghề nghiệp',
 ];

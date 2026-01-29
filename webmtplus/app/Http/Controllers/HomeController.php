@@ -60,4 +60,24 @@ class HomeController extends Controller
     {
         return view('frontend.pages.news.index');
     }
+
+    public function detailNews()
+    {
+        return view('frontend.pages.news.detail-news');
+    }
+
+    public function career()
+    {
+        return view('frontend.pages.career.index');
+    }
+
+    public function careerDetail()
+    {
+        return view('frontend.pages.career.detailCareer');
+    }
+
+    public function contact()
+    {
+        return view('frontend.pages.contact.index');
+    }
 }

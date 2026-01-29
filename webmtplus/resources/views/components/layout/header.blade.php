@@ -49,8 +49,8 @@
                         </li>
                         <li><a href="{{ route('project') }}" class="">{{ __('common.project') }}</a></li>
                         <li><a href="{{ route('news') }}" class="">{{ __('common.news') }}</a></li>
-                        <li><a href="javascript:void(0)" class="">{{ __('common.career') }}</a></li>
-                        <li><a href="javascript:void(0)" class="">{{ __('common.contact') }}</a></li>
+                        <li><a href="{{ route('career') }}" class="">{{ __('common.career') }}</a></li>
+                        <li><a href="{{ route('contact') }}" class="">{{ __('common.contact') }}</a></li>
                     </ul>
                 </nav>
             </div>

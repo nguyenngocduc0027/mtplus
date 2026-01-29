@@ -55,4 +55,6 @@ return [
     'our_awards' => 'OUR AWARDS',
     'send_message' => 'Send Message',
     'detail_project' => 'Detail Project',
+    'detail_news' => 'Detail News',
+    'career_detail' => 'Career Detail',
 ];

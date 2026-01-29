@@ -27,3 +27,7 @@ Route::get('/service', [HomeController::class, 'service'])->name('service');
 Route::get('/project', [HomeController::class, 'project'])->name('project');
 Route::get('/project/detail', [HomeController::class, 'detailProject'])->name('detail-project');
 Route::get('/news', [HomeController::class, 'news'])->name('news');
+Route::get('/news/detail', [HomeController::class, 'detailNews'])->name('detail-news');
+Route::get('/career', [HomeController::class, 'career'])->name('career');
+Route::get('/career/detail', [HomeController::class, 'careerDetail'])->name('detail-career');
+Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
