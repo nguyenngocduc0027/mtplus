@@ -1,7 +1,7 @@
   <div class="sidebar-area" id="sidebar-area">
       <div class="logo position-relative d-flex align-items-center justify-content-between">
           <a href="#" class="d-block text-decoration-none position-relative">
-              <img src="{{asset('backend/images/logo-icon.png')}}" alt="logo-icon">
+              <img src="{{ asset('backend/images/logo-icon.png') }}" alt="logo-icon">
               <span class="logo-text text-secondary fw-semibold">Fila</span>
           </a>
           <button
@@ -92,6 +92,13 @@
                           </a>
                       </li>
                   </ul>
+              </li>
+
+              <li class="menu-item">
+                  <a href="{{ route('admin.services.index') }}" class="menu-link">
+                      <span class="material-symbols-outlined menu-icon">ballot</span>
+                      <span class="title">Dịch vụ</span>
+                  </a>
               </li>
 
 

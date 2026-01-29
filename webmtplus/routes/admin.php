@@ -1,9 +1,23 @@
 <?php
 
+use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\ImageUploadController;
+use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
 
+// Route for image upload, outside of 'auth' middleware
+Route::post('/admin/upload-image', [ImageUploadController::class, 'upload'])->name('admin.upload-image');
+
 Route::middleware('auth')->prefix('admin')->group(function () {
-    Route::get('/dashboard', [HomeController::class, 'dashboard'])->name('admin.dashboard');
+    Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('admin.dashboard');
+    // Service Routes
+    Route::get('/services', [ServiceController::class, 'index'])->name('admin.services.index');
+    Route::get('/services/create', [ServiceController::class, 'create'])->name('admin.services.create');
+    Route::post('/services', [ServiceController::class, 'store'])->name('admin.services.store');
+    Route::get('/services/{service}', [ServiceController::class, 'show'])->name('admin.services.show');
+    Route::get('/services/{service}/edit', [ServiceController::class, 'edit'])->name('admin.services.edit');
+    Route::put('/services/{service}', [ServiceController::class, 'update'])->name('admin.services.update');
+    Route::delete('/services/{service}', [ServiceController::class, 'destroy'])->name('admin.services.destroy');
 });
