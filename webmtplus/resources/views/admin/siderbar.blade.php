@@ -100,6 +100,12 @@
                       <span class="title">Dịch vụ</span>
                   </a>
               </li>
+  <li class="menu-item">
+                  <a href="{{ route('admin.operation_areas.index') }}" class="menu-link">
+                      <span class="material-symbols-outlined menu-icon">ballot</span>
+                      <span class="title">Lĩnh vực hoạt động</span>
+                  </a>
+              </li>
 
 
 

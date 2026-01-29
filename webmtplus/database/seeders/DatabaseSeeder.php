@@ -22,5 +22,9 @@ class DatabaseSeeder extends Seeder
             'email' => 'test@example.com',
             'password' => \Hash::make('password'), // important
         ]);
+
+        $this->call([
+            OperationAreaSeeder::class,
+        ]);
     }
 }
