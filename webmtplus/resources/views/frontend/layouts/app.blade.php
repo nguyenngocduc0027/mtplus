@@ -34,7 +34,7 @@
 
     <div id="smooth-wrapper">
         <div id="smooth-content">
-            <x-layout.header />
+            <x-layout.header :headerClass="$headerClass" :logo="$logo" />
 
             <main>
                 @yield('content')
@@ -51,32 +51,7 @@
     </div>
 
     <!-- Floating Chat Buttons -->
-    <div class="chat-float position-fixed bottom-0 end-0 p-3 d-flex flex-column gap-2">
-
-        <!-- Call -->
-        <a href="tel:0901234567" class="btn btn-danger rounded-circle shadow chat-btn" title="Gọi điện">
-            <i class="bi bi-telephone-fill"></i>
-        </a>
-
-        <!-- Zalo -->
-        <a href="https://zalo.me/0901234567" target="_blank" class="btn btn-primary rounded-circle shadow chat-btn zalo"
-            title="Chat Zalo">
-            Z
-        </a>
-
-        <!-- WhatsApp -->
-        <a href="https://wa.me/84901234567" target="_blank" class="btn btn-success rounded-circle shadow chat-btn"
-            title="Chat WhatsApp">
-            <i class="bi bi-whatsapp"></i>
-        </a>
-
-        <!-- Messenger -->
-        <a href="https://m.me/yourpage" target="_blank" class="btn btn-info rounded-circle shadow chat-btn"
-            title="Chat Messenger">
-            <i class="bi bi-messenger"></i>
-        </a>
-
-    </div>
+    <x-ui.floating-chat-button messenger="metasoftware.vn" phone="0854980968" telegram="metasoftware_vn" />
 
 
     <!-- Link of JS files -->

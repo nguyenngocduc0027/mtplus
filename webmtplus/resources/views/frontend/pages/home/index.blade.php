@@ -1,5 +1,5 @@
 @extends('frontend.layouts.app')
-@props(['pageTitle' => __('common.home')])
+@props(['pageTitle' => __('common.home'), 'hidden' => false, 'headerClass' => 'style-one', 'logo' => '/frontend/assets/img/logo-white.png'])
 @section('content')
     @include('frontend.sections.hero')
     @include('frontend.sections.about')

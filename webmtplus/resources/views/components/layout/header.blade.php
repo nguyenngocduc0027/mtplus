@@ -1,9 +1,9 @@
 <!-- Navbar Start -->
-<div class="navbar-area style-one position-relative" id="navbar">
+<div class="navbar-area {{ $headerClass ?? 'style-one' }} position-relative" id="navbar">
     <div class="container-fluid">
         <div class="navbar-wrapper d-flex justify-content-between align-items-center">
             <a href="{{ route('home') }}" class="navbar-brand">
-                <img width="120px" src="{{ asset('frontend/assets/img/logo-white.png') }}" alt="Logo">
+                <img width="120px" src="{{ asset($logo ?? '/frontend/assets/img/logo-white.png') }}" alt="Logo">
             </a>
             <div class="menu-area me-auto">
                 <div class="overlay"></div>
@@ -24,59 +24,31 @@
                                     <a href="javascript:void(0)">{{ __('common.company_overview') }}<i
                                             class="ri-add-line"></i></a>
                                     <ul class="menu-subs menu-column-1">
-                                        <li><a href="javascript:void(0)">{{ __('common.areas_of_operation') }}</a></li>
-                                        <li><a href="javascript:void(0)">{{ __('common.mission') }}</a></li>
-                                        <li><a href="javascript:void(0)">{{ __('common.vision') }}</a></li>
-                                        <li><a href="javascript:void(0)">{{ __('common.core_values') }}</a></li>
-                                        <li><a
-                                                href="javascript:void(0)">{{ __('common.capabilities_and_experience') }}</a>
-                                        </li>
+                                        <li><a href="{{ route('areas-of-operation') }}">{{ __('common.areas_of_operation') }}</a></li>
+                                        <li><a href="{{ route('mission') }}">{{ __('common.mission') }}</a></li>
+                                        <li><a href="{{ route('vision') }}">{{ __('common.vision') }}</a></li>
+                                        <li><a href="{{ route('core-values') }}">{{ __('common.core_values') }}</a></li>
+                                        <li><a href="{{ route('capabilities-and-experience') }}">{{ __('common.capabilities_and_experience') }}</a></li>
                                     </ul>
                                 </li>
-                                <li class="list-item"><a href="javascript:void(0)"
+                                <li class="list-item"><a href="{{ route('team') }}"
                                         class="">{{ __('common.team') }}</a></li>
-                                <li class="list-item"><a href="javascript:void(0)"
-                                        class="">{{ __('common.partners_customers') }}</a></li>
                             </ul>
                         </li>
                         <li class="menu-item-has-children">
                             <a href="javascript:void(0)" class="">{{ __('common.service') }}<i
                                     class="ri-add-line"></i></a>
                             <ul class="menu-subs menu-column-1">
-                                <li class="list-item"><a href="javascript:void(0)"
+                                <li class="list-item"><a href="{{ route('service') }}"
                                         class="">{{ __('common.investment_consulting') }}</a></li>
-                                <li class="list-item"><a href="javascript:void(0)"
+                                <li class="list-item"><a href="{{ route('service') }}"
                                         class="">{{ __('common.trade_and_distribution') }}</a></li>
-                                <li class="list-item"><a href="javascript:void(0)"
+                                <li class="list-item"><a href="{{ route('service') }}"
                                         class="">{{ __('common.technology_solution') }}</a></li>
                             </ul>
                         </li>
-                        <li class="menu-item-has-children">
-                            <a href="javascript:void(0)" class="">{{ __('common.project') }}<i
-                                    class="ri-add-line"></i></a>
-                            <ul class="menu-subs menu-column-1">
-                                <li class="list-item"><a href="javascript:void(0)"
-                                        class="">{{ __('common.futured_projects') }}</a></li>
-                                <li class="list-item"><a href="javascript:void(0)"
-                                        class="">{{ __('common.futured_clients') }}</a></li>
-                            </ul>
-                        </li>
-                        <li class="menu-item-has-children">
-                            <a href="javascript:void(0)" class="">{{ __('common.news') }}<i
-                                    class="ri-add-line"></i></a>
-                            <ul class="menu-subs menu-column-1">
-                                <li class="menu-item-has-children">
-                                    <a href="javascript:void(0)">{{ __('common.company_news') }}<i
-                                            class="ri-add-line"></i></a>
-                                    <ul class="menu-subs menu-column-1">
-                                        <li><a href="javascript:void(0)">{{ __('common.activities_events') }}</a></li>
-                                        <li><a href="javascript:void(0)">{{ __('common.announcements') }}</a></li>
-                                    </ul>
-                                </li>
-                                <li class="list-item"><a href="javascript:void(0)"
-                                        class="">{{ __('common.news') }}</a></li>
-                            </ul>
-                        </li>
+                        <li><a href="{{ route('project') }}" class="">{{ __('common.project') }}</a></li>
+                        <li><a href="javascript:void(0)" class="">{{ __('common.news') }}</a></li>
                         <li><a href="javascript:void(0)" class="">{{ __('common.career') }}</a></li>
                         <li><a href="javascript:void(0)" class="">{{ __('common.contact') }}</a></li>
                     </ul>
@@ -122,7 +94,7 @@
                             class="contact-icon d-flex flex-column align-items-center justify-content-center rounded-circle transition"><img
                                 src="{{ asset('frontend/assets/img/icons/phone.svg') }}" alt="Icon" class="transition"></span>
                         <div class="d-xl-inline d-none">
-                            <span class="text-white d-block">{{ __('common.call_us') }}:</span>
+                            <span class="{{ $headerClass == 'style-one' ? 'text-white' : 'text-black' }} d-block">{{ __('common.call_us') }}:</span>
                             <span class="text_primary fw-semibold">+6857 886 960</span>
                         </div>
                         <a href="tel:6857886960" class="position-absolute top-0 start-0 w-100 h-100"></a>

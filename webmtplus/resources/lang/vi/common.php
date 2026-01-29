@@ -49,4 +49,9 @@ return [
     'issued_date' => 'Ngày cấp',
     'issued_by' => 'Nơi cấp',
     'by' => 'bởi',
+    'our_commitment' => 'CAM KẾT CỦA CHÚNG TÔI',
+    'our_projects' => 'DỰ ÁN CỦA CHÚNG TÔI',
+    'meet_our_team' => 'GẶP GỠ ĐỘI NGŨ CỦA CHÚNG TÔI',
+    'our_awards' => 'GIẢI THƯỞNG CỦA CHÚNG TÔI',
+    'send_message' => 'Gửi tin nhắn',
 ];

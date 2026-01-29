@@ -17,3 +17,11 @@ Route::get('lang/{locale}', function ($locale) {
 
 
 Route::get('/', [HomeController::class, 'home'])->name('home');
+Route::get('/areas-of-operation', [HomeController::class, 'areasOfOperation'])->name('areas-of-operation');
+Route::get('/mission', [HomeController::class, 'mission'])->name('mission');
+Route::get('/vision', [HomeController::class, 'vision'])->name('vision');
+Route::get('/core-values', [HomeController::class, 'coreValues'])->name('core-values');
+Route::get('/capabilities-and-experience', [HomeController::class, 'capabilitiesAndExperience'])->name('capabilities-and-experience');
+Route::get('/team', [HomeController::class, 'team'])->name('team');
+Route::get('/service', [HomeController::class, 'service'])->name('service');
+Route::get('/project', [HomeController::class, 'project'])->name('project');

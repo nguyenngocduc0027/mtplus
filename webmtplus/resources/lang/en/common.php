@@ -49,4 +49,9 @@ return [
     'issued_date' => 'Issued Date',
     'issued_by' => 'Issued By',
     'by' => 'by',
+    'our_commitment' => 'OUR COMMITMENT',
+    'our_projects' => 'OUR PROJECTS',
+    'meet_our_team' => 'MEET OUR TEAM',
+    'our_awards' => 'OUR AWARDS',
+    'send_message' => 'Send Message',
 ];

@@ -60,7 +60,9 @@
                             </div>
                         </div>
                         <div class="mt-3">
-                            <x-ui.learn-more-button href="#" />
+                            @if ($hidden == false)
+                                <x-ui.learn-more-button href="{{ route('areas-of-operation') }}" />
+                            @endif
                         </div>
                     </div>
                 </div>

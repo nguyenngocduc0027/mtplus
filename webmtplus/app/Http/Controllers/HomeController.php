@@ -10,4 +10,44 @@ class HomeController extends Controller
     {
         return view('frontend.pages.home.index');
     }
+
+    public function areasOfOperation()
+    {
+        return view('frontend.pages.about.areas-operation');
+    }
+
+    public function mission()
+    {
+        return view('frontend.pages.about.mission');
+    }
+
+    public function vision()
+    {
+        return view('frontend.pages.about.vision');
+    }
+
+    public function coreValues()
+    {
+        return view('frontend.pages.about.core-values');
+    }
+
+    public function capabilitiesAndExperience()
+    {
+        return view('frontend.pages.about.capabilities-and-experience');
+    }
+
+    public function team()
+    {
+        return view('frontend.pages.team.index');
+    }
+
+    public function service()
+    {
+        return view('frontend.pages.service.index');
+    }
+
+    public function project()
+    {
+        return view('frontend.pages.project.index');
+    }
 }
