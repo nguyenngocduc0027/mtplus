@@ -1,7 +1,7 @@
   <div class="sidebar-area" id="sidebar-area">
       <div class="logo position-relative d-flex align-items-center justify-content-between">
-          <a href="index.html" class="d-block text-decoration-none position-relative">
-              <img src="assets/images/logo-icon.png" alt="logo-icon">
+          <a href="#" class="d-block text-decoration-none position-relative">
+              <img src="{{asset('backend/images/logo-icon.png')}}" alt="logo-icon">
               <span class="logo-text text-secondary fw-semibold">Fila</span>
           </a>
           <button
