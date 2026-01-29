@@ -50,4 +50,14 @@ class HomeController extends Controller
     {
         return view('frontend.pages.project.index');
     }
+
+    public function detailProject()
+    {
+        return view('frontend.pages.project.detail-project');
+    }
+
+    public function news()
+    {
+        return view('frontend.pages.news.index');
+    }
 }

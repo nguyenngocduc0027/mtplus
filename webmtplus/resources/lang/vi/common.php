@@ -54,4 +54,5 @@ return [
     'meet_our_team' => 'GẶP GỠ ĐỘI NGŨ CỦA CHÚNG TÔI',
     'our_awards' => 'GIẢI THƯỞNG CỦA CHÚNG TÔI',
     'send_message' => 'Gửi tin nhắn',
+    'detail_project' => 'Chi tiết dự án',
 ];

@@ -25,3 +25,5 @@ Route::get('/capabilities-and-experience', [HomeController::class, 'capabilities
 Route::get('/team', [HomeController::class, 'team'])->name('team');
 Route::get('/service', [HomeController::class, 'service'])->name('service');
 Route::get('/project', [HomeController::class, 'project'])->name('project');
+Route::get('/project/detail', [HomeController::class, 'detailProject'])->name('detail-project');
+Route::get('/news', [HomeController::class, 'news'])->name('news');

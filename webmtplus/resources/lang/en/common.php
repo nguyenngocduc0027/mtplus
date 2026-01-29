@@ -54,4 +54,5 @@ return [
     'meet_our_team' => 'MEET OUR TEAM',
     'our_awards' => 'OUR AWARDS',
     'send_message' => 'Send Message',
+    'detail_project' => 'Detail Project',
 ];
