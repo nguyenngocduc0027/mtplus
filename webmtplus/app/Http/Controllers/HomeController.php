@@ -50,4 +50,9 @@ class HomeController extends Controller
     {
         return view('frontend.pages.project.index');
     }
+
+    public function dashboard()
+    {
+        return view('admin.dashboard.index');
+    }
 }

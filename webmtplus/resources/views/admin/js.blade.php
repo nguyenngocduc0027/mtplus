@@ -1,0 +1,17 @@
+  <script src="{{ asset('backend/js/bootstrap.bundle.min.js') }}"></script>
+  <script src="{{ asset('backend/js/sidebar-menu.js') }}"></script>
+  <script src="{{ asset('backend/js/quill.min.js') }}"></script>
+  <script src="{{ asset('backend/js/data-table.js') }}"></script>
+  <script src="{{ asset('backend/js/prism.js') }}"></script>
+  <script src="{{ asset('backend/js/clipboard.min.js') }}"></script>
+  <script src="{{ asset('backend/js/simplebar.min.js') }}"></script>
+  <script src="{{ asset('backend/js/apexcharts.min.js') }}"></script>
+  <script src="{{ asset('backend/js/echarts.min.js') }}"></script>
+  <script src="{{ asset('backend/js/swiper-bundle.min.js') }}"></script>
+  <script src="{{ asset('backend/js/fullcalendar.main.js') }}"></script>
+  <script src="{{ asset('backend/js/jsvectormap.min.js') }}"></script>
+  <script src="{{ asset('backend/js/world-merc.js') }}"></script>
+  <script src="{{ asset('backend/js/custom/apexcharts.js') }}"></script>
+  <script src="{{ asset('backend/js/custom/echarts.js') }}"></script>
+  <script src="{{ asset('backend/js/custom/maps.js') }}"></script>
+  <script src="{{ asset('backend/js/custom/custom.js') }}"></script>
