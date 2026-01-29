@@ -94,16 +94,13 @@
                   </ul>
               </li>
 
-              <li class="menu-title small text-uppercase">
-                  <span class="menu-title-text">APPS</span>
-              </li>
 
 
 
               <li class="menu-item">
                   <form method="POST" action="{{ route('logout') }}">
                       @csrf
-                      <button type="submit" class="menu-link"> <span
+                      <button type="submit" class="menu-link btn"> <span
                               class="material-symbols-outlined menu-icon">logout</span>
                           <span class="title">Logout</span></button>
                   </form>
