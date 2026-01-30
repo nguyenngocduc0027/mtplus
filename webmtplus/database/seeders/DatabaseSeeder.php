@@ -28,6 +28,7 @@ class DatabaseSeeder extends Seeder
             AboutContentSeeder::class,
             MissionContentSeeder::class,
             VisionContentSeeder::class,
+            CoreValuesContentSeeder::class,
         ]);
     }
 }

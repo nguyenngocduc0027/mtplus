@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\AboutContent;
+use App\Models\CoreValuesContent;
 use App\Models\MissionContent;
 use App\Models\VisionContent;
 use Illuminate\Http\Request;
@@ -72,13 +73,17 @@ class HomeController extends Controller
     {
         $locale = app()->getLocale();
         $aboutContent = AboutContent::where('locale', $locale)->first();
+        $coreValuesContent = CoreValuesContent::where('locale', $locale)->first();
 
         // Fallback to Vietnamese if content not found
         if (!$aboutContent) {
             $aboutContent = AboutContent::where('locale', 'vi')->first();
         }
+        if (!$coreValuesContent) {
+            $coreValuesContent = CoreValuesContent::where('locale', 'vi')->first();
+        }
 
-        return view('frontend.pages.about.core-values', compact('aboutContent'));
+        return view('frontend.pages.about.core-values', compact('aboutContent', 'coreValuesContent'));
     }
 
     public function capabilitiesAndExperience()

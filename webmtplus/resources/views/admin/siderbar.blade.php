@@ -129,6 +129,13 @@
               </li>
 
               <li class="menu-item">
+                  <a href="{{ route('admin.core_values_content.edit') }}" class="menu-link">
+                      <span class="material-symbols-outlined menu-icon">stars</span>
+                      <span class="title">Giá Trị Cốt Lõi</span>
+                  </a>
+              </li>
+
+              <li class="menu-item">
                   <form method="POST" action="{{ route('logout') }}">
                       @csrf
                       <button type="submit" class="menu-link btn"> <span

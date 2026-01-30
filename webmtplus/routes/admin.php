@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\AboutContentController;
+use App\Http\Controllers\Admin\CoreValuesContentController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ImageUploadController;
 use App\Http\Controllers\Admin\MissionContentController;
@@ -46,4 +47,8 @@ Route::middleware('auth')->prefix('admin')->group(function () {
     // About Content Routes
     Route::get('/about-content/edit', [AboutContentController::class, 'edit'])->name('admin.about_content.edit');
     Route::put('/about-content', [AboutContentController::class, 'update'])->name('admin.about_content.update');
+
+    // Core Values Content Routes
+    Route::get('/core-values-content/edit', [CoreValuesContentController::class, 'edit'])->name('admin.core_values_content.edit');
+    Route::put('/core-values-content', [CoreValuesContentController::class, 'update'])->name('admin.core_values_content.update');
 });
