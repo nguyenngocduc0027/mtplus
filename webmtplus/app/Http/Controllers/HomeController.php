@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\AboutContent;
+use App\Models\MissionContent;
+use App\Models\VisionContent;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -9,7 +12,15 @@ class HomeController extends Controller
 {
     public function home()
     {
-        return view('frontend.pages.home.index');
+        $locale = app()->getLocale();
+        $aboutContent = AboutContent::where('locale', $locale)->first();
+
+        // Fallback to Vietnamese if content not found
+        if (!$aboutContent) {
+            $aboutContent = AboutContent::where('locale', 'vi')->first();
+        }
+
+        return view('frontend.pages.home.index', compact('aboutContent'));
     }
 
     public function areasOfOperation()
@@ -19,22 +30,68 @@ class HomeController extends Controller
 
     public function mission()
     {
-        return view('frontend.pages.about.mission');
+        $locale = app()->getLocale();
+        $aboutContent = AboutContent::where('locale', $locale)->first();
+        $missionContent = MissionContent::where('locale', $locale)->first();
+
+        // Fallback to Vietnamese if content not found
+        if (!$aboutContent) {
+            $aboutContent = AboutContent::where('locale', 'vi')->first();
+        }
+        if (!$missionContent) {
+            $missionContent = MissionContent::where('locale', 'vi')->first();
+        }
+
+        return view('frontend.pages.about.mission', [
+            'aboutContent' => $aboutContent,
+            'missionContent' => $missionContent
+        ]);
     }
 
     public function vision()
     {
-        return view('frontend.pages.about.vision');
+        $locale = app()->getLocale();
+        $aboutContent = AboutContent::where('locale', $locale)->first();
+        $visionContent = VisionContent::where('locale', $locale)->first();
+
+        // Fallback to Vietnamese if content not found
+        if (!$aboutContent) {
+            $aboutContent = AboutContent::where('locale', 'vi')->first();
+        }
+        if (!$visionContent) {
+            $visionContent = VisionContent::where('locale', 'vi')->first();
+        }
+
+        return view('frontend.pages.about.vision', [
+            'aboutContent' => $aboutContent,
+            'visionContent' => $visionContent
+        ]);
     }
 
     public function coreValues()
     {
-        return view('frontend.pages.about.core-values');
+        $locale = app()->getLocale();
+        $aboutContent = AboutContent::where('locale', $locale)->first();
+
+        // Fallback to Vietnamese if content not found
+        if (!$aboutContent) {
+            $aboutContent = AboutContent::where('locale', 'vi')->first();
+        }
+
+        return view('frontend.pages.about.core-values', compact('aboutContent'));
     }
 
     public function capabilitiesAndExperience()
     {
-        return view('frontend.pages.about.capabilities-and-experience');
+        $locale = app()->getLocale();
+        $aboutContent = AboutContent::where('locale', $locale)->first();
+
+        // Fallback to Vietnamese if content not found
+        if (!$aboutContent) {
+            $aboutContent = AboutContent::where('locale', 'vi')->first();
+        }
+
+        return view('frontend.pages.about.capabilities-and-experience', compact('aboutContent'));
     }
 
     public function team()

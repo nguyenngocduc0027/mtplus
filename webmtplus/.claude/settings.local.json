@@ -1,7 +1,9 @@
 {
   "permissions": {
     "allow": [
-      "Bash(php artisan migrate:fresh:*)"
+      "Bash(php artisan migrate:fresh:*)",
+      "Bash(php artisan make:migration:*)",
+      "Bash(php artisan:*)"
     ]
   }
 }

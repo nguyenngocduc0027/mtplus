@@ -107,8 +107,26 @@
                   </a>
               </li>
 
+              <li class="menu-item">
+                  <a href="{{ route('admin.mission_content.edit') }}" class="menu-link">
+                      <span class="material-symbols-outlined menu-icon">edit_document</span>
+                      <span class="title">Trang Sứ Mệnh</span>
+                  </a>
+              </li>
 
+              <li class="menu-item">
+                  <a href="{{ route('admin.vision_content.edit') }}" class="menu-link">
+                      <span class="material-symbols-outlined menu-icon">visibility</span>
+                      <span class="title">Trang Tầm Nhìn</span>
+                  </a>
+              </li>
 
+              <li class="menu-item">
+                  <a href="{{ route('admin.about_content.edit') }}" class="menu-link">
+                      <span class="material-symbols-outlined menu-icon">info</span>
+                      <span class="title">Phần Giới Thiệu</span>
+                  </a>
+              </li>
 
               <li class="menu-item">
                   <form method="POST" action="{{ route('logout') }}">

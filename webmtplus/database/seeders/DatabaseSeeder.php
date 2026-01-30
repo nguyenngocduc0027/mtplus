@@ -25,6 +25,9 @@ class DatabaseSeeder extends Seeder
 
         $this->call([
             OperationAreaSeeder::class,
+            AboutContentSeeder::class,
+            MissionContentSeeder::class,
+            VisionContentSeeder::class,
         ]);
     }
 }

@@ -1,8 +1,11 @@
 <?php
 
+use App\Http\Controllers\Admin\AboutContentController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ImageUploadController;
+use App\Http\Controllers\Admin\MissionContentController;
 use App\Http\Controllers\Admin\ServiceController;
+use App\Http\Controllers\Admin\VisionContentController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
@@ -31,4 +34,16 @@ Route::middleware('auth')->prefix('admin')->group(function () {
         Route::put('/{operation_area:slug}', [\App\Http\Controllers\Admin\OperationAreaController::class, 'update'])->name('update');
         Route::delete('/{operation_area:slug}', [\App\Http\Controllers\Admin\OperationAreaController::class, 'destroy'])->name('destroy');
     });
+
+    // Mission Content Routes
+    Route::get('/mission-content/edit', [MissionContentController::class, 'edit'])->name('admin.mission_content.edit');
+    Route::put('/mission-content', [MissionContentController::class, 'update'])->name('admin.mission_content.update');
+
+    // Vision Content Routes
+    Route::get('/vision-content/edit', [VisionContentController::class, 'edit'])->name('admin.vision_content.edit');
+    Route::put('/vision-content', [VisionContentController::class, 'update'])->name('admin.vision_content.update');
+
+    // About Content Routes
+    Route::get('/about-content/edit', [AboutContentController::class, 'edit'])->name('admin.about_content.edit');
+    Route::put('/about-content', [AboutContentController::class, 'update'])->name('admin.about_content.update');
 });
