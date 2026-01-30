@@ -4,6 +4,9 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\AdminController;
+
 /* Switch language route could be here */
 Route::get('lang/{locale}', function ($locale) {
     if (! in_array($locale, ['vi', 'en'])) {
@@ -16,11 +19,7 @@ Route::get('lang/{locale}', function ($locale) {
     return redirect()->back();
 });
 
-Route::get('login', [LoginController::class, 'showLoginForm'])->name('login');
-Route::post('login', [LoginController::class, 'login']);
-Route::post('logout', [LoginController::class, 'logout'])->name('logout');
-
-
+// Home and other pages routes
 Route::get('/', [HomeController::class, 'home'])->name('home');
 Route::get('/areas-of-operation', [HomeController::class, 'areasOfOperation'])->name('areas-of-operation');
 Route::get('/mission', [HomeController::class, 'mission'])->name('mission');
@@ -38,5 +37,15 @@ Route::get('/career/detail', [HomeController::class, 'careerDetail'])->name('det
 Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
 
 
+// Auth routes
+Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login.form');
+Route::post('/login', [AuthController::class, 'login'])->name('login');
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
-require __DIR__.'/admin.php';
+// Admin dashboard route
+Route::middleware(['auth'])->group(function () {
+
+    Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
+
+});
+
