@@ -74,8 +74,7 @@ class OperationAreaController extends Controller
      */
     public function show(OperationArea $operationArea)
     {
-        // Not implemented as per current requirements, but can be added if a dedicated show page is needed.
-        return redirect()->route('admin.operation_areas.edit', $operationArea);
+        return view('admin.operation_areas.show', compact('operationArea'));
     }
 
     /**

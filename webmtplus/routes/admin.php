@@ -22,11 +22,13 @@ Route::middleware('auth')->prefix('admin')->group(function () {
     Route::delete('/services/{service}', [ServiceController::class, 'destroy'])->name('admin.services.destroy');
 
     // OperationArea Routes
-    Route::get('/operation-areas', [\App\Http\Controllers\Admin\OperationAreaController::class, 'index'])->name('admin.operation_areas.index');
-    Route::get('/operation-areas/create', [\App\Http\Controllers\Admin\OperationAreaController::class, 'create'])->name('admin.operation_areas.create');
-    Route::post('/operation-areas', [\App\Http\Controllers\Admin\OperationAreaController::class, 'store'])->name('admin.operation_areas.store');
-    Route::get('/operation-areas/{operation_area:slug}', [\App\Http\Controllers\Admin\OperationAreaController::class, 'show'])->name('admin.operation_areas.show');
-    Route::get('/operation-areas/{operation_area:slug}/edit', [\App\Http\Controllers\Admin\OperationAreaController::class, 'edit'])->name('admin.operation_areas.edit');
-    Route::put('/operation-areas/{operation_area:slug}', [\App\Http\Controllers\Admin\OperationAreaController::class, 'update'])->name('admin.operation_areas.update');
-    Route::delete('/operation-areas/{operation_area:slug}', [\App\Http\Controllers\Admin\OperationAreaController::class, 'destroy'])->name('admin.operation_areas.destroy');
+    Route::prefix('operation-areas')->name('admin.operation_areas.')->group(function () {
+        Route::get('/', [\App\Http\Controllers\Admin\OperationAreaController::class, 'index'])->name('index');
+        Route::get('/create', [\App\Http\Controllers\Admin\OperationAreaController::class, 'create'])->name('create');
+        Route::post('/', [\App\Http\Controllers\Admin\OperationAreaController::class, 'store'])->name('store');
+        Route::get('/{operation_area:slug}', [\App\Http\Controllers\Admin\OperationAreaController::class, 'show'])->name('show');
+        Route::get('/{operation_area:slug}/edit', [\App\Http\Controllers\Admin\OperationAreaController::class, 'edit'])->name('edit');
+        Route::put('/{operation_area:slug}', [\App\Http\Controllers\Admin\OperationAreaController::class, 'update'])->name('update');
+        Route::delete('/{operation_area:slug}', [\App\Http\Controllers\Admin\OperationAreaController::class, 'destroy'])->name('destroy');
+    });
 });

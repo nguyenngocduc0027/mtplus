@@ -22,7 +22,6 @@ class OperationAreaSeeder extends Seeder
             'card_1_text' => 'Phân tích và Đánh giá Thị trường',
             'card_2_text' => 'Quản lý Danh mục Đầu tư',
             'card_3_text' => 'Đánh giá Rủi ro',
-            'order' => 1,
         ]);
 
         OperationArea::create([
@@ -34,7 +33,6 @@ class OperationAreaSeeder extends Seeder
             'card_1_text' => 'Phát triển Phần mềm Tùy chỉnh',
             'card_2_text' => 'Điện toán Đám mây và DevOps',
             'card_3_text' => 'Trí tuệ Nhân tạo & Học máy',
-            'order' => 2,
         ]);
 
         OperationArea::create([
@@ -46,7 +44,6 @@ class OperationAreaSeeder extends Seeder
             'card_1_text' => 'Chiến lược Kinh doanh',
             'card_2_text' => 'Tái cấu trúc Tổ chức',
             'card_3_text' => 'Quản lý Dự án',
-            'order' => 3,
         ]);
 
         OperationArea::create([
@@ -58,7 +55,6 @@ class OperationAreaSeeder extends Seeder
             'card_1_text' => 'Phân tích Khả thi Dự án',
             'card_2_text' => 'Thiết kế và Xây dựng',
             'card_3_text' => 'Tiếp thị và Bán hàng',
-            'order' => 4,
         ]);
     }
 }

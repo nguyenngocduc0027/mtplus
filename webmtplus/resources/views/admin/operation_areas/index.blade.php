@@ -63,12 +63,11 @@
                                     <td class="text-body">{{ $area->slug }}</td>
                                     <td>
                                         <div class="d-flex justify-content-end" style="gap: 12px;">
-                                            {{-- If you need a dedicated show page, uncomment this and implement in controller --}}
-                                            {{-- <a href="{{ route('admin.operation_areas.show', $area->slug) }}"
+                                            <a href="{{ route('admin.operation_areas.show', $area->slug) }}"
                                                 class="bg-transparent p-0 border-0 text-primary"
                                                 data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Xem">
                                                 <i class="material-symbols-outlined fs-16 fw-normal text-primary">visibility</i>
-                                            </a> --}}
+                                            </a>
                                             <a href="{{ route('admin.operation_areas.edit', $area->slug) }}"
                                                 class="bg-transparent p-0 border-0 hover-text-success"
                                                 data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Chỉnh sửa">
