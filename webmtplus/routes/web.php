@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
 
 /* Switch language route could be here */
@@ -14,6 +15,10 @@ Route::get('lang/{locale}', function ($locale) {
 
     return redirect()->back();
 });
+
+Route::get('login', [LoginController::class, 'showLoginForm'])->name('login');
+Route::post('login', [LoginController::class, 'login']);
+Route::post('logout', [LoginController::class, 'logout'])->name('logout');
 
 
 Route::get('/', [HomeController::class, 'home'])->name('home');
@@ -31,3 +36,7 @@ Route::get('/news/detail', [HomeController::class, 'detailNews'])->name('detail-
 Route::get('/career', [HomeController::class, 'career'])->name('career');
 Route::get('/career/detail', [HomeController::class, 'careerDetail'])->name('detail-career');
 Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
+
+
+
+require __DIR__.'/admin.php';

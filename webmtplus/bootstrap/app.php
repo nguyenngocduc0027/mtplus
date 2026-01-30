@@ -16,6 +16,9 @@ return Application::configure(basePath: dirname(__DIR__))
             'web',
             [SetLocale::class]
         );
+          $middleware->validateCsrfTokens(except: [
+            'admin/upload-image',
+        ]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         //
