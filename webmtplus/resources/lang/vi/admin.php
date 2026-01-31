@@ -9,4 +9,13 @@ return [
         'title' => 'Bảng điều khiển Admin',
         'header' => 'Tổng quan bảng điều khiển',
     ],
+    'content-setup' => [
+        'title' => 'Cài đặt nội dung',
+        'home' => 'Cài đặt trang chủ',
+        'about' => 'Cài đặt về chúng tôi',
+        'services' => 'Cài đặt dịch vụ',
+        'projects' => 'Cài đặt dự án',
+        'news' => 'Cài đặt tin tức',
+        'careers' => 'Cài đặt cơ hội nghề nghiệp',
+    ],
 ];

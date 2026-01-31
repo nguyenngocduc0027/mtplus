@@ -46,6 +46,7 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 Route::middleware(['auth'])->group(function () {
 
     Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
-
+    // Content Setup
+    Route::get('/content-setup/home', [AdminController::class, 'contentSetupHome'])->name('content-setup.home');
 });
 

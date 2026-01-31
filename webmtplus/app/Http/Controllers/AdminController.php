@@ -10,4 +10,9 @@ class AdminController extends Controller
     {
         return view('backend.pages.dashboard');
     }
+
+    public function contentSetupHome()
+    {
+        return view('backend.pages.home.index');
+    }
 }

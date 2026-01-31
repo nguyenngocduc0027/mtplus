@@ -103,68 +103,16 @@
             <li class="menu-title small text-uppercase">
                 <span class="menu-title-text">PAGES</span>
             </li>
-            <li class="menu-item ">
+            <li class=" text-capitalize menu-item ">
                 <a href="javascript:void(0);" class="menu-link menu-toggle active">
                     <span class="material-symbols-outlined menu-icon">dashboard</span>
-                    <span class="title">Dashboard</span>
-                    <span class="count">11</span>
+                    <span class="title">{{ __('admin.content-setup.title') }}</span>
                 </a>
 
                 <ul class="menu-sub">
                     <li class="menu-item">
-                        <a href="index.html" class="menu-link active">
-                            E-Commerce
-                        </a>
-                    </li>
-                    <li class="menu-item">
-                        <a href="crm.html" class="menu-link">
-                            CRM
-                        </a>
-                    </li>
-                    <li class="menu-item">
-                        <a href="project-management.html" class="menu-link">
-                            Project Management
-                        </a>
-                    </li>
-                    <li class="menu-item">
-                        <a href="lms.html" class="menu-link">
-                            LMS
-                        </a>
-                    </li>
-                    <li class="menu-item">
-                        <a href="help-desk.html" class="menu-link">
-                            Help Desk
-                            <span class="new tag">Hot</span>
-                        </a>
-                    </li>
-                    <li class="menu-item">
-                        <a href="hr-management.html" class="menu-link">
-                            HR Management
-                        </a>
-                    </li>
-                    <li class="menu-item">
-                        <a href="school.html" class="menu-link">
-                            School
-                        </a>
-                    </li>
-                    <li class="menu-item">
-                        <a href="marketing.html" class="menu-link">
-                            Marketing
-                        </a>
-                    </li>
-                    <li class="menu-item">
-                        <a href="analytics.html" class="menu-link">
-                            Analytics
-                        </a>
-                    </li>
-                    <li class="menu-item">
-                        <a href="hospital.html" class="menu-link">
-                            Hospital
-                        </a>
-                    </li>
-                    <li class="menu-item">
-                        <a href="finance.html" class="menu-link">
-                            Finance
+                        <a href="{{ route('content-setup.home') }}" class="menu-link active">
+                            {{ __('admin.content-setup.home') }}
                         </a>
                     </li>
                 </ul>
