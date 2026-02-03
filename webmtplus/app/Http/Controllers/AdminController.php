@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\HomeHeroSection;
 use App\Models\HomeAboutSection;
+use App\Models\HomeServicesSection;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -18,7 +19,8 @@ class AdminController extends Controller
     {
         $heroSection = HomeHeroSection::firstOrCreate([]);
         $aboutSection = HomeAboutSection::firstOrCreate([]);
-        return view('backend.pages.home.index', compact('heroSection', 'aboutSection'));
+        $servicesSection = HomeServicesSection::firstOrCreate([]);
+        return view('backend.pages.home.index', compact('heroSection', 'aboutSection', 'servicesSection'));
     }
 
     public function updateHomeHero(Request $request)
@@ -180,5 +182,94 @@ class AdminController extends Controller
 
         return redirect()->route('content-setup.home')
             ->with('success', 'Cập nhật About Section thành công!');
+    }
+
+    public function updateHomeServices(Request $request)
+    {
+        \Log::info('=== UPDATE SERVICES SECTION ===');
+        \Log::info('Request data:', $request->all());
+
+        try {
+            $validated = $request->validate([
+                'subtitle_vi' => 'nullable|string|max:255',
+                'subtitle_en' => 'nullable|string|max:255',
+                'heading_vi' => 'nullable|string',
+                'heading_en' => 'nullable|string',
+                'service_1_title_vi' => 'nullable|string|max:255',
+                'service_1_title_en' => 'nullable|string|max:255',
+                'service_1_desc_vi' => 'nullable|string',
+                'service_1_desc_en' => 'nullable|string',
+                'service_1_image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                'service_1_url' => 'nullable|string|max:255',
+                'service_2_title_vi' => 'nullable|string|max:255',
+                'service_2_title_en' => 'nullable|string|max:255',
+                'service_2_desc_vi' => 'nullable|string',
+                'service_2_desc_en' => 'nullable|string',
+                'service_2_image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                'service_2_url' => 'nullable|string|max:255',
+                'service_3_title_vi' => 'nullable|string|max:255',
+                'service_3_title_en' => 'nullable|string|max:255',
+                'service_3_desc_vi' => 'nullable|string',
+                'service_3_desc_en' => 'nullable|string',
+                'service_3_image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                'service_3_url' => 'nullable|string|max:255',
+            ]);
+        } catch (\Illuminate\Validation\ValidationException $e) {
+            if ($request->wantsJson() || $request->expectsJson() || $request->ajax()) {
+                return response()->json([
+                    'success' => false,
+                    'message' => 'Dữ liệu không hợp lệ',
+                    'errors' => $e->errors()
+                ], 422);
+            }
+            throw $e;
+        }
+
+        $servicesSection = HomeServicesSection::firstOrCreate([]);
+
+        // Remove image fields from validated data
+        unset($validated['service_1_image']);
+        unset($validated['service_2_image']);
+        unset($validated['service_3_image']);
+
+        // Handle image uploads
+        if ($request->hasFile('service_1_image')) {
+            $path = $request->file('service_1_image')->store('services', 'public');
+            $validated['service_1_image'] = '/storage/' . $path;
+        }
+
+        if ($request->hasFile('service_2_image')) {
+            $path = $request->file('service_2_image')->store('services', 'public');
+            $validated['service_2_image'] = '/storage/' . $path;
+        }
+
+        if ($request->hasFile('service_3_image')) {
+            $path = $request->file('service_3_image')->store('services', 'public');
+            $validated['service_3_image'] = '/storage/' . $path;
+        }
+
+        // Handle is_active checkbox
+        $validated['is_active'] = $request->has('is_active') ? true : false;
+
+        // Update services section
+        $updated = $servicesSection->update($validated);
+
+        \Log::info('Services section updated:', [
+            'success' => $updated,
+            'validated_data' => $validated,
+            'services_id' => $servicesSection->id
+        ]);
+
+        // Return JSON response for AJAX
+        if ($request->wantsJson() || $request->expectsJson() || $request->ajax()) {
+            return response()->json([
+                'success' => true,
+                'message' => 'Cập nhật Services Section thành công!',
+                'data' => $servicesSection->fresh()
+            ]);
+        }
+
+        return redirect()->route('content-setup.home')
+            ->with('success', 'Cập nhật Services Section thành công!');
     }
 }
