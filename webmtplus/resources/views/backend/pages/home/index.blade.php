@@ -100,9 +100,7 @@
             </div>
             <div class="tab-pane fade show" id="about-tab-pane" role="tabpanel" aria-labelledby="about-tab"
                 tabindex="0">
-                <p>This is some placeholder content the About tab's associated content. Clicking another tab will toggle the
-                    visibility of this one for the next. The tab JavaScript swaps classes to control the content visibility
-                    and styling. You can use it with tabs, pills, and any other .nav-powered navigation.</p>
+                @include('backend.pages.home.partials.about-form')
             </div>
             <div class="tab-pane fade show" id="services-tab-pane" role="tabpanel" aria-labelledby="services-tab"
                 tabindex="0">

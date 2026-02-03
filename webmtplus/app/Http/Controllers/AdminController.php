@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\HomeHeroSection;
+use App\Models\HomeAboutSection;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -16,7 +17,8 @@ class AdminController extends Controller
     public function contentSetupHome()
     {
         $heroSection = HomeHeroSection::firstOrCreate([]);
-        return view('backend.pages.home.index', compact('heroSection'));
+        $aboutSection = HomeAboutSection::firstOrCreate([]);
+        return view('backend.pages.home.index', compact('heroSection', 'aboutSection'));
     }
 
     public function updateHomeHero(Request $request)
@@ -92,5 +94,91 @@ class AdminController extends Controller
 
         return redirect()->route('content-setup.home')
             ->with('success', 'Cập nhật Hero Section thành công!');
+    }
+
+    public function updateHomeAbout(Request $request)
+    {
+        \Log::info('=== UPDATE ABOUT SECTION ===');
+        \Log::info('Request data:', $request->all());
+
+        try {
+            $validated = $request->validate([
+                'heading_vi' => 'nullable|string',
+                'heading_en' => 'nullable|string',
+                'description_vi' => 'nullable|string',
+                'description_en' => 'nullable|string',
+                'button_url' => 'nullable|string|max:255',
+                'counter_1_title_vi' => 'nullable|string|max:255',
+                'counter_1_title_en' => 'nullable|string|max:255',
+                'counter_1_number' => 'nullable|string|max:50',
+                'counter_1_suffix' => 'nullable|string|max:50',
+                'counter_1_desc_vi' => 'nullable|string|max:255',
+                'counter_1_desc_en' => 'nullable|string|max:255',
+                'counter_2_title_vi' => 'nullable|string|max:255',
+                'counter_2_title_en' => 'nullable|string|max:255',
+                'counter_2_number' => 'nullable|string|max:50',
+                'counter_2_suffix' => 'nullable|string|max:50',
+                'counter_2_desc_vi' => 'nullable|string|max:255',
+                'counter_2_desc_en' => 'nullable|string|max:255',
+                'counter_3_title_vi' => 'nullable|string|max:255',
+                'counter_3_title_en' => 'nullable|string|max:255',
+                'counter_3_number' => 'nullable|string|max:50',
+                'counter_3_suffix' => 'nullable|string|max:50',
+                'counter_3_desc_vi' => 'nullable|string|max:255',
+                'counter_3_desc_en' => 'nullable|string|max:255',
+                'about_main_image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                'about_thumb_image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            ]);
+        } catch (\Illuminate\Validation\ValidationException $e) {
+            if ($request->wantsJson() || $request->expectsJson() || $request->ajax()) {
+                return response()->json([
+                    'success' => false,
+                    'message' => 'Dữ liệu không hợp lệ',
+                    'errors' => $e->errors()
+                ], 422);
+            }
+            throw $e;
+        }
+
+        $aboutSection = HomeAboutSection::firstOrCreate([]);
+
+        // Remove image fields from validated data
+        unset($validated['about_main_image']);
+        unset($validated['about_thumb_image']);
+
+        // Handle image uploads
+        if ($request->hasFile('about_main_image')) {
+            $path = $request->file('about_main_image')->store('about', 'public');
+            $validated['about_main_image'] = '/storage/' . $path;
+        }
+
+        if ($request->hasFile('about_thumb_image')) {
+            $path = $request->file('about_thumb_image')->store('about', 'public');
+            $validated['about_thumb_image'] = '/storage/' . $path;
+        }
+
+        // Handle is_active checkbox
+        $validated['is_active'] = $request->has('is_active') ? true : false;
+
+        // Update about section
+        $updated = $aboutSection->update($validated);
+
+        \Log::info('About section updated:', [
+            'success' => $updated,
+            'validated_data' => $validated,
+            'about_id' => $aboutSection->id
+        ]);
+
+        // Return JSON response for AJAX
+        if ($request->wantsJson() || $request->expectsJson() || $request->ajax()) {
+            return response()->json([
+                'success' => true,
+                'message' => 'Cập nhật About Section thành công!',
+                'data' => $aboutSection->fresh()
+            ]);
+        }
+
+        return redirect()->route('content-setup.home')
+            ->with('success', 'Cập nhật About Section thành công!');
     }
 }
