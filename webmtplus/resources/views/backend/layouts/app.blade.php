@@ -19,10 +19,7 @@
     <link rel="stylesheet" href="/backend/assets/css/style.css">
 
     <!-- Toastify -->
-    <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
-
-    <!-- SweetAlert2 -->
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
 
     @stack('styles')
 
@@ -69,7 +66,10 @@
     <!-- Start Main Content Area -->
 
     <!-- Link Of JS File -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+
+    <!-- SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <script src="/backend/assets/js/bootstrap.bundle.min.js"></script>
     <script src="/backend/assets/js/sidebar-menu.js"></script>
