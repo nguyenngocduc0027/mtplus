@@ -48,5 +48,6 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
     // Content Setup
     Route::get('/content-setup/home', [AdminController::class, 'contentSetupHome'])->name('content-setup.home');
+    Route::post('/content-setup/home/update-hero', [AdminController::class, 'updateHomeHero'])->name('content-setup.home.update-hero');
 });
 
