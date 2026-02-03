@@ -6,6 +6,7 @@ use App\Models\HomeHeroSection;
 use App\Models\HomeAboutSection;
 use App\Models\HomeServicesSection;
 use App\Models\HomeWhyChooseSection;
+use App\Models\HomeCommitmentSection;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -22,7 +23,8 @@ class AdminController extends Controller
         $aboutSection = HomeAboutSection::firstOrCreate([]);
         $servicesSection = HomeServicesSection::firstOrCreate([]);
         $whyChooseSection = HomeWhyChooseSection::firstOrCreate([]);
-        return view('backend.pages.home.index', compact('heroSection', 'aboutSection', 'servicesSection', 'whyChooseSection'));
+        $commitmentSection = HomeCommitmentSection::firstOrCreate([]);
+        return view('backend.pages.home.index', compact('heroSection', 'aboutSection', 'servicesSection', 'whyChooseSection', 'commitmentSection'));
     }
 
     public function updateHomeHero(Request $request)
@@ -391,5 +393,115 @@ class AdminController extends Controller
 
         return redirect()->route('content-setup.home')
             ->with('success', 'Cập nhật Why Choose Us Section thành công!');
+    }
+
+    public function updateHomeCommitment(Request $request)
+    {
+        \Log::info('=== UPDATE COMMITMENT SECTION ===');
+        \Log::info('Request data:', $request->all());
+
+        try {
+            $validated = $request->validate([
+                'subtitle_vi' => 'nullable|string|max:255',
+                'subtitle_en' => 'nullable|string|max:255',
+                'heading_vi' => 'nullable|string',
+                'heading_en' => 'nullable|string',
+                'description_vi' => 'nullable|string',
+                'description_en' => 'nullable|string',
+                'feature_1_icon' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                'feature_1_title_vi' => 'nullable|string|max:255',
+                'feature_1_title_en' => 'nullable|string|max:255',
+                'feature_2_icon' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                'feature_2_title_vi' => 'nullable|string|max:255',
+                'feature_2_title_en' => 'nullable|string|max:255',
+                'feature_3_icon' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                'feature_3_title_vi' => 'nullable|string|max:255',
+                'feature_3_title_en' => 'nullable|string|max:255',
+                'feature_4_icon' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                'feature_4_title_vi' => 'nullable|string|max:255',
+                'feature_4_title_en' => 'nullable|string|max:255',
+                'button_url' => 'nullable|string|max:255',
+                'main_image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                'thumb_image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                'rating_score' => 'nullable|string|max:10',
+                'customer_count' => 'nullable|string|max:50',
+                'customer_text_vi' => 'nullable|string|max:255',
+                'customer_text_en' => 'nullable|string|max:255',
+            ]);
+        } catch (\Illuminate\Validation\ValidationException $e) {
+            if ($request->wantsJson() || $request->expectsJson() || $request->ajax()) {
+                return response()->json([
+                    'success' => false,
+                    'message' => 'Dữ liệu không hợp lệ',
+                    'errors' => $e->errors()
+                ], 422);
+            }
+            throw $e;
+        }
+
+        $commitmentSection = HomeCommitmentSection::firstOrCreate([]);
+
+        // Remove image fields from validated data
+        unset($validated['feature_1_icon']);
+        unset($validated['feature_2_icon']);
+        unset($validated['feature_3_icon']);
+        unset($validated['feature_4_icon']);
+        unset($validated['main_image']);
+        unset($validated['thumb_image']);
+
+        // Handle image uploads
+        if ($request->hasFile('feature_1_icon')) {
+            $path = $request->file('feature_1_icon')->store('commitment/icons', 'public');
+            $validated['feature_1_icon'] = '/storage/' . $path;
+        }
+
+        if ($request->hasFile('feature_2_icon')) {
+            $path = $request->file('feature_2_icon')->store('commitment/icons', 'public');
+            $validated['feature_2_icon'] = '/storage/' . $path;
+        }
+
+        if ($request->hasFile('feature_3_icon')) {
+            $path = $request->file('feature_3_icon')->store('commitment/icons', 'public');
+            $validated['feature_3_icon'] = '/storage/' . $path;
+        }
+
+        if ($request->hasFile('feature_4_icon')) {
+            $path = $request->file('feature_4_icon')->store('commitment/icons', 'public');
+            $validated['feature_4_icon'] = '/storage/' . $path;
+        }
+
+        if ($request->hasFile('main_image')) {
+            $path = $request->file('main_image')->store('commitment', 'public');
+            $validated['main_image'] = '/storage/' . $path;
+        }
+
+        if ($request->hasFile('thumb_image')) {
+            $path = $request->file('thumb_image')->store('commitment', 'public');
+            $validated['thumb_image'] = '/storage/' . $path;
+        }
+
+        // Handle is_active checkbox
+        $validated['is_active'] = $request->has('is_active') ? true : false;
+
+        // Update commitment section
+        $updated = $commitmentSection->update($validated);
+
+        \Log::info('Commitment section updated:', [
+            'success' => $updated,
+            'validated_data' => $validated,
+            'commitment_id' => $commitmentSection->id
+        ]);
+
+        // Return JSON response for AJAX
+        if ($request->wantsJson() || $request->expectsJson() || $request->ajax()) {
+            return response()->json([
+                'success' => true,
+                'message' => 'Cập nhật Commitment Section thành công!',
+                'data' => $commitmentSection->fresh()
+            ]);
+        }
+
+        return redirect()->route('content-setup.home')
+            ->with('success', 'Cập nhật Commitment Section thành công!');
     }
 }
