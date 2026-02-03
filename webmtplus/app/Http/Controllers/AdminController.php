@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\HomeHeroSection;
 use App\Models\HomeAboutSection;
 use App\Models\HomeServicesSection;
+use App\Models\HomeWhyChooseSection;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -20,7 +21,8 @@ class AdminController extends Controller
         $heroSection = HomeHeroSection::firstOrCreate([]);
         $aboutSection = HomeAboutSection::firstOrCreate([]);
         $servicesSection = HomeServicesSection::firstOrCreate([]);
-        return view('backend.pages.home.index', compact('heroSection', 'aboutSection', 'servicesSection'));
+        $whyChooseSection = HomeWhyChooseSection::firstOrCreate([]);
+        return view('backend.pages.home.index', compact('heroSection', 'aboutSection', 'servicesSection', 'whyChooseSection'));
     }
 
     public function updateHomeHero(Request $request)
@@ -271,5 +273,123 @@ class AdminController extends Controller
 
         return redirect()->route('content-setup.home')
             ->with('success', 'Cập nhật Services Section thành công!');
+    }
+
+    public function updateHomeWhyChoose(Request $request)
+    {
+        \Log::info('=== UPDATE WHY CHOOSE SECTION ===');
+        \Log::info('Request data:', $request->all());
+
+        try {
+            $validated = $request->validate([
+                'subtitle_vi' => 'nullable|string|max:255',
+                'subtitle_en' => 'nullable|string|max:255',
+                'heading_vi' => 'nullable|string',
+                'heading_en' => 'nullable|string',
+                'description_vi' => 'nullable|string',
+                'description_en' => 'nullable|string',
+                'feature_1_icon' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                'feature_1_title_vi' => 'nullable|string|max:255',
+                'feature_1_title_en' => 'nullable|string|max:255',
+                'feature_2_icon' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                'feature_2_title_vi' => 'nullable|string|max:255',
+                'feature_2_title_en' => 'nullable|string|max:255',
+                'feature_3_icon' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                'feature_3_title_vi' => 'nullable|string|max:255',
+                'feature_3_title_en' => 'nullable|string|max:255',
+                'feature_4_icon' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                'feature_4_title_vi' => 'nullable|string|max:255',
+                'feature_4_title_en' => 'nullable|string|max:255',
+                'button_url' => 'nullable|string|max:255',
+                'ceo_avatar' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                'ceo_quote_vi' => 'nullable|string',
+                'ceo_quote_en' => 'nullable|string',
+                'ceo_name' => 'nullable|string|max:255',
+                'ceo_position_vi' => 'nullable|string|max:255',
+                'ceo_position_en' => 'nullable|string|max:255',
+                'main_image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                'thumb_image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            ]);
+        } catch (\Illuminate\Validation\ValidationException $e) {
+            if ($request->wantsJson() || $request->expectsJson() || $request->ajax()) {
+                return response()->json([
+                    'success' => false,
+                    'message' => 'Dữ liệu không hợp lệ',
+                    'errors' => $e->errors()
+                ], 422);
+            }
+            throw $e;
+        }
+
+        $whyChooseSection = HomeWhyChooseSection::firstOrCreate([]);
+
+        // Remove image fields from validated data
+        unset($validated['feature_1_icon']);
+        unset($validated['feature_2_icon']);
+        unset($validated['feature_3_icon']);
+        unset($validated['feature_4_icon']);
+        unset($validated['ceo_avatar']);
+        unset($validated['main_image']);
+        unset($validated['thumb_image']);
+
+        // Handle image uploads
+        if ($request->hasFile('feature_1_icon')) {
+            $path = $request->file('feature_1_icon')->store('why-choose/icons', 'public');
+            $validated['feature_1_icon'] = '/storage/' . $path;
+        }
+
+        if ($request->hasFile('feature_2_icon')) {
+            $path = $request->file('feature_2_icon')->store('why-choose/icons', 'public');
+            $validated['feature_2_icon'] = '/storage/' . $path;
+        }
+
+        if ($request->hasFile('feature_3_icon')) {
+            $path = $request->file('feature_3_icon')->store('why-choose/icons', 'public');
+            $validated['feature_3_icon'] = '/storage/' . $path;
+        }
+
+        if ($request->hasFile('feature_4_icon')) {
+            $path = $request->file('feature_4_icon')->store('why-choose/icons', 'public');
+            $validated['feature_4_icon'] = '/storage/' . $path;
+        }
+
+        if ($request->hasFile('ceo_avatar')) {
+            $path = $request->file('ceo_avatar')->store('why-choose', 'public');
+            $validated['ceo_avatar'] = '/storage/' . $path;
+        }
+
+        if ($request->hasFile('main_image')) {
+            $path = $request->file('main_image')->store('why-choose', 'public');
+            $validated['main_image'] = '/storage/' . $path;
+        }
+
+        if ($request->hasFile('thumb_image')) {
+            $path = $request->file('thumb_image')->store('why-choose', 'public');
+            $validated['thumb_image'] = '/storage/' . $path;
+        }
+
+        // Handle is_active checkbox
+        $validated['is_active'] = $request->has('is_active') ? true : false;
+
+        // Update why choose section
+        $updated = $whyChooseSection->update($validated);
+
+        \Log::info('Why Choose section updated:', [
+            'success' => $updated,
+            'validated_data' => $validated,
+            'why_choose_id' => $whyChooseSection->id
+        ]);
+
+        // Return JSON response for AJAX
+        if ($request->wantsJson() || $request->expectsJson() || $request->ajax()) {
+            return response()->json([
+                'success' => true,
+                'message' => 'Cập nhật Why Choose Us Section thành công!',
+                'data' => $whyChooseSection->fresh()
+            ]);
+        }
+
+        return redirect()->route('content-setup.home')
+            ->with('success', 'Cập nhật Why Choose Us Section thành công!');
     }
 }

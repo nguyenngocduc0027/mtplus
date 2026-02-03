@@ -108,9 +108,7 @@
             </div>
             <div class="tab-pane fade show" id="why-choose-tab-pane" role="tabpanel" aria-labelledby="why-choose-tab"
                 tabindex="0">
-                <p>This is some placeholder content the Why Choose Us tab's associated content. Clicking another tab will
-                    toggle the visibility of this one for the next. The tab JavaScript swaps classes to control the content
-                    visibility and styling. You can use it with tabs, pills, and any other .nav-powered navigation.</p>
+                @include('backend.pages.home.partials.why-choose-form')
             </div>
             <div class="tab-pane fade show" id="commitment-tab-pane" role="tabpanel" aria-labelledby="commitment-tab"
                 tabindex="0">
