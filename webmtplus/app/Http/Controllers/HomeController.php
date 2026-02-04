@@ -11,6 +11,7 @@ use App\Models\HomeTeamSection;
 use App\Models\HomeAwardsSection;
 use App\Models\HomeTestimonialsSection;
 use App\Models\HomeNewsSection;
+use App\Models\HomeContactSection;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -23,7 +24,8 @@ class HomeController extends Controller
         $awardsSection = HomeAwardsSection::where('is_active', true)->first();
         $testimonialsSection = HomeTestimonialsSection::where('is_active', true)->first();
         $newsSection = HomeNewsSection::where('is_active', true)->first();
-        return view('frontend.pages.home.index', compact('projectSection', 'teamSection', 'awardsSection', 'testimonialsSection', 'newsSection'));
+        $contactSection = HomeContactSection::where('is_active', true)->first();
+        return view('frontend.pages.home.index', compact('projectSection', 'teamSection', 'awardsSection', 'testimonialsSection', 'newsSection', 'contactSection'));
     }
 
     public function areasOfOperation()

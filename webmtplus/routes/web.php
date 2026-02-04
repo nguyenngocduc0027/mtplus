@@ -58,5 +58,6 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/content-setup/home/update-awards', [AdminController::class, 'updateHomeAwards'])->name('content-setup.home.awards.update');
     Route::post('/content-setup/home/update-testimonials', [AdminController::class, 'updateHomeTestimonials'])->name('content-setup.home.testimonials.update');
     Route::post('/content-setup/home/update-news', [AdminController::class, 'updateHomeNews'])->name('content-setup.home.news.update');
+    Route::post('/content-setup/home/update-contact', [AdminController::class, 'updateHomeContact'])->name('content-setup.home.contact.update');
 });
 

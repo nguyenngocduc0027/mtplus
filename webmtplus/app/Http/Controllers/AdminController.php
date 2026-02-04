@@ -12,6 +12,7 @@ use App\Models\HomeTeamSection;
 use App\Models\HomeAwardsSection;
 use App\Models\HomeTestimonialsSection;
 use App\Models\HomeNewsSection;
+use App\Models\HomeContactSection;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -34,7 +35,8 @@ class AdminController extends Controller
         $awardsSection = HomeAwardsSection::firstOrCreate([]);
         $testimonialsSection = HomeTestimonialsSection::firstOrCreate([]);
         $newsSection = HomeNewsSection::firstOrCreate([]);
-        return view('backend.pages.home.index', compact('heroSection', 'aboutSection', 'servicesSection', 'whyChooseSection', 'commitmentSection', 'projectSection', 'teamSection', 'awardsSection', 'testimonialsSection', 'newsSection'));
+        $contactSection = HomeContactSection::firstOrCreate([]);
+        return view('backend.pages.home.index', compact('heroSection', 'aboutSection', 'servicesSection', 'whyChooseSection', 'commitmentSection', 'projectSection', 'teamSection', 'awardsSection', 'testimonialsSection', 'newsSection', 'contactSection'));
     }
 
     public function updateHomeHero(Request $request)
@@ -845,5 +847,58 @@ class AdminController extends Controller
 
         return redirect()->route('content-setup.home')
             ->with('success', 'Cập nhật News Section thành công!');
+    }
+
+    public function updateHomeContact(Request $request)
+    {
+        \Log::info('=== UPDATE CONTACT SECTION ===');
+        \Log::info('Request data:', $request->all());
+
+        try {
+            $validated = $request->validate([
+                'subtitle_vi' => 'nullable|string|max:255',
+                'subtitle_en' => 'nullable|string|max:255',
+                'heading_vi' => 'nullable|string',
+                'heading_en' => 'nullable|string',
+                'description_vi' => 'nullable|string',
+                'description_en' => 'nullable|string',
+                'map_url' => 'nullable|string',
+            ]);
+        } catch (\Illuminate\Validation\ValidationException $e) {
+            if ($request->wantsJson() || $request->expectsJson() || $request->ajax()) {
+                return response()->json([
+                    'success' => false,
+                    'message' => 'Dữ liệu không hợp lệ',
+                    'errors' => $e->errors()
+                ], 422);
+            }
+            throw $e;
+        }
+
+        $contactSection = HomeContactSection::firstOrCreate([]);
+
+        // Handle is_active checkbox
+        $validated['is_active'] = $request->has('is_active') ? true : false;
+
+        // Update contact section
+        $updated = $contactSection->update($validated);
+
+        \Log::info('Contact section updated:', [
+            'success' => $updated,
+            'validated_data' => $validated,
+            'contact_id' => $contactSection->id
+        ]);
+
+        // Return JSON response for AJAX
+        if ($request->wantsJson() || $request->expectsJson() || $request->ajax()) {
+            return response()->json([
+                'success' => true,
+                'message' => 'Cập nhật Contact Section thành công!',
+                'data' => $contactSection->fresh()
+            ]);
+        }
+
+        return redirect()->route('content-setup.home')
+            ->with('success', 'Cập nhật Contact Section thành công!');
     }
 }
