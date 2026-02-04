@@ -129,6 +129,12 @@
                     <span class="title">Lĩnh vực hoạt động</span>
                 </a>
             </li>
+            <li class="menu-item">
+                <a href="{{ route('admin.mission.index') }}" class="menu-link">
+                    <span class="material-symbols-outlined menu-icon">flag</span>
+                    <span class="title">Sứ mệnh</span>
+                </a>
+            </li>
         </ul>
     </aside>
 </div>

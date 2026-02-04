@@ -38,7 +38,8 @@ class HomeController extends Controller
 
     public function mission()
     {
-        return view('frontend.pages.about.mission');
+        $missionContent = MissionContent::first();
+        return view('frontend.pages.about.mission', compact('missionContent'));
     }
 
     public function vision()
