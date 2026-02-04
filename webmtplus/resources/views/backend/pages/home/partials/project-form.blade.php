@@ -1,0 +1,142 @@
+<form id="project-form" enctype="multipart/form-data">
+    @csrf
+
+    <!-- Status Toggle -->
+    <div class="form-group mb-4">
+        <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" name="is_active" id="project_is_active"
+                {{ old('is_active', $projectSection->is_active ?? true) ? 'checked' : '' }}>
+            <label class="form-check-label" for="project_is_active">
+                Kích hoạt section
+            </label>
+        </div>
+    </div>
+
+    <!-- Language Tabs -->
+    <ul class="nav nav-tabs language-tabs" role="tablist">
+        <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="project-vi-tab" data-bs-toggle="tab" data-bs-target="#project-vi-content"
+                type="button" role="tab">
+                🇻🇳 Tiếng Việt
+            </button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="project-en-tab" data-bs-toggle="tab" data-bs-target="#project-en-content"
+                type="button" role="tab">
+                🇬🇧 English
+            </button>
+        </li>
+    </ul>
+
+    <div class="tab-content">
+        <!-- Vietnamese Content -->
+        <div class="tab-pane fade show active" id="project-vi-content" role="tabpanel">
+            <div class="row">
+                <div class="col-md-12 mb-4">
+                    <label class="form-label fw-bold">Phụ đề (Tiếng Việt) *</label>
+                    <input type="text" class="form-control" name="subtitle_vi"
+                        value="{{ old('subtitle_vi', $projectSection->subtitle_vi ?? 'Dự án của chúng tôi') }}"
+                        placeholder="Dự án của chúng tôi">
+                </div>
+
+                <div class="col-md-12 mb-4">
+                    <label class="form-label fw-bold">Tiêu đề chính (Tiếng Việt) *</label>
+                    <textarea class="form-control" name="heading_vi" rows="2"
+                        placeholder="CÁC DỰ ÁN NỔI BẬT...">{{ old('heading_vi', $projectSection->heading_vi ?? 'CÁC DỰ ÁN NỔI BẬT - THÀNH QUẢ VƯỢT TRỘI') }}</textarea>
+                </div>
+            </div>
+        </div>
+
+        <!-- English Content -->
+        <div class="tab-pane fade" id="project-en-content" role="tabpanel">
+            <div class="row">
+                <div class="col-md-12 mb-4">
+                    <label class="form-label fw-bold">Phụ đề (English) *</label>
+                    <input type="text" class="form-control" name="subtitle_en"
+                        value="{{ old('subtitle_en', $projectSection->subtitle_en ?? 'Our Projects') }}"
+                        placeholder="Our Projects">
+                </div>
+
+                <div class="col-md-12 mb-4">
+                    <label class="form-label fw-bold">Tiêu đề chính (English) *</label>
+                    <textarea class="form-control" name="heading_en" rows="2"
+                        placeholder="FEATURED PROJECTS...">{{ old('heading_en', $projectSection->heading_en ?? 'FEATURED PROJECTS - EXCEPTIONAL RESULTS') }}</textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <hr class="my-4">
+
+    <div class="alert alert-info">
+        <i class="fas fa-info-circle"></i> Các dự án sẽ được quản lý riêng trong phần "Projects Management"
+    </div>
+
+    <!-- Submit Button -->
+    <div class="d-flex justify-content-end gap-2 mt-4">
+        <button type="button" class="btn btn-secondary" onclick="location.reload()">
+            <i class="fas fa-redo"></i> Reset
+        </button>
+        <button type="submit" class="btn btn-primary">
+            <i class="fas fa-save"></i> Lưu thay đổi
+        </button>
+    </div>
+</form>
+
+<script>
+    document.getElementById('project-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        const formData = new FormData(this);
+        const submitBtn = this.querySelector('button[type="submit"]');
+        const originalBtnText = submitBtn.innerHTML;
+
+        // Disable button and show loading
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Đang lưu...';
+
+        fetch('{{ route("content-setup.home.project.update") }}', {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'X-Requested-With': 'XMLHttpRequest',
+                    'Accept': 'application/json',
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    // Show success message
+                    const alert = document.createElement('div');
+                    alert.className = 'alert alert-success alert-dismissible fade show';
+                    alert.innerHTML = `
+                        ${data.message}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                    `;
+                    this.insertBefore(alert, this.firstChild);
+
+                    // Auto dismiss after 3 seconds
+                    setTimeout(() => {
+                        alert.remove();
+                    }, 3000);
+                } else {
+                    throw new Error(data.message || 'Có lỗi xảy ra');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                const alert = document.createElement('div');
+                alert.className = 'alert alert-danger alert-dismissible fade show';
+                alert.innerHTML = `
+                    Có lỗi xảy ra: ${error.message}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                `;
+                this.insertBefore(alert, this.firstChild);
+            })
+            .finally(() => {
+                // Re-enable button
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = originalBtnText;
+            });
+    });
+</script>
