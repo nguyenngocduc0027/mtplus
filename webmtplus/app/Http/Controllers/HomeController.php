@@ -44,7 +44,8 @@ class HomeController extends Controller
 
     public function vision()
     {
-        return view('frontend.pages.about.vision');
+        $visionContent = VisionContent::first();
+        return view('frontend.pages.about.vision', compact('visionContent'));
     }
 
     public function coreValues()

@@ -135,6 +135,12 @@
                     <span class="title">Sứ mệnh</span>
                 </a>
             </li>
+            <li class="menu-item">
+                <a href="{{ route('admin.vision.index') }}" class="menu-link">
+                    <span class="material-symbols-outlined menu-icon">visibility</span>
+                    <span class="title">Tầm nhìn</span>
+                </a>
+            </li>
         </ul>
     </aside>
 </div>

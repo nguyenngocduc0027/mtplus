@@ -69,6 +69,10 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/admin/mission', [\App\Http\Controllers\Admin\MissionContentController::class, 'index'])->name('admin.mission.index');
     Route::post('/admin/mission', [\App\Http\Controllers\Admin\MissionContentController::class, 'update'])->name('admin.mission.update');
 
+    // Vision Content Management
+    Route::get('/admin/vision', [\App\Http\Controllers\Admin\VisionContentController::class, 'index'])->name('admin.vision.index');
+    Route::post('/admin/vision', [\App\Http\Controllers\Admin\VisionContentController::class, 'update'])->name('admin.vision.update');
+
     // Team Management
     Route::get('admin/team-members', [\App\Http\Controllers\Admin\TeamMemberController::class, 'index'])->name('admin.team.index');
     Route::get('admin/team-members/create', [\App\Http\Controllers\Admin\TeamMemberController::class, 'create'])->name('admin.team.create');

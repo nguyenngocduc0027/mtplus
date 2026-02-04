@@ -23,7 +23,7 @@
                     <h2 class="section-title style-one fw-normal text-title px-xxl-5 mb-40" data-cue="slideInUp"
                         data-delay="300" data-show="true"
                         style="animation-name: slideInUp; animation-duration: 600ms; animation-timing-function: ease; animation-delay: 300ms; animation-direction: normal; animation-fill-mode: both;">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. </h2>
+                        {{ $visionContent ? $visionContent->getTitle() : 'Lorem ipsum dolor sit amet consectetur adipisicing elit.' }}</h2>
                 </div>
             </div>
             <div class="tab-content feature-tab-content" data-cue="slideInUp" data-show="true"
@@ -31,26 +31,34 @@
                 <div class="row">
                     <div class="col-xxl-5 col-lg-6 pe-xxl-0">
                         <div class="feature-content mb-md-30">
-                            <p class="mb-35 line-5">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quasi perferendis repudiandae iure natus est necessitatibus minus nostrum sit libero, eum odit ad culpa voluptates, dolorum amet? Magnam expedita repudiandae assumenda. Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati, voluptatum? Ea qui quam et porro ducimus quaerat non. Et assumenda hic facilis dolorum illo voluptate? Laboriosam explicabo eveniet ipsam quam!</p>
+                            <p class="mb-35 line-5">{{ $visionContent ? $visionContent->getDescription() : 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quasi perferendis repudiandae iure natus est necessitatibus minus nostrum sit libero, eum odit ad culpa voluptates, dolorum amet? Magnam expedita repudiandae assumenda. Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati, voluptatum? Ea qui quam et porro ducimus quaerat non. Et assumenda hic facilis dolorum illo voluptate? Laboriosam explicabo eveniet ipsam quam!' }}</p>
                             <ul class="feature-timeline list-unstyled mb-0 w-75 pe-xxl-5">
-                                <li class="position-relative fs-xxl-18 fw-medium text-title line-3"><span
-                                        class="d-flex flex-column align-items-center justify-content-center rounded-circle text_primary bg-white fs-15 fw-semibold text_primary">01</span>
-                                    Lorem ipsum dolor sit, amet consectetur adipisicing elit</li>
-                                <li class="position-relative fs-xxl-18 fw-medium text-title line-3"><span
-                                        class="d-flex flex-column align-items-center justify-content-center rounded-circle text_primary bg-white fs-15 fw-semibold text_primary">02</span>
-                                    Lorem ipsum dolor sit, amet consectetur adipisicing elit</li>
-                                <li class="position-relative fs-xxl-18 fw-medium text-title line-3"><span
-                                        class="d-flex flex-column align-items-center justify-content-center rounded-circle text_primary bg-white fs-15 fw-semibold text_primary">03</span>
-                                    Lorem ipsum dolor sit, amet consectetur adipisicing elit</li>
-                                <li class="position-relative fs-xxl-18 fw-medium text-title line-3"><span
-                                        class="d-flex flex-column align-items-center justify-content-center rounded-circle text_primary bg-white fs-15 fw-semibold text_primary">04</span>
-                                    Lorem ipsum dolor sit, amet consectetur adipisicing elit</li>
+                                @if($visionContent)
+                                    @foreach($visionContent->getTimelines() as $index => $timeline)
+                                        <li class="position-relative fs-xxl-18 fw-medium text-title line-3"><span
+                                                class="d-flex flex-column align-items-center justify-content-center rounded-circle text_primary bg-white fs-15 fw-semibold text_primary">{{ sprintf('%02d', $index + 1) }}</span>
+                                            {{ $timeline }}</li>
+                                    @endforeach
+                                @else
+                                    <li class="position-relative fs-xxl-18 fw-medium text-title line-3"><span
+                                            class="d-flex flex-column align-items-center justify-content-center rounded-circle text_primary bg-white fs-15 fw-semibold text_primary">01</span>
+                                        Lorem ipsum dolor sit, amet consectetur adipisicing elit</li>
+                                    <li class="position-relative fs-xxl-18 fw-medium text-title line-3"><span
+                                            class="d-flex flex-column align-items-center justify-content-center rounded-circle text_primary bg-white fs-15 fw-semibold text_primary">02</span>
+                                        Lorem ipsum dolor sit, amet consectetur adipisicing elit</li>
+                                    <li class="position-relative fs-xxl-18 fw-medium text-title line-3"><span
+                                            class="d-flex flex-column align-items-center justify-content-center rounded-circle text_primary bg-white fs-15 fw-semibold text_primary">03</span>
+                                        Lorem ipsum dolor sit, amet consectetur adipisicing elit</li>
+                                    <li class="position-relative fs-xxl-18 fw-medium text-title line-3"><span
+                                            class="d-flex flex-column align-items-center justify-content-center rounded-circle text_primary bg-white fs-15 fw-semibold text_primary">04</span>
+                                        Lorem ipsum dolor sit, amet consectetur adipisicing elit</li>
+                                @endif
                             </ul>
                         </div>
                     </div>
                     <div class="col-xxl-7 col-lg-6 ps-xxl-5">
                         <div class="feature-img-wrap position-relative z-1">
-                            <img src="/frontend/assets/img/about/feature-img-5.jpg" alt="Image" class="round-20">
+                            <img src="{{ $visionContent && $visionContent->image_path ? asset($visionContent->image_path) : '/frontend/assets/img/about/feature-img-5.jpg' }}" alt="Image" class="round-20">
                         </div>
                     </div>
                 </div>
