@@ -10,6 +10,7 @@ use App\Models\HomeCommitmentSection;
 use App\Models\HomeProjectSection;
 use App\Models\HomeTeamSection;
 use App\Models\HomeAwardsSection;
+use App\Models\HomeTestimonialsSection;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -30,7 +31,8 @@ class AdminController extends Controller
         $projectSection = HomeProjectSection::firstOrCreate([]);
         $teamSection = HomeTeamSection::firstOrCreate([]);
         $awardsSection = HomeAwardsSection::firstOrCreate([]);
-        return view('backend.pages.home.index', compact('heroSection', 'aboutSection', 'servicesSection', 'whyChooseSection', 'commitmentSection', 'projectSection', 'teamSection', 'awardsSection'));
+        $testimonialsSection = HomeTestimonialsSection::firstOrCreate([]);
+        return view('backend.pages.home.index', compact('heroSection', 'aboutSection', 'servicesSection', 'whyChooseSection', 'commitmentSection', 'projectSection', 'teamSection', 'awardsSection', 'testimonialsSection'));
     }
 
     public function updateHomeHero(Request $request)
@@ -692,5 +694,104 @@ class AdminController extends Controller
 
         return redirect()->route('content-setup.home')
             ->with('success', 'Cập nhật Awards Section thành công!');
+    }
+
+    public function updateHomeTestimonials(Request $request)
+    {
+        \Log::info('=== UPDATE TESTIMONIALS SECTION ===');
+        \Log::info('Request data:', $request->all());
+
+        try {
+            $validated = $request->validate([
+                'subtitle_vi' => 'nullable|string|max:255',
+                'subtitle_en' => 'nullable|string|max:255',
+                'heading_vi' => 'nullable|string',
+                'heading_en' => 'nullable|string',
+                'rating_score' => 'nullable|string|max:10',
+                'customer_count' => 'nullable|string|max:50',
+                'customer_text_vi' => 'nullable|string|max:255',
+                'customer_text_en' => 'nullable|string|max:255',
+                'testimonial_1_name' => 'nullable|string|max:255',
+                'testimonial_1_position_vi' => 'nullable|string|max:255',
+                'testimonial_1_position_en' => 'nullable|string|max:255',
+                'testimonial_1_company' => 'nullable|string|max:255',
+                'testimonial_1_avatar' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                'testimonial_1_quote_vi' => 'nullable|string',
+                'testimonial_1_quote_en' => 'nullable|string',
+                'testimonial_1_rating' => 'nullable|integer|min:1|max:5',
+                'testimonial_2_name' => 'nullable|string|max:255',
+                'testimonial_2_position_vi' => 'nullable|string|max:255',
+                'testimonial_2_position_en' => 'nullable|string|max:255',
+                'testimonial_2_company' => 'nullable|string|max:255',
+                'testimonial_2_avatar' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                'testimonial_2_quote_vi' => 'nullable|string',
+                'testimonial_2_quote_en' => 'nullable|string',
+                'testimonial_2_rating' => 'nullable|integer|min:1|max:5',
+                'testimonial_3_name' => 'nullable|string|max:255',
+                'testimonial_3_position_vi' => 'nullable|string|max:255',
+                'testimonial_3_position_en' => 'nullable|string|max:255',
+                'testimonial_3_company' => 'nullable|string|max:255',
+                'testimonial_3_avatar' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                'testimonial_3_quote_vi' => 'nullable|string',
+                'testimonial_3_quote_en' => 'nullable|string',
+                'testimonial_3_rating' => 'nullable|integer|min:1|max:5',
+                'testimonial_4_name' => 'nullable|string|max:255',
+                'testimonial_4_position_vi' => 'nullable|string|max:255',
+                'testimonial_4_position_en' => 'nullable|string|max:255',
+                'testimonial_4_company' => 'nullable|string|max:255',
+                'testimonial_4_avatar' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                'testimonial_4_quote_vi' => 'nullable|string',
+                'testimonial_4_quote_en' => 'nullable|string',
+                'testimonial_4_rating' => 'nullable|integer|min:1|max:5',
+            ]);
+        } catch (\Illuminate\Validation\ValidationException $e) {
+            if ($request->wantsJson() || $request->expectsJson() || $request->ajax()) {
+                return response()->json([
+                    'success' => false,
+                    'message' => 'Dữ liệu không hợp lệ',
+                    'errors' => $e->errors()
+                ], 422);
+            }
+            throw $e;
+        }
+
+        $testimonialsSection = HomeTestimonialsSection::firstOrCreate([]);
+
+        // Remove avatar fields from validated data
+        for ($i = 1; $i <= 4; $i++) {
+            unset($validated['testimonial_' . $i . '_avatar']);
+        }
+
+        // Handle avatar uploads
+        for ($i = 1; $i <= 4; $i++) {
+            if ($request->hasFile('testimonial_' . $i . '_avatar')) {
+                $path = $request->file('testimonial_' . $i . '_avatar')->store('testimonials', 'public');
+                $validated['testimonial_' . $i . '_avatar'] = '/storage/' . $path;
+            }
+        }
+
+        // Handle is_active checkbox
+        $validated['is_active'] = $request->has('is_active') ? true : false;
+
+        // Update testimonials section
+        $updated = $testimonialsSection->update($validated);
+
+        \Log::info('Testimonials section updated:', [
+            'success' => $updated,
+            'validated_data' => $validated,
+            'testimonials_id' => $testimonialsSection->id
+        ]);
+
+        // Return JSON response for AJAX
+        if ($request->wantsJson() || $request->expectsJson() || $request->ajax()) {
+            return response()->json([
+                'success' => true,
+                'message' => 'Cập nhật Testimonials Section thành công!',
+                'data' => $testimonialsSection->fresh()
+            ]);
+        }
+
+        return redirect()->route('content-setup.home')
+            ->with('success', 'Cập nhật Testimonials Section thành công!');
     }
 }
