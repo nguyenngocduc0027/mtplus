@@ -77,6 +77,10 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/admin/core-values', [\App\Http\Controllers\Admin\CoreValuesContentController::class, 'index'])->name('admin.core-values.index');
     Route::post('/admin/core-values/update', [\App\Http\Controllers\Admin\CoreValuesContentController::class, 'update'])->name('admin.core-values.update');
 
+    // Capabilities and Experience Content Management
+    Route::get('/admin/capabilities', [\App\Http\Controllers\Admin\CapabilitiesContentController::class, 'index'])->name('admin.capabilities.index');
+    Route::post('/admin/capabilities/update', [\App\Http\Controllers\Admin\CapabilitiesContentController::class, 'update'])->name('admin.capabilities.update');
+
     // Team Management
     Route::get('admin/team-members', [\App\Http\Controllers\Admin\TeamMemberController::class, 'index'])->name('admin.team.index');
     Route::get('admin/team-members/create', [\App\Http\Controllers\Admin\TeamMemberController::class, 'create'])->name('admin.team.create');

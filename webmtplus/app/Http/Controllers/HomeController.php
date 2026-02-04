@@ -6,6 +6,7 @@ use App\Models\AboutContent;
 use App\Models\CoreValuesContent;
 use App\Models\MissionContent;
 use App\Models\VisionContent;
+use App\Models\CapabilitiesContent;
 use App\Models\HomeProjectSection;
 use App\Models\HomeTeamSection;
 use App\Models\HomeAwardsSection;
@@ -56,7 +57,8 @@ class HomeController extends Controller
 
     public function capabilitiesAndExperience()
     {
-        return view('frontend.pages.about.capabilities-and-experience');
+        $capabilitiesContent = CapabilitiesContent::first();
+        return view('frontend.pages.about.capabilities-and-experience', compact('capabilitiesContent'));
     }
 
     public function team()

@@ -61,13 +61,13 @@
                     @foreach($teamMembers as $member)
                         <div class="col-xxl-3 col-xl-4 col-lg-4 col-md-6">
                             <div class="team-card style-one img-hover-zoom mb-45">
-                                <a href="{{ route('team.detail', $member->slug) }}">
+                               
                                     <div class="team-img round-10 img-zoom position-relative overflow-hidden">
                                         <img src="{{ $member->photo }}" alt="{{ $member->name }}"
                                             class="position-absolute top-0 bottom-0 start-0 end-0 z-1 round-10 transition object-fit-cover">
                                         <img src="{{ $member->photo }}" alt="{{ $member->name }}" class="round-10 transition">
                                     </div>
-                                </a>
+                               
                                 <div class="team-info d-flex flex-wrap justify-content-between">
                                     <div>
                                         <h3 class="fw-bold mb-1">
