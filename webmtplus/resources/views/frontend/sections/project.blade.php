@@ -1,4 +1,17 @@
 <!-- Project Section Start -->
+@if(isset($projectSection) && $projectSection->is_active)
+<div class="container pt-120">
+    <div class="row">
+        <div class="col-xl-8 offset-xl-2 col-md-10 offset-md-1 text-center px-xxl-5">
+            <h6 class="section-subtitle style-one d-inline-block fs-13 ls-1 font-optional fw-semibold position-relative text_primary mb-20"
+                data-cue="slideInUp"><img src="{{ asset('/frontend/assets/img/icons/star-3.svg') }}" alt="Icon">{{ $projectSection->getSubtitle() }}</h6>
+            <h2 class="section-title style-one text-title px-xxl-5 mb-40" data-cue="slideInUp" data-delay="300">
+                <span class="fw-black">{{ $projectSection->getHeading() }}</span>
+            </h2>
+        </div>
+    </div>
+</div>
+@else
 <div class="container pt-120">
     <div class="row">
         <div class="col-xl-8 offset-xl-2 col-md-10 offset-md-1 text-center px-xxl-5">
@@ -10,6 +23,7 @@
         </div>
     </div>
 </div>
+@endif
 <div class="project-slider-one swiper pb-120" data-cue="slideInUp">
     <div class="swiper-wrapper">
         @php
