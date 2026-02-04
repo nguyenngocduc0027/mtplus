@@ -117,46 +117,60 @@
                     </li>
                 </ul>
             </li>
-            <li class="menu-item">
-                <a href="{{ route('admin.team.index') }}" class="menu-link">
-                    <span class="material-symbols-outlined menu-icon">group</span>
-                    <span class="title">Quản lý Thành viên</span>
+
+          
+            <li class="menu-item" style="">
+                <a href="javascript:void(0);" class="menu-link menu-toggle active">
+                    <span class="material-symbols-outlined menu-icon">business</span>
+                    <span class="title">Giới thiệu</span>
                 </a>
+                <ul class="menu-sub">
+                    <li class="menu-item after-sub-menu menu-level">
+                        <a href="javascript:void(0);" class="menu-link menu-toggle">
+                            <span class="title">Tổng quan công ty</span>
+                        </a>
+                        <ul class="menu-sub">
+                            <li class="menu-item">
+                                <a href="{{ route('admin.areas-operation.index') }}" class="menu-link">
+                                    Lĩnh vực hoạt động
+                                </a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="{{ route('admin.mission.index') }}" class="menu-link">
+                                    Sứ mệnh
+                                </a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="{{ route('admin.vision.index') }}" class="menu-link">
+
+                                    Tầm nhìn
+                                </a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="{{ route('admin.core-values.index') }}" class="menu-link">
+
+                                    Giá trị cốt lõi
+                                </a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="{{ route('admin.capabilities.index') }}" class="menu-link">
+
+                                    Năng lực & Kinh nghiệm
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="menu-item">
+                        <a href="{{ route('admin.team.index') }}" class="menu-link">
+                            Quản lý Thành viên
+                        </a>
+                    </li>
+                </ul>
             </li>
-            <li class="menu-item">
+              <li class="menu-item">
                 <a href="{{ route('admin.services.index') }}" class="menu-link">
                     <span class="material-symbols-outlined menu-icon">design_services</span>
                     <span class="title">Quản lý Dịch vụ</span>
-                </a>
-            </li>
-            <li class="menu-item">
-                <a href="{{ route('admin.areas-operation.index') }}" class="menu-link">
-                    <span class="material-symbols-outlined menu-icon">business</span>
-                    <span class="title">Lĩnh vực hoạt động</span>
-                </a>
-            </li>
-            <li class="menu-item">
-                <a href="{{ route('admin.mission.index') }}" class="menu-link">
-                    <span class="material-symbols-outlined menu-icon">flag</span>
-                    <span class="title">Sứ mệnh</span>
-                </a>
-            </li>
-            <li class="menu-item">
-                <a href="{{ route('admin.vision.index') }}" class="menu-link">
-                    <span class="material-symbols-outlined menu-icon">visibility</span>
-                    <span class="title">Tầm nhìn</span>
-                </a>
-            </li>
-            <li class="menu-item">
-                <a href="{{ route('admin.core-values.index') }}" class="menu-link">
-                    <span class="material-symbols-outlined menu-icon">star</span>
-                    <span class="title">Giá trị cốt lõi</span>
-                </a>
-            </li>
-            <li class="menu-item">
-                <a href="{{ route('admin.capabilities.index') }}" class="menu-link">
-                    <span class="material-symbols-outlined menu-icon">workspace_premium</span>
-                    <span class="title">Năng lực & Kinh nghiệm</span>
                 </a>
             </li>
         </ul>
