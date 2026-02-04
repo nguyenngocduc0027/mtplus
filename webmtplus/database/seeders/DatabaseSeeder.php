@@ -44,8 +44,28 @@ class DatabaseSeeder extends Seeder
 
         // Call additional seeders
         $this->call([
+            // About page content
+            MissionContentSeeder::class,
+            VisionContentSeeder::class,
             CoreValuesContentSeeder::class,
             CapabilitiesContentSeeder::class,
+            AreasOperationSectionsSeeder::class,
+
+            // Home page sections
+            HomeAboutSectionSeeder::class,
+            HomeServicesSectionSeeder::class,
+            HomeWhyChooseSectionSeeder::class,
+            HomeCommitmentSectionSeeder::class,
+            HomeProjectSectionSeeder::class,
+            HomeTeamSectionSeeder::class,
+            HomeAwardsSectionSeeder::class,
+            HomeTestimonialsSectionSeeder::class,
+            HomeNewsSectionSeeder::class,
+            HomeContactSectionSeeder::class,
+
+            // Services and Team
+            ServiceSeeder::class,
+            TeamMemberSeeder::class,
         ]);
     }
 }

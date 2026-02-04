@@ -57,4 +57,6 @@ return [
     'detail_project' => 'Detail Project',
     'detail_news' => 'Detail News',
     'career_detail' => 'Career Detail',
+    'summary' => 'Summary',
+    'back_to_services' => 'Back to Services',
 ];

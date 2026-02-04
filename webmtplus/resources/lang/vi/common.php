@@ -57,4 +57,6 @@ return [
     'detail_project' => 'Chi tiết dự án',
     'detail_news' => 'Chi tiết tin tức',
     'career_detail' => 'Chi tiết cơ hội nghề nghiệp',
+    'summary' => 'Tóm tắt',
+    'back_to_services' => 'Quay lại dịch vụ',
 ];

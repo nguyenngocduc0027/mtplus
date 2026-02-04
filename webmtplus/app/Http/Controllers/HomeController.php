@@ -74,9 +74,10 @@ class HomeController extends Controller
         return view('frontend.pages.team.detail', compact('member'));
     }
 
-    public function service()
+    public function service($slug)
     {
-        return view('frontend.pages.service.index');
+        $service = \App\Models\Service::active()->where('slug', $slug)->firstOrFail();
+        return view('frontend.pages.service.index', compact('service'));
     }
 
     public function project()

@@ -34,11 +34,17 @@
                             <ul class="menu-subs menu-column-1">
                                 <li><a href="{{route('abouts.index')}}">About Us</a></li>
                                 <li class="menu-item-has-children">
-                                    <a href="{{route('services.index')}}">Services</a>
-                                    {{-- <ul class="menu-subs menu-column-1">
-                                        <li><a href="services.html">Services</a></li>
-                                        <li><a href="service-single.html">Service Single</a></li>
-                                    </ul> --}}
+                                    <a href="javascript:void(0)">Services<i class="ri-add-line"></i></a>
+                                    <ul class="menu-subs menu-column-1">
+                                        @php
+                                            $services = \App\Models\Service::active()->get();
+                                        @endphp
+                                        @forelse($services as $service)
+                                            <li><a href="{{ route('services.index', ['slug' => $service->slug]) }">{{ $service->getTitle() }}</a></li>
+                                        @empty
+                                            <li><a href="{{ route('services.index') }}">Services</a></li>
+                                        @endforelse
+                                    </ul>
                                 </li>
                                 <li class="menu-item-has-children">
                                     <a href="{{route('team.index')}}">Team</a>

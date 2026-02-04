@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\ImageUploadController;
 
 /* Switch language route could be here */
 Route::get('lang/{locale}', function ($locale) {
@@ -28,7 +29,7 @@ Route::get('/core-values', [HomeController::class, 'coreValues'])->name('core-va
 Route::get('/capabilities-and-experience', [HomeController::class, 'capabilitiesAndExperience'])->name('capabilities-and-experience');
 Route::get('/team', [HomeController::class, 'team'])->name('team');
 Route::get('/team/{slug}', [HomeController::class, 'teamDetail'])->name('team.detail');
-Route::get('/service', [HomeController::class, 'service'])->name('service');
+Route::get('/services/{slug}', [HomeController::class, 'service'])->name('services.index');
 Route::get('/project', [HomeController::class, 'project'])->name('project');
 Route::get('/project/detail', [HomeController::class, 'detailProject'])->name('detail-project');
 Route::get('/news', [HomeController::class, 'news'])->name('news');
@@ -89,5 +90,14 @@ Route::middleware(['auth'])->group(function () {
     Route::get('admin/team-members/{team:slug}/edit', [\App\Http\Controllers\Admin\TeamMemberController::class, 'edit'])->name('admin.team.edit');
     Route::put('admin/team-members/{team:slug}', [\App\Http\Controllers\Admin\TeamMemberController::class, 'update'])->name('admin.team.update');
     Route::delete('admin/team-members/{team:slug}', [\App\Http\Controllers\Admin\TeamMemberController::class, 'destroy'])->name('admin.team.destroy');
-});
 
+    // Services Management
+    Route::get('admin/services', [\App\Http\Controllers\Admin\ServiceController::class, 'index'])->name('admin.services.index');
+    Route::get('admin/services/create', [\App\Http\Controllers\Admin\ServiceController::class, 'create'])->name('admin.services.create');
+    Route::post('admin/services', [\App\Http\Controllers\Admin\ServiceController::class, 'store'])->name('admin.services.store');
+    Route::get('admin/services/{service:slug}', [\App\Http\Controllers\Admin\ServiceController::class, 'show'])->name('admin.services.show');
+    Route::get('admin/services/{service:slug}/edit', [\App\Http\Controllers\Admin\ServiceController::class, 'edit'])->name('admin.services.edit');
+    Route::put('admin/services/{service:slug}', [\App\Http\Controllers\Admin\ServiceController::class, 'update'])->name('admin.services.update');
+    Route::delete('admin/services/{service:slug}', [\App\Http\Controllers\Admin\ServiceController::class, 'destroy'])->name('admin.services.destroy');
+});
+Route::post('/admin/upload-image', [ImageUploadController::class, 'upload'])->name('admin.upload-image');

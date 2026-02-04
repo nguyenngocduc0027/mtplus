@@ -90,6 +90,22 @@
     <script src="/backend/assets/js/custom/custom.js"></script>
 
     @stack('scripts')
+    <script src="{{ asset('backend/tinymce/tinymce.min.js') }}"></script>
+  <script type="text/javascript">
+      tinymce.init({
+          selector: '#tyni, #tyni-vi, #tyni-en',
+          plugins: 'advlist autolink lists link charmap preview anchor table image',
+          toolbar: 'undo redo | formatselect | ' +
+              'bold italic backcolor | alignleft aligncenter ' +
+              'alignright alignjustify | bullist numlist outdent indent | ' +
+              'removeformat | help | table | link image',
+          images_upload_url: "{{url('/admin/upload-image')}}",
+          relative_urls: false,
+          document_base_url: "{{ url('/') }}",
+          automatic_uploads: true,
+
+      })
+  </script>
 </body>
 
 </html>

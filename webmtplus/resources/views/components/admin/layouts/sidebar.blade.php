@@ -124,6 +124,12 @@
                 </a>
             </li>
             <li class="menu-item">
+                <a href="{{ route('admin.services.index') }}" class="menu-link">
+                    <span class="material-symbols-outlined menu-icon">design_services</span>
+                    <span class="title">Quản lý Dịch vụ</span>
+                </a>
+            </li>
+            <li class="menu-item">
                 <a href="{{ route('admin.areas-operation.index') }}" class="menu-link">
                     <span class="material-symbols-outlined menu-icon">business</span>
                     <span class="title">Lĩnh vực hoạt động</span>
