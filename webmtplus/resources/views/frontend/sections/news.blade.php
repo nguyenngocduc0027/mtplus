@@ -4,10 +4,10 @@
         <div class="row">
             <div class="col-xl-8 offset-xl-2 col-md-10 offset-md-1 text-center">
                 <h6 class="section-subtitle style-two d-inline-block fs-13 ls-1 font-optional fw-semibold position-relative text_primary mb-25"
-                    data-cue="slideInUp"><img src="/frontend/assets/img/icons/star-3.svg" alt="Icon">{{ __('common.news') }}</h6>
+                    data-cue="slideInUp"><img src="/frontend/assets/img/icons/star-3.svg" alt="Icon">{{ $newsSection?->getSubtitle() ?? __('common.news') }}</h6>
                 <h2 class="section-title style-one text-center text-title px-xxl-5 mb-40" data-cue="slideInUp"
                     data-delay="300">
-                    <span class="fw-black">{{ app()->getLocale() == 'en' ? 'NEWS & STRATEGIC PERSPECTIVES' : 'TIN TỨC & GÓC NHÌN CHIẾN LƯỢC' }}</span>
+                    <span class="fw-black">{{ $newsSection?->getHeading() ?? (app()->getLocale() == 'en' ? 'NEWS & STRATEGIC PERSPECTIVES' : 'TIN TỨC & GÓC NHÌN CHIẾN LƯỢC') }}</span>
                 </h2>
             </div>
         </div>

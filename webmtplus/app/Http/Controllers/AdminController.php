@@ -11,6 +11,7 @@ use App\Models\HomeProjectSection;
 use App\Models\HomeTeamSection;
 use App\Models\HomeAwardsSection;
 use App\Models\HomeTestimonialsSection;
+use App\Models\HomeNewsSection;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -32,7 +33,8 @@ class AdminController extends Controller
         $teamSection = HomeTeamSection::firstOrCreate([]);
         $awardsSection = HomeAwardsSection::firstOrCreate([]);
         $testimonialsSection = HomeTestimonialsSection::firstOrCreate([]);
-        return view('backend.pages.home.index', compact('heroSection', 'aboutSection', 'servicesSection', 'whyChooseSection', 'commitmentSection', 'projectSection', 'teamSection', 'awardsSection', 'testimonialsSection'));
+        $newsSection = HomeNewsSection::firstOrCreate([]);
+        return view('backend.pages.home.index', compact('heroSection', 'aboutSection', 'servicesSection', 'whyChooseSection', 'commitmentSection', 'projectSection', 'teamSection', 'awardsSection', 'testimonialsSection', 'newsSection'));
     }
 
     public function updateHomeHero(Request $request)
@@ -793,5 +795,55 @@ class AdminController extends Controller
 
         return redirect()->route('content-setup.home')
             ->with('success', 'Cập nhật Testimonials Section thành công!');
+    }
+
+    public function updateHomeNews(Request $request)
+    {
+        \Log::info('=== UPDATE NEWS SECTION ===');
+        \Log::info('Request data:', $request->all());
+
+        try {
+            $validated = $request->validate([
+                'subtitle_vi' => 'nullable|string|max:255',
+                'subtitle_en' => 'nullable|string|max:255',
+                'heading_vi' => 'nullable|string',
+                'heading_en' => 'nullable|string',
+            ]);
+        } catch (\Illuminate\Validation\ValidationException $e) {
+            if ($request->wantsJson() || $request->expectsJson() || $request->ajax()) {
+                return response()->json([
+                    'success' => false,
+                    'message' => 'Dữ liệu không hợp lệ',
+                    'errors' => $e->errors()
+                ], 422);
+            }
+            throw $e;
+        }
+
+        $newsSection = HomeNewsSection::firstOrCreate([]);
+
+        // Handle is_active checkbox
+        $validated['is_active'] = $request->has('is_active') ? true : false;
+
+        // Update news section
+        $updated = $newsSection->update($validated);
+
+        \Log::info('News section updated:', [
+            'success' => $updated,
+            'validated_data' => $validated,
+            'news_id' => $newsSection->id
+        ]);
+
+        // Return JSON response for AJAX
+        if ($request->wantsJson() || $request->expectsJson() || $request->ajax()) {
+            return response()->json([
+                'success' => true,
+                'message' => 'Cập nhật News Section thành công!',
+                'data' => $newsSection->fresh()
+            ]);
+        }
+
+        return redirect()->route('content-setup.home')
+            ->with('success', 'Cập nhật News Section thành công!');
     }
 }
