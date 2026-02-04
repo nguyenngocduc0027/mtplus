@@ -123,6 +123,12 @@
                     <span class="title">Quản lý Thành viên</span>
                 </a>
             </li>
+            <li class="menu-item">
+                <a href="{{ route('admin.areas-operation.index') }}" class="menu-link">
+                    <span class="material-symbols-outlined menu-icon">business</span>
+                    <span class="title">Lĩnh vực hoạt động</span>
+                </a>
+            </li>
         </ul>
     </aside>
 </div>

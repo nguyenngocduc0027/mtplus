@@ -13,6 +13,7 @@ use App\Models\HomeTestimonialsSection;
 use App\Models\HomeNewsSection;
 use App\Models\HomeContactSection;
 use App\Models\TeamMember;
+use App\Models\AreasOperationSection;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -31,7 +32,8 @@ class HomeController extends Controller
 
     public function areasOfOperation()
     {
-        return view('frontend.pages.about.areas-operation');
+        $sections = AreasOperationSection::orderBy('section_number')->get();
+        return view('frontend.pages.about.areas-operation', compact('sections'));
     }
 
     public function mission()
