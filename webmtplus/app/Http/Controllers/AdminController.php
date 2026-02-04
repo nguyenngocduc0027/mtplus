@@ -8,6 +8,7 @@ use App\Models\HomeServicesSection;
 use App\Models\HomeWhyChooseSection;
 use App\Models\HomeCommitmentSection;
 use App\Models\HomeProjectSection;
+use App\Models\HomeTeamSection;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -26,7 +27,8 @@ class AdminController extends Controller
         $whyChooseSection = HomeWhyChooseSection::firstOrCreate([]);
         $commitmentSection = HomeCommitmentSection::firstOrCreate([]);
         $projectSection = HomeProjectSection::firstOrCreate([]);
-        return view('backend.pages.home.index', compact('heroSection', 'aboutSection', 'servicesSection', 'whyChooseSection', 'commitmentSection', 'projectSection'));
+        $teamSection = HomeTeamSection::firstOrCreate([]);
+        return view('backend.pages.home.index', compact('heroSection', 'aboutSection', 'servicesSection', 'whyChooseSection', 'commitmentSection', 'projectSection', 'teamSection'));
     }
 
     public function updateHomeHero(Request $request)
@@ -555,5 +557,55 @@ class AdminController extends Controller
 
         return redirect()->route('content-setup.home')
             ->with('success', 'Cập nhật Project Section thành công!');
+    }
+
+    public function updateHomeTeam(Request $request)
+    {
+        \Log::info('=== UPDATE TEAM SECTION ===');
+        \Log::info('Request data:', $request->all());
+
+        try {
+            $validated = $request->validate([
+                'subtitle_vi' => 'nullable|string|max:255',
+                'subtitle_en' => 'nullable|string|max:255',
+                'heading_vi' => 'nullable|string',
+                'heading_en' => 'nullable|string',
+            ]);
+        } catch (\Illuminate\Validation\ValidationException $e) {
+            if ($request->wantsJson() || $request->expectsJson() || $request->ajax()) {
+                return response()->json([
+                    'success' => false,
+                    'message' => 'Dữ liệu không hợp lệ',
+                    'errors' => $e->errors()
+                ], 422);
+            }
+            throw $e;
+        }
+
+        $teamSection = HomeTeamSection::firstOrCreate([]);
+
+        // Handle is_active checkbox
+        $validated['is_active'] = $request->has('is_active') ? true : false;
+
+        // Update team section
+        $updated = $teamSection->update($validated);
+
+        \Log::info('Team section updated:', [
+            'success' => $updated,
+            'validated_data' => $validated,
+            'team_id' => $teamSection->id
+        ]);
+
+        // Return JSON response for AJAX
+        if ($request->wantsJson() || $request->expectsJson() || $request->ajax()) {
+            return response()->json([
+                'success' => true,
+                'message' => 'Cập nhật Team Section thành công!',
+                'data' => $teamSection->fresh()
+            ]);
+        }
+
+        return redirect()->route('content-setup.home')
+            ->with('success', 'Cập nhật Team Section thành công!');
     }
 }

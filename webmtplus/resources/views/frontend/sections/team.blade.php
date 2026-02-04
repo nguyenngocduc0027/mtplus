@@ -1,4 +1,18 @@
 <!-- Team Section Start -->
+@if(isset($teamSection) && $teamSection->is_active)
+<div class="team-area style-one position-relative ptb-120">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-8 offset-xl-2 col-md-10 offset-md-1 text-center px-xxl-5">
+                <h6 class="section-subtitle style-one d-inline-block fs-13 ls-1 font-optional fw-semibold position-relative text_primary mb-20"
+                    data-cue="slideInUp"><img src="/frontend/assets/img/icons/star-3.svg"
+                        alt="Icon">{{ $teamSection->getSubtitle() }}</h6>
+                <h2 class="section-title style-one text-title px-xxl-5 mb-40" data-cue="slideInUp" data-delay="300">
+                    <span class="fw-black">{{ $teamSection->getHeading() }}</span>
+                </h2>
+            </div>
+        </div>
+@else
 <div class="team-area style-one position-relative ptb-120">
     <div class="container">
         <div class="row">
@@ -12,6 +26,7 @@
                 </h2>
             </div>
         </div>
+@endif
         <div class="team-slider-one swiper" data-cue="slideInUp">
             <div class="swiper-wrapper">
                 @php

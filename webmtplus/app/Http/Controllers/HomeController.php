@@ -7,6 +7,7 @@ use App\Models\CoreValuesContent;
 use App\Models\MissionContent;
 use App\Models\VisionContent;
 use App\Models\HomeProjectSection;
+use App\Models\HomeTeamSection;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -15,7 +16,8 @@ class HomeController extends Controller
     public function home()
     {
         $projectSection = HomeProjectSection::where('is_active', true)->first();
-        return view('frontend.pages.home.index', compact('projectSection'));
+        $teamSection = HomeTeamSection::where('is_active', true)->first();
+        return view('frontend.pages.home.index', compact('projectSection', 'teamSection'));
     }
 
     public function areasOfOperation()
