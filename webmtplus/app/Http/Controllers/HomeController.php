@@ -50,7 +50,8 @@ class HomeController extends Controller
 
     public function coreValues()
     {
-        return view('frontend.pages.about.core-values');
+        $coreValuesContent = CoreValuesContent::first();
+        return view('frontend.pages.about.core-values', compact('coreValuesContent'));
     }
 
     public function capabilitiesAndExperience()

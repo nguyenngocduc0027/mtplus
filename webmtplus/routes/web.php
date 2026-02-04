@@ -73,6 +73,10 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/admin/vision', [\App\Http\Controllers\Admin\VisionContentController::class, 'index'])->name('admin.vision.index');
     Route::post('/admin/vision', [\App\Http\Controllers\Admin\VisionContentController::class, 'update'])->name('admin.vision.update');
 
+    // Core Values Content Management
+    Route::get('/admin/core-values', [\App\Http\Controllers\Admin\CoreValuesContentController::class, 'index'])->name('admin.core-values.index');
+    Route::post('/admin/core-values/update', [\App\Http\Controllers\Admin\CoreValuesContentController::class, 'update'])->name('admin.core-values.update');
+
     // Team Management
     Route::get('admin/team-members', [\App\Http\Controllers\Admin\TeamMemberController::class, 'index'])->name('admin.team.index');
     Route::get('admin/team-members/create', [\App\Http\Controllers\Admin\TeamMemberController::class, 'create'])->name('admin.team.create');

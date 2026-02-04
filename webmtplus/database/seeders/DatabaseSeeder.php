@@ -41,5 +41,10 @@ class DatabaseSeeder extends Seeder
             'read_more_url' => 'javascript:void(0)',
             'is_active' => true,
         ]);
+
+        // Call additional seeders
+        $this->call([
+            CoreValuesContentSeeder::class,
+        ]);
     }
 }
