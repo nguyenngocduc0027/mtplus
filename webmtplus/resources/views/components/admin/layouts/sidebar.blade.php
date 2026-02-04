@@ -117,6 +117,12 @@
                     </li>
                 </ul>
             </li>
+            <li class="menu-item">
+                <a href="{{ route('admin.team.index') }}" class="menu-link">
+                    <span class="material-symbols-outlined menu-icon">group</span>
+                    <span class="title">Quản lý Thành viên</span>
+                </a>
+            </li>
         </ul>
     </aside>
 </div>

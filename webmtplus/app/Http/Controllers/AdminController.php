@@ -41,9 +41,7 @@ class AdminController extends Controller
 
     public function updateHomeHero(Request $request)
     {
-        // Debug logging
-        \Log::info('=== UPDATE HERO SECTION ===');
-        \Log::info('Request data:', $request->all());
+      
 
         try {
             $validated = $request->validate([
@@ -95,11 +93,7 @@ class AdminController extends Controller
         // Update hero section
         $updated = $heroSection->update($validated);
 
-        \Log::info('Hero section updated:', [
-            'success' => $updated,
-            'validated_data' => $validated,
-            'hero_id' => $heroSection->id
-        ]);
+       
 
         // Return JSON response for AJAX
         if ($request->wantsJson() || $request->expectsJson() || $request->ajax()) {
@@ -116,8 +110,7 @@ class AdminController extends Controller
 
     public function updateHomeAbout(Request $request)
     {
-        \Log::info('=== UPDATE ABOUT SECTION ===');
-        \Log::info('Request data:', $request->all());
+      
 
         try {
             $validated = $request->validate([
@@ -181,11 +174,7 @@ class AdminController extends Controller
         // Update about section
         $updated = $aboutSection->update($validated);
 
-        \Log::info('About section updated:', [
-            'success' => $updated,
-            'validated_data' => $validated,
-            'about_id' => $aboutSection->id
-        ]);
+    
 
         // Return JSON response for AJAX
         if ($request->wantsJson() || $request->expectsJson() || $request->ajax()) {
@@ -202,8 +191,7 @@ class AdminController extends Controller
 
     public function updateHomeServices(Request $request)
     {
-        \Log::info('=== UPDATE SERVICES SECTION ===');
-        \Log::info('Request data:', $request->all());
+       
 
         try {
             $validated = $request->validate([
@@ -270,11 +258,7 @@ class AdminController extends Controller
         // Update services section
         $updated = $servicesSection->update($validated);
 
-        \Log::info('Services section updated:', [
-            'success' => $updated,
-            'validated_data' => $validated,
-            'services_id' => $servicesSection->id
-        ]);
+      
 
         // Return JSON response for AJAX
         if ($request->wantsJson() || $request->expectsJson() || $request->ajax()) {
@@ -291,8 +275,7 @@ class AdminController extends Controller
 
     public function updateHomeWhyChoose(Request $request)
     {
-        \Log::info('=== UPDATE WHY CHOOSE SECTION ===');
-        \Log::info('Request data:', $request->all());
+      
 
         try {
             $validated = $request->validate([
@@ -388,11 +371,7 @@ class AdminController extends Controller
         // Update why choose section
         $updated = $whyChooseSection->update($validated);
 
-        \Log::info('Why Choose section updated:', [
-            'success' => $updated,
-            'validated_data' => $validated,
-            'why_choose_id' => $whyChooseSection->id
-        ]);
+      
 
         // Return JSON response for AJAX
         if ($request->wantsJson() || $request->expectsJson() || $request->ajax()) {
@@ -409,8 +388,7 @@ class AdminController extends Controller
 
     public function updateHomeCommitment(Request $request)
     {
-        \Log::info('=== UPDATE COMMITMENT SECTION ===');
-        \Log::info('Request data:', $request->all());
+ 
 
         try {
             $validated = $request->validate([
@@ -498,11 +476,7 @@ class AdminController extends Controller
         // Update commitment section
         $updated = $commitmentSection->update($validated);
 
-        \Log::info('Commitment section updated:', [
-            'success' => $updated,
-            'validated_data' => $validated,
-            'commitment_id' => $commitmentSection->id
-        ]);
+   
 
         // Return JSON response for AJAX
         if ($request->wantsJson() || $request->expectsJson() || $request->ajax()) {
@@ -519,8 +493,6 @@ class AdminController extends Controller
 
     public function updateHomeProject(Request $request)
     {
-        \Log::info('=== UPDATE PROJECT SECTION ===');
-        \Log::info('Request data:', $request->all());
 
         try {
             $validated = $request->validate([
@@ -548,11 +520,7 @@ class AdminController extends Controller
         // Update project section
         $updated = $projectSection->update($validated);
 
-        \Log::info('Project section updated:', [
-            'success' => $updated,
-            'validated_data' => $validated,
-            'project_id' => $projectSection->id
-        ]);
+ 
 
         // Return JSON response for AJAX
         if ($request->wantsJson() || $request->expectsJson() || $request->ajax()) {
@@ -569,9 +537,7 @@ class AdminController extends Controller
 
     public function updateHomeTeam(Request $request)
     {
-        \Log::info('=== UPDATE TEAM SECTION ===');
-        \Log::info('Request data:', $request->all());
-
+      
         try {
             $validated = $request->validate([
                 'subtitle_vi' => 'nullable|string|max:255',
@@ -598,11 +564,6 @@ class AdminController extends Controller
         // Update team section
         $updated = $teamSection->update($validated);
 
-        \Log::info('Team section updated:', [
-            'success' => $updated,
-            'validated_data' => $validated,
-            'team_id' => $teamSection->id
-        ]);
 
         // Return JSON response for AJAX
         if ($request->wantsJson() || $request->expectsJson() || $request->ajax()) {
@@ -619,8 +580,7 @@ class AdminController extends Controller
 
     public function updateHomeAwards(Request $request)
     {
-        \Log::info('=== UPDATE AWARDS SECTION ===');
-        \Log::info('Request data:', $request->all());
+     
 
         try {
             $validated = $request->validate([
@@ -681,11 +641,6 @@ class AdminController extends Controller
         // Update awards section
         $updated = $awardsSection->update($validated);
 
-        \Log::info('Awards section updated:', [
-            'success' => $updated,
-            'validated_data' => $validated,
-            'awards_id' => $awardsSection->id
-        ]);
 
         // Return JSON response for AJAX
         if ($request->wantsJson() || $request->expectsJson() || $request->ajax()) {
@@ -702,8 +657,6 @@ class AdminController extends Controller
 
     public function updateHomeTestimonials(Request $request)
     {
-        \Log::info('=== UPDATE TESTIMONIALS SECTION ===');
-        \Log::info('Request data:', $request->all());
 
         try {
             $validated = $request->validate([
@@ -780,11 +733,7 @@ class AdminController extends Controller
         // Update testimonials section
         $updated = $testimonialsSection->update($validated);
 
-        \Log::info('Testimonials section updated:', [
-            'success' => $updated,
-            'validated_data' => $validated,
-            'testimonials_id' => $testimonialsSection->id
-        ]);
+       
 
         // Return JSON response for AJAX
         if ($request->wantsJson() || $request->expectsJson() || $request->ajax()) {
@@ -801,9 +750,7 @@ class AdminController extends Controller
 
     public function updateHomeNews(Request $request)
     {
-        \Log::info('=== UPDATE NEWS SECTION ===');
-        \Log::info('Request data:', $request->all());
-
+    
         try {
             $validated = $request->validate([
                 'subtitle_vi' => 'nullable|string|max:255',
@@ -830,11 +777,7 @@ class AdminController extends Controller
         // Update news section
         $updated = $newsSection->update($validated);
 
-        \Log::info('News section updated:', [
-            'success' => $updated,
-            'validated_data' => $validated,
-            'news_id' => $newsSection->id
-        ]);
+      
 
         // Return JSON response for AJAX
         if ($request->wantsJson() || $request->expectsJson() || $request->ajax()) {
@@ -851,9 +794,6 @@ class AdminController extends Controller
 
     public function updateHomeContact(Request $request)
     {
-        \Log::info('=== UPDATE CONTACT SECTION ===');
-        \Log::info('Request data:', $request->all());
-
         try {
             $validated = $request->validate([
                 'subtitle_vi' => 'nullable|string|max:255',
@@ -883,11 +823,7 @@ class AdminController extends Controller
         // Update contact section
         $updated = $contactSection->update($validated);
 
-        \Log::info('Contact section updated:', [
-            'success' => $updated,
-            'validated_data' => $validated,
-            'contact_id' => $contactSection->id
-        ]);
+      
 
         // Return JSON response for AJAX
         if ($request->wantsJson() || $request->expectsJson() || $request->ajax()) {

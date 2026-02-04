@@ -12,6 +12,7 @@ use App\Models\HomeAwardsSection;
 use App\Models\HomeTestimonialsSection;
 use App\Models\HomeNewsSection;
 use App\Models\HomeContactSection;
+use App\Models\TeamMember;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -55,7 +56,15 @@ class HomeController extends Controller
 
     public function team()
     {
-        return view('frontend.pages.team.index');
+        $featuredMember = TeamMember::active()->featured()->first();
+        $teamMembers = TeamMember::active()->where('is_featured', false)->ordered()->get();
+        return view('frontend.pages.team.index', compact('featuredMember', 'teamMembers'));
+    }
+
+    public function teamDetail($slug)
+    {
+        $member = TeamMember::active()->where('slug', $slug)->firstOrFail();
+        return view('frontend.pages.team.detail', compact('member'));
     }
 
     public function service()

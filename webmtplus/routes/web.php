@@ -27,6 +27,7 @@ Route::get('/vision', [HomeController::class, 'vision'])->name('vision');
 Route::get('/core-values', [HomeController::class, 'coreValues'])->name('core-values');
 Route::get('/capabilities-and-experience', [HomeController::class, 'capabilitiesAndExperience'])->name('capabilities-and-experience');
 Route::get('/team', [HomeController::class, 'team'])->name('team');
+Route::get('/team/{slug}', [HomeController::class, 'teamDetail'])->name('team.detail');
 Route::get('/service', [HomeController::class, 'service'])->name('service');
 Route::get('/project', [HomeController::class, 'project'])->name('project');
 Route::get('/project/detail', [HomeController::class, 'detailProject'])->name('detail-project');
@@ -59,5 +60,14 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/content-setup/home/update-testimonials', [AdminController::class, 'updateHomeTestimonials'])->name('content-setup.home.testimonials.update');
     Route::post('/content-setup/home/update-news', [AdminController::class, 'updateHomeNews'])->name('content-setup.home.news.update');
     Route::post('/content-setup/home/update-contact', [AdminController::class, 'updateHomeContact'])->name('content-setup.home.contact.update');
+
+    // Team Management
+    Route::get('admin/team-members', [\App\Http\Controllers\Admin\TeamMemberController::class, 'index'])->name('admin.team.index');
+    Route::get('admin/team-members/create', [\App\Http\Controllers\Admin\TeamMemberController::class, 'create'])->name('admin.team.create');
+    Route::post('admin/team-members', [\App\Http\Controllers\Admin\TeamMemberController::class, 'store'])->name('admin.team.store');
+    Route::get('admin/team-members/{team:slug}', [\App\Http\Controllers\Admin\TeamMemberController::class, 'show'])->name('admin.team.show');
+    Route::get('admin/team-members/{team:slug}/edit', [\App\Http\Controllers\Admin\TeamMemberController::class, 'edit'])->name('admin.team.edit');
+    Route::put('admin/team-members/{team:slug}', [\App\Http\Controllers\Admin\TeamMemberController::class, 'update'])->name('admin.team.update');
+    Route::delete('admin/team-members/{team:slug}', [\App\Http\Controllers\Admin\TeamMemberController::class, 'destroy'])->name('admin.team.destroy');
 });
 
