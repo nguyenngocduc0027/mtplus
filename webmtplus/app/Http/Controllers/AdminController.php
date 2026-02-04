@@ -9,6 +9,7 @@ use App\Models\HomeWhyChooseSection;
 use App\Models\HomeCommitmentSection;
 use App\Models\HomeProjectSection;
 use App\Models\HomeTeamSection;
+use App\Models\HomeAwardsSection;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -28,7 +29,8 @@ class AdminController extends Controller
         $commitmentSection = HomeCommitmentSection::firstOrCreate([]);
         $projectSection = HomeProjectSection::firstOrCreate([]);
         $teamSection = HomeTeamSection::firstOrCreate([]);
-        return view('backend.pages.home.index', compact('heroSection', 'aboutSection', 'servicesSection', 'whyChooseSection', 'commitmentSection', 'projectSection', 'teamSection'));
+        $awardsSection = HomeAwardsSection::firstOrCreate([]);
+        return view('backend.pages.home.index', compact('heroSection', 'aboutSection', 'servicesSection', 'whyChooseSection', 'commitmentSection', 'projectSection', 'teamSection', 'awardsSection'));
     }
 
     public function updateHomeHero(Request $request)
@@ -607,5 +609,88 @@ class AdminController extends Controller
 
         return redirect()->route('content-setup.home')
             ->with('success', 'Cập nhật Team Section thành công!');
+    }
+
+    public function updateHomeAwards(Request $request)
+    {
+        \Log::info('=== UPDATE AWARDS SECTION ===');
+        \Log::info('Request data:', $request->all());
+
+        try {
+            $validated = $request->validate([
+                'subtitle_vi' => 'nullable|string|max:255',
+                'subtitle_en' => 'nullable|string|max:255',
+                'heading_vi' => 'nullable|string',
+                'heading_en' => 'nullable|string',
+                'award_1_icon' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                'award_1_year' => 'nullable|string|max:10',
+                'award_1_title_vi' => 'nullable|string|max:255',
+                'award_1_title_en' => 'nullable|string|max:255',
+                'award_2_icon' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                'award_2_year' => 'nullable|string|max:10',
+                'award_2_title_vi' => 'nullable|string|max:255',
+                'award_2_title_en' => 'nullable|string|max:255',
+                'award_3_icon' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                'award_3_year' => 'nullable|string|max:10',
+                'award_3_title_vi' => 'nullable|string|max:255',
+                'award_3_title_en' => 'nullable|string|max:255',
+                'award_4_icon' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                'award_4_year' => 'nullable|string|max:10',
+                'award_4_title_vi' => 'nullable|string|max:255',
+                'award_4_title_en' => 'nullable|string|max:255',
+                'award_5_icon' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                'award_5_year' => 'nullable|string|max:10',
+                'award_5_title_vi' => 'nullable|string|max:255',
+                'award_5_title_en' => 'nullable|string|max:255',
+            ]);
+        } catch (\Illuminate\Validation\ValidationException $e) {
+            if ($request->wantsJson() || $request->expectsJson() || $request->ajax()) {
+                return response()->json([
+                    'success' => false,
+                    'message' => 'Dữ liệu không hợp lệ',
+                    'errors' => $e->errors()
+                ], 422);
+            }
+            throw $e;
+        }
+
+        $awardsSection = HomeAwardsSection::firstOrCreate([]);
+
+        // Remove icon fields from validated data
+        for ($i = 1; $i <= 5; $i++) {
+            unset($validated['award_' . $i . '_icon']);
+        }
+
+        // Handle icon uploads
+        for ($i = 1; $i <= 5; $i++) {
+            if ($request->hasFile('award_' . $i . '_icon')) {
+                $path = $request->file('award_' . $i . '_icon')->store('awards', 'public');
+                $validated['award_' . $i . '_icon'] = '/storage/' . $path;
+            }
+        }
+
+        // Handle is_active checkbox
+        $validated['is_active'] = $request->has('is_active') ? true : false;
+
+        // Update awards section
+        $updated = $awardsSection->update($validated);
+
+        \Log::info('Awards section updated:', [
+            'success' => $updated,
+            'validated_data' => $validated,
+            'awards_id' => $awardsSection->id
+        ]);
+
+        // Return JSON response for AJAX
+        if ($request->wantsJson() || $request->expectsJson() || $request->ajax()) {
+            return response()->json([
+                'success' => true,
+                'message' => 'Cập nhật Awards Section thành công!',
+                'data' => $awardsSection->fresh()
+            ]);
+        }
+
+        return redirect()->route('content-setup.home')
+            ->with('success', 'Cập nhật Awards Section thành công!');
     }
 }

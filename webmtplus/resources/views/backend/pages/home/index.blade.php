@@ -124,10 +124,7 @@
             </div>
             <div class="tab-pane fade show" id="awards-tab-pane" role="tabpanel" aria-labelledby="awards-tab"
                 tabindex="0">
-                <p>This is some placeholder content the Awards tab's associated content. Clicking another tab will toggle
-                    the visibility of this one for the next. The tab JavaScript swaps classes to control the content
-                    visibility
-                    and styling. You can use it with tabs, pills, and any other .nav-powered navigation.</p>
+                @include('backend.pages.home.partials.awards-form')
             </div>
             <div class="tab-pane fade show" id="testimonials-tab-pane" role="tabpanel"
                 aria-labelledby="testimonials-tab" tabindex="0">
