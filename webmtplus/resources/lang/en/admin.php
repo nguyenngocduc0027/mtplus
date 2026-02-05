@@ -4,7 +4,8 @@ return [
     'welcome' => 'Welcome to the Admin Dashboard',
     'users' => 'Manage Users',
     'settings' => 'Settings',
-
+'introduction' =>'Introduction',
+    'company_overview' => 'Company Overview',
     'dashboard' => [
         'title' => 'Admin Dashboard',
         'header' => 'Dashboard Overview',
@@ -19,6 +20,7 @@ return [
         'careers' => 'Careers Setup',
     ],
     'about' => [
+        'operation' => 'Areas of Operation',
         'mission' => 'Our Mission',
         'vision' => 'Our Vision',
         'core_values' => 'Core Values',

@@ -94,8 +94,8 @@
                     </li>
                 </ul>
             </li> --}}
-            <li class="menu-item">
-                <a href="{{ route('dashboard') }}" class="menu-link">
+            <li class="menu-item {{ request()->routeIs('dashboard') ? 'active' : '' }}">
+                <a href="{{ route('dashboard') }}" class="menu-link {{ request()->routeIs('dashboard') ? 'active' : '' }}">
                     <span class="material-symbols-outlined menu-icon">dashboard</span>
                     <span class="title">Dashboard</span>
                 </a>
@@ -103,74 +103,74 @@
             <li class="menu-title small text-uppercase">
                 <span class="menu-title-text">PAGES</span>
             </li>
-            <li class=" text-capitalize menu-item ">
-                <a href="javascript:void(0);" class="menu-link menu-toggle active">
+            <li class="text-capitalize menu-item {{ request()->routeIs('content-setup.*') ? 'open' : '' }}">
+                <a href="javascript:void(0);" class="menu-link menu-toggle {{ request()->routeIs('content-setup.*') ? 'active' : '' }}">
                     <span class="material-symbols-outlined menu-icon">dashboard</span>
                     <span class="title">{{ __('admin.content-setup.title') }}</span>
                 </a>
 
                 <ul class="menu-sub">
-                    <li class="menu-item">
-                        <a href="{{ route('content-setup.home') }}" class="menu-link active">
+                    <li class="menu-item {{ request()->routeIs('content-setup.home') ? 'active' : '' }}">
+                        <a href="{{ route('content-setup.home') }}" class="menu-link {{ request()->routeIs('content-setup.home') ? 'active' : '' }}">
                             {{ __('admin.content-setup.home') }}
                         </a>
                     </li>
                 </ul>
             </li>
 
-          
-            <li class="menu-item" style="">
-                <a href="javascript:void(0);" class="menu-link menu-toggle active">
+
+            <li class="menu-item {{ request()->routeIs('admin.areas-operation.*') || request()->routeIs('admin.mission.*') || request()->routeIs('admin.vision.*') || request()->routeIs('admin.core-values.*') || request()->routeIs('admin.capabilities.*') || request()->routeIs('admin.team.*') ? 'open' : '' }}">
+                <a href="javascript:void(0);" class="menu-link menu-toggle {{ request()->routeIs('admin.areas-operation.*') || request()->routeIs('admin.mission.*') || request()->routeIs('admin.vision.*') || request()->routeIs('admin.core-values.*') || request()->routeIs('admin.capabilities.*') || request()->routeIs('admin.team.*') ? 'active' : '' }}">
                     <span class="material-symbols-outlined menu-icon">business</span>
-                    <span class="title">Giới thiệu</span>
+                    <span class="title">{{ __('admin.introduction') }}</span>
                 </a>
                 <ul class="menu-sub">
-                    <li class="menu-item after-sub-menu menu-level">
-                        <a href="javascript:void(0);" class="menu-link menu-toggle">
-                            <span class="title">Tổng quan công ty</span>
+                    <li class="menu-item after-sub-menu menu-level {{ request()->routeIs('admin.areas-operation.*') || request()->routeIs('admin.mission.*') || request()->routeIs('admin.vision.*') || request()->routeIs('admin.core-values.*') || request()->routeIs('admin.capabilities.*') ? 'open' : '' }}">
+                        <a href="javascript:void(0);" class="menu-link menu-toggle {{ request()->routeIs('admin.areas-operation.*') || request()->routeIs('admin.mission.*') || request()->routeIs('admin.vision.*') || request()->routeIs('admin.core-values.*') || request()->routeIs('admin.capabilities.*') ? 'active' : '' }}">
+                            <span class="title">{{ __('admin.company_overview') }}</span>
                         </a>
                         <ul class="menu-sub">
-                            <li class="menu-item">
-                                <a href="{{ route('admin.areas-operation.index') }}" class="menu-link">
-                                    Lĩnh vực hoạt động
+                            <li class="menu-item {{ request()->routeIs('admin.areas-operation.*') ? 'active' : '' }}">
+                                <a href="{{ route('admin.areas-operation.index') }}" class="menu-link {{ request()->routeIs('admin.areas-operation.*') ? 'active' : '' }}">
+                                    {{ __('admin.about.operation') }}
                                 </a>
                             </li>
-                            <li class="menu-item">
-                                <a href="{{ route('admin.mission.index') }}" class="menu-link">
-                                    Sứ mệnh
+                            <li class="menu-item {{ request()->routeIs('admin.mission.*') ? 'active' : '' }}">
+                                <a href="{{ route('admin.mission.index') }}" class="menu-link {{ request()->routeIs('admin.mission.*') ? 'active' : '' }}">
+                                    {{ __('admin.about.mission') }}
                                 </a>
                             </li>
-                            <li class="menu-item">
-                                <a href="{{ route('admin.vision.index') }}" class="menu-link">
+                            <li class="menu-item {{ request()->routeIs('admin.vision.*') ? 'active' : '' }}">
+                                <a href="{{ route('admin.vision.index') }}" class="menu-link {{ request()->routeIs('admin.vision.*') ? 'active' : '' }}">
 
-                                    Tầm nhìn
+                                    {{ __('admin.about.vision') }}
                                 </a>
                             </li>
-                            <li class="menu-item">
-                                <a href="{{ route('admin.core-values.index') }}" class="menu-link">
+                            <li class="menu-item {{ request()->routeIs('admin.core-values.*') ? 'active' : '' }}">
+                                <a href="{{ route('admin.core-values.index') }}" class="menu-link {{ request()->routeIs('admin.core-values.*') ? 'active' : '' }}">
 
-                                    Giá trị cốt lõi
+                                    {{ __('admin.about.core_values') }}
                                 </a>
                             </li>
-                            <li class="menu-item">
-                                <a href="{{ route('admin.capabilities.index') }}" class="menu-link">
+                            <li class="menu-item {{ request()->routeIs('admin.capabilities.*') ? 'active' : '' }}">
+                                <a href="{{ route('admin.capabilities.index') }}" class="menu-link {{ request()->routeIs('admin.capabilities.*') ? 'active' : '' }}">
 
-                                    Năng lực & Kinh nghiệm
+                                    {{ __('admin.about.capabilities') }}
                                 </a>
                             </li>
                         </ul>
                     </li>
-                    <li class="menu-item">
-                        <a href="{{ route('admin.team.index') }}" class="menu-link">
-                            Quản lý Thành viên
+                    <li class="menu-item {{ request()->routeIs('admin.team.*') ? 'active' : '' }}">
+                        <a href="{{ route('admin.team.index') }}" class="menu-link {{ request()->routeIs('admin.team.*') ? 'active' : '' }}">
+                            {{ __('admin.team.members') }}
                         </a>
                     </li>
                 </ul>
             </li>
-              <li class="menu-item">
-                <a href="{{ route('admin.services.index') }}" class="menu-link">
+              <li class="menu-item {{ request()->routeIs('admin.services.*') ? 'active' : '' }}">
+                <a href="{{ route('admin.services.index') }}" class="menu-link {{ request()->routeIs('admin.services.*') ? 'active' : '' }}">
                     <span class="material-symbols-outlined menu-icon">design_services</span>
-                    <span class="title">Quản lý Dịch vụ</span>
+                    <span class="title">{{ __('admin.services.all_services') }}</span>
                 </a>
             </li>
         </ul>

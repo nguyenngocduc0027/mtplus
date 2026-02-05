@@ -4,6 +4,9 @@ return [
     'welcome' => 'Chào mừng đến bảng điều khiển Admin',
     'users' => 'Quản lý người dùng',
     'settings' => 'Cài đặt',
+    'introduction' =>'Giới thiệu',
+    'company_overview' => 'Tổng quan công ty',
+
 
     'dashboard' => [
         'title' => 'Bảng điều khiển Admin',
@@ -19,9 +22,9 @@ return [
         'careers' => 'Cài đặt cơ hội nghề nghiệp',
     ],
     'about' => [
-        ''
-        'mission' => 'Sứ mệnh của chúng tôi',
-        'vision' => 'Tầm nhìn của chúng tôi',
+        'operation' => 'Lĩnh vực hoạt động',
+        'mission' => 'Sứ mệnh',
+        'vision' => 'Tầm nhìn',
         'core_values' => 'Giá trị cốt lõi',
         'capabilities' => 'Năng lực & Kinh nghiệm',
     ],
