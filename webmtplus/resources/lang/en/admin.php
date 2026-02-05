@@ -18,4 +18,18 @@ return [
         'news' => 'News Setup',
         'careers' => 'Careers Setup',
     ],
+    'about' => [
+        'mission' => 'Our Mission',
+        'vision' => 'Our Vision',
+        'core_values' => 'Core Values',
+        'capabilities' => 'Capabilities & Experience',
+    ],
+    'team' => [
+        'members' => 'Team Members',
+        'add_member' => 'Add Team Member',
+    ],
+    'services' => [
+        'all_services' => 'All Services',
+        'add_service' => 'Add New Service',
+    ],
 ];

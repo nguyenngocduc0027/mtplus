@@ -18,4 +18,19 @@ return [
         'news' => 'Cài đặt tin tức',
         'careers' => 'Cài đặt cơ hội nghề nghiệp',
     ],
+    'about' => [
+        ''
+        'mission' => 'Sứ mệnh của chúng tôi',
+        'vision' => 'Tầm nhìn của chúng tôi',
+        'core_values' => 'Giá trị cốt lõi',
+        'capabilities' => 'Năng lực & Kinh nghiệm',
+    ],
+    'team' => [
+        'members' => 'Thành viên đội ngũ',
+        'add_member' => 'Thêm thành viên đội ngũ',
+    ],
+    'services' => [
+        'all_services' => 'Tất cả dịch vụ',
+        'add_service' => 'Thêm dịch vụ mới',
+    ],
 ];
