@@ -56,8 +56,10 @@ class TeamMemberController extends Controller
 
         // Handle photo upload
         if ($request->hasFile('photo')) {
-            $path = $request->file('photo')->store('team', 'public');
-            $validated['photo'] = '/storage/' . $path;
+            $file = $request->file('photo');
+            $filename = time() . '_' . $file->getClientOriginalName();
+            $file->move(public_path('uploads/team'), $filename);
+            $validated['photo'] = '/uploads/team/' . $filename;
         }
 
         // Handle checkboxes (must be done before using them)
@@ -134,16 +136,18 @@ class TeamMemberController extends Controller
 
         // Handle photo upload
         if ($request->hasFile('photo')) {
-            // Only delete old photo if it's an uploaded file (in storage), not default assets
-            if ($team->photo && str_starts_with($team->photo, '/storage/')) {
+            // Only delete old photo if it's an uploaded file, not default assets
+            if ($team->photo && str_starts_with($team->photo, '/uploads/')) {
                 $oldPhotoPath = public_path($team->photo);
                 if (file_exists($oldPhotoPath)) {
                     unlink($oldPhotoPath);
                 }
             }
 
-            $path = $request->file('photo')->store('team', 'public');
-            $validated['photo'] = '/storage/' . $path;
+            $file = $request->file('photo');
+            $filename = time() . '_' . $file->getClientOriginalName();
+            $file->move(public_path('uploads/team'), $filename);
+            $validated['photo'] = '/uploads/team/' . $filename;
         }
 
         // Handle checkboxes (must be done before using them)
@@ -178,8 +182,8 @@ class TeamMemberController extends Controller
 
     public function destroy(TeamMember $team)
     {
-        // Only delete photo if it's an uploaded file (in storage), not default assets
-        if ($team->photo && str_starts_with($team->photo, '/storage/')) {
+        // Only delete photo if it's an uploaded file, not default assets
+        if ($team->photo && str_starts_with($team->photo, '/uploads/')) {
             $photoPath = public_path($team->photo);
             if (file_exists($photoPath)) {
                 unlink($photoPath);

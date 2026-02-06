@@ -65,23 +65,27 @@ class AreasOperationController extends Controller
         // Handle main image upload
         if ($request->hasFile('main_image')) {
             // Delete old image if exists
-            if ($sectionModel->main_image_path && Storage::disk('public')->exists(str_replace('/storage/', '', $sectionModel->main_image_path))) {
-                Storage::disk('public')->delete(str_replace('/storage/', '', $sectionModel->main_image_path));
+            if ($sectionModel->main_image_path && file_exists(public_path($sectionModel->main_image_path))) {
+                unlink(public_path($sectionModel->main_image_path));
             }
 
-            $path = $request->file('main_image')->store('areas-operation', 'public');
-            $validated['main_image_path'] = '/storage/' . $path;
+            $file = $request->file('main_image');
+            $filename = time() . '_main_' . $file->getClientOriginalName();
+            $file->move(public_path('uploads/areas-operation'), $filename);
+            $validated['main_image_path'] = '/uploads/areas-operation/' . $filename;
         }
 
         // Handle thumbnail image upload
         if ($request->hasFile('thumbnail_image')) {
             // Delete old image if exists
-            if ($sectionModel->thumbnail_image_path && Storage::disk('public')->exists(str_replace('/storage/', '', $sectionModel->thumbnail_image_path))) {
-                Storage::disk('public')->delete(str_replace('/storage/', '', $sectionModel->thumbnail_image_path));
+            if ($sectionModel->thumbnail_image_path && file_exists(public_path($sectionModel->thumbnail_image_path))) {
+                unlink(public_path($sectionModel->thumbnail_image_path));
             }
 
-            $path = $request->file('thumbnail_image')->store('areas-operation', 'public');
-            $validated['thumbnail_image_path'] = '/storage/' . $path;
+            $file = $request->file('thumbnail_image');
+            $filename = time() . '_thumb_' . $file->getClientOriginalName();
+            $file->move(public_path('uploads/areas-operation'), $filename);
+            $validated['thumbnail_image_path'] = '/uploads/areas-operation/' . $filename;
         }
 
         // Update section

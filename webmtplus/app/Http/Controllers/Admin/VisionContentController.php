@@ -61,12 +61,14 @@ class VisionContentController extends Controller
         // Handle image upload
         if ($request->hasFile('image')) {
             // Delete old image if exists
-            if ($visionContent->image_path && Storage::disk('public')->exists(str_replace('/storage/', '', $visionContent->image_path))) {
-                Storage::disk('public')->delete(str_replace('/storage/', '', $visionContent->image_path));
+            if ($visionContent->image_path && file_exists(public_path($visionContent->image_path))) {
+                unlink(public_path($visionContent->image_path));
             }
 
-            $path = $request->file('image')->store('vision', 'public');
-            $validated['image_path'] = '/storage/' . $path;
+            $file = $request->file('image');
+            $filename = time() . '_' . $file->getClientOriginalName();
+            $file->move(public_path('uploads/vision'), $filename);
+            $validated['image_path'] = '/uploads/vision/' . $filename;
         }
 
         // Update vision content

@@ -61,12 +61,14 @@ class MissionContentController extends Controller
         // Handle background image upload
         if ($request->hasFile('background_image')) {
             // Delete old image if exists
-            if ($missionContent->background_image_path && Storage::disk('public')->exists(str_replace('/storage/', '', $missionContent->background_image_path))) {
-                Storage::disk('public')->delete(str_replace('/storage/', '', $missionContent->background_image_path));
+            if ($missionContent->background_image_path && file_exists(public_path($missionContent->background_image_path))) {
+                unlink(public_path($missionContent->background_image_path));
             }
 
-            $path = $request->file('background_image')->store('mission', 'public');
-            $validated['background_image_path'] = '/storage/' . $path;
+            $file = $request->file('background_image');
+            $filename = time() . '_' . $file->getClientOriginalName();
+            $file->move(public_path('uploads/mission'), $filename);
+            $validated['background_image_path'] = '/uploads/mission/' . $filename;
         }
 
         // Update mission content

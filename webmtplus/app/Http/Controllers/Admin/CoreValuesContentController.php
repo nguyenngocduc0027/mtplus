@@ -79,12 +79,14 @@ class CoreValuesContentController extends Controller
             if ($request->hasFile($iconField)) {
                 // Delete old icon if exists
                 $oldIconField = 'value_' . $i . '_icon';
-                if ($coreValuesContent->$oldIconField && Storage::disk('public')->exists(str_replace('/storage/', '', $coreValuesContent->$oldIconField))) {
-                    Storage::disk('public')->delete(str_replace('/storage/', '', $coreValuesContent->$oldIconField));
+                if ($coreValuesContent->$oldIconField && file_exists(public_path($coreValuesContent->$oldIconField))) {
+                    unlink(public_path($coreValuesContent->$oldIconField));
                 }
 
-                $path = $request->file($iconField)->store('core-values/icons', 'public');
-                $validated[$iconField] = '/storage/' . $path;
+                $file = $request->file($iconField);
+                $filename = time() . '_value_' . $i . '_' . $file->getClientOriginalName();
+                $file->move(public_path('uploads/core-values/icons'), $filename);
+                $validated[$iconField] = '/uploads/core-values/icons/' . $filename;
             }
         }
 

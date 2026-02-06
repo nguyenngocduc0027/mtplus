@@ -105,35 +105,41 @@ class CapabilitiesContentController extends Controller
 
             if ($request->hasFile($fieldName)) {
                 // Delete old icon if exists
-                if ($capabilitiesContent->$pathField && Storage::disk('public')->exists(str_replace('/storage/', '', $capabilitiesContent->$pathField))) {
-                    Storage::disk('public')->delete(str_replace('/storage/', '', $capabilitiesContent->$pathField));
+                if ($capabilitiesContent->$pathField && file_exists(public_path($capabilitiesContent->$pathField))) {
+                    unlink(public_path($capabilitiesContent->$pathField));
                 }
 
-                $path = $request->file($fieldName)->store('capabilities/features', 'public');
-                $validated[$pathField] = '/storage/' . $path;
+                $file = $request->file($fieldName);
+                $filename = time() . '_feature_' . $i . '_' . $file->getClientOriginalName();
+                $file->move(public_path('uploads/capabilities/features'), $filename);
+                $validated[$pathField] = '/uploads/capabilities/features/' . $filename;
             }
         }
 
         // Handle main image upload
         if ($request->hasFile('main_image')) {
             // Delete old image if exists
-            if ($capabilitiesContent->main_image_path && Storage::disk('public')->exists(str_replace('/storage/', '', $capabilitiesContent->main_image_path))) {
-                Storage::disk('public')->delete(str_replace('/storage/', '', $capabilitiesContent->main_image_path));
+            if ($capabilitiesContent->main_image_path && file_exists(public_path($capabilitiesContent->main_image_path))) {
+                unlink(public_path($capabilitiesContent->main_image_path));
             }
 
-            $path = $request->file('main_image')->store('capabilities/images', 'public');
-            $validated['main_image_path'] = '/storage/' . $path;
+            $file = $request->file('main_image');
+            $filename = time() . '_main_' . $file->getClientOriginalName();
+            $file->move(public_path('uploads/capabilities/images'), $filename);
+            $validated['main_image_path'] = '/uploads/capabilities/images/' . $filename;
         }
 
         // Handle thumbnail image upload
         if ($request->hasFile('thumbnail_image')) {
             // Delete old image if exists
-            if ($capabilitiesContent->thumbnail_image_path && Storage::disk('public')->exists(str_replace('/storage/', '', $capabilitiesContent->thumbnail_image_path))) {
-                Storage::disk('public')->delete(str_replace('/storage/', '', $capabilitiesContent->thumbnail_image_path));
+            if ($capabilitiesContent->thumbnail_image_path && file_exists(public_path($capabilitiesContent->thumbnail_image_path))) {
+                unlink(public_path($capabilitiesContent->thumbnail_image_path));
             }
 
-            $path = $request->file('thumbnail_image')->store('capabilities/images', 'public');
-            $validated['thumbnail_image_path'] = '/storage/' . $path;
+            $file = $request->file('thumbnail_image');
+            $filename = time() . '_thumb_' . $file->getClientOriginalName();
+            $file->move(public_path('uploads/capabilities/images'), $filename);
+            $validated['thumbnail_image_path'] = '/uploads/capabilities/images/' . $filename;
         }
 
         // Update capabilities content

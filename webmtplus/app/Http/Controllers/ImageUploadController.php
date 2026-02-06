@@ -10,12 +10,15 @@ class ImageUploadController extends Controller
 {
      public function upload(Request $request)
     {
-                $request->validate([
+        $request->validate([
             'file' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
-        $path = $request->file('file')->store('uploads/tinymce', 'public');
+        $file = $request->file('file');
+        $filename = time() . '_' . $file->getClientOriginalName();
+        $file->move(public_path('uploads/tinymce'), $filename);
+        $path = '/uploads/tinymce/' . $filename;
 
-        return response()->json(['location' => Storage::url($path)]);
+        return response()->json(['location' => $path]);
     }
 }

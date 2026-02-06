@@ -78,13 +78,17 @@ class AdminController extends Controller
 
         // Handle image uploads
         if ($request->hasFile('hero_slide_image')) {
-            $path = $request->file('hero_slide_image')->store('hero', 'public');
-            $validated['hero_slide_image'] = '/storage/' . $path;
+            $file = $request->file('hero_slide_image');
+            $filename = time() . '_hero_slide_' . $file->getClientOriginalName();
+            $file->move(public_path('uploads/hero'), $filename);
+            $validated['hero_slide_image'] = '/uploads/hero/' . $filename;
         }
 
         if ($request->hasFile('hero_main_image')) {
-            $path = $request->file('hero_main_image')->store('hero', 'public');
-            $validated['hero_main_image'] = '/storage/' . $path;
+            $file = $request->file('hero_main_image');
+            $filename = time() . '_hero_main_' . $file->getClientOriginalName();
+            $file->move(public_path('uploads/hero'), $filename);
+            $validated['hero_main_image'] = '/uploads/hero/' . $filename;
         }
 
         // Handle is_active checkbox
@@ -159,13 +163,17 @@ class AdminController extends Controller
 
         // Handle image uploads
         if ($request->hasFile('about_main_image')) {
-            $path = $request->file('about_main_image')->store('about', 'public');
-            $validated['about_main_image'] = '/storage/' . $path;
+            $file = $request->file('about_main_image');
+            $filename = time() . '_about_main_' . $file->getClientOriginalName();
+            $file->move(public_path('uploads/about'), $filename);
+            $validated['about_main_image'] = '/uploads/about/' . $filename;
         }
 
         if ($request->hasFile('about_thumb_image')) {
-            $path = $request->file('about_thumb_image')->store('about', 'public');
-            $validated['about_thumb_image'] = '/storage/' . $path;
+            $file = $request->file('about_thumb_image');
+            $filename = time() . '_about_thumb_' . $file->getClientOriginalName();
+            $file->move(public_path('uploads/about'), $filename);
+            $validated['about_thumb_image'] = '/uploads/about/' . $filename;
         }
 
         // Handle is_active checkbox
@@ -238,18 +246,24 @@ class AdminController extends Controller
 
         // Handle image uploads
         if ($request->hasFile('service_1_image')) {
-            $path = $request->file('service_1_image')->store('services', 'public');
-            $validated['service_1_image'] = '/storage/' . $path;
+            $file = $request->file('service_1_image');
+            $filename = time() . '_service_1_' . $file->getClientOriginalName();
+            $file->move(public_path('uploads/services'), $filename);
+            $validated['service_1_image'] = '/uploads/services/' . $filename;
         }
 
         if ($request->hasFile('service_2_image')) {
-            $path = $request->file('service_2_image')->store('services', 'public');
-            $validated['service_2_image'] = '/storage/' . $path;
+            $file = $request->file('service_2_image');
+            $filename = time() . '_service_2_' . $file->getClientOriginalName();
+            $file->move(public_path('uploads/services'), $filename);
+            $validated['service_2_image'] = '/uploads/services/' . $filename;
         }
 
         if ($request->hasFile('service_3_image')) {
-            $path = $request->file('service_3_image')->store('services', 'public');
-            $validated['service_3_image'] = '/storage/' . $path;
+            $file = $request->file('service_3_image');
+            $filename = time() . '_service_3_' . $file->getClientOriginalName();
+            $file->move(public_path('uploads/services'), $filename);
+            $validated['service_3_image'] = '/uploads/services/' . $filename;
         }
 
         // Handle is_active checkbox
@@ -331,38 +345,52 @@ class AdminController extends Controller
 
         // Handle image uploads
         if ($request->hasFile('feature_1_icon')) {
-            $path = $request->file('feature_1_icon')->store('why-choose/icons', 'public');
-            $validated['feature_1_icon'] = '/storage/' . $path;
+            $file = $request->file('feature_1_icon');
+            $filename = time() . '_feature_1_icon_' . $file->getClientOriginalName();
+            $file->move(public_path('uploads/why-choose/icons'), $filename);
+            $validated['feature_1_icon'] = '/uploads/why-choose/icons/' . $filename;
         }
 
         if ($request->hasFile('feature_2_icon')) {
-            $path = $request->file('feature_2_icon')->store('why-choose/icons', 'public');
-            $validated['feature_2_icon'] = '/storage/' . $path;
+            $file = $request->file('feature_2_icon');
+            $filename = time() . '_feature_2_icon_' . $file->getClientOriginalName();
+            $file->move(public_path('uploads/why-choose/icons'), $filename);
+            $validated['feature_2_icon'] = '/uploads/why-choose/icons/' . $filename;
         }
 
         if ($request->hasFile('feature_3_icon')) {
-            $path = $request->file('feature_3_icon')->store('why-choose/icons', 'public');
-            $validated['feature_3_icon'] = '/storage/' . $path;
+            $file = $request->file('feature_3_icon');
+            $filename = time() . '_feature_3_icon_' . $file->getClientOriginalName();
+            $file->move(public_path('uploads/why-choose/icons'), $filename);
+            $validated['feature_3_icon'] = '/uploads/why-choose/icons/' . $filename;
         }
 
         if ($request->hasFile('feature_4_icon')) {
-            $path = $request->file('feature_4_icon')->store('why-choose/icons', 'public');
-            $validated['feature_4_icon'] = '/storage/' . $path;
+            $file = $request->file('feature_4_icon');
+            $filename = time() . '_feature_4_icon_' . $file->getClientOriginalName();
+            $file->move(public_path('uploads/why-choose/icons'), $filename);
+            $validated['feature_4_icon'] = '/uploads/why-choose/icons/' . $filename;
         }
 
         if ($request->hasFile('ceo_avatar')) {
-            $path = $request->file('ceo_avatar')->store('why-choose', 'public');
-            $validated['ceo_avatar'] = '/storage/' . $path;
+            $file = $request->file('ceo_avatar');
+            $filename = time() . '_ceo_avatar_' . $file->getClientOriginalName();
+            $file->move(public_path('uploads/why-choose'), $filename);
+            $validated['ceo_avatar'] = '/uploads/why-choose/' . $filename;
         }
 
         if ($request->hasFile('main_image')) {
-            $path = $request->file('main_image')->store('why-choose', 'public');
-            $validated['main_image'] = '/storage/' . $path;
+            $file = $request->file('main_image');
+            $filename = time() . '_main_' . $file->getClientOriginalName();
+            $file->move(public_path('uploads/why-choose'), $filename);
+            $validated['main_image'] = '/uploads/why-choose/' . $filename;
         }
 
         if ($request->hasFile('thumb_image')) {
-            $path = $request->file('thumb_image')->store('why-choose', 'public');
-            $validated['thumb_image'] = '/storage/' . $path;
+            $file = $request->file('thumb_image');
+            $filename = time() . '_thumb_' . $file->getClientOriginalName();
+            $file->move(public_path('uploads/why-choose'), $filename);
+            $validated['thumb_image'] = '/uploads/why-choose/' . $filename;
         }
 
         // Handle is_active checkbox
@@ -441,33 +469,45 @@ class AdminController extends Controller
 
         // Handle image uploads
         if ($request->hasFile('feature_1_icon')) {
-            $path = $request->file('feature_1_icon')->store('commitment/icons', 'public');
-            $validated['feature_1_icon'] = '/storage/' . $path;
+            $file = $request->file('feature_1_icon');
+            $filename = time() . '_feature_1_icon_' . $file->getClientOriginalName();
+            $file->move(public_path('uploads/commitment/icons'), $filename);
+            $validated['feature_1_icon'] = '/uploads/commitment/icons/' . $filename;
         }
 
         if ($request->hasFile('feature_2_icon')) {
-            $path = $request->file('feature_2_icon')->store('commitment/icons', 'public');
-            $validated['feature_2_icon'] = '/storage/' . $path;
+            $file = $request->file('feature_2_icon');
+            $filename = time() . '_feature_2_icon_' . $file->getClientOriginalName();
+            $file->move(public_path('uploads/commitment/icons'), $filename);
+            $validated['feature_2_icon'] = '/uploads/commitment/icons/' . $filename;
         }
 
         if ($request->hasFile('feature_3_icon')) {
-            $path = $request->file('feature_3_icon')->store('commitment/icons', 'public');
-            $validated['feature_3_icon'] = '/storage/' . $path;
+            $file = $request->file('feature_3_icon');
+            $filename = time() . '_feature_3_icon_' . $file->getClientOriginalName();
+            $file->move(public_path('uploads/commitment/icons'), $filename);
+            $validated['feature_3_icon'] = '/uploads/commitment/icons/' . $filename;
         }
 
         if ($request->hasFile('feature_4_icon')) {
-            $path = $request->file('feature_4_icon')->store('commitment/icons', 'public');
-            $validated['feature_4_icon'] = '/storage/' . $path;
+            $file = $request->file('feature_4_icon');
+            $filename = time() . '_feature_4_icon_' . $file->getClientOriginalName();
+            $file->move(public_path('uploads/commitment/icons'), $filename);
+            $validated['feature_4_icon'] = '/uploads/commitment/icons/' . $filename;
         }
 
         if ($request->hasFile('main_image')) {
-            $path = $request->file('main_image')->store('commitment', 'public');
-            $validated['main_image'] = '/storage/' . $path;
+            $file = $request->file('main_image');
+            $filename = time() . '_main_' . $file->getClientOriginalName();
+            $file->move(public_path('uploads/commitment'), $filename);
+            $validated['main_image'] = '/uploads/commitment/' . $filename;
         }
 
         if ($request->hasFile('thumb_image')) {
-            $path = $request->file('thumb_image')->store('commitment', 'public');
-            $validated['thumb_image'] = '/storage/' . $path;
+            $file = $request->file('thumb_image');
+            $filename = time() . '_thumb_' . $file->getClientOriginalName();
+            $file->move(public_path('uploads/commitment'), $filename);
+            $validated['thumb_image'] = '/uploads/commitment/' . $filename;
         }
 
         // Handle is_active checkbox
@@ -630,8 +670,10 @@ class AdminController extends Controller
         // Handle icon uploads
         for ($i = 1; $i <= 5; $i++) {
             if ($request->hasFile('award_' . $i . '_icon')) {
-                $path = $request->file('award_' . $i . '_icon')->store('awards', 'public');
-                $validated['award_' . $i . '_icon'] = '/storage/' . $path;
+                $file = $request->file('award_' . $i . '_icon');
+                $filename = time() . '_award_' . $i . '_' . $file->getClientOriginalName();
+                $file->move(public_path('uploads/awards'), $filename);
+                $validated['award_' . $i . '_icon'] = '/uploads/awards/' . $filename;
             }
         }
 
@@ -722,8 +764,10 @@ class AdminController extends Controller
         // Handle avatar uploads
         for ($i = 1; $i <= 4; $i++) {
             if ($request->hasFile('testimonial_' . $i . '_avatar')) {
-                $path = $request->file('testimonial_' . $i . '_avatar')->store('testimonials', 'public');
-                $validated['testimonial_' . $i . '_avatar'] = '/storage/' . $path;
+                $file = $request->file('testimonial_' . $i . '_avatar');
+                $filename = time() . '_testimonial_' . $i . '_' . $file->getClientOriginalName();
+                $file->move(public_path('uploads/testimonials'), $filename);
+                $validated['testimonial_' . $i . '_avatar'] = '/uploads/testimonials/' . $filename;
             }
         }
 
