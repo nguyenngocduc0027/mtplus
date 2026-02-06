@@ -34,4 +34,10 @@ return [
         'all_services' => 'All Services',
         'add_service' => 'Add New Service',
     ],
+    'projects' => [
+        'all_projects' => 'Project Management',
+        'add_project' => 'Add New Project',
+        'edit_project' => 'Edit Project',
+        'project_details' => 'Project Details',
+    ],
 ];

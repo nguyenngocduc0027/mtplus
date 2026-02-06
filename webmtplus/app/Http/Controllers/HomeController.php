@@ -82,12 +82,13 @@ class HomeController extends Controller
 
     public function project()
     {
-        return view('frontend.pages.project.index');
+        $projects = \App\Models\Project::active()->ordered()->paginate(9);
+        return view('frontend.pages.project.index', compact('projects'));
     }
 
-    public function detailProject()
+    public function detailProject(\App\Models\Project $project)
     {
-        return view('frontend.pages.project.detail-project');
+        return view('frontend.pages.project.detail-project', compact('project'));
     }
 
     public function news()

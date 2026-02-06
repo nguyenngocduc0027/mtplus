@@ -66,6 +66,9 @@ class DatabaseSeeder extends Seeder
             // Services and Team
             ServiceSeeder::class,
             TeamMemberSeeder::class,
+
+            // Projects
+            ProjectSeeder::class,
         ]);
     }
 }

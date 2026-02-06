@@ -8,7 +8,11 @@
       "Bash(php:*)",
       "Bash(dir:*)",
       "Bash(ls:*)",
-      "Bash(find:*)"
+      "Bash(find:*)",
+      "Bash(check_projects.php << 'EOF'\n<?php\nrequire 'vendor/autoload.php';\n$app = require_once 'bootstrap/app.php';\n$app->make\\('Illuminate\\\\Contracts\\\\Console\\\\Kernel'\\)->bootstrap\\(\\);\n\n$count = App\\\\Models\\\\Project::count\\(\\);\necho \"Total projects: $count\\\\n\\\\n\";\n\nif \\($count > 0\\) {\n    echo \"Projects:\\\\n\";\n    App\\\\Models\\\\Project::select\\('id', 'title_vi', 'project_number', 'status'\\)\n        ->orderBy\\('project_number'\\)\n        ->get\\(\\)\n        ->each\\(function\\($p\\) {\n            echo \"  [{$p->project_number}] {$p->title_vi} - {$p->status}\\\\n\";\n        }\\);\n}\nEOF)",
+      "Bash(echo:*)",
+      "Bash(/tmp/update_edit_tabs.txt << 'SCRIPT'\nCấu trúc tabs cần thêm vào edit.blade.php giống create.blade.php:\n1. Thông tin cơ bản - tabs VI/EN cho title, project_type, short_description, location\n2. Nội dung chi tiết - tabs VI/EN cho description\n3. Đặc điểm - tabs VI/EN cho features\n4. Xóa location từ sidebar\nSCRIPT)",
+      "Bash(/tmp/update_edit_tabs.php:*)"
     ]
   }
 }

@@ -173,6 +173,12 @@
                     <span class="title">{{ __('admin.services.all_services') }}</span>
                 </a>
             </li>
+            <li class="menu-item {{ request()->routeIs('admin.projects.*') ? 'active' : '' }}">
+                <a href="{{ route('admin.projects.index') }}" class="menu-link {{ request()->routeIs('admin.projects.*') ? 'active' : '' }}">
+                    <span class="material-symbols-outlined menu-icon">apartment</span>
+                    <span class="title">{{ __('admin.projects.all_projects') }}</span>
+                </a>
+            </li>
         </ul>
     </aside>
 </div>

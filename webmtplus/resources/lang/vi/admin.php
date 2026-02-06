@@ -36,4 +36,10 @@ return [
         'all_services' => 'Tất cả dịch vụ',
         'add_service' => 'Thêm dịch vụ mới',
     ],
+    'projects' => [
+        'all_projects' => 'Quản lý dự án',
+        'add_project' => 'Thêm dự án mới',
+        'edit_project' => 'Chỉnh sửa dự án',
+        'project_details' => 'Chi tiết dự án',
+    ],
 ];

@@ -31,7 +31,7 @@ Route::get('/team', [HomeController::class, 'team'])->name('team');
 Route::get('/team/{slug}', [HomeController::class, 'teamDetail'])->name('team.detail');
 Route::get('/services/{slug}', [HomeController::class, 'service'])->name('services.index');
 Route::get('/project', [HomeController::class, 'project'])->name('project');
-Route::get('/project/detail', [HomeController::class, 'detailProject'])->name('detail-project');
+Route::get('/project/{project:slug}', [HomeController::class, 'detailProject'])->name('detail-project');
 Route::get('/news', [HomeController::class, 'news'])->name('news');
 Route::get('/news/detail', [HomeController::class, 'detailNews'])->name('detail-news');
 Route::get('/career', [HomeController::class, 'career'])->name('career');
@@ -99,5 +99,14 @@ Route::middleware(['auth'])->group(function () {
     Route::get('admin/services/{service:slug}/edit', [\App\Http\Controllers\Admin\ServiceController::class, 'edit'])->name('admin.services.edit');
     Route::put('admin/services/{service:slug}', [\App\Http\Controllers\Admin\ServiceController::class, 'update'])->name('admin.services.update');
     Route::delete('admin/services/{service:slug}', [\App\Http\Controllers\Admin\ServiceController::class, 'destroy'])->name('admin.services.destroy');
+
+    // Projects Management
+    Route::get('admin/projects', [\App\Http\Controllers\Admin\ProjectController::class, 'index'])->name('admin.projects.index');
+    Route::get('admin/projects/create', [\App\Http\Controllers\Admin\ProjectController::class, 'create'])->name('admin.projects.create');
+    Route::post('admin/projects', [\App\Http\Controllers\Admin\ProjectController::class, 'store'])->name('admin.projects.store');
+    Route::get('admin/projects/{project:slug}', [\App\Http\Controllers\Admin\ProjectController::class, 'show'])->name('admin.projects.show');
+    Route::get('admin/projects/{project:slug}/edit', [\App\Http\Controllers\Admin\ProjectController::class, 'edit'])->name('admin.projects.edit');
+    Route::put('admin/projects/{project:slug}', [\App\Http\Controllers\Admin\ProjectController::class, 'update'])->name('admin.projects.update');
+    Route::delete('admin/projects/{project:slug}', [\App\Http\Controllers\Admin\ProjectController::class, 'destroy'])->name('admin.projects.destroy');
 });
 Route::post('/admin/upload-image', [ImageUploadController::class, 'upload'])->name('admin.upload-image');

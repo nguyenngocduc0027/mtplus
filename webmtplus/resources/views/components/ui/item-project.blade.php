@@ -1,5 +1,20 @@
+@props([
+    'nameProject' => '',
+    'counter' => '',
+    'status' => '',
+    'linkProject' => '#',
+    'imageProject' => null,
+])
+
 <div class="col-xl-4 col-md-6">
     <div class="project-card style-four bg-3 position-relative overflow-hidden z-1 round-10 mb-45">
+        @if($imageProject)
+            <div class="project-image position-relative mb-3">
+                <a href="{{ $linkProject }}">
+                    <img src="{{ $imageProject }}" alt="{{ $nameProject }}" class="w-100 round-10" style="height: 250px; object-fit: cover;">
+                </a>
+            </div>
+        @endif
         <span class="project-status transition">{{ $status }}</span>
         <span class="project-counter text-center font-secondary fw-semibold d-block lh-1 transition">{{ $counter }}</span>
         <div class="project-title d-flex flex-wrap align-items-center justify-content-between">
