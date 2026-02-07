@@ -1,171 +1,143 @@
 @extends('backend.layouts.app')
 @props(['pageTitle' => 'Quản lý Dự án'])
-@push('styles')
-    <style>
-        .project-image {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-        }
-        .badge-featured {
-            background-color: #ffc107;
-            color: #000;
-            font-weight: bold;
-            font-size: 11px;
-            padding: 4px 8px;
-        }
-        .badge-completed {
-            background-color: #28a745;
-            color: #fff;
-        }
-        .badge-in-progress {
-            background-color: #17a2b8;
-            color: #fff;
-        }
-    </style>
-@endpush
 @section('content-backend')
     <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 mb-4 mt-1">
         <h3 class="mb-0">{{ $pageTitle }}</h3>
         <x-admin.ui.breadcrumb :pageTitle="$pageTitle" />
     </div>
 
-    <div class="card bg-white rounded-10 border border-white p-20 mb-4">
-        <div class="d-flex flex-wrap gap-2 justify-content-between align-items-center">
+    <div class="card bg-white rounded-10 border border-white mb-4">
+        <div class="d-flex justify-content-between align-items-center flex-wrap gap-3 p-20">
+            <div class="d-flex flex-wrap gap-2 gap-xxl-5 align-items-center">
+                <form class="table-src-form position-relative m-0">
+                    <input type="text" class="form-control w-340" placeholder="Tìm kiếm..." id="searchInput">
+                    <div class="src-btn position-absolute top-50 start-0 translate-middle-y bg-transparent p-0 border-0">
+                        <span class="material-symbols-outlined">search</span>
+                    </div>
+                </form>
+                <ul class="p-0 mb-0 list-unstyled d-flex align-items-center flex-wrap" style="gap: 20px;">
+                    <li class="fs-16">
+                        Tất cả dự án <span class="text-primary">({{ $projects->total() }})</span>
+                    </li>
+                    <li class="fs-16">
+                        Đang hoạt động <span class="text-primary">({{ \App\Models\Project::active()->count() }})</span>
+                    </li>
+                    <li class="fs-16">
+                        Hoàn thành <span class="text-primary">({{ \App\Models\Project::completed()->count() }})</span>
+                    </li>
+                </ul>
+            </div>
+
             <a href="{{ route('admin.projects.create') }}" class="text-primary fs-16 text-decoration-none">
-                <i class="ri-add-line"></i> Thêm dự án mới
+                + Thêm dự án mới
             </a>
-            <form class="table-src-form position-relative m-0" id="searchForm">
-                <input type="text" class="form-control" id="searchInput" placeholder="Tìm kiếm dự án...">
-                <div class="src-btn position-absolute top-50 start-0 translate-middle-y bg-transparent p-0 border-0">
-                    <span class="material-symbols-outlined">search</span>
-                </div>
-            </form>
         </div>
-    </div>
 
-    <div class="row" id="projectsGrid">
-        @forelse($projects as $project)
-            <div class="col-xxl-4 col-lg-6 col-md-6 project-card"
-                 data-title="{{ strtolower($project->title_vi . ' ' . $project->title_en) }}"
-                 data-number="{{ $project->project_number }}">
-                <div class="card bg-white rounded-10 border border-white mb-4 overflow-hidden">
-                    @if($project->main_image)
-                        <img src="{{ $project->main_image }}" class="project-image" alt="{{ $project->title_vi }}">
-                    @else
-                        <div class="project-image bg-light d-flex align-items-center justify-content-center">
-                            <i class="ri-image-line fs-48 text-secondary"></i>
-                        </div>
-                    @endif
-
-                    <div class="p-20">
-                        <div class="d-flex justify-content-between align-items-start mb-2">
-                            <div class="flex-grow-1">
-                                <div class="d-flex gap-2 mb-2 flex-wrap">
-                                    <span class="badge {{ $project->status === 'completed' ? 'badge-completed' : 'badge-in-progress' }}">
-                                        {{ $project->status === 'completed' ? 'Hoàn thành' : 'Đang thực hiện' }}
-                                    </span>
-                                    @if($project->is_featured)
-                                        <span class="badge badge-featured">
-                                            <i class="ri-star-line"></i> Nổi bật
-                                        </span>
+        <div class="default-table-area mx-minus-1 table-product-list">
+            <div class="table-responsive">
+                <table class="table align-middle" id="projectsTable">
+                    <thead>
+                        <tr>
+                            <th scope="col" class="fw-medium ps-20">Số DA</th>
+                            <th scope="col" class="fw-medium">Dự án</th>
+                            <th scope="col" class="fw-medium">Loại</th>
+                            <th scope="col" class="fw-medium">Địa điểm</th>
+                            <th scope="col" class="fw-medium">Ngày khởi công</th>
+                            <th scope="col" class="fw-medium">Trạng thái</th>
+                            <th scope="col" class="fw-medium">Hiển thị</th>
+                            <th scope="col" class="fw-medium">Thao tác</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @forelse($projects as $project)
+                            <tr class="project-row"
+                                data-search="{{ strtolower($project->title_vi . ' ' . $project->title_en . ' ' . $project->project_number . ' ' . $project->location_vi) }}">
+                                <td class="text-body ps-20">
+                                    <span class="badge bg-primary">{{ $project->project_number ?? '-' }}</span>
+                                </td>
+                                <td class="text-body">
+                                    <div class="d-flex align-items-center">
+                                        <a href="{{ route('admin.projects.show', $project->slug) }}" class="flex-shrink-0">
+                                            @if($project->main_image)
+                                                <img src="{{ $project->main_image }}" style="width: 50px; height: 50px; object-fit: cover;" class="rounded" alt="{{ $project->title_vi }}">
+                                            @else
+                                                <div style="width: 50px; height: 50px;" class="rounded bg-light d-flex align-items-center justify-content-center">
+                                                    <i class="material-symbols-outlined text-secondary">apartment</i>
+                                                </div>
+                                            @endif
+                                        </a>
+                                        <div class="flex-grow-1 ms-12">
+                                            <a href="{{ route('admin.projects.show', $project->slug) }}" class="fs-16 text-secondary text-decoration-none hover-text fw-medium d-block">
+                                                {{ $project->title_vi }}
+                                            </a>
+                                            <span class="fs-13 text-body">{{ $project->title_en }}</span>
+                                            @if($project->is_featured)
+                                                <span class="badge bg-warning text-dark ms-2">
+                                                    <i class="ri-star-fill"></i> Nổi bật
+                                                </span>
+                                            @endif
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="text-body">{{ $project->project_type_vi ?? '-' }}</td>
+                                <td class="text-body">{{ $project->location_vi ?? '-' }}</td>
+                                <td class="text-body">
+                                    {{ $project->commencement_date ? $project->commencement_date->format('d/m/Y') : '-' }}
+                                </td>
+                                <td class="text-body">
+                                    @if($project->status === 'completed')
+                                        <span class="badge bg-success">Hoàn thành</span>
+                                    @else
+                                        <span class="badge bg-info">Đang thực hiện</span>
                                     @endif
-                                    @if(!$project->is_active)
+                                </td>
+                                <td class="text-body">
+                                    @if($project->is_active)
+                                        <span class="badge bg-success">Hiện</span>
+                                    @else
                                         <span class="badge bg-secondary">Ẩn</span>
                                     @endif
-                                </div>
-                                <h4 class="mb-1 fs-18">{{ $project->title_vi }}</h4>
-                                <p class="fs-14 text-secondary mb-1">{{ $project->title_en }}</p>
-                                @if($project->project_number)
-                                    <span class="badge bg-light text-dark">Số: {{ $project->project_number }}</span>
-                                @endif
-                            </div>
-
-                            <div class="dropdown select-dropdown without-border">
-                                <button class="bg-transparent border-0 p-0 text-body" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <i class="material-symbols-outlined fs-24 text-secondary">more_horiz</i>
-                                </button>
-
-                                <ul class="dropdown-menu dropdown-menu-end bg-white border-0 box-shadow rounded-10">
-                                    <li>
-                                        <a class="dropdown-item text-secondary" href="{{ route('admin.projects.show', $project->slug) }}">
-                                            <i class="ri-eye-line me-2"></i>Xem chi tiết
+                                </td>
+                                <td>
+                                    <div class="d-flex justify-content-end" style="gap: 12px;">
+                                        <a href="{{ route('admin.projects.show', $project->slug) }}" class="bg-transparent p-0 border-0" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Xem chi tiết">
+                                            <i class="material-symbols-outlined fs-16 fw-normal text-primary">visibility</i>
                                         </a>
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item text-secondary" href="{{ route('admin.projects.edit', $project->slug) }}">
-                                            <i class="ri-edit-line me-2"></i>Chỉnh sửa
+                                        <a href="{{ route('admin.projects.edit', $project->slug) }}" class="bg-transparent p-0 border-0 hover-text-success" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Chỉnh sửa">
+                                            <i class="material-symbols-outlined fs-16 fw-normal text-body">edit</i>
                                         </a>
-                                    </li>
-                                    <li>
-                                        <hr class="dropdown-divider">
-                                    </li>
-                                    <li>
-                                        <form action="{{ route('admin.projects.destroy', $project->slug) }}"
-                                              method="POST"
-                                              class="delete-form">
+                                        <form action="{{ route('admin.projects.destroy', $project->slug) }}" method="POST" class="delete-form d-inline">
                                             @csrf
                                             @method('DELETE')
-                                            <button type="submit" class="dropdown-item text-danger">
-                                                <i class="ri-delete-bin-line me-2"></i>Xóa
+                                            <button type="submit" class="bg-transparent p-0 border-0 hover-text-danger" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Xóa">
+                                                <i class="material-symbols-outlined fs-16 fw-normal text-body">delete</i>
                                             </button>
                                         </form>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <ul class="p-0 mb-3 list-unstyled">
-                            @if($project->project_type_vi)
-                                <li class="mb-2 text-secondary fs-14">
-                                    <i class="ri-briefcase-line me-2"></i>
-                                    <strong>Loại:</strong> {{ $project->project_type_vi }}
-                                </li>
-                            @endif
-                            @if($project->location_vi)
-                                <li class="mb-2 text-secondary fs-14">
-                                    <i class="ri-map-pin-line me-2"></i>
-                                    <strong>Địa điểm:</strong> {{ $project->location_vi }}
-                                </li>
-                            @endif
-                            @if($project->commencement_date)
-                                <li class="mb-2 text-secondary fs-14">
-                                    <i class="ri-calendar-line me-2"></i>
-                                    <strong>Ngày khởi công:</strong> {{ $project->commencement_date->format('d/m/Y') }}
-                                </li>
-                            @endif
-                        </ul>
-
-                        <div class="d-flex gap-2">
-                            <a href="{{ route('admin.projects.edit', $project->slug) }}"
-                               class="btn btn-outline-primary btn-sm flex-grow-1">
-                                <i class="ri-edit-line"></i> Sửa
-                            </a>
-                            <a href="{{ route('admin.projects.show', $project->slug) }}"
-                               class="btn btn-primary btn-sm flex-grow-1">
-                                <i class="ri-eye-line"></i> Xem
-                            </a>
-                        </div>
-                    </div>
-                </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        @empty
+                            <tr>
+                                <td colspan="8" class="text-center py-5">
+                                    <i class="ri-folder-open-line fs-48 text-secondary mb-3 d-block"></i>
+                                    <p class="text-secondary mb-0">
+                                        Chưa có dự án nào.
+                                        <a href="{{ route('admin.projects.create') }}" class="text-primary">Thêm dự án mới</a>
+                                    </p>
+                                </td>
+                            </tr>
+                        @endforelse
+                    </tbody>
+                </table>
             </div>
-        @empty
-            <div class="col-12">
-                <div class="card bg-white p-20 rounded-10 text-center">
-                    <i class="ri-folder-open-line fs-48 text-secondary mb-3"></i>
-                    <p class="text-secondary">Chưa có dự án nào.
-                        <a href="{{ route('admin.projects.create') }}" class="text-primary">Thêm dự án mới</a>
-                    </p>
-                </div>
-            </div>
-        @endforelse
-    </div>
-
-    @if($projects->hasPages())
-        <div class="d-flex justify-content-center mt-4">
-            {{ $projects->links() }}
         </div>
-    @endif
+
+        @if($projects->hasPages())
+            <div class="p-20 pt-0">
+                {{ $projects->links() }}
+            </div>
+        @endif
+    </div>
 @endsection
 
 @push('scripts')
@@ -173,17 +145,14 @@
         // Search functionality
         document.getElementById('searchInput').addEventListener('keyup', function(e) {
             const searchTerm = e.target.value.toLowerCase();
-            const cards = document.querySelectorAll('.project-card');
+            const rows = document.querySelectorAll('.project-row');
 
-            cards.forEach(card => {
-                const title = card.dataset.title;
-                const number = card.dataset.number;
-                const searchText = title + ' ' + number;
-
-                if (searchText.includes(searchTerm)) {
-                    card.style.display = '';
+            rows.forEach(row => {
+                const searchData = row.dataset.search;
+                if (searchData.includes(searchTerm)) {
+                    row.style.display = '';
                 } else {
-                    card.style.display = 'none';
+                    row.style.display = 'none';
                 }
             });
         });
@@ -197,5 +166,9 @@
                 }
             });
         });
+
+        // Initialize tooltips
+        const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
+        const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl));
     </script>
 @endpush
