@@ -123,7 +123,7 @@
 
                         <div class="col-md-6 mb-3">
                             <label class="form-label fw-semibold">Trạng thái <span class="text-danger">*</span></label>
-                            <select name="status" class="form-select @error('status') is-invalid @enderror" required>
+                            <select name="status" class="form-select form-control @error('status') is-invalid @enderror" required>
                                 <option value="in_progress" {{ old('status') === 'in_progress' ? 'selected' : '' }}>Đang thực hiện</option>
                                 <option value="completed" {{ old('status') === 'completed' ? 'selected' : '' }}>Hoàn thành</option>
                             </select>

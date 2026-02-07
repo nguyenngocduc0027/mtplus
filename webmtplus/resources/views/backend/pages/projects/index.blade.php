@@ -142,6 +142,52 @@
 
 @push('scripts')
     <script>
+        // Check for success message from URL parameter or session
+        document.addEventListener('DOMContentLoaded', function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const successMessage = urlParams.get('success') || '{{ session('success') }}';
+
+            if (successMessage && successMessage !== '') {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Thành công!',
+                    text: successMessage,
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#3085d6',
+                    timer: 3000,
+                    timerProgressBar: true
+                });
+
+                // Clean URL by removing success parameter
+                if (urlParams.has('success')) {
+                    const newUrl = window.location.pathname;
+                    window.history.replaceState({}, document.title, newUrl);
+                }
+            }
+
+            // Check for error message
+            @if(session('error'))
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Lỗi!',
+                    text: '{{ session('error') }}',
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#d33'
+                });
+            @endif
+
+            // Check for validation errors
+            @if($errors->any())
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Lỗi xác thực!',
+                    html: '<ul style="text-align: left;">@foreach($errors->all() as $error)<li>{{ $error }}</li>@endforeach</ul>',
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#d33'
+                });
+            @endif
+        });
+
         // Search functionality
         document.getElementById('searchInput').addEventListener('keyup', function(e) {
             const searchTerm = e.target.value.toLowerCase();
@@ -157,13 +203,24 @@
             });
         });
 
-        // Delete confirmation
+        // Delete confirmation with SweetAlert
         document.querySelectorAll('.delete-form').forEach(form => {
             form.addEventListener('submit', function(e) {
                 e.preventDefault();
-                if (confirm('Bạn có chắc chắn muốn xóa dự án này?')) {
-                    this.submit();
-                }
+                Swal.fire({
+                    title: 'Xác nhận xóa?',
+                    text: 'Bạn có chắc chắn muốn xóa dự án này? Hành động này không thể hoàn tác!',
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#d33',
+                    cancelButtonColor: '#3085d6',
+                    confirmButtonText: 'Xóa',
+                    cancelButtonText: 'Hủy'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        this.submit();
+                    }
+                });
             });
         });
 
