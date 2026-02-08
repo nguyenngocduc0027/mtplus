@@ -1,5 +1,5 @@
 @extends('backend.layouts.app')
-@props(['pageTitle' => 'Quản lý Dịch vụ'])
+@props(['pageTitle' => __('admin.services.manage_services')])
 @push('styles')
     <style>
         .service-icon-sm {
@@ -21,14 +21,14 @@
     <div class="card bg-white rounded-10 border border-white mb-4">
         <div class="d-flex justify-content-between align-items-center flex-wrap gap-3 p-20">
             <form class="table-src-form position-relative m-0" id="searchForm">
-                <input type="text" class="form-control w-350" id="searchInput" placeholder="Tìm kiếm dịch vụ...">
+                <input type="text" class="form-control w-350" id="searchInput" placeholder="{{ __("admin.services.search_placeholder") }}">
                 <div class="src-btn position-absolute top-50 start-0 translate-middle-y bg-transparent p-0 border-0">
                     <span class="material-symbols-outlined">search</span>
                 </div>
             </form>
 
             <a href="{{ route('admin.services.create') }}" class="text-primary fs-16 text-decoration-none">
-                + Thêm dịch vụ mới
+                + {{ __("admin.services.add_service") }}
             </a>
         </div>
 
@@ -37,13 +37,13 @@
                 <table class="table align-middle">
                     <thead>
                         <tr>
-                            <th scope="col" class="fw-medium">Slug</th>
-                            <th scope="col" class="fw-medium">Dịch vụ</th>
-                            <th scope="col" class="fw-medium">Tiêu đề (EN)</th>
-                            <th scope="col" class="fw-medium">Mô tả ngắn</th>
-                            <th scope="col" class="fw-medium">Trạng thái</th>
-                            <th scope="col" class="fw-medium">Ngày tạo</th>
-                            <th scope="col" class="fw-medium">Thao tác</th>
+                            <th scope="col" class="fw-medium">{{ __("admin.services.slug") }}</th>
+                            <th scope="col" class="fw-medium">{{ __("admin.services.service") }}</th>
+                            <th scope="col" class="fw-medium">{{ __("admin.services.title_en") }}</th>
+                            <th scope="col" class="fw-medium">{{ __("admin.services.short_description") }}</th>
+                            <th scope="col" class="fw-medium">{{ __("admin.services.status") }}</th>
+                            <th scope="col" class="fw-medium">{{ __("admin.services.created_date") }}</th>
+                            <th scope="col" class="fw-medium">{{ __("admin.services.actions") }}</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -67,7 +67,7 @@
                                             <h4 class="fw-medium fs-16 mb-0">{{ $service->title_vi }}</h4>
                                             @if($service->is_featured)
                                                 <span class="badge bg-warning text-dark fs-12 mt-1">
-                                                    <i class="ri-star-fill"></i> Nổi bật
+                                                    <i class="ri-star-fill"></i> {{ __("admin.services.featured") }}
                                                 </span>
                                             @endif
                                         </div>
@@ -125,9 +125,9 @@
                             <tr>
                                 <td colspan="7" class="text-center py-5">
                                     <i class="ri-service-line" style="font-size: 64px; color: #ddd;"></i>
-                                    <p class="text-muted mt-3 mb-3">Chưa có dịch vụ nào. Thêm dịch vụ đầu tiên!</p>
+                                    <p class="text-muted mt-3 mb-3">{{ __("admin.services.no_services") }}</p>
                                     <a href="{{ route('admin.services.create') }}" class="btn btn-primary">
-                                        <i class="ri-add-line"></i> Thêm dịch vụ mới
+                                        <i class="ri-add-line"></i> {{ __("admin.services.add_service") }}
                                     </a>
                                 </td>
                             </tr>
@@ -161,9 +161,9 @@
             if (successMessage && successMessage !== '') {
                 Swal.fire({
                     icon: 'success',
-                    title: 'Thành công!',
+                    title: '{{ __('admin.services.success_title') }}',
                     text: successMessage,
-                    confirmButtonText: 'OK',
+                    confirmButtonText: '{{ __('admin.services.ok_button') }}',
                     confirmButtonColor: '#3085d6',
                     timer: 3000,
                     timerProgressBar: true
@@ -205,14 +205,14 @@
             form.addEventListener('submit', function(e) {
                 e.preventDefault();
                 Swal.fire({
-                    title: 'Xác nhận xóa?',
-                    text: 'Bạn có chắc chắn muốn xóa dịch vụ này?',
+                    title: '{{ __('admin.services.confirm_delete_title') }}',
+                    text: '{{ __('admin.services.confirm_delete_text') }}',
                     icon: 'warning',
                     showCancelButton: true,
                     confirmButtonColor: '#d33',
                     cancelButtonColor: '#3085d6',
-                    confirmButtonText: 'Xóa',
-                    cancelButtonText: 'Hủy'
+                    confirmButtonText: '{{ __('admin.services.confirm_delete_button') }}',
+                    cancelButtonText: '{{ __('admin.services.cancel_button') }}'
                 }).then((result) => {
                     if (result.isConfirmed) {
                         form.submit();

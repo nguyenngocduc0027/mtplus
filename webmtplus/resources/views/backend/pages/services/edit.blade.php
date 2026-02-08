@@ -1,5 +1,5 @@
 @extends('backend.layouts.app')
-@props(['pageTitle' => 'Chỉnh sửa dịch vụ'])
+@props(['pageTitle' => __('admin.services.edit_service')])
 @push('styles')
     <style>
         .language-tabs {

@@ -35,6 +35,78 @@ return [
     'services' => [
         'all_services' => 'Tất cả dịch vụ',
         'add_service' => 'Thêm dịch vụ mới',
+        'manage_services' => 'Quản lý Dịch vụ',
+        'edit_service' => 'Chỉnh sửa dịch vụ',
+        'service_details' => 'Chi tiết Dịch vụ',
+        'search_placeholder' => 'Tìm kiếm dịch vụ...',
+
+        // Table headers
+        'slug' => 'Slug',
+        'service' => 'Dịch vụ',
+        'title_en' => 'Tiêu đề (EN)',
+        'title_vi' => 'Tiêu đề (VI)',
+        'short_description' => 'Mô tả ngắn',
+        'status' => 'Trạng thái',
+        'created_date' => 'Ngày tạo',
+        'actions' => 'Thao tác',
+
+        // Form fields
+        'basic_info' => 'Thông tin cơ bản',
+        'content' => 'Nội dung',
+        'icon' => 'Icon',
+        'additional_info' => 'Thông tin bổ sung',
+
+        'title' => 'Tiêu đề',
+        'description' => 'Mô tả',
+        'short_description_vi' => 'Mô tả ngắn (VI)',
+        'short_description_en' => 'Mô tả ngắn (EN)',
+        'description_vi' => 'Mô tả chi tiết (VI)',
+        'description_en' => 'Mô tả chi tiết (EN)',
+
+        'icon_label' => 'Icon dịch vụ',
+        'current_icon' => 'Icon hiện tại',
+        'select_new_icon' => 'Chọn icon mới',
+        'icon_help' => 'SVG, PNG, JPG (tối đa 2MB)',
+
+        'order' => 'Thứ tự',
+        'featured_service' => 'Dịch vụ nổi bật',
+        'show_service' => 'Hiển thị',
+
+        // Buttons & Actions
+        'save_service' => 'Lưu dịch vụ',
+        'back' => 'Quay lại',
+        'edit' => 'Chỉnh sửa',
+        'delete' => 'Xóa',
+        'view' => 'Xem chi tiết',
+
+        // Status
+        'active' => 'Hoạt động',
+        'inactive' => 'Ẩn',
+        'featured' => 'Nổi bật',
+
+        // Messages
+        'no_services' => 'Chưa có dịch vụ nào. Thêm dịch vụ đầu tiên!',
+        'confirm_delete_title' => 'Xác nhận xóa?',
+        'confirm_delete_text' => 'Bạn có chắc chắn muốn xóa dịch vụ này?',
+        'confirm_delete_button' => 'Xóa',
+        'cancel_button' => 'Hủy',
+
+        'create_success' => 'Thêm dịch vụ thành công!',
+        'update_success' => 'Cập nhật dịch vụ thành công!',
+        'delete_success' => 'Xóa dịch vụ thành công!',
+
+        'success_title' => 'Thành công!',
+        'error_title' => 'Lỗi!',
+        'ok_button' => 'OK',
+
+        // Languages
+        'vietnamese' => 'Tiếng Việt',
+        'english' => 'English',
+
+        // System info
+        'system_info' => 'Thông tin hệ thống',
+        'created_at' => 'Ngày tạo',
+        'updated_at' => 'Ngày cập nhật',
     ],
     'projects' => [
         'all_projects' => 'Quản lý dự án',

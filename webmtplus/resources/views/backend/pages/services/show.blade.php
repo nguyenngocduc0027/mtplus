@@ -1,5 +1,5 @@
 @extends('backend.layouts.app')
-@props(['pageTitle' => 'Chi tiết Dịch vụ'])
+@props(['pageTitle' => __('admin.services.service_details')])
 @push('styles')
     <style>
         .service-icon-display {
@@ -72,7 +72,7 @@
                 <h4 class="mb-0">{{ $service->title_vi }}</h4>
                 <div class="d-flex gap-2">
                     <a href="{{ route('admin.services.edit', $service->slug) }}" class="btn btn-primary">
-                        <i class="ri-edit-line"></i> Chỉnh sửa
+                        <i class="ri-edit-line"></i> {{ __("admin.services.edit") }}
                     </a>
                     <a href="{{ route('admin.services.index') }}" class="btn btn-secondary">
                         <i class="ri-arrow-left-line"></i> Quay lại
@@ -114,7 +114,7 @@
                         <div class="info-value">
                             @if($service->is_featured)
                                 <span class="badge bg-warning badge-large">
-                                    <i class="ri-star-fill"></i> Nổi bật
+                                    <i class="ri-star-fill"></i> {{ __("admin.services.featured") }}
                                 </span>
                             @else
                                 <span class="badge bg-secondary badge-large">Không</span>
@@ -218,7 +218,7 @@
                     <i class="ri-arrow-left-line"></i> Quay lại danh sách
                 </a>
                 <a href="{{ route('admin.services.edit', $service->slug) }}" class="btn btn-primary">
-                    <i class="ri-edit-line"></i> Chỉnh sửa
+                    <i class="ri-edit-line"></i> {{ __("admin.services.edit") }}
                 </a>
                 
             </div>

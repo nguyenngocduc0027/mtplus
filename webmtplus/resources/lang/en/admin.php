@@ -33,6 +33,78 @@ return [
     'services' => [
         'all_services' => 'All Services',
         'add_service' => 'Add New Service',
+        'manage_services' => 'Service Management',
+        'edit_service' => 'Edit Service',
+        'service_details' => 'Service Details',
+        'search_placeholder' => 'Search services...',
+
+        // Table headers
+        'slug' => 'Slug',
+        'service' => 'Service',
+        'title_en' => 'Title (EN)',
+        'title_vi' => 'Title (VI)',
+        'short_description' => 'Short Description',
+        'status' => 'Status',
+        'created_date' => 'Created Date',
+        'actions' => 'Actions',
+
+        // Form fields
+        'basic_info' => 'Basic Information',
+        'content' => 'Content',
+        'icon' => 'Icon',
+        'additional_info' => 'Additional Information',
+
+        'title' => 'Title',
+        'description' => 'Description',
+        'short_description_vi' => 'Short Description (VI)',
+        'short_description_en' => 'Short Description (EN)',
+        'description_vi' => 'Detailed Description (VI)',
+        'description_en' => 'Detailed Description (EN)',
+
+        'icon_label' => 'Service Icon',
+        'current_icon' => 'Current Icon',
+        'select_new_icon' => 'Select new icon',
+        'icon_help' => 'SVG, PNG, JPG (max 2MB)',
+
+        'order' => 'Order',
+        'featured_service' => 'Featured Service',
+        'show_service' => 'Show Service',
+
+        // Buttons & Actions
+        'save_service' => 'Save Service',
+        'back' => 'Back',
+        'edit' => 'Edit',
+        'delete' => 'Delete',
+        'view' => 'View Details',
+
+        // Status
+        'active' => 'Active',
+        'inactive' => 'Hidden',
+        'featured' => 'Featured',
+
+        // Messages
+        'no_services' => 'No services yet. Add your first service!',
+        'confirm_delete_title' => 'Confirm Delete?',
+        'confirm_delete_text' => 'Are you sure you want to delete this service?',
+        'confirm_delete_button' => 'Delete',
+        'cancel_button' => 'Cancel',
+
+        'create_success' => 'Service created successfully!',
+        'update_success' => 'Service updated successfully!',
+        'delete_success' => 'Service deleted successfully!',
+
+        'success_title' => 'Success!',
+        'error_title' => 'Error!',
+        'ok_button' => 'OK',
+
+        // Languages
+        'vietnamese' => 'Tiếng Việt',
+        'english' => 'English',
+
+        // System info
+        'system_info' => 'System Information',
+        'created_at' => 'Created At',
+        'updated_at' => 'Updated At',
     ],
     'projects' => [
         'all_projects' => 'Project Management',

@@ -48,12 +48,12 @@ class ServiceController extends Controller
         if (request()->ajax()) {
             return response()->json([
                 'success' => true,
-                'message' => 'Thêm dịch vụ thành công!'
+                'message' => __('admin.services.create_success')
             ]);
         }
 
         return redirect()->route('admin.services.index')
-            ->with('success', 'Thêm dịch vụ thành công!');
+            ->with('success', __('admin.services.create_success'));
     }
 
     public function show(Service $service)
@@ -93,12 +93,12 @@ class ServiceController extends Controller
         if (request()->ajax()) {
             return response()->json([
                 'success' => true,
-                'message' => 'Cập nhật dịch vụ thành công!'
+                'message' => __('admin.services.update_success')
             ]);
         }
 
         return redirect()->route('admin.services.index')
-            ->with('success', 'Cập nhật dịch vụ thành công!');
+            ->with('success', __('admin.services.update_success'));
     }
 
     public function destroy(Service $service)
@@ -108,6 +108,6 @@ class ServiceController extends Controller
         $service->delete();
 
         return redirect()->route('admin.services.index')
-            ->with('success', 'Xóa dịch vụ thành công!');
+            ->with('success', __('admin.services.delete_success'));
     }
 }
