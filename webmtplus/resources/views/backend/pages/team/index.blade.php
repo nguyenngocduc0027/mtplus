@@ -1,5 +1,5 @@
 @extends('backend.layouts.app')
-@props(['pageTitle' => 'Quản lý Thành viên'])
+@props(['pageTitle' => __('admin.team.manage_members')])
 @push('styles')
     <style>
         .member-photo {

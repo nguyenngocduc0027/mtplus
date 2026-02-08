@@ -1,5 +1,5 @@
 @extends('backend.layouts.app')
-@props(['pageTitle' => 'Thêm thành viên mới'])
+@props(['pageTitle' => __('admin.team.add_member')])
 @push('styles')
     <style>
         .language-tabs {

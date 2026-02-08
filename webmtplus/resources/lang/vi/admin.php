@@ -31,6 +31,97 @@ return [
     'team' => [
         'members' => 'Thành viên đội ngũ',
         'add_member' => 'Thêm thành viên đội ngũ',
+        'manage_members' => 'Quản lý Thành viên',
+        'edit_member' => 'Chỉnh sửa thành viên',
+        'member_details' => 'Chi tiết thành viên',
+        'search_placeholder' => 'Tìm kiếm thành viên...',
+
+        // Table headers
+        'name' => 'Họ tên',
+        'name_vi' => 'Họ tên (VI)',
+        'name_en' => 'Họ tên (EN)',
+        'position' => 'Chức vụ',
+        'position_vi' => 'Chức vụ (VI)',
+        'position_en' => 'Chức vụ (EN)',
+        'email' => 'Email',
+        'phone' => 'Điện thoại',
+        'status' => 'Trạng thái',
+        'featured' => 'Nổi bật',
+        'actions' => 'Thao tác',
+
+        // Form sections
+        'basic_info' => 'Thông tin cơ bản',
+        'bio_info' => 'Tiểu sử',
+        'contact_info' => 'Thông tin liên hệ',
+        'social_media' => 'Mạng xã hội',
+        'photo' => 'Ảnh đại diện',
+        'specialties' => 'Chuyên môn',
+        'additional_info' => 'Thông tin bổ sung',
+
+        // Form fields
+        'full_name' => 'Họ và tên',
+        'bio' => 'Tiểu sử',
+        'bio_vi' => 'Tiểu sử (VI)',
+        'bio_en' => 'Tiểu sử (EN)',
+        'experience_years' => 'Số năm kinh nghiệm',
+        'photo_label' => 'Ảnh đại diện',
+        'current_photo' => 'Ảnh hiện tại',
+        'select_new_photo' => 'Chọn ảnh mới',
+        'photo_help' => 'JPG, PNG (tối đa 2MB)',
+
+        'facebook' => 'Facebook',
+        'twitter' => 'Twitter',
+        'linkedin' => 'LinkedIn',
+        'instagram' => 'Instagram',
+        'facebook_placeholder' => 'https://facebook.com/username',
+        'twitter_placeholder' => 'https://twitter.com/username',
+        'linkedin_placeholder' => 'https://linkedin.com/in/username',
+        'instagram_placeholder' => 'https://instagram.com/username',
+
+        'specialty_vi' => 'Chuyên môn (VI)',
+        'specialty_en' => 'Chuyên môn (EN)',
+        'add_specialty' => 'Thêm chuyên môn',
+        'enter_specialty' => 'Nhập chuyên môn',
+
+        'order' => 'Thứ tự',
+        'featured_member' => 'Thành viên nổi bật',
+        'show_member' => 'Hiển thị',
+
+        // Buttons & Actions
+        'save_member' => 'Lưu thành viên',
+        'back' => 'Quay lại',
+        'edit' => 'Chỉnh sửa',
+        'delete' => 'Xóa',
+        'view' => 'Xem chi tiết',
+
+        // Status
+        'active' => 'Hoạt động',
+        'inactive' => 'Ẩn',
+
+        // Messages
+        'no_members' => 'Chưa có thành viên nào.',
+        'confirm_delete_title' => 'Xác nhận xóa?',
+        'confirm_delete_text' => 'Bạn có chắc chắn muốn xóa thành viên này?',
+        'confirm_delete_button' => 'Xóa',
+        'cancel_button' => 'Hủy',
+
+        'create_success' => 'Thêm thành viên thành công!',
+        'update_success' => 'Cập nhật thành viên thành công!',
+        'delete_success' => 'Xóa thành viên thành công!',
+
+        'success_title' => 'Thành công!',
+        'error_title' => 'Lỗi!',
+        'ok_button' => 'OK',
+
+        // Languages
+        'vietnamese' => 'Tiếng Việt',
+        'english' => 'English',
+
+        // Other
+        'years_experience' => 'năm kinh nghiệm',
+        'system_info' => 'Thông tin hệ thống',
+        'created_at' => 'Ngày tạo',
+        'updated_at' => 'Ngày cập nhật',
     ],
     'services' => [
         'all_services' => 'Tất cả dịch vụ',

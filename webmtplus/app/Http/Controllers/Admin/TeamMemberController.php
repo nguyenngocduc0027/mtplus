@@ -82,12 +82,12 @@ class TeamMemberController extends Controller
         if (request()->ajax()) {
             return response()->json([
                 'success' => true,
-                'message' => 'Thêm thành viên thành công!'
+                'message' => __('admin.team.create_success')
             ]);
         }
 
         return redirect()->route('admin.team.index')
-            ->with('success', 'Thêm thành viên thành công!');
+            ->with('success', __('admin.team.create_success'));
     }
 
     public function show(TeamMember $team)
@@ -172,12 +172,12 @@ class TeamMemberController extends Controller
         if (request()->ajax()) {
             return response()->json([
                 'success' => true,
-                'message' => 'Cập nhật thành viên thành công!'
+                'message' => __('admin.team.update_success')
             ]);
         }
 
         return redirect()->route('admin.team.index')
-            ->with('success', 'Cập nhật thành viên thành công!');
+            ->with('success', __('admin.team.update_success'));
     }
 
     public function destroy(TeamMember $team)
@@ -193,6 +193,6 @@ class TeamMemberController extends Controller
         $team->delete();
 
         return redirect()->route('admin.team.index')
-            ->with('success', 'Xóa thành viên thành công!');
+            ->with('success', __('admin.team.delete_success'));
     }
 }

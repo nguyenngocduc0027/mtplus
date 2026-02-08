@@ -29,6 +29,97 @@ return [
     'team' => [
         'members' => 'Team Members',
         'add_member' => 'Add Team Member',
+        'manage_members' => 'Member Management',
+        'edit_member' => 'Edit Member',
+        'member_details' => 'Member Details',
+        'search_placeholder' => 'Search members...',
+
+        // Table headers
+        'name' => 'Name',
+        'name_vi' => 'Name (VI)',
+        'name_en' => 'Name (EN)',
+        'position' => 'Position',
+        'position_vi' => 'Position (VI)',
+        'position_en' => 'Position (EN)',
+        'email' => 'Email',
+        'phone' => 'Phone',
+        'status' => 'Status',
+        'featured' => 'Featured',
+        'actions' => 'Actions',
+
+        // Form sections
+        'basic_info' => 'Basic Information',
+        'bio_info' => 'Biography',
+        'contact_info' => 'Contact Information',
+        'social_media' => 'Social Media',
+        'photo' => 'Profile Photo',
+        'specialties' => 'Specialties',
+        'additional_info' => 'Additional Information',
+
+        // Form fields
+        'full_name' => 'Full Name',
+        'bio' => 'Biography',
+        'bio_vi' => 'Biography (VI)',
+        'bio_en' => 'Biography (EN)',
+        'experience_years' => 'Years of Experience',
+        'photo_label' => 'Profile Photo',
+        'current_photo' => 'Current Photo',
+        'select_new_photo' => 'Select new photo',
+        'photo_help' => 'JPG, PNG (max 2MB)',
+
+        'facebook' => 'Facebook',
+        'twitter' => 'Twitter',
+        'linkedin' => 'LinkedIn',
+        'instagram' => 'Instagram',
+        'facebook_placeholder' => 'https://facebook.com/username',
+        'twitter_placeholder' => 'https://twitter.com/username',
+        'linkedin_placeholder' => 'https://linkedin.com/in/username',
+        'instagram_placeholder' => 'https://instagram.com/username',
+
+        'specialty_vi' => 'Specialty (VI)',
+        'specialty_en' => 'Specialty (EN)',
+        'add_specialty' => 'Add Specialty',
+        'enter_specialty' => 'Enter specialty',
+
+        'order' => 'Order',
+        'featured_member' => 'Featured Member',
+        'show_member' => 'Show Member',
+
+        // Buttons & Actions
+        'save_member' => 'Save Member',
+        'back' => 'Back',
+        'edit' => 'Edit',
+        'delete' => 'Delete',
+        'view' => 'View Details',
+
+        // Status
+        'active' => 'Active',
+        'inactive' => 'Hidden',
+
+        // Messages
+        'no_members' => 'No members yet.',
+        'confirm_delete_title' => 'Confirm Delete?',
+        'confirm_delete_text' => 'Are you sure you want to delete this member?',
+        'confirm_delete_button' => 'Delete',
+        'cancel_button' => 'Cancel',
+
+        'create_success' => 'Member created successfully!',
+        'update_success' => 'Member updated successfully!',
+        'delete_success' => 'Member deleted successfully!',
+
+        'success_title' => 'Success!',
+        'error_title' => 'Error!',
+        'ok_button' => 'OK',
+
+        // Languages
+        'vietnamese' => 'Tiếng Việt',
+        'english' => 'English',
+
+        // Other
+        'years_experience' => 'years of experience',
+        'system_info' => 'System Information',
+        'created_at' => 'Created At',
+        'updated_at' => 'Updated At',
     ],
     'services' => [
         'all_services' => 'All Services',
