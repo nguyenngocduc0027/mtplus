@@ -103,12 +103,14 @@ class HomeController extends Controller
 
     public function career()
     {
-        return view('frontend.pages.career.index');
+        $careers = \App\Models\Career::active()->open()->ordered()->paginate(9);
+        return view('frontend.pages.career.index', compact('careers'));
     }
 
-    public function careerDetail()
+    public function careerDetail($slug)
     {
-        return view('frontend.pages.career.detailCareer');
+        $career = \App\Models\Career::active()->where('slug', $slug)->firstOrFail();
+        return view('frontend.pages.career.detailCareer', compact('career'));
     }
 
     public function contact()

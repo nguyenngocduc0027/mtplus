@@ -59,4 +59,23 @@ return [
     'career_detail' => 'Chi tiết cơ hội nghề nghiệp',
     'summary' => 'Tóm tắt',
     'back_to_services' => 'Quay lại dịch vụ',
+
+    // Career
+    'salary' => 'Mức lương',
+    'location' => 'Địa điểm',
+    'type' => 'Loại hình',
+    'experience' => 'Kinh nghiệm',
+    'apply_now' => 'Ứng tuyển ngay',
+    'no_careers_available' => 'Hiện tại chưa có vị trí tuyển dụng nào.',
+    'job_description' => 'Mô tả công việc',
+    'responsibilities' => 'Trách nhiệm công việc',
+    'qualifications' => 'Yêu cầu ứng viên',
+    'what_we_offer' => 'Quyền lợi',
+    'apply_for_this_job' => 'Ứng tuyển vị trí này',
+    'deadline_for_application' => 'Hạn nộp hồ sơ',
+    'salary_range' => 'Mức lương',
+    'positions_available' => 'Số lượng tuyển',
+    'department' => 'Phòng ban',
+    'position' => 'vị trí',
+    'positions' => 'vị trí',
 ];

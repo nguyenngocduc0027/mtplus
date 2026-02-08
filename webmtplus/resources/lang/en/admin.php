@@ -299,4 +299,124 @@ return [
         'created_at' => 'Created At',
         'updated_at' => 'Updated At',
     ],
+    'careers' => [
+        'all_careers' => 'Career Management',
+        'add_career' => 'Add New Career',
+        'edit_career' => 'Edit Career',
+        'career_details' => 'Career Details',
+        'search_placeholder' => 'Search careers...',
+        'total_careers' => 'All Careers',
+        'active_careers' => 'Active',
+        'open_positions' => 'Open Positions',
+
+        // Table headers
+        'job_title' => 'Job Title',
+        'location' => 'Location',
+        'job_type' => 'Job Type',
+        'experience' => 'Experience',
+        'deadline' => 'Deadline',
+        'visibility' => 'Visibility',
+        'actions' => 'Actions',
+
+        // Job types
+        'full_time' => 'Full-time',
+        'part_time' => 'Part-time',
+        'contract' => 'Contract',
+        'internship' => 'Internship',
+
+        // Status
+        'visible' => 'Visible',
+        'hidden' => 'Hidden',
+        'featured' => 'Featured',
+        'open' => 'Open',
+        'expired' => 'Expired',
+        'no_deadline' => 'No Deadline',
+        'yes' => 'Yes',
+        'no' => 'No',
+
+        // Actions
+        'view' => 'View Details',
+        'edit' => 'Edit',
+        'delete' => 'Delete',
+        'back' => 'Back',
+
+        // Form sections
+        'basic_info' => 'Basic Information',
+        'responsibilities' => 'Responsibilities',
+        'qualifications' => 'Qualifications',
+        'benefits' => 'Benefits',
+        'application_details' => 'Application Details',
+        'image' => 'Image',
+        'settings' => 'Settings',
+        'status' => 'Status',
+        'career_info' => 'Career Information',
+
+        // Form fields
+        'title' => 'Title',
+        'department' => 'Department',
+        'description' => 'Description',
+        'experience_required' => 'Experience Required',
+        'salary_display' => 'Salary Display',
+        'salary_display_help' => 'E.g: Negotiable, Competitive',
+        'salary_min' => 'Minimum Salary',
+        'salary_max' => 'Maximum Salary',
+        'salary_currency' => 'Currency',
+        'salary_period' => 'Salary Period',
+        'salary_range' => 'Salary Range',
+        'monthly' => 'Monthly',
+        'annually' => 'Annually',
+        'hourly' => 'Hourly',
+
+        'main_image' => 'Main Image',
+        'current_image' => 'Current Image',
+        'select_new_image' => 'Select new image',
+        'image_help' => 'JPG, PNG, GIF (max 2MB)',
+
+        'application_email' => 'Application Email',
+        'application_url' => 'Application URL',
+        'application_url_help' => 'Link to external application form (optional)',
+        'application_deadline' => 'Application Deadline',
+        'positions_available' => 'Positions Available',
+
+        'order' => 'Order',
+        'featured_career' => 'Featured Career',
+        'show_career' => 'Show Career',
+
+        // Dynamic lists
+        'add_responsibility' => 'Add Responsibility',
+        'add_qualification' => 'Add Qualification',
+        'add_benefit' => 'Add Benefit',
+        'enter_responsibility' => 'Enter responsibility',
+        'enter_qualification' => 'Enter qualification',
+        'enter_benefit' => 'Enter benefit',
+
+        // Buttons
+        'save_career' => 'Save Career',
+
+        // Messages
+        'no_careers' => 'No careers yet. Add your first career!',
+        'no_data' => 'No data available',
+        'confirm_delete_title' => 'Confirm Delete?',
+        'confirm_delete_text' => 'Are you sure you want to delete this career?',
+        'confirm_delete_button' => 'Delete',
+        'cancel_button' => 'Cancel',
+
+        'create_success' => 'Career created successfully!',
+        'update_success' => 'Career updated successfully!',
+        'delete_success' => 'Career deleted successfully!',
+
+        'success_title' => 'Success!',
+        'error_title' => 'Error!',
+        'validation_error_title' => 'Validation Error!',
+        'ok_button' => 'OK',
+
+        // Languages
+        'vietnamese' => 'Tiếng Việt',
+        'english' => 'English',
+
+        // System info
+        'system_info' => 'System Information',
+        'created_at' => 'Created At',
+        'updated_at' => 'Updated At',
+    ],
 ];

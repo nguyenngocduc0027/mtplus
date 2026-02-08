@@ -59,4 +59,23 @@ return [
     'career_detail' => 'Career Detail',
     'summary' => 'Summary',
     'back_to_services' => 'Back to Services',
+
+    // Career
+    'salary' => 'Salary',
+    'location' => 'Location',
+    'type' => 'Type',
+    'experience' => 'Experience',
+    'apply_now' => 'Apply Now',
+    'no_careers_available' => 'No career opportunities available at the moment.',
+    'job_description' => 'Job Description',
+    'responsibilities' => 'Responsibilities',
+    'qualifications' => 'Qualifications',
+    'what_we_offer' => 'What We Offer',
+    'apply_for_this_job' => 'Apply For This Job',
+    'deadline_for_application' => 'Deadline For Job Application',
+    'salary_range' => 'Salary Range',
+    'positions_available' => 'Positions Available',
+    'department' => 'Department',
+    'position' => 'position',
+    'positions' => 'positions',
 ];

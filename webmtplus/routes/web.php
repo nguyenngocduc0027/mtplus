@@ -35,7 +35,7 @@ Route::get('/project/{project:slug}', [HomeController::class, 'detailProject'])-
 Route::get('/news', [HomeController::class, 'news'])->name('news');
 Route::get('/news/detail', [HomeController::class, 'detailNews'])->name('detail-news');
 Route::get('/career', [HomeController::class, 'career'])->name('career');
-Route::get('/career/detail', [HomeController::class, 'careerDetail'])->name('detail-career');
+Route::get('/career/{slug}', [HomeController::class, 'careerDetail'])->name('detail-career');
 Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
 
 
@@ -108,5 +108,14 @@ Route::middleware(['auth'])->group(function () {
     Route::get('admin/projects/{project:slug}/edit', [\App\Http\Controllers\Admin\ProjectController::class, 'edit'])->name('admin.projects.edit');
     Route::put('admin/projects/{project:slug}', [\App\Http\Controllers\Admin\ProjectController::class, 'update'])->name('admin.projects.update');
     Route::delete('admin/projects/{project:slug}', [\App\Http\Controllers\Admin\ProjectController::class, 'destroy'])->name('admin.projects.destroy');
+
+    // Careers Management
+    Route::get('admin/careers', [\App\Http\Controllers\Admin\CareerController::class, 'index'])->name('admin.careers.index');
+    Route::get('admin/careers/create', [\App\Http\Controllers\Admin\CareerController::class, 'create'])->name('admin.careers.create');
+    Route::post('admin/careers', [\App\Http\Controllers\Admin\CareerController::class, 'store'])->name('admin.careers.store');
+    Route::get('admin/careers/{career:slug}', [\App\Http\Controllers\Admin\CareerController::class, 'show'])->name('admin.careers.show');
+    Route::get('admin/careers/{career:slug}/edit', [\App\Http\Controllers\Admin\CareerController::class, 'edit'])->name('admin.careers.edit');
+    Route::put('admin/careers/{career:slug}', [\App\Http\Controllers\Admin\CareerController::class, 'update'])->name('admin.careers.update');
+    Route::delete('admin/careers/{career:slug}', [\App\Http\Controllers\Admin\CareerController::class, 'destroy'])->name('admin.careers.destroy');
 });
 Route::post('/admin/upload-image', [ImageUploadController::class, 'upload'])->name('admin.upload-image');

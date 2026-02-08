@@ -301,4 +301,124 @@ return [
         'created_at' => 'Ngày tạo',
         'updated_at' => 'Ngày cập nhật',
     ],
+    'careers' => [
+        'all_careers' => 'Quản lý tuyển dụng',
+        'add_career' => 'Thêm vị trí tuyển dụng',
+        'edit_career' => 'Chỉnh sửa tuyển dụng',
+        'career_details' => 'Chi tiết tuyển dụng',
+        'search_placeholder' => 'Tìm kiếm vị trí...',
+        'total_careers' => 'Tất cả vị trí',
+        'active_careers' => 'Đang hoạt động',
+        'open_positions' => 'Đang tuyển',
+
+        // Table headers
+        'job_title' => 'Vị trí tuyển dụng',
+        'location' => 'Địa điểm',
+        'job_type' => 'Loại hình',
+        'experience' => 'Kinh nghiệm',
+        'deadline' => 'Hạn nộp',
+        'visibility' => 'Hiển thị',
+        'actions' => 'Thao tác',
+
+        // Job types
+        'full_time' => 'Toàn thời gian',
+        'part_time' => 'Bán thời gian',
+        'contract' => 'Hợp đồng',
+        'internship' => 'Thực tập',
+
+        // Status
+        'visible' => 'Hiện',
+        'hidden' => 'Ẩn',
+        'featured' => 'Nổi bật',
+        'open' => 'Còn hạn',
+        'expired' => 'Hết hạn',
+        'no_deadline' => 'Không giới hạn',
+        'yes' => 'Có',
+        'no' => 'Không',
+
+        // Actions
+        'view' => 'Xem chi tiết',
+        'edit' => 'Chỉnh sửa',
+        'delete' => 'Xóa',
+        'back' => 'Quay lại',
+
+        // Form sections
+        'basic_info' => 'Thông tin cơ bản',
+        'responsibilities' => 'Trách nhiệm công việc',
+        'qualifications' => 'Yêu cầu ứng viên',
+        'benefits' => 'Quyền lợi',
+        'application_details' => 'Thông tin ứng tuyển',
+        'image' => 'Hình ảnh',
+        'settings' => 'Cài đặt',
+        'status' => 'Trạng thái',
+        'career_info' => 'Thông tin tuyển dụng',
+
+        // Form fields
+        'title' => 'Tiêu đề',
+        'department' => 'Phòng ban',
+        'description' => 'Mô tả công việc',
+        'experience_required' => 'Kinh nghiệm yêu cầu',
+        'salary_display' => 'Mức lương hiển thị',
+        'salary_display_help' => 'VD: Thỏa thuận, Cạnh tranh',
+        'salary_min' => 'Lương tối thiểu',
+        'salary_max' => 'Lương tối đa',
+        'salary_currency' => 'Đơn vị tiền tệ',
+        'salary_period' => 'Chu kỳ lương',
+        'salary_range' => 'Mức lương',
+        'monthly' => 'Tháng',
+        'annually' => 'Năm',
+        'hourly' => 'Giờ',
+
+        'main_image' => 'Ảnh chính',
+        'current_image' => 'Ảnh hiện tại',
+        'select_new_image' => 'Chọn ảnh mới',
+        'image_help' => 'JPG, PNG, GIF (tối đa 2MB)',
+
+        'application_email' => 'Email nhận hồ sơ',
+        'application_url' => 'Link ứng tuyển',
+        'application_url_help' => 'Link đến form ứng tuyển bên ngoài (tùy chọn)',
+        'application_deadline' => 'Hạn nộp hồ sơ',
+        'positions_available' => 'Số lượng tuyển',
+
+        'order' => 'Thứ tự',
+        'featured_career' => 'Vị trí nổi bật',
+        'show_career' => 'Hiển thị',
+
+        // Dynamic lists
+        'add_responsibility' => 'Thêm trách nhiệm',
+        'add_qualification' => 'Thêm yêu cầu',
+        'add_benefit' => 'Thêm quyền lợi',
+        'enter_responsibility' => 'Nhập trách nhiệm',
+        'enter_qualification' => 'Nhập yêu cầu',
+        'enter_benefit' => 'Nhập quyền lợi',
+
+        // Buttons
+        'save_career' => 'Lưu thông tin',
+
+        // Messages
+        'no_careers' => 'Chưa có vị trí tuyển dụng nào. Thêm vị trí đầu tiên!',
+        'no_data' => 'Không có dữ liệu',
+        'confirm_delete_title' => 'Xác nhận xóa?',
+        'confirm_delete_text' => 'Bạn có chắc chắn muốn xóa vị trí tuyển dụng này?',
+        'confirm_delete_button' => 'Xóa',
+        'cancel_button' => 'Hủy',
+
+        'create_success' => 'Thêm vị trí tuyển dụng thành công!',
+        'update_success' => 'Cập nhật tuyển dụng thành công!',
+        'delete_success' => 'Xóa vị trí tuyển dụng thành công!',
+
+        'success_title' => 'Thành công!',
+        'error_title' => 'Lỗi!',
+        'validation_error_title' => 'Lỗi xác thực!',
+        'ok_button' => 'OK',
+
+        // Languages
+        'vietnamese' => 'Tiếng Việt',
+        'english' => 'English',
+
+        // System info
+        'system_info' => 'Thông tin hệ thống',
+        'created_at' => 'Ngày tạo',
+        'updated_at' => 'Ngày cập nhật',
+    ],
 ];
