@@ -1,9 +1,9 @@
 @extends('backend.layouts.app')
-@props(['pageTitle' => 'Chỉnh sửa Dự án'])
+@props(['pageTitle' => __('admin.projects.edit_project')])
 @section('content-backend')
     <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 mb-4 mt-1">
         <h3 class="mb-0">{{ $pageTitle }}</h3>
-        <x-admin.ui.breadcrumb :pageTitle="$pageTitle" parentTitle="Quản lý Dự án" :parentRoute="route('admin.projects.index')" />
+        <x-admin.ui.breadcrumb :pageTitle="$pageTitle" :parentTitle="__('admin.projects.all_projects')" :parentRoute="route('admin.projects.index')" />
     </div>
 
     <form action="{{ route('admin.projects.update', $project->slug) }}" method="POST" enctype="multipart/form-data" id="projectForm">
@@ -14,7 +14,7 @@
             <div class="col-lg-8">
                 <!-- Thông tin cơ bản -->
                 <div class="card bg-white rounded-10 border border-white p-20 mb-4">
-                    <h4 class="mb-3"><i class="ri-information-line me-2"></i>Thông tin cơ bản</h4>
+                    <h4 class="mb-3"><i class="ri-information-line me-2"></i>{{ __('admin.projects.basic_info') }}</h4>
 
                     <!-- Tabs for Basic Info -->
                     <ul class="nav nav-tabs mb-3" id="basicInfoTabs" role="tablist">
@@ -113,20 +113,20 @@
                     <!-- Common Fields (not language-specific) -->
                     <div class="row">
                         <div class="col-md-6 mb-3">
-                            <label class="form-label fw-semibold">Số dự án</label>
+                            <label class="form-label fw-semibold">{{ __("admin.projects.project_number_label") }}</label>
                             <input type="text" name="project_number" class="form-control @error('project_number') is-invalid @enderror"
-                                   value="{{ old('project_number', $project->project_number) }}" placeholder="Tự động tạo">
-                            <small class="text-muted">VD: 01, 02, 03...</small>
+                                   value="{{ old('project_number', $project->project_number) }}" placeholder="{{ __("admin.projects.project_number_placeholder") }}">
+                            <small class="text-muted">{{ __("admin.projects.project_number_help") }}</small>
                             @error('project_number')
                                 <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
                         </div>
 
                         <div class="col-md-6 mb-3">
-                            <label class="form-label fw-semibold">Trạng thái <span class="text-danger">*</span></label>
+                            <label class="form-label fw-semibold">{{ __("admin.projects.status_label") }} <span class="text-danger">*</span></label>
                             <select name="status" class="form-select form-control @error('status') is-invalid @enderror" required>
-                                <option value="in_progress" {{ old('status', $project->status) === 'in_progress' ? 'selected' : '' }}>Đang thực hiện</option>
-                                <option value="completed" {{ old('status', $project->status) === 'completed' ? 'selected' : '' }}>Hoàn thành</option>
+                                <option value="in_progress" {{ old('status', $project->status) === 'in_progress' ? 'selected' : '' }}>{{ __("admin.projects.status_in_progress_option") }}</option>
+                                <option value="completed" {{ old('status', $project->status) === 'completed' ? 'selected' : '' }}>{{ __("admin.projects.status_completed_option") }}</option>
                             </select>
                             @error('status')
                                 <div class="invalid-feedback">{{ $message }}</div>
@@ -136,7 +136,7 @@
 
                     <div class="row">
                         <div class="col-md-6 mb-3">
-                            <label class="form-label fw-semibold">Ngày khởi công</label>
+                            <label class="form-label fw-semibold">{{ __("admin.projects.commencement_date_label") }}</label>
                             <input type="date" name="commencement_date" class="form-control @error('commencement_date') is-invalid @enderror"
                                    value="{{ old('commencement_date', optional($project->commencement_date)->format('Y-m-d')) }}">
                             @error('commencement_date')
@@ -145,7 +145,7 @@
                         </div>
 
                         <div class="col-md-6 mb-3">
-                            <label class="form-label fw-semibold">Ngày hoàn thành</label>
+                            <label class="form-label fw-semibold">{{ __("admin.projects.completion_date_label") }}</label>
                             <input type="date" name="completion_date" class="form-control @error('completion_date') is-invalid @enderror"
                                    value="{{ old('completion_date', optional($project->completion_date)->format('Y-m-d')) }}">
                             @error('completion_date')
@@ -157,7 +157,7 @@
 
                 <!-- Nội dung chi tiết -->
                 <div class="card bg-white rounded-10 border border-white p-20 mb-4">
-                    <h4 class="mb-3"><i class="ri-file-text-line me-2"></i>Nội dung chi tiết</h4>
+                    <h4 class="mb-3"><i class="ri-file-text-line me-2"></i>{{ __("admin.projects.detailed_content") }}</h4>
 
                     <!-- Tabs for Description -->
                     <ul class="nav nav-tabs mb-3" id="descriptionTabs" role="tablist">
@@ -200,7 +200,7 @@
 
                 <!-- Đặc điểm -->
                 <div class="card bg-white rounded-10 border border-white p-20 mb-4">
-                    <h4 class="mb-3"><i class="ri-list-check me-2"></i>Đặc điểm dự án</h4>
+                    <h4 class="mb-3"><i class="ri-list-check me-2"></i>{{ __("admin.projects.features") }}</h4>
 
                     <!-- Tabs for Features -->
                     <ul class="nav nav-tabs mb-3" id="featuresTabs" role="tablist">
@@ -273,19 +273,19 @@
             <div class="col-lg-4">
                 <!-- Hình ảnh -->
                 <div class="card bg-white rounded-10 border border-white p-20 mb-4">
-                    <h4 class="mb-3"><i class="ri-image-line me-2"></i>Hình ảnh</h4>
+                    <h4 class="mb-3"><i class="ri-image-line me-2"></i>{{ __("admin.projects.images") }}</h4>
 
                     <div class="mb-3">
-                        <label class="form-label fw-semibold">Ảnh chính</label>
+                        <label class="form-label fw-semibold">{{ __("admin.projects.main_image") }}</label>
                         @if($project->main_image)
                             <div class="mb-2">
                                 <img src="{{ $project->main_image }}" class="img-fluid rounded" style="max-height: 200px;">
-                                <p class="text-muted small mt-1">Ảnh hiện tại</p>
+                                <p class="text-muted small mt-1">{{ __("admin.projects.current_image") }}</p>
                             </div>
                         @endif
                         <input type="file" name="main_image" class="form-control @error('main_image') is-invalid @enderror"
                                accept="image/*" onchange="previewImage(this, 'mainImagePreview')">
-                        <small class="text-muted">Chọn ảnh mới để thay thế</small>
+                        <small class="text-muted">{{ __("admin.projects.select_new_image") }}</small>
                         <div id="mainImagePreview" class="mt-2"></div>
                         @error('main_image')
                             <div class="invalid-feedback d-block">{{ $message }}</div>
@@ -293,7 +293,7 @@
                     </div>
 
                     <div class="mb-3">
-                        <label class="form-label fw-semibold">Thư viện ảnh</label>
+                        <label class="form-label fw-semibold">{{ __("admin.projects.gallery_images") }}</label>
                         @if($project->gallery_images && count($project->gallery_images) > 0)
                             <div class="mb-2 row g-2">
                                 @foreach($project->gallery_images as $image)
@@ -306,10 +306,10 @@
                         @endif
                         <input type="file" name="gallery_images[]" class="form-control @error('gallery_images.*') is-invalid @enderror"
                                accept="image/*" multiple onchange="previewGallery(this)">
-                        <small class="text-muted">Chọn ảnh mới để thay thế</small>
+                        <small class="text-muted">{{ __("admin.projects.select_new_image") }}</small>
                         <div class="form-check mt-2">
                             <input type="checkbox" name="delete_gallery_images" id="delete_gallery" class="form-check-input">
-                            <label for="delete_gallery" class="form-check-label">Xóa ảnh cũ khi upload ảnh mới</label>
+                            <label for="delete_gallery" class="form-check-label">{{ __("admin.projects.delete_old_images") }}</label>
                         </div>
                         <div id="galleryPreview" class="mt-2 row g-2"></div>
                         @error('gallery_images.*')
@@ -320,10 +320,10 @@
 
                 <!-- Thông tin bổ sung -->
                 <div class="card bg-white rounded-10 border border-white p-20 mb-4">
-                    <h4 class="mb-3"><i class="ri-information-line me-2"></i>Thông tin bổ sung</h4>
+                    <h4 class="mb-3"><i class="ri-information-line me-2"></i>{{ __("admin.projects.additional_info") }}</h4>
 
                     <div class="mb-3">
-                        <label class="form-label fw-semibold">Tên khách hàng</label>
+                        <label class="form-label fw-semibold">{{ __("admin.projects.client_name") }}</label>
                         <input type="text" name="client_name" class="form-control @error('client_name') is-invalid @enderror"
                                value="{{ old('client_name', $project->client_name) }}">
                         @error('client_name')
@@ -332,7 +332,7 @@
                     </div>
 
                     <div class="mb-3">
-                        <label class="form-label fw-semibold">Ngân sách (VND)</label>
+                        <label class="form-label fw-semibold">{{ __("admin.projects.budget") }}</label>
                         <input type="number" name="budget" class="form-control @error('budget') is-invalid @enderror"
                                value="{{ old('budget', $project->budget) }}" step="0.01" min="0">
                         @error('budget')
@@ -341,16 +341,16 @@
                     </div>
 
                     <div class="mb-3">
-                        <label class="form-label fw-semibold">Diện tích</label>
+                        <label class="form-label fw-semibold">{{ __("admin.projects.area") }}</label>
                         <input type="text" name="area" class="form-control @error('area') is-invalid @enderror"
-                               value="{{ old('area', $project->area) }}" placeholder="VD: 5000 m²">
+                               value="{{ old('area', $project->area) }}" placeholder="{{ __("admin.projects.area_placeholder") }}">
                         @error('area')
                             <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
                     </div>
 
                     <div class="mb-3">
-                        <label class="form-label fw-semibold">Thứ tự</label>
+                        <label class="form-label fw-semibold">{{ __("admin.projects.order") }}</label>
                         <input type="number" name="order" class="form-control @error('order') is-invalid @enderror"
                                value="{{ old('order', $project->order) }}" min="0">
                         @error('order')
@@ -362,7 +362,7 @@
                         <input class="form-check-input" type="checkbox" name="is_featured" id="is_featured"
                                {{ old('is_featured', $project->is_featured) ? 'checked' : '' }}>
                         <label class="form-check-label" for="is_featured">
-                            <i class="ri-star-line me-1"></i>Dự án nổi bật
+                            <i class="ri-star-line me-1"></i>{{ __("admin.projects.featured_project") }}
                         </label>
                     </div>
 
@@ -370,7 +370,7 @@
                         <input class="form-check-input" type="checkbox" name="is_active" id="is_active"
                                {{ old('is_active', $project->is_active) ? 'checked' : '' }}>
                         <label class="form-check-label" for="is_active">
-                            <i class="ri-eye-line me-1"></i>Hiển thị
+                            <i class="ri-eye-line me-1"></i>{{ __("admin.projects.show_project") }}
                         </label>
                     </div>
                 </div>
@@ -378,10 +378,10 @@
                 <!-- Submit buttons -->
                 <div class="card bg-white rounded-10 border border-white p-20">
                     <button type="submit" class="btn btn-primary w-100 mb-2">
-                        <i class="ri-save-line me-2"></i>Lưu dự án
+                        <i class="ri-save-line me-2"></i>{{ __("admin.projects.save_project") }}
                     </button>
                     <a href="{{ route('admin.projects.index') }}" class="btn btn-outline-secondary w-100">
-                        <i class="ri-arrow-left-line me-2"></i>Quay lại
+                        <i class="ri-arrow-left-line me-2"></i>{{ __("admin.projects.back") }}
                     </a>
                 </div>
             </div>

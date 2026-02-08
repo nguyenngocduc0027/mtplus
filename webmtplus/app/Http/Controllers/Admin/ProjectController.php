@@ -97,12 +97,12 @@ class ProjectController extends Controller
         if (request()->ajax()) {
             return response()->json([
                 'success' => true,
-                'message' => 'Thêm dự án thành công!'
+                'message' => __('admin.projects.create_success')
             ]);
         }
 
         return redirect()->route('admin.projects.index')
-            ->with('success', 'Thêm dự án thành công!');
+            ->with('success', __('admin.projects.create_success'));
     }
 
     /**
@@ -200,12 +200,12 @@ class ProjectController extends Controller
         if (request()->ajax()) {
             return response()->json([
                 'success' => true,
-                'message' => 'Cập nhật dự án thành công!'
+                'message' => __('admin.projects.update_success')
             ]);
         }
 
         return redirect()->route('admin.projects.index')
-            ->with('success', 'Cập nhật dự án thành công!');
+            ->with('success', __('admin.projects.update_success'));
     }
 
     /**
@@ -230,6 +230,6 @@ class ProjectController extends Controller
         $project->delete();
 
         return redirect()->route('admin.projects.index')
-            ->with('success', 'Xóa dự án thành công!');
+            ->with('success', __('admin.projects.delete_success'));
     }
 }

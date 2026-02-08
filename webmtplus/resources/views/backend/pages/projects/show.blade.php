@@ -1,9 +1,9 @@
 @extends('backend.layouts.app')
-@props(['pageTitle' => 'Chi tiết Dự án'])
+@props(['pageTitle' => __('admin.projects.project_details')])
 @section('content-backend')
     <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 mb-4 mt-1">
         <h3 class="mb-0">{{ $pageTitle }}</h3>
-        <x-admin.ui.breadcrumb :pageTitle="$pageTitle" parentTitle="Quản lý Dự án" :parentRoute="route('admin.projects.index')" />
+        <x-admin.ui.breadcrumb :pageTitle="$pageTitle" :parentTitle="__('admin.projects.all_projects')" :parentRoute="route('admin.projects.index')" />
     </div>
 
     <div class="row">
@@ -17,7 +17,7 @@
 
             <!-- Basic Info -->
             <div class="card bg-white rounded-10 border border-white p-20 mb-4">
-                <h4 class="mb-3">Thông tin dự án</h4>
+                <h4 class="mb-3">{{ __('admin.projects.project_info') }}</h4>
                 <table class="table">
                     <tr>
                         <th style="width: 200px;">Tiêu đề (VI):</th>
@@ -35,7 +35,7 @@
                         <th>Trạng thái:</th>
                         <td>
                             <span class="badge {{ $project->status === 'completed' ? 'bg-success' : 'bg-info' }}">
-                                {{ $project->status === 'completed' ? 'Hoàn thành' : 'Đang thực hiện' }}
+                                {{ $project->status === 'completed' ? __('admin.projects.status_completed') : __('admin.projects.status_in_progress') }}
                             </span>
                         </td>
                     </tr>
@@ -102,7 +102,7 @@
             <!-- Features -->
             @if($project->features_vi || $project->features_en)
                 <div class="card bg-white rounded-10 border border-white p-20 mb-4">
-                    <h4 class="mb-3">Đặc điểm dự án</h4>
+                    <h4 class="mb-3">{{ __('admin.projects.features') }}</h4>
                     @if($project->features_vi)
                         <h5>Tiếng Việt:</h5>
                         <ul>
@@ -125,7 +125,7 @@
             <!-- Gallery -->
             @if($project->gallery_images && count($project->gallery_images) > 0)
                 <div class="card bg-white rounded-10 border border-white p-20 mb-4">
-                    <h4 class="mb-3">Thư viện ảnh</h4>
+                    <h4 class="mb-3">{{ __('admin.projects.gallery_images') }}</h4>
                     <div class="row g-3">
                         @foreach($project->gallery_images as $image)
                             <div class="col-md-4">
@@ -142,7 +142,7 @@
             <div class="card bg-white rounded-10 border border-white p-20 mb-4">
                 <h4 class="mb-3">Hành động</h4>
                 <a href="{{ route('admin.projects.edit', $project->slug) }}" class="btn btn-primary w-100 mb-2">
-                    <i class="ri-edit-line me-2"></i>Chỉnh sửa
+                    <i class="ri-edit-line me-2"></i>{{ __('admin.projects.edit') }}
                 </a>
                 <form action="{{ route('admin.projects.destroy', $project->slug) }}" method="POST" onsubmit="return confirm('Bạn có chắc chắn muốn xóa?')">
                     @csrf
@@ -152,7 +152,7 @@
                     </button>
                 </form>
                 <a href="{{ route('admin.projects.index') }}" class="btn btn-outline-secondary w-100">
-                    <i class="ri-arrow-left-line me-2"></i>Quay lại danh sách
+                    <i class="ri-arrow-left-line me-2"></i>{{ __('admin.projects.back') }} danh sách
                 </a>
             </div>
 
@@ -181,7 +181,7 @@
 
             <!-- Meta -->
             <div class="card bg-white rounded-10 border border-white p-20">
-                <h4 class="mb-3">Thông tin hệ thống</h4>
+                <h4 class="mb-3">{{ __('admin.projects.system_info') }}</h4>
                 <div class="mb-2">
                     <strong>ID:</strong> {{ $project->id }}
                 </div>

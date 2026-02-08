@@ -1,5 +1,5 @@
 @extends('backend.layouts.app')
-@props(['pageTitle' => 'Quản lý Dự án'])
+@props(['pageTitle' => __('admin.projects.all_projects')])
 @section('content-backend')
     <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 mb-4 mt-1">
         <h3 class="mb-0">{{ $pageTitle }}</h3>
@@ -10,26 +10,26 @@
         <div class="d-flex justify-content-between align-items-center flex-wrap gap-3 p-20">
             <div class="d-flex flex-wrap gap-2 gap-xxl-5 align-items-center">
                 <form class="table-src-form position-relative m-0">
-                    <input type="text" class="form-control w-340" placeholder="Tìm kiếm..." id="searchInput">
+                    <input type="text" class="form-control w-340" placeholder="{{ __('admin.projects.search_placeholder') }}" id="searchInput">
                     <div class="src-btn position-absolute top-50 start-0 translate-middle-y bg-transparent p-0 border-0">
                         <span class="material-symbols-outlined">search</span>
                     </div>
                 </form>
                 <ul class="p-0 mb-0 list-unstyled d-flex align-items-center flex-wrap" style="gap: 20px;">
                     <li class="fs-16">
-                        Tất cả dự án <span class="text-primary">({{ $projects->total() }})</span>
+                        {{ __('admin.projects.total_projects') }} <span class="text-primary">({{ $projects->total() }})</span>
                     </li>
                     <li class="fs-16">
-                        Đang hoạt động <span class="text-primary">({{ \App\Models\Project::active()->count() }})</span>
+                        {{ __('admin.projects.active_projects') }} <span class="text-primary">({{ \App\Models\Project::active()->count() }})</span>
                     </li>
                     <li class="fs-16">
-                        Hoàn thành <span class="text-primary">({{ \App\Models\Project::completed()->count() }})</span>
+                        {{ __('admin.projects.completed_projects') }} <span class="text-primary">({{ \App\Models\Project::completed()->count() }})</span>
                     </li>
                 </ul>
             </div>
 
             <a href="{{ route('admin.projects.create') }}" class="text-primary fs-16 text-decoration-none">
-                + Thêm dự án mới
+                + {{ __('admin.projects.add_project') }}
             </a>
         </div>
 
@@ -38,14 +38,14 @@
                 <table class="table align-middle" id="projectsTable">
                     <thead>
                         <tr>
-                            <th scope="col" class="fw-medium ps-20">Số DA</th>
-                            <th scope="col" class="fw-medium">Dự án</th>
-                            <th scope="col" class="fw-medium">Loại</th>
-                            <th scope="col" class="fw-medium">Địa điểm</th>
-                            <th scope="col" class="fw-medium">Ngày khởi công</th>
-                            <th scope="col" class="fw-medium">Trạng thái</th>
-                            <th scope="col" class="fw-medium">Hiển thị</th>
-                            <th scope="col" class="fw-medium">Thao tác</th>
+                            <th scope="col" class="fw-medium ps-20">{{ __('admin.projects.project_number') }}</th>
+                            <th scope="col" class="fw-medium">{{ __('admin.projects.project_name') }}</th>
+                            <th scope="col" class="fw-medium">{{ __('admin.projects.type') }}</th>
+                            <th scope="col" class="fw-medium">{{ __('admin.projects.location') }}</th>
+                            <th scope="col" class="fw-medium">{{ __('admin.projects.commencement_date') }}</th>
+                            <th scope="col" class="fw-medium">{{ __('admin.projects.status') }}</th>
+                            <th scope="col" class="fw-medium">{{ __('admin.projects.visibility') }}</th>
+                            <th scope="col" class="fw-medium">{{ __('admin.projects.actions') }}</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -73,7 +73,7 @@
                                             <span class="fs-13 text-body">{{ $project->title_en }}</span>
                                             @if($project->is_featured)
                                                 <span class="badge bg-warning text-dark ms-2">
-                                                    <i class="ri-star-fill"></i> Nổi bật
+                                                    <i class="ri-star-fill"></i> {{ __('admin.projects.featured') }}
                                                 </span>
                                             @endif
                                         </div>
@@ -86,30 +86,30 @@
                                 </td>
                                 <td class="text-body">
                                     @if($project->status === 'completed')
-                                        <span class="badge bg-success">Hoàn thành</span>
+                                        <span class="badge bg-success">{{ __('admin.projects.status_completed') }}</span>
                                     @else
-                                        <span class="badge bg-info">Đang thực hiện</span>
+                                        <span class="badge bg-info">{{ __('admin.projects.status_in_progress') }}</span>
                                     @endif
                                 </td>
                                 <td class="text-body">
                                     @if($project->is_active)
-                                        <span class="badge bg-success">Hiện</span>
+                                        <span class="badge bg-success">{{ __('admin.projects.visible') }}</span>
                                     @else
-                                        <span class="badge bg-secondary">Ẩn</span>
+                                        <span class="badge bg-secondary">{{ __('admin.projects.hidden') }}</span>
                                     @endif
                                 </td>
                                 <td>
                                     <div class="d-flex justify-content-end" style="gap: 12px;">
-                                        <a href="{{ route('admin.projects.show', $project->slug) }}" class="bg-transparent p-0 border-0" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Xem chi tiết">
+                                        <a href="{{ route('admin.projects.show', $project->slug) }}" class="bg-transparent p-0 border-0" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="{{ __('admin.projects.view') }}">
                                             <i class="material-symbols-outlined fs-16 fw-normal text-primary">visibility</i>
                                         </a>
-                                        <a href="{{ route('admin.projects.edit', $project->slug) }}" class="bg-transparent p-0 border-0 hover-text-success" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Chỉnh sửa">
+                                        <a href="{{ route('admin.projects.edit', $project->slug) }}" class="bg-transparent p-0 border-0 hover-text-success" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="{{ __('admin.projects.edit') }}">
                                             <i class="material-symbols-outlined fs-16 fw-normal text-body">edit</i>
                                         </a>
                                         <form action="{{ route('admin.projects.destroy', $project->slug) }}" method="POST" class="delete-form d-inline">
                                             @csrf
                                             @method('DELETE')
-                                            <button type="submit" class="bg-transparent p-0 border-0 hover-text-danger" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Xóa">
+                                            <button type="submit" class="bg-transparent p-0 border-0 hover-text-danger" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="{{ __('admin.projects.delete') }}">
                                                 <i class="material-symbols-outlined fs-16 fw-normal text-body">delete</i>
                                             </button>
                                         </form>
@@ -121,8 +121,8 @@
                                 <td colspan="8" class="text-center py-5">
                                     <i class="ri-folder-open-line fs-48 text-secondary mb-3 d-block"></i>
                                     <p class="text-secondary mb-0">
-                                        Chưa có dự án nào.
-                                        <a href="{{ route('admin.projects.create') }}" class="text-primary">Thêm dự án mới</a>
+                                        {{ __('admin.projects.no_projects') }}
+                                        <a href="{{ route('admin.projects.create') }}" class="text-primary">{{ __('admin.projects.add_project') }}</a>
                                     </p>
                                 </td>
                             </tr>
@@ -150,9 +150,9 @@
             if (successMessage && successMessage !== '') {
                 Swal.fire({
                     icon: 'success',
-                    title: 'Thành công!',
+                    title: '{{ __('admin.projects.success_title') }}',
                     text: successMessage,
-                    confirmButtonText: 'OK',
+                    confirmButtonText: '{{ __('admin.projects.ok_button') }}',
                     confirmButtonColor: '#3085d6',
                     timer: 3000,
                     timerProgressBar: true
@@ -169,9 +169,9 @@
             @if(session('error'))
                 Swal.fire({
                     icon: 'error',
-                    title: 'Lỗi!',
+                    title: '{{ __('admin.projects.error_title') }}',
                     text: '{{ session('error') }}',
-                    confirmButtonText: 'OK',
+                    confirmButtonText: '{{ __('admin.projects.ok_button') }}',
                     confirmButtonColor: '#d33'
                 });
             @endif
@@ -180,9 +180,9 @@
             @if($errors->any())
                 Swal.fire({
                     icon: 'error',
-                    title: 'Lỗi xác thực!',
+                    title: '{{ __('admin.projects.validation_error_title') }}',
                     html: '<ul style="text-align: left;">@foreach($errors->all() as $error)<li>{{ $error }}</li>@endforeach</ul>',
-                    confirmButtonText: 'OK',
+                    confirmButtonText: '{{ __('admin.projects.ok_button') }}',
                     confirmButtonColor: '#d33'
                 });
             @endif
@@ -208,14 +208,14 @@
             form.addEventListener('submit', function(e) {
                 e.preventDefault();
                 Swal.fire({
-                    title: 'Xác nhận xóa?',
-                    text: 'Bạn có chắc chắn muốn xóa dự án này? Hành động này không thể hoàn tác!',
+                    title: '{{ __('admin.projects.confirm_delete_title') }}',
+                    text: '{{ __('admin.projects.confirm_delete_text') }}',
                     icon: 'warning',
                     showCancelButton: true,
                     confirmButtonColor: '#d33',
                     cancelButtonColor: '#3085d6',
-                    confirmButtonText: 'Xóa',
-                    cancelButtonText: 'Hủy'
+                    confirmButtonText: '{{ __('admin.projects.confirm_delete_button') }}',
+                    cancelButtonText: '{{ __('admin.projects.cancel_button') }}'
                 }).then((result) => {
                     if (result.isConfirmed) {
                         this.submit();
