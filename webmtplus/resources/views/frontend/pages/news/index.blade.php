@@ -12,94 +12,34 @@
         <div class="row">
             <div class="col-xl-8">
                 <div class="row justify-content-center">
-                    @php
-                        $newsItems = [
-                            [
-                                'image' => 'frontend/assets/img/blog/blog-1.jpg',
-                                'linkNews' => route('detail-news'),
-                                'date' => '12',
-                                'month' => 'Jul',
-                                'author' => 'Admin',
-                                'linkAuthor' => 'javaScript:void(0)',
-                                'title' => 'Top Kitchen Renovation Tips To Maximize Space And Style',
-                            ],
-                            [
-                                'image' => 'frontend/assets/img/blog/blog-2.jpg',
-                                'linkNews' => route('detail-news'),
-                                'date' => '11',
-                                'month' => 'Jul',
-                                'author' => 'Admin',
-                                'linkAuthor' => 'javaScript:void(0)',
-                                'title' => 'Outdoor Renovation Trends That Will Elevate Your Backyard',
-                            ],
-                            [
-                                'image' => 'frontend/assets/img/blog/blog-3.jpg',
-                                'linkNews' => route('detail-news'),
-                                'date' => '10',
-                                'month' => 'Jul',
-                                'author' => 'Admin',
-                                'linkAuthor' => 'javaScript:void(0)',
-                                'title' => 'Avoid These Common Mistakes During Your Home Renovation',
-                            ],
-                            [
-                                'image' => 'frontend/assets/img/blog/blog-4.jpg',
-                                'linkNews' => route('detail-news'),
-                                'date' => '09',
-                                'month' => 'Jul',
-                                'author' => 'Admin',
-                                'linkAuthor' => 'javaScript:void(0)',
-                                'title' => '5 Trends Shaping The Future Of Real Estate Development In 2025',
-                            ],
-                            [
-                                'image' => 'frontend/assets/img/blog/blog-5.jpg',
-                                'linkNews' => route('detail-news'),
-                                'date' => '08',
-                                'month' => 'Jul',
-                                'author' => 'Admin',
-                                'linkAuthor' => 'javaScript:void(0)',
-                                'title' => 'Expect When Partnering With A Full-Service Construction Group',
-                            ],
-                            [
-                                'image' => 'frontend/assets/img/blog/blog-6.jpg',
-                                'linkNews' => route('detail-news'),
-                                'date' => '03',
-                                'month' => 'Jul',
-                                'author' => 'Admin',
-                                'linkAuthor' => 'javaScript:void(0)',
-                                'title' => 'Inside A Renius Project The Phases Of Commercial Construction',
-                            ],
-                        ];
-                    @endphp
-                    @foreach ($newsItems as $news)
-                        <x-ui.news-item-news :image="$news['image']" :linkNews="$news['linkNews']" :date="$news['date']" :month="$news['month']"
-                            :author="$news['author']" :linkAuthor="$news['linkAuthor']" :title="$news['title']" />
-                    @endforeach
+                    @forelse ($news as $item)
+                        <x-ui.news-item-news
+                            :image="$item->featured_image"
+                            :linkNews="route('detail-news', $item->slug)"
+                            :date="$item->published_at ? $item->published_at->format('d') : date('d')"
+                            :month="$item->published_at ? $item->published_at->format('M') : date('M')"
+                            :author="$item->author_name"
+                            :linkAuthor="'javascript:void(0)'"
+                            :title="$item->title"
+                        />
+                    @empty
+                        <div class="col-12">
+                            <div class="text-center py-5">
+                                <i class="ri-article-line" style="font-size: 48px; color: #ccc;"></i>
+                                <p class="text-muted mt-3">{{ __('common.no_news_found') }}</p>
+                            </div>
+                        </div>
+                    @endforelse
                 </div>
-                {{-- <ul class="page-nav pagination justify-content-center mb-0 mt-lg-4">
-                    <li class="page-item">
-                        <a class="page-link d-flex flex-column align-items-center justify-content-center rounded-circle"
-                            href="blog-right-sidebar.html" aria-label="Previous">
-                            <img src="/frontend/assets/img/icons/left-long-arrow-gray.svg" alt="Icon">
-                        </a>
-                    </li>
-                    <li class="page-item"><a
-                            class="page-link d-flex flex-column align-items-center justify-content-center rounded-circle active"
-                            href="blog-right-sidebar.html">01</a></li>
-                    <li class="page-item"><a
-                            class="page-link d-flex flex-column align-items-center justify-content-center rounded-circle"
-                            href="blog-right-sidebar.html">02</a></li>
-                    <li class="page-item"><a
-                            class="page-link d-flex flex-column align-items-center justify-content-center rounded-circle"
-                            href="blog-right-sidebar.html">03</a></li>
-                    <li class="page-item">
-                        <a class="page-link d-flex flex-column align-items-center justify-content-center rounded-circle"
-                            href="blog-right-sidebar.html" aria-label="Next">
-                            <img src="/frontend/assets/img/icons/right-long-arrow-gray.svg" alt="Icon">
-                        </a>
-                    </li>
-                </ul> --}}
+
+                <!-- Pagination -->
+                @if($news->hasPages())
+                    <div class="mt-4">
+                        {{ $news->appends(request()->query())->links() }}
+                    </div>
+                @endif
             </div>
-            <x-ui.sidebar-news />
+            <x-ui.sidebar-news :categories="$categories" :tags="$tags" :featuredNews="$featuredNews" />
         </div>
     </div>
     <!-- Blog Details End -->

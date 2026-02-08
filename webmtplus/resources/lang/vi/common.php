@@ -60,6 +60,17 @@ return [
     'summary' => 'Tóm tắt',
     'back_to_services' => 'Quay lại dịch vụ',
 
+    // News
+    'views' => 'lượt xem',
+    'comments' => 'Bình luận',
+    'tags' => 'Thẻ',
+    'share' => 'Chia sẻ',
+    'related_news' => 'Tin Liên Quan',
+    'no_news_found' => 'Không tìm thấy tin tức nào.',
+    'categories' => 'Danh Mục',
+    'recent_posts' => 'Bài Viết Gần Đây',
+    'search' => 'Tìm kiếm',
+
     // Career
     'salary' => 'Mức lương',
     'location' => 'Địa điểm',

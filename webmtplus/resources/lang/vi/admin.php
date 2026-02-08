@@ -421,4 +421,243 @@ return [
         'created_at' => 'Ngày tạo',
         'updated_at' => 'Ngày cập nhật',
     ],
+    'news' => [
+        'news_siderbar' => 'Tin tức',
+        'all_news' => 'Quản lý Tin tức',
+        'add_news' => 'Thêm tin tức',
+        'create_news' => 'Tạo tin tức',
+        'edit_news' => 'Chỉnh sửa tin tức',
+        'view_news' => 'Xem tin tức',
+        'search_placeholder' => 'Tìm kiếm tin tức...',
+        'total_news' => 'Tổng số tin',
+        'no_news' => 'Chưa có tin tức nào.',
+
+        // Table headers
+        'title' => 'Tiêu đề',
+        'category' => 'Danh mục',
+        'status' => 'Trạng thái',
+        'stats' => 'Thống kê',
+        'published_date' => 'Ngày đăng',
+        'actions' => 'Thao tác',
+
+        // Form sections
+        'news_information' => 'Thông tin tin tức',
+        'seo_settings' => 'Cài đặt SEO',
+        'seo_information' => 'Thông tin SEO',
+        'publishing' => 'Xuất bản',
+        'publishing_info' => 'Thông tin xuất bản',
+        'categorization' => 'Phân loại',
+        'images' => 'Hình ảnh',
+        'statistics' => 'Thống kê',
+        'gallery' => 'Thư viện ảnh',
+
+        // Form fields
+        'title_vi' => 'Tiêu đề (Tiếng Việt)',
+        'title_en' => 'Tiêu đề (Tiếng Anh)',
+        'excerpt' => 'Trích dẫn',
+        'excerpt_vi' => 'Trích dẫn (Tiếng Việt)',
+        'excerpt_en' => 'Trích dẫn (Tiếng Anh)',
+        'content_vi' => 'Nội dung (Tiếng Việt)',
+        'content_en' => 'Nội dung (Tiếng Anh)',
+        'slug' => 'Slug',
+        'slug_placeholder' => 'tu-dong-tao-tu-tieu-de',
+        'slug_help' => 'Để trống để tự động tạo từ tiêu đề tiếng Anh',
+
+        // SEO
+        'meta_title' => 'Meta Title',
+        'meta_title_vi' => 'Meta Title (Tiếng Việt)',
+        'meta_title_en' => 'Meta Title (Tiếng Anh)',
+        'meta_title_help' => 'Khuyến nghị: 50-60 ký tự',
+        'meta_description' => 'Meta Description',
+        'meta_description_vi' => 'Meta Description (Tiếng Việt)',
+        'meta_description_en' => 'Meta Description (Tiếng Anh)',
+        'meta_description_help' => 'Khuyến nghị: 150-160 ký tự',
+        'meta_keywords' => 'Meta Keywords',
+        'meta_keywords_vi' => 'Meta Keywords (Tiếng Việt)',
+        'meta_keywords_en' => 'Meta Keywords (Tiếng Anh)',
+
+        // Publishing
+        'status_draft' => 'Bản nháp',
+        'status_published' => 'Đã đăng',
+        'status_scheduled' => 'Đã lên lịch',
+        'status_archived' => 'Đã lưu trữ',
+        'published_at' => 'Ngày đăng',
+        'author' => 'Tác giả',
+        'author_name' => 'Tên tác giả',
+        'is_active' => 'Hoạt động',
+        'is_featured' => 'Nổi bật',
+        'is_trending' => 'Xu hướng',
+        'allow_comments' => 'Cho phép bình luận',
+
+        // Category & Tags
+        'select_category' => 'Chọn danh mục',
+        'all_categories' => 'Tất cả danh mục',
+        'tags' => 'Thẻ',
+        'tags_help' => 'Giữ Ctrl/Cmd để chọn nhiều thẻ',
+        'order' => 'Thứ tự',
+        'order_help' => 'Số nhỏ hơn hiển thị trước',
+
+        // Images
+        'featured_image' => 'Ảnh đại diện',
+        'thumbnail' => 'Ảnh thu nhỏ',
+        'gallery_images' => 'Thư viện ảnh',
+        'delete_old_gallery' => 'Xóa ảnh cũ và thay thế bằng ảnh mới',
+
+        // Status filters
+        'all_status' => 'Tất cả trạng thái',
+
+        // Actions
+        'view' => 'Xem',
+        'edit' => 'Sửa',
+        'delete' => 'Xóa',
+        'save' => 'Lưu',
+        'update' => 'Cập nhật',
+        'back' => 'Quay lại danh sách',
+        'back_to_list' => 'Quay lại danh sách',
+
+        // Status indicators
+        'hidden' => 'Ẩn',
+        'featured' => 'Nổi bật',
+        'trending' => 'Xu hướng',
+
+        // Statistics
+        'views' => 'Lượt xem',
+        'comments' => 'Bình luận',
+        'reading_time' => 'Thời gian đọc',
+        'created_at' => 'Ngày tạo',
+        'updated_at' => 'Ngày cập nhật',
+
+        // Comments
+        'pending_approval' => 'Chờ duyệt',
+
+        // Messages
+        'confirm_delete_title' => 'Bạn có chắc chắn?',
+        'confirm_delete_text' => 'Tin tức này sẽ bị xóa vĩnh viễn.',
+        'confirm_delete_button' => 'Vâng, Xóa',
+        'cancel_button' => 'Hủy',
+
+        'create_success' => 'Tạo tin tức thành công!',
+        'update_success' => 'Cập nhật tin tức thành công!',
+        'delete_success' => 'Xóa tin tức thành công!',
+
+        'success_title' => 'Thành công!',
+        'error_title' => 'Lỗi!',
+        'validation_error_title' => 'Lỗi xác thực!',
+        'ok_button' => 'OK',
+
+        // Languages
+        'vietnamese' => 'Tiếng Việt',
+        'english' => 'English',
+    ],
+    'news_categories' => [
+        'all_categories' => 'Danh mục Tin tức',
+        'add_category' => 'Thêm danh mục',
+        'create_category' => 'Tạo danh mục',
+        'edit_category' => 'Sửa danh mục',
+        'total_categories' => 'Tổng số danh mục',
+        'no_categories' => 'Chưa có danh mục nào.',
+
+        // Table headers
+        'name' => 'Tên danh mục',
+        'slug' => 'Slug',
+        'icon' => 'Icon',
+        'order' => 'Thứ tự',
+        'news_count' => 'Số tin',
+        'news' => 'tin',
+        'status' => 'Trạng thái',
+        'actions' => 'Thao tác',
+
+        // Form sections
+        'category_information' => 'Thông tin danh mục',
+        'settings' => 'Cài đặt',
+        'system_info' => 'Thông tin hệ thống',
+
+        // Form fields
+        'name_vi' => 'Tên (Tiếng Việt)',
+        'name_en' => 'Tên (Tiếng Anh)',
+        'description_vi' => 'Mô tả (Tiếng Việt)',
+        'description_en' => 'Mô tả (Tiếng Anh)',
+        'icon_label' => 'Icon danh mục',
+        'icon_help' => 'SVG, PNG, JPG (tối đa 2MB)',
+        'order_help' => 'Số nhỏ hơn hiển thị trước',
+        'is_active' => 'Hoạt động',
+
+        // Status
+        'active' => 'Hoạt động',
+        'inactive' => 'Ẩn',
+
+        // Actions
+        'edit' => 'Sửa',
+        'delete' => 'Xóa',
+        'save' => 'Lưu',
+        'update' => 'Cập nhật',
+        'back' => 'Quay lại',
+
+        // System info
+        'created_at' => 'Ngày tạo',
+        'updated_at' => 'Ngày cập nhật',
+
+        // Messages
+        'confirm_delete_title' => 'Bạn có chắc chắn?',
+        'confirm_delete_text' => 'Danh mục này sẽ bị xóa vĩnh viễn.',
+        'confirm_delete_button' => 'Vâng, Xóa',
+        'cancel_button' => 'Hủy',
+
+        'create_success' => 'Tạo danh mục thành công!',
+        'update_success' => 'Cập nhật danh mục thành công!',
+        'delete_success' => 'Xóa danh mục thành công!',
+        'delete_error_has_news' => 'Không thể xóa danh mục đang có tin tức.',
+
+        'success_title' => 'Thành công!',
+        'error_title' => 'Lỗi!',
+        'ok_button' => 'OK',
+    ],
+    'news_tags' => [
+        'all_tags' => 'Thẻ Tin tức',
+        'add_tag' => 'Thêm thẻ',
+        'create_tag' => 'Tạo thẻ',
+        'edit_tag' => 'Sửa thẻ',
+        'total_tags' => 'Tổng số thẻ',
+        'no_tags' => 'Chưa có thẻ nào.',
+
+        // Table headers
+        'name' => 'Tên thẻ',
+        'slug' => 'Slug',
+        'news_count' => 'Số tin',
+        'news' => 'tin',
+        'actions' => 'Thao tác',
+
+        // Form sections
+        'tag_information' => 'Thông tin thẻ',
+        'system_info' => 'Thông tin hệ thống',
+
+        // Form fields
+        'name_vi' => 'Tên (Tiếng Việt)',
+        'name_en' => 'Tên (Tiếng Anh)',
+
+        // Actions
+        'edit' => 'Sửa',
+        'delete' => 'Xóa',
+        'save' => 'Lưu',
+        'update' => 'Cập nhật',
+        'back' => 'Quay lại',
+
+        // System info
+        'created_at' => 'Ngày tạo',
+
+        // Messages
+        'confirm_delete_title' => 'Bạn có chắc chắn?',
+        'confirm_delete_text' => 'Thẻ này sẽ bị xóa vĩnh viễn.',
+        'confirm_delete_button' => 'Vâng, Xóa',
+        'cancel_button' => 'Hủy',
+
+        'create_success' => 'Tạo thẻ thành công!',
+        'update_success' => 'Cập nhật thẻ thành công!',
+        'delete_success' => 'Xóa thẻ thành công!',
+        'delete_error_has_news' => 'Không thể xóa thẻ đang có tin tức.',
+
+        'success_title' => 'Thành công!',
+        'error_title' => 'Lỗi!',
+        'ok_button' => 'OK',
+    ],
 ];

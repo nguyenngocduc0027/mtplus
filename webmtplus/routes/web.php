@@ -33,7 +33,7 @@ Route::get('/services/{slug}', [HomeController::class, 'service'])->name('servic
 Route::get('/project', [HomeController::class, 'project'])->name('project');
 Route::get('/project/{project:slug}', [HomeController::class, 'detailProject'])->name('detail-project');
 Route::get('/news', [HomeController::class, 'news'])->name('news');
-Route::get('/news/detail', [HomeController::class, 'detailNews'])->name('detail-news');
+Route::get('/news/{slug}', [HomeController::class, 'detailNews'])->name('detail-news');
 Route::get('/career', [HomeController::class, 'career'])->name('career');
 Route::get('/career/{slug}', [HomeController::class, 'careerDetail'])->name('detail-career');
 Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
@@ -117,5 +117,30 @@ Route::middleware(['auth'])->group(function () {
     Route::get('admin/careers/{career:slug}/edit', [\App\Http\Controllers\Admin\CareerController::class, 'edit'])->name('admin.careers.edit');
     Route::put('admin/careers/{career:slug}', [\App\Http\Controllers\Admin\CareerController::class, 'update'])->name('admin.careers.update');
     Route::delete('admin/careers/{career:slug}', [\App\Http\Controllers\Admin\CareerController::class, 'destroy'])->name('admin.careers.destroy');
+
+    // News Categories Management (must be before news routes to avoid slug conflict)
+    Route::get('admin/news/categories', [\App\Http\Controllers\Admin\NewsCategoryController::class, 'index'])->name('admin.news.categories.index');
+    Route::get('admin/news/categories/create', [\App\Http\Controllers\Admin\NewsCategoryController::class, 'create'])->name('admin.news.categories.create');
+    Route::post('admin/news/categories', [\App\Http\Controllers\Admin\NewsCategoryController::class, 'store'])->name('admin.news.categories.store');
+    Route::get('admin/news/categories/{category}/edit', [\App\Http\Controllers\Admin\NewsCategoryController::class, 'edit'])->name('admin.news.categories.edit');
+    Route::put('admin/news/categories/{category}', [\App\Http\Controllers\Admin\NewsCategoryController::class, 'update'])->name('admin.news.categories.update');
+    Route::delete('admin/news/categories/{category}', [\App\Http\Controllers\Admin\NewsCategoryController::class, 'destroy'])->name('admin.news.categories.destroy');
+
+    // News Tags Management
+    Route::get('admin/news/tags', [\App\Http\Controllers\Admin\NewsTagController::class, 'index'])->name('admin.news.tags.index');
+    Route::get('admin/news/tags/create', [\App\Http\Controllers\Admin\NewsTagController::class, 'create'])->name('admin.news.tags.create');
+    Route::post('admin/news/tags', [\App\Http\Controllers\Admin\NewsTagController::class, 'store'])->name('admin.news.tags.store');
+    Route::get('admin/news/tags/{tag}/edit', [\App\Http\Controllers\Admin\NewsTagController::class, 'edit'])->name('admin.news.tags.edit');
+    Route::put('admin/news/tags/{tag}', [\App\Http\Controllers\Admin\NewsTagController::class, 'update'])->name('admin.news.tags.update');
+    Route::delete('admin/news/tags/{tag}', [\App\Http\Controllers\Admin\NewsTagController::class, 'destroy'])->name('admin.news.tags.destroy');
+
+    // News Management
+    Route::get('admin/news', [\App\Http\Controllers\Admin\NewsController::class, 'index'])->name('admin.news.index');
+    Route::get('admin/news/create', [\App\Http\Controllers\Admin\NewsController::class, 'create'])->name('admin.news.create');
+    Route::post('admin/news', [\App\Http\Controllers\Admin\NewsController::class, 'store'])->name('admin.news.store');
+    Route::get('admin/news/{news:slug}', [\App\Http\Controllers\Admin\NewsController::class, 'show'])->name('admin.news.show');
+    Route::get('admin/news/{news:slug}/edit', [\App\Http\Controllers\Admin\NewsController::class, 'edit'])->name('admin.news.edit');
+    Route::put('admin/news/{news:slug}', [\App\Http\Controllers\Admin\NewsController::class, 'update'])->name('admin.news.update');
+    Route::delete('admin/news/{news:slug}', [\App\Http\Controllers\Admin\NewsController::class, 'destroy'])->name('admin.news.destroy');
 });
 Route::post('/admin/upload-image', [ImageUploadController::class, 'upload'])->name('admin.upload-image');

@@ -60,6 +60,17 @@ return [
     'summary' => 'Summary',
     'back_to_services' => 'Back to Services',
 
+    // News
+    'views' => 'views',
+    'comments' => 'Comments',
+    'tags' => 'Tags',
+    'share' => 'Share',
+    'related_news' => 'Related News',
+    'no_news_found' => 'No news articles found.',
+    'categories' => 'Categories',
+    'recent_posts' => 'Recent Posts',
+    'search' => 'Search',
+
     // Career
     'salary' => 'Salary',
     'location' => 'Location',

@@ -185,6 +185,29 @@
                     <span class="title">{{ __('admin.careers.all_careers') }}</span>
                 </a>
             </li>
+            <li class="menu-item {{ request()->routeIs('admin.news.*') ? 'open' : '' }}">
+                <a href="javascript:void(0);" class="menu-link menu-toggle {{ request()->routeIs('admin.news.*') ? 'active' : '' }}">
+                    <span class="material-symbols-outlined menu-icon">article</span>
+                    <span class="title">{{ __('admin.news.news_siderbar') }}</span>
+                </a>
+                <ul class="menu-sub">
+                    <li class="menu-item {{ request()->routeIs('admin.news.index') || request()->routeIs('admin.news.create') || request()->routeIs('admin.news.edit') || request()->routeIs('admin.news.show') ? 'open' : '' }}">
+                        <a href="{{ route('admin.news.index') }}" class="menu-link {{ request()->routeIs('admin.news.index') || request()->routeIs('admin.news.create') || request()->routeIs('admin.news.edit') || request()->routeIs('admin.news.show') ? 'active' : '' }}">
+                            {{ __('admin.news.all_news') }}
+                        </a>
+                    </li>
+                    <li class="menu-item {{ request()->routeIs('admin.news.categories.*') ? 'open' : '' }}">
+                        <a href="{{ route('admin.news.categories.index') }}" class="menu-link {{ request()->routeIs('admin.news.categories.*') ? 'active' : '' }}">
+                            {{ __('admin.news_categories.all_categories') }}
+                        </a>
+                    </li>
+                    <li class="menu-item {{ request()->routeIs('admin.news.tags.*') ? 'open' : '' }}">
+                        <a href="{{ route('admin.news.tags.index') }}" class="menu-link {{ request()->routeIs('admin.news.tags.*') ? 'active' : '' }}">
+                            {{ __('admin.news_tags.all_tags') }}
+                        </a>
+                    </li>
+                </ul>
+            </li>
         </ul>
     </aside>
 </div>

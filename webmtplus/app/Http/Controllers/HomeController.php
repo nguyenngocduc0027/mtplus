@@ -91,14 +91,75 @@ class HomeController extends Controller
         return view('frontend.pages.project.detail-project', compact('project'));
     }
 
-    public function news()
+    public function news(Request $request)
     {
-        return view('frontend.pages.news.index');
+        $query = \App\Models\News::with(['category', 'tags'])
+            ->active()
+            ->published();
+
+        // Filter by category slug
+        if ($request->filled('category')) {
+            $query->whereHas('category', function($q) use ($request) {
+                $q->where('slug', $request->category);
+            });
+        }
+
+        // Filter by tag slug
+        if ($request->filled('tag')) {
+            $query->whereHas('tags', function($q) use ($request) {
+                $q->where('news_tags.slug', $request->tag);
+            });
+        }
+
+        // Search
+        if ($request->filled('search')) {
+            $search = $request->search;
+            $query->where(function($q) use ($search) {
+                $q->where('title_vi', 'like', "%{$search}%")
+                  ->orWhere('title_en', 'like', "%{$search}%")
+                  ->orWhere('excerpt_vi', 'like', "%{$search}%")
+                  ->orWhere('excerpt_en', 'like', "%{$search}%");
+            });
+        }
+
+        $news = $query->latest('published_at')->paginate(9);
+        $categories = \App\Models\NewsCategory::active()->ordered()->get();
+        $tags = \App\Models\NewsTag::all();
+        $featuredNews = \App\Models\News::active()->published()->featured()->latest('published_at')->take(3)->get();
+
+        return view('frontend.pages.news.index', compact('news', 'categories', 'tags', 'featuredNews'));
     }
 
-    public function detailNews()
+    public function detailNews($slug)
     {
-        return view('frontend.pages.news.detail-news');
+        $news = \App\Models\News::where('slug', $slug)
+            ->active()
+            ->published()
+            ->firstOrFail();
+
+        // Increment view count
+        $news->incrementViewCount();
+
+        // Load relationships
+        $news->load(['category', 'tags', 'comments' => function($query) {
+            $query->approved()->topLevel()->recent();
+        }]);
+
+        // Get related news (same category)
+        $relatedNews = \App\Models\News::where('category_id', $news->category_id)
+            ->where('id', '!=', $news->id)
+            ->active()
+            ->published()
+            ->latest('published_at')
+            ->take(3)
+            ->get();
+
+        // Get data for sidebar
+        $categories = \App\Models\NewsCategory::active()->ordered()->get();
+        $tags = \App\Models\NewsTag::all();
+        $featuredNews = \App\Models\News::active()->published()->featured()->latest('published_at')->take(5)->get();
+
+        return view('frontend.pages.news.detail-news', compact('news', 'relatedNews', 'categories', 'tags', 'featuredNews'));
     }
 
     public function career()

@@ -390,16 +390,8 @@
 @endsection
 
 @push('scripts')
-    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
     <script>
-        // Initialize TinyMCE
-        tinymce.init({
-            selector: '.tinymce',
-            height: 400,
-            menubar: false,
-            plugins: 'lists link image code',
-            toolbar: 'undo redo | formatselect | bold italic | alignleft aligncenter alignright | bullist numlist | link image | code'
-        });
+      
 
         // Preview main image
         function previewImage(input, previewId) {

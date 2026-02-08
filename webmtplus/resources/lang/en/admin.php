@@ -419,4 +419,243 @@ return [
         'created_at' => 'Created At',
         'updated_at' => 'Updated At',
     ],
+    'news' => [
+        'news_siderbar' => 'News',
+        'all_news' => 'News Management',
+        'add_news' => 'Add News',
+        'create_news' => 'Create News',
+        'edit_news' => 'Edit News',
+        'view_news' => 'View News',
+        'search_placeholder' => 'Search news...',
+        'total_news' => 'Total News',
+        'no_news' => 'No news yet.',
+
+        // Table headers
+        'title' => 'Title',
+        'category' => 'Category',
+        'status' => 'Status',
+        'stats' => 'Stats',
+        'published_date' => 'Published Date',
+        'actions' => 'Actions',
+
+        // Form sections
+        'news_information' => 'News Information',
+        'seo_settings' => 'SEO Settings',
+        'seo_information' => 'SEO Information',
+        'publishing' => 'Publishing',
+        'publishing_info' => 'Publishing Information',
+        'categorization' => 'Categorization',
+        'images' => 'Images',
+        'statistics' => 'Statistics',
+        'gallery' => 'Gallery',
+
+        // Form fields
+        'title_vi' => 'Title (Vietnamese)',
+        'title_en' => 'Title (English)',
+        'excerpt' => 'Excerpt',
+        'excerpt_vi' => 'Excerpt (Vietnamese)',
+        'excerpt_en' => 'Excerpt (English)',
+        'content_vi' => 'Content (Vietnamese)',
+        'content_en' => 'Content (English)',
+        'slug' => 'Slug',
+        'slug_placeholder' => 'auto-generate-from-title',
+        'slug_help' => 'Leave empty to auto-generate from English title',
+
+        // SEO
+        'meta_title' => 'Meta Title',
+        'meta_title_vi' => 'Meta Title (Vietnamese)',
+        'meta_title_en' => 'Meta Title (English)',
+        'meta_title_help' => 'Recommended: 50-60 characters',
+        'meta_description' => 'Meta Description',
+        'meta_description_vi' => 'Meta Description (Vietnamese)',
+        'meta_description_en' => 'Meta Description (English)',
+        'meta_description_help' => 'Recommended: 150-160 characters',
+        'meta_keywords' => 'Meta Keywords',
+        'meta_keywords_vi' => 'Meta Keywords (Vietnamese)',
+        'meta_keywords_en' => 'Meta Keywords (English)',
+
+        // Publishing
+        'status_draft' => 'Draft',
+        'status_published' => 'Published',
+        'status_scheduled' => 'Scheduled',
+        'status_archived' => 'Archived',
+        'published_at' => 'Published At',
+        'author' => 'Author',
+        'author_name' => 'Author Name',
+        'is_active' => 'Active',
+        'is_featured' => 'Featured',
+        'is_trending' => 'Trending',
+        'allow_comments' => 'Allow Comments',
+
+        // Category & Tags
+        'select_category' => 'Select Category',
+        'all_categories' => 'All Categories',
+        'tags' => 'Tags',
+        'tags_help' => 'Hold Ctrl/Cmd to select multiple tags',
+        'order' => 'Order',
+        'order_help' => 'Lower numbers appear first',
+
+        // Images
+        'featured_image' => 'Featured Image',
+        'thumbnail' => 'Thumbnail',
+        'gallery_images' => 'Gallery Images',
+        'delete_old_gallery' => 'Delete old gallery images and replace with new ones',
+
+        // Status filters
+        'all_status' => 'All Status',
+
+        // Actions
+        'view' => 'View',
+        'edit' => 'Edit',
+        'delete' => 'Delete',
+        'save' => 'Save',
+        'update' => 'Update',
+        'back' => 'Back to List',
+        'back_to_list' => 'Back to List',
+
+        // Status indicators
+        'hidden' => 'Hidden',
+        'featured' => 'Featured',
+        'trending' => 'Trending',
+
+        // Statistics
+        'views' => 'Views',
+        'comments' => 'Comments',
+        'reading_time' => 'Reading Time',
+        'created_at' => 'Created At',
+        'updated_at' => 'Updated At',
+
+        // Comments
+        'pending_approval' => 'Pending Approval',
+
+        // Messages
+        'confirm_delete_title' => 'Are you sure?',
+        'confirm_delete_text' => 'This news article will be permanently deleted.',
+        'confirm_delete_button' => 'Yes, Delete',
+        'cancel_button' => 'Cancel',
+
+        'create_success' => 'News created successfully!',
+        'update_success' => 'News updated successfully!',
+        'delete_success' => 'News deleted successfully!',
+
+        'success_title' => 'Success!',
+        'error_title' => 'Error!',
+        'validation_error_title' => 'Validation Error!',
+        'ok_button' => 'OK',
+
+        // Languages
+        'vietnamese' => 'Tiếng Việt',
+        'english' => 'English',
+    ],
+    'news_categories' => [
+        'all_categories' => 'News Categories',
+        'add_category' => 'Add Category',
+        'create_category' => 'Create Category',
+        'edit_category' => 'Edit Category',
+        'total_categories' => 'Total Categories',
+        'no_categories' => 'No categories yet.',
+
+        // Table headers
+        'name' => 'Name',
+        'slug' => 'Slug',
+        'icon' => 'Icon',
+        'order' => 'Order',
+        'news_count' => 'News Count',
+        'news' => 'news',
+        'status' => 'Status',
+        'actions' => 'Actions',
+
+        // Form sections
+        'category_information' => 'Category Information',
+        'settings' => 'Settings',
+        'system_info' => 'System Information',
+
+        // Form fields
+        'name_vi' => 'Name (Vietnamese)',
+        'name_en' => 'Name (English)',
+        'description_vi' => 'Description (Vietnamese)',
+        'description_en' => 'Description (English)',
+        'icon_label' => 'Category Icon',
+        'icon_help' => 'SVG, PNG, JPG (max 2MB)',
+        'order_help' => 'Lower numbers appear first',
+        'is_active' => 'Active',
+
+        // Status
+        'active' => 'Active',
+        'inactive' => 'Inactive',
+
+        // Actions
+        'edit' => 'Edit',
+        'delete' => 'Delete',
+        'save' => 'Save',
+        'update' => 'Update',
+        'back' => 'Back',
+
+        // System info
+        'created_at' => 'Created At',
+        'updated_at' => 'Updated At',
+
+        // Messages
+        'confirm_delete_title' => 'Are you sure?',
+        'confirm_delete_text' => 'This category will be permanently deleted.',
+        'confirm_delete_button' => 'Yes, Delete',
+        'cancel_button' => 'Cancel',
+
+        'create_success' => 'Category created successfully!',
+        'update_success' => 'Category updated successfully!',
+        'delete_success' => 'Category deleted successfully!',
+        'delete_error_has_news' => 'Cannot delete category that has news articles.',
+
+        'success_title' => 'Success!',
+        'error_title' => 'Error!',
+        'ok_button' => 'OK',
+    ],
+    'news_tags' => [
+        'all_tags' => 'News Tags',
+        'add_tag' => 'Add Tag',
+        'create_tag' => 'Create Tag',
+        'edit_tag' => 'Edit Tag',
+        'total_tags' => 'Total Tags',
+        'no_tags' => 'No tags yet.',
+
+        // Table headers
+        'name' => 'Name',
+        'slug' => 'Slug',
+        'news_count' => 'News Count',
+        'news' => 'news',
+        'actions' => 'Actions',
+
+        // Form sections
+        'tag_information' => 'Tag Information',
+        'system_info' => 'System Information',
+
+        // Form fields
+        'name_vi' => 'Name (Vietnamese)',
+        'name_en' => 'Name (English)',
+
+        // Actions
+        'edit' => 'Edit',
+        'delete' => 'Delete',
+        'save' => 'Save',
+        'update' => 'Update',
+        'back' => 'Back',
+
+        // System info
+        'created_at' => 'Created At',
+
+        // Messages
+        'confirm_delete_title' => 'Are you sure?',
+        'confirm_delete_text' => 'This tag will be permanently deleted.',
+        'confirm_delete_button' => 'Yes, Delete',
+        'cancel_button' => 'Cancel',
+
+        'create_success' => 'Tag created successfully!',
+        'update_success' => 'Tag updated successfully!',
+        'delete_success' => 'Tag deleted successfully!',
+        'delete_error_has_news' => 'Cannot delete tag that has news articles.',
+
+        'success_title' => 'Success!',
+        'error_title' => 'Error!',
+        'ok_button' => 'OK',
+    ],
 ];
