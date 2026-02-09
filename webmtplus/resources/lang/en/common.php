@@ -89,4 +89,28 @@ return [
     'department' => 'Department',
     'position' => 'position',
     'positions' => 'positions',
+
+    // Contact Form
+    'contact_success' => 'Thank you for contacting us! We will respond as soon as possible.',
+    'contact_error' => 'An error occurred. Please try again later.',
+    'please_wait' => 'Please wait...',
+    'sending_message' => 'Sending message...',
+    'success' => 'Success!',
+    'error' => 'Error!',
+    'validation_error' => 'Validation Error',
+    'name' => 'Name',
+    'subject' => 'Subject',
+    'message' => 'Message',
+    'accept_terms' => 'Accept Terms of Service and Privacy Policy',
+
+    // Validation Messages
+    'validation' => [
+        'name_required' => 'Please enter your name.',
+        'email_required' => 'Please enter your email.',
+        'email_invalid' => 'Invalid email address.',
+        'subject_required' => 'Please enter a subject.',
+        'message_required' => 'Please enter your message.',
+        'terms_required' => 'Please accept the terms of service and privacy policy.',
+        'fill_required_fields' => 'Please fill in all required fields.',
+    ],
 ];

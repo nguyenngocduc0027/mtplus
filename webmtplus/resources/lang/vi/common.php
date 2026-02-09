@@ -89,4 +89,28 @@ return [
     'department' => 'Phòng ban',
     'position' => 'vị trí',
     'positions' => 'vị trí',
+
+    // Contact Form
+    'contact_success' => 'Cảm ơn bạn đã liên hệ! Chúng tôi sẽ phản hồi trong thời gian sớm nhất.',
+    'contact_error' => 'Đã có lỗi xảy ra. Vui lòng thử lại sau.',
+    'please_wait' => 'Vui lòng đợi...',
+    'sending_message' => 'Đang gửi tin nhắn...',
+    'success' => 'Thành công!',
+    'error' => 'Lỗi!',
+    'validation_error' => 'Lỗi xác thực',
+    'name' => 'Họ tên',
+    'subject' => 'Chủ đề',
+    'message' => 'Nội dung',
+    'accept_terms' => 'Chấp nhận Điều khoản dịch vụ và Chính sách bảo mật',
+
+    // Validation Messages
+    'validation' => [
+        'name_required' => 'Vui lòng nhập họ tên.',
+        'email_required' => 'Vui lòng nhập email.',
+        'email_invalid' => 'Email không hợp lệ.',
+        'subject_required' => 'Vui lòng nhập chủ đề.',
+        'message_required' => 'Vui lòng nhập nội dung tin nhắn.',
+        'terms_required' => 'Vui lòng chấp nhận điều khoản dịch vụ và chính sách bảo mật.',
+        'fill_required_fields' => 'Vui lòng điền đầy đủ các trường bắt buộc.',
+    ],
 ];

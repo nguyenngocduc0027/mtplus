@@ -208,6 +208,18 @@
                     </li>
                 </ul>
             </li>
+            <li class="menu-item {{ request()->routeIs('admin.contacts.*') ? 'open' : '' }}">
+                <a href="{{ route('admin.contacts.index') }}" class="menu-link {{ request()->routeIs('admin.contacts.*') ? 'active' : '' }}">
+                    <span class="material-symbols-outlined menu-icon">mail</span>
+                    <span class="title">{{ __('admin.contacts.all_contacts') }}</span>
+                    @php
+                        $newContactsCount = \App\Models\Contact::new()->count();
+                    @endphp
+                    @if($newContactsCount > 0)
+                        <span class="badge bg-danger ms-2">{{ $newContactsCount }}</span>
+                    @endif
+                </a>
+            </li>
         </ul>
     </aside>
 </div>

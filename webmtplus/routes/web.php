@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\ContactController;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\AuthController;
@@ -37,6 +38,7 @@ Route::get('/news/{slug}', [HomeController::class, 'detailNews'])->name('detail-
 Route::get('/career', [HomeController::class, 'career'])->name('career');
 Route::get('/career/{slug}', [HomeController::class, 'careerDetail'])->name('detail-career');
 Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
+Route::post('/contact/submit', [ContactController::class, 'submit'])->name('contact.submit');
 
 
 // Auth routes
@@ -142,5 +144,12 @@ Route::middleware(['auth'])->group(function () {
     Route::get('admin/news/{news:slug}/edit', [\App\Http\Controllers\Admin\NewsController::class, 'edit'])->name('admin.news.edit');
     Route::put('admin/news/{news:slug}', [\App\Http\Controllers\Admin\NewsController::class, 'update'])->name('admin.news.update');
     Route::delete('admin/news/{news:slug}', [\App\Http\Controllers\Admin\NewsController::class, 'destroy'])->name('admin.news.destroy');
+
+    // Contacts Management
+    Route::get('admin/contacts', [\App\Http\Controllers\Admin\ContactController::class, 'index'])->name('admin.contacts.index');
+    Route::get('admin/contacts/{contact}', [\App\Http\Controllers\Admin\ContactController::class, 'show'])->name('admin.contacts.show');
+    Route::put('admin/contacts/{contact}/status', [\App\Http\Controllers\Admin\ContactController::class, 'updateStatus'])->name('admin.contacts.update-status');
+    Route::delete('admin/contacts/{contact}', [\App\Http\Controllers\Admin\ContactController::class, 'destroy'])->name('admin.contacts.destroy');
+    Route::post('admin/contacts/bulk-delete', [\App\Http\Controllers\Admin\ContactController::class, 'bulkDelete'])->name('admin.contacts.bulk-delete');
 });
 Route::post('/admin/upload-image', [ImageUploadController::class, 'upload'])->name('admin.upload-image');

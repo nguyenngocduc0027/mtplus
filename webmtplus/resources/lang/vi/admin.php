@@ -504,7 +504,7 @@ return [
         'delete_old_gallery' => 'Xóa ảnh cũ và thay thế bằng ảnh mới',
 
         // Status filters
-        'all_status' => 'Tất cả trạng thái',
+        'all_status' => 'Trạng thái',
 
         // Actions
         'view' => 'Xem',
@@ -659,5 +659,78 @@ return [
         'success_title' => 'Thành công!',
         'error_title' => 'Lỗi!',
         'ok_button' => 'OK',
+    ],
+
+    // Contacts Management
+    'contacts' => [
+        'all_contacts' => 'Tất cả liên hệ',
+        'contact_details' => 'Chi tiết liên hệ',
+        'view_contact' => 'Xem liên hệ',
+        'message_details' => 'Nội dung tin nhắn',
+        'sender_info' => 'Thông tin người gửi',
+        'sender' => 'Người gửi',
+        'status_info' => 'Trạng thái',
+        'status_management' => 'Quản lý trạng thái',
+        'timeline' => 'Thời gian',
+        'quick_actions' => 'Thao tác nhanh',
+        'last_updated' => 'Cập nhật lần cuối',
+        'total' => 'Tổng số',
+
+        'name' => 'Họ tên',
+        'email' => 'Email',
+        'subject' => 'Chủ đề',
+        'message' => 'Nội dung',
+        'status' => 'Trạng thái',
+        'date' => 'Ngày gửi',
+        'actions' => 'Thao tác',
+        'ip_address' => 'Địa chỉ IP',
+        'terms_accepted' => 'Chấp nhận điều khoản',
+        'current_status' => 'Trạng thái hiện tại',
+        'received_at' => 'Ngày nhận',
+        'read_at' => 'Ngày đọc',
+
+        'status_new' => 'Mới',
+        'status_read' => 'Đã đọc',
+        'status_replied' => 'Đã trả lời',
+        'status_archived' => 'Lưu trữ',
+        'all_status' => 'Trạng thái',
+
+        'new' => 'Mới',
+        'yes' => 'Có',
+        'no' => 'Không',
+
+        'search' => 'Tìm theo tên, email hoặc chủ đề...',
+        'filter' => 'Lọc',
+        'reset' => 'Đặt lại',
+        'view' => 'Xem',
+        'delete' => 'Xóa',
+        'delete_selected' => 'Xóa đã chọn',
+        'back_to_list' => 'Quay lại danh sách',
+        'reply_via_email' => 'Trả lời qua Email',
+
+        'no_contacts' => 'Chưa có liên hệ nào.',
+        'showing' => 'Hiển thị',
+        'to' => 'đến',
+        'of' => 'trong tổng số',
+        'entries' => 'mục',
+        'contacts' => 'liên hệ',
+
+        'confirm_delete' => 'Bạn có chắc chắn?',
+        'delete_warning' => 'Liên hệ này sẽ bị xóa vĩnh viễn!',
+        'yes_delete' => 'Có, xóa!',
+        'cancel' => 'Hủy',
+        'deleted' => 'Đã xóa!',
+
+        'confirm_bulk_delete' => 'Xóa nhiều liên hệ?',
+        'bulk_delete_warning' => 'Bạn có chắc chắn muốn xóa',
+
+        'status_updated' => 'Đã cập nhật trạng thái!',
+        'delete_success' => 'Đã xóa liên hệ thành công!',
+        'bulk_delete_success' => 'Đã xóa nhiều liên hệ thành công!',
+        'update_failed' => 'Cập nhật thất bại!',
+
+        'success' => 'Thành công!',
+        'error' => 'Lỗi!',
+        'updating' => 'Đang cập nhật...',
     ],
 ];
