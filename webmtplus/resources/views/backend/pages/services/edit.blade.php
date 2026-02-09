@@ -232,12 +232,6 @@
                     return;
                 }
 
-                // Validate file size (2MB)
-                if (file.size > 2048 * 1024) {
-                    alert('Kích thước file không được vượt quá 2MB');
-                    input.value = '';
-                    return;
-                }
 
                 // Show preview
                 const reader = new FileReader();

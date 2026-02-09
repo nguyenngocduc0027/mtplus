@@ -42,8 +42,8 @@ class AreasOperationController extends Controller
                 'card_2_text_en' => 'nullable|string|max:255',
                 'card_3_text_vi' => 'nullable|string|max:255',
                 'card_3_text_en' => 'nullable|string|max:255',
-                'main_image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-                'thumbnail_image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                'main_image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg',
+                'thumbnail_image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg',
             ]);
         } catch (\Illuminate\Validation\ValidationException $e) {
             if ($request->wantsJson() || $request->expectsJson() || $request->ajax()) {

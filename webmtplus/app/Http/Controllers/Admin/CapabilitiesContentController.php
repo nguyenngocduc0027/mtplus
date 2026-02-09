@@ -32,36 +32,36 @@ class CapabilitiesContentController extends Controller
                 'section_1_title_en' => 'nullable|string|max:255',
 
                 // Feature 1
-                'feature_1_icon' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                'feature_1_icon' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg',
                 'feature_1_title_vi' => 'nullable|string|max:255',
                 'feature_1_title_en' => 'nullable|string|max:255',
                 'feature_1_description_vi' => 'nullable|string',
                 'feature_1_description_en' => 'nullable|string',
 
                 // Feature 2
-                'feature_2_icon' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                'feature_2_icon' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg',
                 'feature_2_title_vi' => 'nullable|string|max:255',
                 'feature_2_title_en' => 'nullable|string|max:255',
                 'feature_2_description_vi' => 'nullable|string',
                 'feature_2_description_en' => 'nullable|string',
 
                 // Feature 3
-                'feature_3_icon' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                'feature_3_icon' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg',
                 'feature_3_title_vi' => 'nullable|string|max:255',
                 'feature_3_title_en' => 'nullable|string|max:255',
                 'feature_3_description_vi' => 'nullable|string',
                 'feature_3_description_en' => 'nullable|string',
 
                 // Feature 4
-                'feature_4_icon' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                'feature_4_icon' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg',
                 'feature_4_title_vi' => 'nullable|string|max:255',
                 'feature_4_title_en' => 'nullable|string|max:255',
                 'feature_4_description_vi' => 'nullable|string',
                 'feature_4_description_en' => 'nullable|string',
 
                 // Section 3
-                'main_image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-                'thumbnail_image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                'main_image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg',
+                'thumbnail_image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg',
                 'section_3_title_vi' => 'nullable|string|max:255',
                 'section_3_title_en' => 'nullable|string|max:255',
                 'section_3_description_vi' => 'nullable|string',

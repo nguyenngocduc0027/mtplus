@@ -27,7 +27,7 @@ class NewsCategoryController extends Controller
             'slug' => 'nullable|string|unique:news_categories,slug',
             'description_vi' => 'nullable|string',
             'description_en' => 'nullable|string',
-            'icon' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'icon' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg',
             'order' => 'nullable|integer|min:0',
         ]);
 
@@ -71,7 +71,7 @@ class NewsCategoryController extends Controller
             'slug' => 'nullable|string|unique:news_categories,slug,' . $category->id,
             'description_vi' => 'nullable|string',
             'description_en' => 'nullable|string',
-            'icon' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'icon' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg',
             'order' => 'nullable|integer|min:0',
         ]);
 

@@ -250,12 +250,6 @@
                     return;
                 }
 
-                // Validate file size (2MB)
-                if (file.size > 2048 * 1024) {
-                    alert('{{ __('admin.services.file_size_alert') }}');
-                    input.value = '';
-                    return;
-                }
 
                 // Show preview
                 const reader = new FileReader();

@@ -476,12 +476,6 @@
                     return;
                 }
 
-                // Validate file size (2MB)
-                if (file.size > 2048 * 1024) {
-                    alert('{{ __('admin.capabilities.file_size_limit') }}');
-                    input.value = '';
-                    return;
-                }
 
                 // Show preview
                 const reader = new FileReader();
@@ -515,12 +509,6 @@
                     return;
                 }
 
-                // Validate file size (2MB)
-                if (file.size > 2048 * 1024) {
-                    alert('{{ __('admin.capabilities.file_size_limit') }}');
-                    input.value = '';
-                    return;
-                }
 
                 // Show preview
                 const reader = new FileReader();
@@ -554,12 +542,6 @@
                     return;
                 }
 
-                // Validate file size (2MB)
-                if (file.size > 2048 * 1024) {
-                    alert('{{ __('admin.capabilities.file_size_limit') }}');
-                    input.value = '';
-                    return;
-                }
 
                 // Show preview
                 const reader = new FileReader();
