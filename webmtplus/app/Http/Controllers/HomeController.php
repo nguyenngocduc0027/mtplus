@@ -82,7 +82,7 @@ class HomeController extends Controller
 
     public function project()
     {
-        $projects = \App\Models\Project::active()->ordered()->paginate(9);
+        $projects = \App\Models\Project::active()->paginate(9);
         return view('frontend.pages.project.index', compact('projects'));
     }
 
