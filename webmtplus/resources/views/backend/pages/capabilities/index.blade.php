@@ -502,7 +502,7 @@
                 const file = input.files[0];
 
                 // Validate file type
-                const validTypes = ['image/jpeg', 'image/png', 'image/jpg', 'image/gif'];
+                const validTypes = ['image/jpeg', 'image/png', 'image/jpg', 'image/gif', 'image/svg+xml', 'image/webp', 'image/avif', 'image/bmp', 'image/x-icon', 'image/tiff'];
                 if (!validTypes.includes(file.type)) {
                     alert('{{ __('admin.capabilities.invalid_image') }}');
                     input.value = '';
@@ -535,7 +535,7 @@
                 const file = input.files[0];
 
                 // Validate file type
-                const validTypes = ['image/jpeg', 'image/png', 'image/jpg', 'image/gif'];
+                const validTypes = ['image/jpeg', 'image/png', 'image/jpg', 'image/gif', 'image/svg+xml', 'image/webp', 'image/avif', 'image/bmp', 'image/x-icon', 'image/tiff'];
                 if (!validTypes.includes(file.type)) {
                     alert('{{ __('admin.capabilities.invalid_image') }}');
                     input.value = '';

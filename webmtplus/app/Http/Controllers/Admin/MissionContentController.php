@@ -39,7 +39,7 @@ class MissionContentController extends Controller
                 'feature_3_en' => 'nullable|string|max:255',
                 'feature_4_vi' => 'nullable|string|max:255',
                 'feature_4_en' => 'nullable|string|max:255',
-                'background_image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg',
+                'background_image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp,avif,bmp,ico,tiff',
             ]);
         } catch (\Illuminate\Validation\ValidationException $e) {
             if ($request->wantsJson() || $request->expectsJson() || $request->ajax()) {
