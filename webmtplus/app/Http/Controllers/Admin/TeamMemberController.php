@@ -11,7 +11,7 @@ class TeamMemberController extends Controller
 {
     public function index()
     {
-        $teamMembers = TeamMember::ordered()->paginate(20);
+        $teamMembers = TeamMember::ordered()->paginate(4);
         return view('backend.pages.team.index', compact('teamMembers'));
     }
 

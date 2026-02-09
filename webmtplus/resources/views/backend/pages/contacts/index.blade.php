@@ -148,7 +148,7 @@
                         {{ __('admin.contacts.of') }} {{ $contacts->total() }}
                         {{ __('admin.contacts.entries') }}
                     </div>
-                    {{ $contacts->links() }}
+                    {{ $contacts->links('pagination::bootstrap-4') }}
                 </div>
             @endif
         </div>

@@ -161,8 +161,14 @@
         </div>
 
         @if($news->hasPages())
-            <div class="p-20 pt-0">
-                {{ $news->appends(request()->query())->links() }}
+            <div class="d-flex justify-content-center justify-content-sm-between align-items-center text-center flex-wrap gap-2 showing-wrap pt-15 p-20">
+                <div>
+                    {{ __('admin.news.showing') }} {{ $news->firstItem() ?? 0 }} {{ __('admin.news.to') }} {{ $news->lastItem() ?? 0 }}
+                    {{ __('admin.news.of') }} {{ $news->total() }} {{ __('admin.news.entries') }}
+                </div>
+                <div>
+                    {{ $news->appends(request()->query())->links('pagination::bootstrap-4') }}
+                </div>
             </div>
         @endif
     </div>

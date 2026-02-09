@@ -99,8 +99,14 @@
         </div>
 
         @if($categories->hasPages())
-            <div class="p-20 pt-0">
-                {{ $categories->links() }}
+            <div class="d-flex justify-content-center justify-content-sm-between align-items-center text-center flex-wrap gap-2 showing-wrap pt-15 p-20">
+                <div>
+                    {{ __('admin.news_categories.showing') }} {{ $categories->firstItem() ?? 0 }} {{ __('admin.news_categories.to') }} {{ $categories->lastItem() ?? 0 }}
+                    {{ __('admin.news_categories.of') }} {{ $categories->total() }} {{ __('admin.news_categories.entries') }}
+                </div>
+                <div>
+                    {{ $categories->links('pagination::bootstrap-4') }}
+                </div>
             </div>
         @endif
     </div>

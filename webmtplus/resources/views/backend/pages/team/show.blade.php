@@ -202,21 +202,21 @@
 @endpush
 @section('content-backend')
     <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 mb-4 mt-1">
-                        <h3 class="mb-0">Chi tiết thành viên</h3>
+                        <h3 class="mb-0">{{ __('admin.team.member_details') }}</h3>
 
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb align-items-center mb-0 lh-1">
                                 <li class="breadcrumb-item">
                                     <a href="index.html" class="d-flex align-items-center text-decoration-none">
                                         <i class="ri-home-8-line fs-15 text-primary me-1"></i>
-                                        <span class="text-body fs-14 hover">Quản lý</span>
+                                        <span class="text-body fs-14 hover">{{ __('admin.team.management') }}</span>
                                     </a>
                                 </li>
                                 <li class="breadcrumb-item active" aria-current="page">
-                                    <span>Quản lý thành viên</span>
+                                    <span>{{ __('admin.team.manage_members') }}</span>
                                 </li>
                                 <li class="breadcrumb-item active" aria-current="page">
-                                    <span class="text-secondary">Chi tiết thành viên</span>
+                                    <span class="text-secondary">{{ __('admin.team.member_details') }}</span>
                                 </li>
                             </ol>
                         </nav>
@@ -246,7 +246,7 @@
 
                     <div class="position-box">
                         <div class="mb-3">
-                            <div class="position-label">🇻🇳 Chức vụ</div>
+                            <div class="position-label">🇻🇳 {{ __('admin.team.position') }}</div>
                             <div class="position-value">{{ $team->position_vi }}</div>
                         </div>
 
@@ -259,7 +259,7 @@
                     @if($team->experience_years)
                         <div class="experience-badge">
                             <i class="ri-award-line fs-18"></i>
-                            <span>{{ $team->experience_years }} năm kinh nghiệm</span>
+                            <span>{{ $team->experience_years }} {{ __('admin.team.years_experience') }}</span>
                         </div>
                     @endif
 
@@ -267,11 +267,11 @@
                     <div class="mt-4">
                         @if($team->is_active)
                             <span class="status-badge active">
-                                <i class="ri-check-line me-1"></i>Đang hoạt động
+                                <i class="ri-check-line me-1"></i>{{ __('admin.team.active') }}
                             </span>
                         @else
                             <span class="status-badge inactive">
-                                <i class="ri-pause-line me-1"></i>Tạm dừng
+                                <i class="ri-pause-line me-1"></i>{{ __('admin.team.inactive') }}
                             </span>
                         @endif
                     </div>
@@ -307,7 +307,7 @@
             <!-- Contact Info -->
             <div class="info-card">
                 <h5 class="fw-bold mb-4" style="color: #667eea;">
-                    <i class="ri-contacts-line me-2"></i>Thông tin liên hệ
+                    <i class="ri-contacts-line me-2"></i>{{ __('admin.team.contact_info') }}
                 </h5>
 
                 @if($team->phone)
@@ -318,7 +318,7 @@
                             <i class="ri-phone-line text-white fs-18"></i>
                         </div>
                         <div class="ms-3 flex-grow-1">
-                            <div class="info-label">Điện thoại</div>
+                            <div class="info-label">{{ __('admin.team.phone') }}</div>
                             <div class="info-value">
                                 <a href="tel:{{ $team->phone }}" style="color: #667eea; text-decoration: none; font-weight: 500;">
                                     {{ $team->phone }}
@@ -368,7 +368,7 @@
                             <i class="ri-map-pin-line text-white fs-18"></i>
                         </div>
                         <div class="ms-3 flex-grow-1">
-                            <div class="info-label">Địa chỉ</div>
+                            <div class="info-label">{{ __('admin.team.address') }}</div>
                             <div class="info-value">{{ $team->address }}</div>
                         </div>
                     </div>
@@ -402,42 +402,42 @@
                         <div class="tab-pane fade show active" id="vi-content" role="tabpanel">
                             @if($team->detailed_position_vi)
                                 <div class="mb-4">
-                                    <h6 class="fw-bold mb-2"><i class="ri-briefcase-line me-2"></i>Chức vụ chi tiết</h6>
+                                    <h6 class="fw-bold mb-2"><i class="ri-briefcase-line me-2"></i>{{ __('admin.team.detailed_position') }}</h6>
                                     <div class="info-value">{{ $team->detailed_position_vi }}</div>
                                 </div>
                             @endif
 
                             @if($team->bio_vi)
                                 <div class="mb-4">
-                                    <h6 class="fw-bold mb-2"><i class="ri-file-text-line me-2"></i>Tiểu sử ngắn</h6>
+                                    <h6 class="fw-bold mb-2"><i class="ri-file-text-line me-2"></i>{{ __('admin.team.bio_short') }}</h6>
                                     <div class="info-value">{{ $team->bio_vi }}</div>
                                 </div>
                             @endif
 
                             @if($team->detailed_bio_vi)
                                 <div class="mb-4">
-                                    <h6 class="fw-bold mb-2"><i class="ri-article-line me-2"></i>Tiểu sử chi tiết</h6>
+                                    <h6 class="fw-bold mb-2"><i class="ri-article-line me-2"></i>{{ __('admin.team.bio_detail') }}</h6>
                                     <div class="info-value">{{ $team->detailed_bio_vi }}</div>
                                 </div>
                             @endif
 
                             @if($team->location_vi)
                                 <div class="mb-4">
-                                    <h6 class="fw-bold mb-2"><i class="ri-map-pin-2-line me-2"></i>Địa điểm</h6>
+                                    <h6 class="fw-bold mb-2"><i class="ri-map-pin-2-line me-2"></i>{{ __('admin.team.location') }}</h6>
                                     <div class="info-value">{{ $team->location_vi }}</div>
                                 </div>
                             @endif
 
                             @if($team->field_of_activity_vi)
                                 <div class="mb-4">
-                                    <h6 class="fw-bold mb-2"><i class="ri-building-line me-2"></i>Lĩnh vực hoạt động</h6>
+                                    <h6 class="fw-bold mb-2"><i class="ri-building-line me-2"></i>{{ __('admin.team.field_of_activity') }}</h6>
                                     <div class="info-value">{{ $team->field_of_activity_vi }}</div>
                                 </div>
                             @endif
 
                             @if($team->specialties_vi && count($team->specialties_vi) > 0)
                                 <div class="mb-4">
-                                    <h6 class="fw-bold mb-2"><i class="ri-star-line me-2"></i>Kỹ năng chuyên môn</h6>
+                                    <h6 class="fw-bold mb-2"><i class="ri-star-line me-2"></i>{{ __('admin.team.specialties') }}</h6>
                                     <ul class="list-unstyled mb-0">
                                         @foreach($team->specialties_vi as $specialty)
                                             <li class="mb-2"><i class="ri-check-line text-success me-2"></i>{{ $specialty }}</li>
@@ -448,7 +448,7 @@
 
                             @if($team->experience_list_vi && count($team->experience_list_vi) > 0)
                                 <div class="mb-0">
-                                    <h6 class="fw-bold mb-2"><i class="ri-lightbulb-line me-2"></i>Kinh nghiệm nổi bật</h6>
+                                    <h6 class="fw-bold mb-2"><i class="ri-lightbulb-line me-2"></i>{{ __('admin.team.experience_highlights') }}</h6>
                                     <ul class="list-unstyled mb-0">
                                         @foreach($team->experience_list_vi as $experience)
                                             <li class="mb-2"><i class="ri-arrow-right-s-line text-primary me-2"></i>{{ $experience }}</li>
@@ -463,7 +463,7 @@
                                 (!$team->experience_list_vi || count($team->experience_list_vi) == 0))
                                 <div class="text-center py-5 text-muted">
                                     <i class="ri-information-line fs-1"></i>
-                                    <p class="mt-3">Chưa có thông tin tiếng Việt</p>
+                                    <p class="mt-3">{{ __('admin.team.no_info_vi') }}</p>
                                 </div>
                             @endif
                         </div>

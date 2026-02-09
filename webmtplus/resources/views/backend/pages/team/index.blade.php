@@ -30,10 +30,10 @@
     <div class="card bg-white rounded-10 border border-white p-20 mb-4">
         <div class="d-flex flex-wrap gap-2 justify-content-between align-items-center">
             <a href="{{ route('admin.team.create') }}" class="text-primary fs-16 text-decoration-none">
-                <i class="ri-add-line"></i> Thêm thành viên mới
+                <i class="ri-add-line"></i> {{ __('admin.team.add_member') }}
             </a>
             <form class="table-src-form position-relative m-0" id="searchForm">
-                <input type="text" class="form-control" id="searchInput" placeholder="Tìm kiếm thành viên...">
+                <input type="text" class="form-control" id="searchInput" placeholder="{{ __('admin.team.search_placeholder') }}">
                 <div class="src-btn position-absolute top-50 start-0 translate-middle-y bg-transparent p-0 border-0">
                     <span class="material-symbols-outlined">search</span>
                 </div>
@@ -71,12 +71,12 @@
                             <ul class="dropdown-menu dropdown-menu-end bg-white border-0 box-shadow rounded-10">
                                 <li>
                                     <a class="dropdown-item text-secondary" href="{{ route('admin.team.show', $member->slug) }}">
-                                        <i class="ri-eye-line me-2"></i>Xem chi tiết
+                                        <i class="ri-eye-line me-2"></i>{{ __('admin.team.view') }}
                                     </a>
                                 </li>
                                 <li>
                                     <a class="dropdown-item text-secondary" href="{{ route('admin.team.edit', $member->slug) }}">
-                                        <i class="ri-edit-line me-2"></i>Chỉnh sửa
+                                        <i class="ri-edit-line me-2"></i>{{ __('admin.team.edit') }}
                                     </a>
                                 </li>
                                 <li>
@@ -89,7 +89,7 @@
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" class="dropdown-item text-danger">
-                                            <i class="ri-delete-bin-line me-2"></i>Xóa
+                                            <i class="ri-delete-bin-line me-2"></i>{{ __('admin.team.delete') }}
                                         </button>
                                     </form>
                                 </li>
@@ -100,44 +100,44 @@
                     <ul class="p-0 mb-3 list-unstyled">
                         <li class="fs-14 mb-2">
                             <i class="ri-time-line me-2 text-primary"></i>
-                            Kinh nghiệm:
+                            {{ __('admin.team.experience') }}:
                             <span class="text-secondary">
                                 @if($member->experience_years)
-                                    {{ $member->experience_years }} năm
+                                    {{ $member->experience_years }} {{ __('admin.team.years') }}
                                 @else
-                                    <em class="text-muted">Đang cập nhật</em>
+                                    <em class="text-muted">{{ __('admin.team.updating') }}</em>
                                 @endif
                             </span>
                         </li>
                         <li class="fs-14 mb-2">
                             <i class="ri-phone-line me-2 text-primary"></i>
-                            Điện thoại:
+                            {{ __('admin.team.phone') }}:
                             <span class="text-secondary">
                                 @if($member->phone)
                                     {{ $member->phone }}
                                 @else
-                                    <em class="text-muted">Đang cập nhật</em>
+                                    <em class="text-muted">{{ __('admin.team.updating') }}</em>
                                 @endif
                             </span>
                         </li>
                         <li class="fs-14 mb-2">
                             <i class="ri-map-pin-line me-2 text-primary"></i>
-                            Địa điểm:
+                            {{ __('admin.team.location') }}:
                             <span class="text-secondary">
                                 @if($member->getLocation())
                                     {{ $member->getLocation() }}
                                 @else
-                                    <em class="text-muted">Đang cập nhật</em>
+                                    <em class="text-muted">{{ __('admin.team.updating') }}</em>
                                 @endif
                             </span>
                         </li>
                         <li class="fs-14 mb-0">
                             <i class="ri-shield-check-line me-2 text-primary"></i>
-                            Trạng thái:
+                            {{ __('admin.team.status') }}:
                             @if($member->is_active)
-                                <span class="badge bg-success-10 text-success">Hoạt động</span>
+                                <span class="badge bg-success-10 text-success">{{ __('admin.team.active') }}</span>
                             @else
-                                <span class="badge bg-danger-10 text-danger">Tạm dừng</span>
+                                <span class="badge bg-danger-10 text-danger">{{ __('admin.team.inactive') }}</span>
                             @endif
                         </li>
                     </ul>
@@ -189,9 +189,9 @@
                 <div class="card bg-white p-20 rounded-10 border border-white">
                     <div class="text-center py-5">
                         <i class="ri-team-line" style="font-size: 64px; color: #ddd;"></i>
-                        <p class="text-muted mt-3 mb-3">Chưa có thành viên nào. Thêm thành viên đầu tiên!</p>
+                        <p class="text-muted mt-3 mb-3">{{ __('admin.team.no_members') }}</p>
                         <a href="{{ route('admin.team.create') }}" class="btn btn-primary">
-                            <i class="ri-add-line"></i> Thêm thành viên mới
+                            <i class="ri-add-line"></i> {{ __('admin.team.add_member') }}
                         </a>
                     </div>
                 </div>
@@ -203,11 +203,11 @@
     @if($teamMembers->hasPages())
         <div class="d-flex justify-content-between align-items-center mt-4">
             <div>
-                Hiển thị {{ $teamMembers->firstItem() ?? 0 }} đến {{ $teamMembers->lastItem() ?? 0 }}
-                trong tổng số {{ $teamMembers->total() }} bản ghi
+                {{ __('admin.team.showing') }} {{ $teamMembers->firstItem() ?? 0 }} {{ __('admin.team.to') }} {{ $teamMembers->lastItem() ?? 0 }}
+                {{ __('admin.team.of') }} {{ $teamMembers->total() }} {{ __('admin.team.entries') }}
             </div>
             <div>
-                {{ $teamMembers->links() }}
+                {{ $teamMembers->links('pagination::bootstrap-4') }}
             </div>
         </div>
     @endif
@@ -222,7 +222,7 @@
             if (successMessage && successMessage !== '') {
                 Swal.fire({
                     icon: 'success',
-                    title: 'Thành công!',
+                    title: '{{ __("admin.team.success") }}',
                     text: successMessage,
                     confirmButtonText: 'OK',
                     confirmButtonColor: '#3085d6',
@@ -260,14 +260,14 @@
             form.addEventListener('submit', function(e) {
                 e.preventDefault();
                 Swal.fire({
-                    title: 'Xác nhận xóa?',
-                    text: 'Bạn có chắc chắn muốn xóa thành viên này?',
+                    title: '{{ __("admin.team.confirm_delete") }}',
+                    text: '{{ __("admin.team.delete_warning") }}',
                     icon: 'warning',
                     showCancelButton: true,
                     confirmButtonColor: '#d33',
                     cancelButtonColor: '#3085d6',
-                    confirmButtonText: 'Xóa',
-                    cancelButtonText: 'Hủy'
+                    confirmButtonText: '{{ __("admin.team.yes_delete") }}',
+                    cancelButtonText: '{{ __("admin.team.cancel") }}'
                 }).then((result) => {
                     if (result.isConfirmed) {
                         form.submit();

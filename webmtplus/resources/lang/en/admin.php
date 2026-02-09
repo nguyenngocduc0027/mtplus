@@ -28,44 +28,78 @@ return [
     ],
     'team' => [
         'members' => 'Team Members',
-        'add_member' => 'Add Team Member',
+        'add_member' => 'Add New Member',
         'manage_members' => 'Member Management',
         'edit_member' => 'Edit Member',
         'member_details' => 'Member Details',
         'search_placeholder' => 'Search members...',
+        'management' => 'Management',
 
         // Table headers
         'name' => 'Name',
         'name_vi' => 'Name (VI)',
         'name_en' => 'Name (EN)',
         'position' => 'Position',
-        'position_vi' => 'Position (VI)',
-        'position_en' => 'Position (EN)',
+        'position_vi' => 'Position (Vietnamese)',
+        'position_en' => 'Position (English)',
+        'detailed_position' => 'Detailed Position',
+        'detailed_position_vi' => 'Detailed Position (Vietnamese)',
+        'detailed_position_en' => 'Detailed Position (English)',
         'email' => 'Email',
         'phone' => 'Phone',
         'status' => 'Status',
         'featured' => 'Featured',
         'actions' => 'Actions',
+        'experience' => 'Experience',
+        'location' => 'Location',
+        'updating' => 'Updating',
+        'years' => 'years',
 
         // Form sections
         'basic_info' => 'Basic Information',
         'bio_info' => 'Biography',
+        'bio' => 'Biography',
+        'bio_short' => 'Short Biography',
+        'bio_detail' => 'Detailed Biography',
+        'bio_vi' => 'Biography (VI)',
+        'bio_en' => 'Biography (EN)',
+        'bio_short_vi' => 'Short Biography (Vietnamese)',
+        'bio_short_en' => 'Short Biography (English)',
+        'bio_detail_vi' => 'Detailed Biography (Vietnamese)',
+        'bio_detail_en' => 'Detailed Biography (English)',
         'contact_info' => 'Contact Information',
+        'location_contact' => 'Location & Contact Information',
+        'location_vi' => 'Location (Vietnamese)',
+        'location_en' => 'Location (English)',
+        'field_of_activity' => 'Field of Activity',
+        'field_of_activity_vi' => 'Field of Activity (Vietnamese)',
+        'field_of_activity_en' => 'Field of Activity (English)',
+        'address' => 'Address',
         'social_media' => 'Social Media',
         'photo' => 'Profile Photo',
-        'specialties' => 'Specialties',
+        'specialties' => 'Professional Skills',
+        'specialties_vi' => 'Professional Skills (Vietnamese)',
+        'specialties_en' => 'Professional Skills (English)',
+        'experience_highlights' => 'Notable Experience',
+        'experience_list_vi' => 'Experience List (Vietnamese)',
+        'experience_list_en' => 'Experience List (English)',
         'additional_info' => 'Additional Information',
+        'settings' => 'Settings',
 
         // Form fields
         'full_name' => 'Full Name',
-        'bio' => 'Biography',
-        'bio_vi' => 'Biography (VI)',
-        'bio_en' => 'Biography (EN)',
+        'slug_auto' => 'Slug (automatic)',
+        'auto_generated_from_name' => 'Auto generated from name',
         'experience_years' => 'Years of Experience',
         'photo_label' => 'Profile Photo',
         'current_photo' => 'Current Photo',
         'select_new_photo' => 'Select new photo',
         'photo_help' => 'JPG, PNG (max 2MB)',
+        'drag_drop_image' => 'Drag and drop image here or',
+        'choose_file' => 'Choose file',
+        'accepted_formats' => 'Accepted: JPG, PNG, GIF (Max: 2MB)',
+        'remove_photo' => 'Remove photo',
+        'click_to_change' => 'Click on image to change',
 
         'facebook' => 'Facebook',
         'twitter' => 'Twitter',
@@ -80,10 +114,14 @@ return [
         'specialty_en' => 'Specialty (EN)',
         'add_specialty' => 'Add Specialty',
         'enter_specialty' => 'Enter specialty',
+        'add' => 'Add',
 
         'order' => 'Order',
         'featured_member' => 'Featured Member',
         'show_member' => 'Show Member',
+        'set_as_ceo' => 'Set as CEO (Featured)',
+        'ceo_warning' => '⚠️ Only ONE person can be CEO. Selecting will remove CEO role from others.',
+        'active_status' => 'Active Status',
 
         // Buttons & Actions
         'save_member' => 'Save Member',
@@ -91,13 +129,53 @@ return [
         'edit' => 'Edit',
         'delete' => 'Delete',
         'view' => 'View Details',
+        'cancel' => 'Cancel',
 
         // Status
         'active' => 'Active',
-        'inactive' => 'Hidden',
+        'inactive' => 'Paused',
 
         // Messages
-        'no_members' => 'No members yet.',
+        'no_members' => 'No members yet. Add your first member!',
+        'no_info_vi' => 'No Vietnamese information available',
+        'confirm_delete_title' => 'Confirm Delete?',
+        'confirm_delete_text' => 'Are you sure you want to delete this member?',
+        'confirm_delete' => 'Confirm Delete?',
+        'delete_warning' => 'Are you sure you want to delete this member?',
+        'yes_delete' => 'Delete',
+        'confirm_delete_button' => 'Delete',
+        'cancel_button' => 'Cancel',
+
+        'create_success' => 'Member created successfully!',
+        'update_success' => 'Member updated successfully!',
+        'delete_success' => 'Member deleted successfully!',
+
+        'success' => 'Success!',
+        'success_title' => 'Success!',
+        'error' => 'Error!',
+        'error_title' => 'Error!',
+        'error_occurred' => 'An error occurred',
+        'please_fix_errors' => 'Please fix the following errors:',
+        'invalid_file_type' => 'Please select a valid image file (JPG, PNG, GIF)',
+        'file_size_exceeded' => 'File size must not exceed 2MB',
+        'saving' => 'Saving...',
+        'ok_button' => 'OK',
+
+        // Pagination
+        'showing' => 'Showing',
+        'to' => 'to',
+        'of' => 'of',
+        'entries' => 'entries',
+
+        // Languages
+        'vietnamese' => 'Tiếng Việt',
+        'english' => 'English',
+
+        // Other
+        'years_experience' => 'years of experience',
+        'system_info' => 'System Information',
+        'created_at' => 'Created At',
+        'updated_at' => 'Updated At',
         'confirm_delete_title' => 'Confirm Delete?',
         'confirm_delete_text' => 'Are you sure you want to delete this member?',
         'confirm_delete_button' => 'Delete',
@@ -196,6 +274,12 @@ return [
         'system_info' => 'System Information',
         'created_at' => 'Created At',
         'updated_at' => 'Updated At',
+
+        // Pagination
+        'showing' => 'Showing',
+        'to' => 'to',
+        'of' => 'of',
+        'entries' => 'entries',
     ],
     'projects' => [
         'all_projects' => 'Project Management',
@@ -298,6 +382,12 @@ return [
         'system_info' => 'System Information',
         'created_at' => 'Created At',
         'updated_at' => 'Updated At',
+
+        // Pagination
+        'showing' => 'Showing',
+        'to' => 'to',
+        'of' => 'of',
+        'entries' => 'entries',
     ],
     'careers' => [
         'all_careers' => 'Career Management',
@@ -418,6 +508,12 @@ return [
         'system_info' => 'System Information',
         'created_at' => 'Created At',
         'updated_at' => 'Updated At',
+
+        // Pagination
+        'showing' => 'Showing',
+        'to' => 'to',
+        'of' => 'of',
+        'entries' => 'entries',
     ],
     'news' => [
         'news_siderbar' => 'News',
@@ -546,6 +642,12 @@ return [
         // Languages
         'vietnamese' => 'Tiếng Việt',
         'english' => 'English',
+
+        // Pagination
+        'showing' => 'Showing',
+        'to' => 'to',
+        'of' => 'of',
+        'entries' => 'entries',
     ],
     'news_categories' => [
         'all_categories' => 'News Categories',
@@ -609,6 +711,12 @@ return [
         'success_title' => 'Success!',
         'error_title' => 'Error!',
         'ok_button' => 'OK',
+
+        // Pagination
+        'showing' => 'Showing',
+        'to' => 'to',
+        'of' => 'of',
+        'entries' => 'entries',
     ],
     'news_tags' => [
         'all_tags' => 'News Tags',
@@ -657,6 +765,12 @@ return [
         'success_title' => 'Success!',
         'error_title' => 'Error!',
         'ok_button' => 'OK',
+
+        // Pagination
+        'showing' => 'Showing',
+        'to' => 'to',
+        'of' => 'of',
+        'entries' => 'entries',
     ],
 
     // Contacts Management

@@ -30,44 +30,78 @@ return [
     ],
     'team' => [
         'members' => 'Thành viên đội ngũ',
-        'add_member' => 'Thêm thành viên đội ngũ',
+        'add_member' => 'Thêm thành viên mới',
         'manage_members' => 'Quản lý Thành viên',
         'edit_member' => 'Chỉnh sửa thành viên',
         'member_details' => 'Chi tiết thành viên',
         'search_placeholder' => 'Tìm kiếm thành viên...',
+        'management' => 'Quản lý',
 
         // Table headers
         'name' => 'Họ tên',
         'name_vi' => 'Họ tên (VI)',
         'name_en' => 'Họ tên (EN)',
         'position' => 'Chức vụ',
-        'position_vi' => 'Chức vụ (VI)',
-        'position_en' => 'Chức vụ (EN)',
+        'position_vi' => 'Chức vụ (Tiếng Việt)',
+        'position_en' => 'Chức vụ (English)',
+        'detailed_position' => 'Chức vụ chi tiết',
+        'detailed_position_vi' => 'Chức vụ chi tiết (Tiếng Việt)',
+        'detailed_position_en' => 'Chức vụ chi tiết (English)',
         'email' => 'Email',
         'phone' => 'Điện thoại',
         'status' => 'Trạng thái',
         'featured' => 'Nổi bật',
         'actions' => 'Thao tác',
+        'experience' => 'Kinh nghiệm',
+        'location' => 'Địa điểm',
+        'updating' => 'Đang cập nhật',
+        'years' => 'năm',
 
         // Form sections
         'basic_info' => 'Thông tin cơ bản',
         'bio_info' => 'Tiểu sử',
+        'bio' => 'Tiểu sử',
+        'bio_short' => 'Tiểu sử ngắn',
+        'bio_detail' => 'Tiểu sử chi tiết',
+        'bio_vi' => 'Tiểu sử (VI)',
+        'bio_en' => 'Tiểu sử (EN)',
+        'bio_short_vi' => 'Tiểu sử ngắn (Tiếng Việt)',
+        'bio_short_en' => 'Tiểu sử ngắn (English)',
+        'bio_detail_vi' => 'Tiểu sử chi tiết (Tiếng Việt)',
+        'bio_detail_en' => 'Tiểu sử chi tiết (English)',
         'contact_info' => 'Thông tin liên hệ',
+        'location_contact' => 'Địa điểm & Thông tin liên hệ',
+        'location_vi' => 'Địa điểm (Tiếng Việt)',
+        'location_en' => 'Địa điểm (English)',
+        'field_of_activity' => 'Lĩnh vực hoạt động',
+        'field_of_activity_vi' => 'Lĩnh vực hoạt động (Tiếng Việt)',
+        'field_of_activity_en' => 'Lĩnh vực hoạt động (English)',
+        'address' => 'Địa chỉ',
         'social_media' => 'Mạng xã hội',
         'photo' => 'Ảnh đại diện',
-        'specialties' => 'Chuyên môn',
+        'specialties' => 'Kỹ năng chuyên môn',
+        'specialties_vi' => 'Kỹ năng chuyên môn (Tiếng Việt)',
+        'specialties_en' => 'Kỹ năng chuyên môn (English)',
+        'experience_highlights' => 'Kinh nghiệm nổi bật',
+        'experience_list_vi' => 'Danh sách kinh nghiệm (Tiếng Việt)',
+        'experience_list_en' => 'Danh sách kinh nghiệm (English)',
         'additional_info' => 'Thông tin bổ sung',
+        'settings' => 'Cài đặt',
 
         // Form fields
         'full_name' => 'Họ và tên',
-        'bio' => 'Tiểu sử',
-        'bio_vi' => 'Tiểu sử (VI)',
-        'bio_en' => 'Tiểu sử (EN)',
+        'slug_auto' => 'Slug (tự động)',
+        'auto_generated_from_name' => 'Tự động tạo từ tên',
         'experience_years' => 'Số năm kinh nghiệm',
         'photo_label' => 'Ảnh đại diện',
         'current_photo' => 'Ảnh hiện tại',
         'select_new_photo' => 'Chọn ảnh mới',
         'photo_help' => 'JPG, PNG (tối đa 2MB)',
+        'drag_drop_image' => 'Kéo thả ảnh vào đây hoặc',
+        'choose_file' => 'Chọn file',
+        'accepted_formats' => 'Chấp nhận: JPG, PNG, GIF (Max: 2MB)',
+        'remove_photo' => 'Xóa ảnh',
+        'click_to_change' => 'Click vào ảnh để thay đổi',
 
         'facebook' => 'Facebook',
         'twitter' => 'Twitter',
@@ -82,10 +116,14 @@ return [
         'specialty_en' => 'Chuyên môn (EN)',
         'add_specialty' => 'Thêm chuyên môn',
         'enter_specialty' => 'Nhập chuyên môn',
+        'add' => 'Thêm',
 
         'order' => 'Thứ tự',
         'featured_member' => 'Thành viên nổi bật',
         'show_member' => 'Hiển thị',
+        'set_as_ceo' => 'Đặt làm CEO (Nổi bật)',
+        'ceo_warning' => '⚠️ Chỉ có MỘT người làm CEO. Chọn sẽ xóa vai trò CEO của người khác.',
+        'active_status' => 'Trạng thái hoạt động',
 
         // Buttons & Actions
         'save_member' => 'Lưu thành viên',
@@ -93,15 +131,20 @@ return [
         'edit' => 'Chỉnh sửa',
         'delete' => 'Xóa',
         'view' => 'Xem chi tiết',
+        'cancel' => 'Hủy',
 
         // Status
         'active' => 'Hoạt động',
-        'inactive' => 'Ẩn',
+        'inactive' => 'Tạm dừng',
 
         // Messages
-        'no_members' => 'Chưa có thành viên nào.',
+        'no_members' => 'Chưa có thành viên nào. Thêm thành viên đầu tiên!',
+        'no_info_vi' => 'Chưa có thông tin tiếng Việt',
         'confirm_delete_title' => 'Xác nhận xóa?',
         'confirm_delete_text' => 'Bạn có chắc chắn muốn xóa thành viên này?',
+        'confirm_delete' => 'Xác nhận xóa?',
+        'delete_warning' => 'Bạn có chắc chắn muốn xóa thành viên này?',
+        'yes_delete' => 'Xóa',
         'confirm_delete_button' => 'Xóa',
         'cancel_button' => 'Hủy',
 
@@ -109,9 +152,22 @@ return [
         'update_success' => 'Cập nhật thành viên thành công!',
         'delete_success' => 'Xóa thành viên thành công!',
 
+        'success' => 'Thành công!',
         'success_title' => 'Thành công!',
+        'error' => 'Lỗi!',
         'error_title' => 'Lỗi!',
+        'error_occurred' => 'Có lỗi xảy ra',
+        'please_fix_errors' => 'Vui lòng sửa các lỗi sau:',
+        'invalid_file_type' => 'Vui lòng chọn file ảnh hợp lệ (JPG, PNG, GIF)',
+        'file_size_exceeded' => 'Kích thước file không được vượt quá 2MB',
+        'saving' => 'Đang lưu...',
         'ok_button' => 'OK',
+
+        // Pagination
+        'showing' => 'Hiển thị',
+        'to' => 'đến',
+        'of' => 'trong tổng số',
+        'entries' => 'bản ghi',
 
         // Languages
         'vietnamese' => 'Tiếng Việt',
@@ -185,6 +241,12 @@ return [
         'create_success' => 'Thêm dịch vụ thành công!',
         'update_success' => 'Cập nhật dịch vụ thành công!',
         'delete_success' => 'Xóa dịch vụ thành công!',
+
+        // Pagination
+        'showing' => 'Hiển thị',
+        'to' => 'đến',
+        'of' => 'trong tổng số',
+        'entries' => 'bản ghi',
 
         'success_title' => 'Thành công!',
         'error_title' => 'Lỗi!',
@@ -300,6 +362,12 @@ return [
         'system_info' => 'Thông tin hệ thống',
         'created_at' => 'Ngày tạo',
         'updated_at' => 'Ngày cập nhật',
+
+        // Pagination
+        'showing' => 'Hiển thị',
+        'to' => 'đến',
+        'of' => 'trong tổng số',
+        'entries' => 'bản ghi',
     ],
     'careers' => [
         'all_careers' => 'Quản lý tuyển dụng',
@@ -420,6 +488,12 @@ return [
         'system_info' => 'Thông tin hệ thống',
         'created_at' => 'Ngày tạo',
         'updated_at' => 'Ngày cập nhật',
+
+        // Pagination
+        'showing' => 'Hiển thị',
+        'to' => 'đến',
+        'of' => 'trong tổng số',
+        'entries' => 'bản ghi',
     ],
     'news' => [
         'news_siderbar' => 'Tin tức',
@@ -548,6 +622,12 @@ return [
         // Languages
         'vietnamese' => 'Tiếng Việt',
         'english' => 'English',
+
+        // Pagination
+        'showing' => 'Hiển thị',
+        'to' => 'đến',
+        'of' => 'trong tổng số',
+        'entries' => 'bản ghi',
     ],
     'news_categories' => [
         'all_categories' => 'Danh mục Tin tức',
@@ -611,6 +691,12 @@ return [
         'success_title' => 'Thành công!',
         'error_title' => 'Lỗi!',
         'ok_button' => 'OK',
+
+        // Pagination
+        'showing' => 'Hiển thị',
+        'to' => 'đến',
+        'of' => 'trong tổng số',
+        'entries' => 'bản ghi',
     ],
     'news_tags' => [
         'all_tags' => 'Thẻ Tin tức',
@@ -659,6 +745,12 @@ return [
         'success_title' => 'Thành công!',
         'error_title' => 'Lỗi!',
         'ok_button' => 'OK',
+
+        // Pagination
+        'showing' => 'Hiển thị',
+        'to' => 'đến',
+        'of' => 'trong tổng số',
+        'entries' => 'bản ghi',
     ],
 
     // Contacts Management

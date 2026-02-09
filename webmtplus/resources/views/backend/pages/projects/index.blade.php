@@ -133,8 +133,14 @@
         </div>
 
         @if($projects->hasPages())
-            <div class="p-20 pt-0">
-                {{ $projects->links() }}
+            <div class="d-flex justify-content-center justify-content-sm-between align-items-center text-center flex-wrap gap-2 showing-wrap pt-15 p-20">
+                <div>
+                    {{ __('admin.projects.showing') }} {{ $projects->firstItem() ?? 0 }} {{ __('admin.projects.to') }} {{ $projects->lastItem() ?? 0 }}
+                    {{ __('admin.projects.of') }} {{ $projects->total() }} {{ __('admin.projects.entries') }}
+                </div>
+                <div>
+                    {{ $projects->links('pagination::bootstrap-4') }}
+                </div>
             </div>
         @endif
     </div>

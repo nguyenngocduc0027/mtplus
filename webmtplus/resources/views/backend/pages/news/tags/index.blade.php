@@ -83,8 +83,14 @@
         </div>
 
         @if($tags->hasPages())
-            <div class="p-20 pt-0">
-                {{ $tags->links() }}
+            <div class="d-flex justify-content-center justify-content-sm-between align-items-center text-center flex-wrap gap-2 showing-wrap pt-15 p-20">
+                <div>
+                    {{ __('admin.news_tags.showing') }} {{ $tags->firstItem() ?? 0 }} {{ __('admin.news_tags.to') }} {{ $tags->lastItem() ?? 0 }}
+                    {{ __('admin.news_tags.of') }} {{ $tags->total() }} {{ __('admin.news_tags.entries') }}
+                </div>
+                <div>
+                    {{ $tags->links('pagination::bootstrap-4') }}
+                </div>
             </div>
         @endif
     </div>

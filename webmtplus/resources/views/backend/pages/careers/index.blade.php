@@ -133,8 +133,14 @@
         </div>
 
         @if($careers->hasPages())
-            <div class="p-20 pt-0">
-                {{ $careers->links() }}
+            <div class="d-flex justify-content-center justify-content-sm-between align-items-center text-center flex-wrap gap-2 showing-wrap pt-15 p-20">
+                <div>
+                    {{ __('admin.careers.showing') }} {{ $careers->firstItem() ?? 0 }} {{ __('admin.careers.to') }} {{ $careers->lastItem() ?? 0 }}
+                    {{ __('admin.careers.of') }} {{ $careers->total() }} {{ __('admin.careers.entries') }}
+                </div>
+                <div>
+                    {{ $careers->links('pagination::bootstrap-4') }}
+                </div>
             </div>
         @endif
     </div>

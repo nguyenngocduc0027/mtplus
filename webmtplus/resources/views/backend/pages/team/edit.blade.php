@@ -101,7 +101,7 @@
 
     @if ($errors->any())
         <div class="alert alert-danger alert-dismissible fade show" role="alert">
-            <strong>Lỗi!</strong> Vui lòng sửa các lỗi sau:
+            <strong>{{ __('admin.team.error') }}</strong> {{ __('admin.team.please_fix_errors') }}
             <ul class="mb-0 mt-2">
                 @foreach ($errors->all() as $error)
                     <li>{{ $error }}</li>
@@ -119,30 +119,30 @@
                 <!-- Basic Information -->
                 <div class="row">
                     <div class="col-md-6 mb-4">
-                        <label class="form-label fw-bold">Tên *</label>
+                        <label class="form-label fw-bold">{{ __('admin.team.name') }} *</label>
                         <input type="text" class="form-control" id="member-name" name="name" value="{{ old('name', $team->name) }}"
                                placeholder="Nguyễn Văn A" required>
                     </div>
 
                     <div class="col-md-6 mb-4">
-                        <label class="form-label fw-bold">Slug (tự động)</label>
+                        <label class="form-label fw-bold">{{ __('admin.team.slug_auto') }}</label>
                         <input type="text" class="form-control bg-light" id="member-slug" name="slug" value="{{ old('slug', $team->slug) }}"
                                placeholder="nguyen-van-a" readonly>
-                        <small class="text-muted">Tự động tạo từ tên</small>
+                        <small class="text-muted">{{ __('admin.team.auto_generated_from_name') }}</small>
                     </div>
                 </div>
 
                 <!-- Photo Upload -->
                 <div class="col-lg-12">
                     <div class="form-group mb-4 only-file-upload" id="file-upload">
-                        <label class="label fs-16 fw-bold">Ảnh đại diện</label>
+                        <label class="label fs-16 fw-bold">{{ __('admin.team.photo') }}</label>
                         <div class="form-control text-center position-relative" id="upload-box">
                             <div class="product-upload" id="default-upload-ui">
                                 <label class="file-upload mb-0">
                                     <i class="ri-image-line bg-primary bg-opacity-10 p-2 rounded-1 text-primary fs-24"></i>
-                                    <span class="d-block text-body fs-14 mt-2">Kéo thả ảnh vào đây hoặc <span
-                                            class="text-primary text-decoration-underline">Chọn file</span></span>
-                                    <span class="d-block text-muted fs-12 mt-1">Chấp nhận: JPG, PNG, GIF (Max: 2MB)</span>
+                                    <span class="d-block text-body fs-14 mt-2">{{ __('admin.team.drag_drop_image') }} <span
+                                            class="text-primary text-decoration-underline">{{ __('admin.team.choose_file') }}</span></span>
+                                    <span class="d-block text-muted fs-12 mt-1">{{ __('admin.team.accepted_formats') }}</span>
                                 </label>
                                 <label class="position-absolute top-0 bottom-0 start-0 end-0 cursor" id="upload-container">
                                     <input class="form__file bottom-0" id="photo-input" name="photo" type="file" accept="image/*" onchange="handlePhotoUpload(this)">
@@ -151,13 +151,13 @@
                             <div id="photo-preview-container" style="display: {{ $team->photo ? 'flex' : 'none' }};">
                                 <div class="position-relative">
                                     <img id="photo-preview" src="{{ $team->photo ?? '' }}" alt="Preview" class="rounded cursor-pointer" onclick="document.getElementById('photo-input').click()">
-                                    <button type="button" class="btn btn-danger remove-photo-btn position-absolute" style="top: 10px; right: 10px;" onclick="removePhoto()" title="Xóa ảnh">
+                                    <button type="button" class="btn btn-danger remove-photo-btn position-absolute" style="top: 10px; right: 10px;" onclick="removePhoto()" title="{{ __('admin.team.remove_photo') }}">
                                         <i class="ri-close-line fs-18"></i>
                                     </button>
                                 </div>
                                 <div class="position-absolute bottom-0 start-0 end-0 text-center mb-3">
                                     <span class="badge bg-dark bg-opacity-75 text-white px-3 py-2">
-                                        <i class="ri-edit-line me-1"></i> Click vào ảnh để thay đổi
+                                        <i class="ri-edit-line me-1"></i> {{ __('admin.team.click_to_change') }}
                                     </span>
                                 </div>
                             </div>
@@ -168,33 +168,33 @@
                 <!-- Position & Experience -->
                 <div class="row">
                     <div class="col-md-6 mb-4">
-                        <label class="form-label fw-bold">Chức vụ (Tiếng Việt) *</label>
+                        <label class="form-label fw-bold">{{ __('admin.team.position_vi') }} *</label>
                         <input type="text" class="form-control" name="position_vi" value="{{ old('position_vi', $team->position_vi) }}"
                                placeholder="Giám đốc điều hành" required>
                     </div>
 
                     <div class="col-md-6 mb-4">
-                        <label class="form-label fw-bold">Chức vụ (English) *</label>
+                        <label class="form-label fw-bold">{{ __('admin.team.position_en') }} *</label>
                         <input type="text" class="form-control" name="position_en" value="{{ old('position_en', $team->position_en) }}"
                                placeholder="Chief Executive Officer" required>
                     </div>
 
                     <div class="col-md-6 mb-4">
-                        <label class="form-label fw-bold">Chức vụ chi tiết (Tiếng Việt)</label>
+                        <label class="form-label fw-bold">{{ __('admin.team.detailed_position_vi') }}</label>
                         <input type="text" class="form-control" name="detailed_position_vi"
                                value="{{ old('detailed_position_vi', $team->detailed_position_vi) }}"
                                placeholder="Chuyên gia Bất động sản">
                     </div>
 
                     <div class="col-md-6 mb-4">
-                        <label class="form-label fw-bold">Chức vụ chi tiết (English)</label>
+                        <label class="form-label fw-bold">{{ __('admin.team.detailed_position_en') }}</label>
                         <input type="text" class="form-control" name="detailed_position_en"
                                value="{{ old('detailed_position_en', $team->detailed_position_en) }}"
                                placeholder="Real Estate Specialist">
                     </div>
 
                     <div class="col-md-6 mb-4">
-                        <label class="form-label fw-bold">Số năm kinh nghiệm</label>
+                        <label class="form-label fw-bold">{{ __('admin.team.experience_years') }}</label>
                         <input type="number" class="form-control" name="experience_years"
                                value="{{ old('experience_years', $team->experience_years) }}" placeholder="15" min="0">
                     </div>
@@ -202,7 +202,7 @@
 
                 <!-- Bio Section -->
                 <hr class="my-4">
-                <h5 class="fw-bold mb-3">Tiểu sử</h5>
+                <h5 class="fw-bold mb-3">{{ __('admin.team.bio') }}</h5>
 
                 <!-- Language Tabs for Bio -->
                 <ul class="nav nav-tabs language-tabs" role="tablist">
@@ -223,12 +223,12 @@
                 <div class="tab-content">
                     <div class="tab-pane fade show active" id="bio-vi-content" role="tabpanel">
                         <div class="mb-4">
-                            <label class="form-label">Tiểu sử ngắn (Tiếng Việt)</label>
+                            <label class="form-label">{{ __('admin.team.bio_short_vi') }}</label>
                             <textarea class="form-control" name="bio_vi" rows="3"
                                       placeholder="Giới thiệu ngắn về thành viên...">{{ old('bio_vi', $team->bio_vi) }}</textarea>
                         </div>
                         <div class="mb-4">
-                            <label class="form-label">Tiểu sử chi tiết (Tiếng Việt)</label>
+                            <label class="form-label">{{ __('admin.team.bio_detail_vi') }}</label>
                             <textarea class="form-control" name="detailed_bio_vi" rows="5"
                                       placeholder="Tiểu sử chi tiết...">{{ old('detailed_bio_vi', $team->detailed_bio_vi) }}</textarea>
                         </div>
@@ -236,12 +236,12 @@
 
                     <div class="tab-pane fade" id="bio-en-content" role="tabpanel">
                         <div class="mb-4">
-                            <label class="form-label">Tiểu sử ngắn (English)</label>
+                            <label class="form-label">{{ __('admin.team.bio_short_en') }}</label>
                             <textarea class="form-control" name="bio_en" rows="3"
                                       placeholder="Brief introduction about the member...">{{ old('bio_en', $team->bio_en) }}</textarea>
                         </div>
                         <div class="mb-4">
-                            <label class="form-label">Tiểu sử chi tiết (English)</label>
+                            <label class="form-label">{{ __('admin.team.bio_detail_en') }}</label>
                             <textarea class="form-control" name="detailed_bio_en" rows="5"
                                       placeholder="Detailed biography...">{{ old('detailed_bio_en', $team->detailed_bio_en) }}</textarea>
                         </div>
@@ -250,43 +250,43 @@
 
                 <!-- Location & Contact -->
                 <hr class="my-4">
-                <h5 class="fw-bold mb-3">Địa điểm & Thông tin liên hệ</h5>
+                <h5 class="fw-bold mb-3">{{ __('admin.team.location_contact') }}</h5>
 
                 <div class="row">
                     <div class="col-md-6 mb-4">
-                        <label class="form-label">Địa điểm (Tiếng Việt)</label>
+                        <label class="form-label">{{ __('admin.team.location_vi') }}</label>
                         <input type="text" class="form-control" name="location_vi" value="{{ old('location_vi', $team->location_vi) }}"
                                placeholder="New Jersey, New York">
                     </div>
 
                     <div class="col-md-6 mb-4">
-                        <label class="form-label">Địa điểm (English)</label>
+                        <label class="form-label">{{ __('admin.team.location_en') }}</label>
                         <input type="text" class="form-control" name="location_en" value="{{ old('location_en', $team->location_en) }}"
                                placeholder="New Jersey, New York">
                     </div>
 
                     <div class="col-md-6 mb-4">
-                        <label class="form-label">Lĩnh vực hoạt động (Tiếng Việt)</label>
+                        <label class="form-label">{{ __('admin.team.field_of_activity_vi') }}</label>
                         <input type="text" class="form-control" name="field_of_activity_vi"
                                value="{{ old('field_of_activity_vi', $team->field_of_activity_vi) }}"
                                placeholder="Xây dựng và Phát triển Bất động sản">
                     </div>
 
                     <div class="col-md-6 mb-4">
-                        <label class="form-label">Lĩnh vực hoạt động (English)</label>
+                        <label class="form-label">{{ __('admin.team.field_of_activity_en') }}</label>
                         <input type="text" class="form-control" name="field_of_activity_en"
                                value="{{ old('field_of_activity_en', $team->field_of_activity_en) }}"
                                placeholder="Construction and Real Estate Development">
                     </div>
 
                     <div class="col-md-12 mb-4">
-                        <label class="form-label">Địa chỉ</label>
+                        <label class="form-label">{{ __('admin.team.address') }}</label>
                         <textarea class="form-control" name="address" rows="2"
                                   placeholder="Địa chỉ đầy đủ...">{{ old('address', $team->address) }}</textarea>
                     </div>
 
                     <div class="col-md-4 mb-4">
-                        <label class="form-label">Điện thoại</label>
+                        <label class="form-label">{{ __('admin.team.phone') }}</label>
                         <input type="text" class="form-control" name="phone" value="{{ old('phone', $team->phone) }}"
                                placeholder="+84 123 456 789">
                     </div>
@@ -306,11 +306,11 @@
 
                 <!-- Specialties -->
                 <hr class="my-4">
-                <h5 class="fw-bold mb-3">Kỹ năng chuyên môn</h5>
+                <h5 class="fw-bold mb-3">{{ __('admin.team.specialties') }}</h5>
 
                 <div class="row">
                     <div class="col-md-6 mb-4">
-                        <label class="form-label">Kỹ năng chuyên môn (Tiếng Việt)</label>
+                        <label class="form-label">{{ __('admin.team.specialties_vi') }}</label>
                         <div id="specialties-vi-container">
                             @if(old('specialties_vi', $team->specialties_vi))
                                 @foreach(old('specialties_vi', $team->specialties_vi ?? []) as $specialty)
@@ -328,12 +328,12 @@
                             @endif
                         </div>
                         <button type="button" class="btn btn-sm btn-outline-primary" onclick="addSpecialtyVi()">
-                            <i class="ri-add-line"></i> Thêm
+                            <i class="ri-add-line"></i> {{ __('admin.team.add') }}
                         </button>
                     </div>
 
                     <div class="col-md-6 mb-4">
-                        <label class="form-label">Kỹ năng chuyên môn (English)</label>
+                        <label class="form-label">{{ __('admin.team.specialties_en') }}</label>
                         <div id="specialties-en-container">
                             @if(old('specialties_en', $team->specialties_en))
                                 @foreach(old('specialties_en', $team->specialties_en ?? []) as $specialty)
@@ -351,18 +351,18 @@
                             @endif
                         </div>
                         <button type="button" class="btn btn-sm btn-outline-primary" onclick="addSpecialtyEn()">
-                            <i class="ri-add-line"></i> Thêm
+                            <i class="ri-add-line"></i> {{ __('admin.team.add') }}
                         </button>
                     </div>
                 </div>
 
                 <!-- Experience List -->
                 <hr class="my-4">
-                <h5 class="fw-bold mb-3">Kinh nghiệm nổi bật</h5>
+                <h5 class="fw-bold mb-3">{{ __('admin.team.experience_highlights') }}</h5>
 
                 <div class="row">
                     <div class="col-md-6 mb-4">
-                        <label class="form-label">Danh sách kinh nghiệm (Tiếng Việt)</label>
+                        <label class="form-label">{{ __('admin.team.experience_list_vi') }}</label>
                         <div id="experience-vi-container">
                             @if(old('experience_list_vi', $team->experience_list_vi))
                                 @foreach(old('experience_list_vi', $team->experience_list_vi ?? []) as $experience)
@@ -380,12 +380,12 @@
                             @endif
                         </div>
                         <button type="button" class="btn btn-sm btn-outline-primary" onclick="addExperienceVi()">
-                            <i class="ri-add-line"></i> Thêm
+                            <i class="ri-add-line"></i> {{ __('admin.team.add') }}
                         </button>
                     </div>
 
                     <div class="col-md-6 mb-4">
-                        <label class="form-label">Danh sách kinh nghiệm (English)</label>
+                        <label class="form-label">{{ __('admin.team.experience_list_en') }}</label>
                         <div id="experience-en-container">
                             @if(old('experience_list_en', $team->experience_list_en))
                                 @foreach(old('experience_list_en', $team->experience_list_en ?? []) as $experience)
@@ -403,14 +403,14 @@
                             @endif
                         </div>
                         <button type="button" class="btn btn-sm btn-outline-primary" onclick="addExperienceEn()">
-                            <i class="ri-add-line"></i> Thêm
+                            <i class="ri-add-line"></i> {{ __('admin.team.add') }}
                         </button>
                     </div>
                 </div>
 
                 <!-- Social Media -->
                 <hr class="my-4">
-                <h5 class="fw-bold mb-3">Mạng xã hội</h5>
+                <h5 class="fw-bold mb-3">{{ __('admin.team.social_media') }}</h5>
 
                 <div class="row">
                     <div class="col-md-6 mb-4">
@@ -440,7 +440,7 @@
 
                 <!-- Settings -->
                 <hr class="my-4">
-                <h5 class="fw-bold mb-3">Cài đặt</h5>
+                <h5 class="fw-bold mb-3">{{ __('admin.team.settings') }}</h5>
 
                 <div class="row">
                     <div class="col-md-4 mb-4">
@@ -448,10 +448,10 @@
                             <input class="form-check-input" type="checkbox" name="is_featured" id="is_featured"
                                    {{ old('is_featured', $team->is_featured) ? 'checked' : '' }}>
                             <label class="form-check-label fw-bold" for="is_featured">
-                                <i class="ri-vip-crown-line"></i> Đặt làm CEO (Nổi bật)
+                                <i class="ri-vip-crown-line"></i> {{ __('admin.team.set_as_ceo') }}
                             </label>
                             <small class="d-block text-muted mt-1">
-                                ⚠️ Chỉ có MỘT người làm CEO. Chọn sẽ xóa vai trò CEO của người khác.
+                                {{ __('admin.team.ceo_warning') }}
                             </small>
                         </div>
                     </div>
@@ -461,7 +461,7 @@
                             <input class="form-check-input" type="checkbox" name="is_active" id="is_active"
                                    {{ old('is_active', $team->is_active) ? 'checked' : '' }}>
                             <label class="form-check-label" for="is_active">
-                                Trạng thái hoạt động
+                                {{ __('admin.team.active_status') }}
                             </label>
                         </div>
                     </div>
@@ -470,10 +470,10 @@
                 <!-- Submit Buttons -->
                 <div class="d-flex justify-content-end gap-2 mt-4">
                     <a href="{{ route('admin.team.index') }}" class="btn btn-secondary">
-                        <i class="ri-arrow-left-line"></i> Hủy
+                        <i class="ri-arrow-left-line"></i> {{ __('admin.team.cancel') }}
                     </a>
                     <button type="submit" class="btn btn-primary fw-normal text-white">
-                        <i class="ri-save-line"></i> Cập nhật thành viên
+                        <i class="ri-save-line"></i> {{ __('admin.team.update_success') }}
                     </button>
                 </div>
             </form>
@@ -505,14 +505,14 @@
                 // Validate file type
                 const validTypes = ['image/jpeg', 'image/png', 'image/jpg', 'image/gif'];
                 if (!validTypes.includes(file.type)) {
-                    alert('Vui lòng chọn file ảnh hợp lệ (JPG, PNG, GIF)');
+                    alert('{{ __("admin.team.invalid_file_type") }}');
                     input.value = '';
                     return;
                 }
 
                 // Validate file size (2MB)
                 if (file.size > 2048 * 1024) {
-                    alert('Kích thước file không được vượt quá 2MB');
+                    alert('{{ __("admin.team.file_size_exceeded") }}');
                     input.value = '';
                     return;
                 }
@@ -608,7 +608,7 @@
 
             // Disable button and show loading
             submitBtn.disabled = true;
-            submitBtn.innerHTML = '<i class="ri-loader-4-line spinner-border spinner-border-sm"></i> Đang cập nhật...';
+            submitBtn.innerHTML = '<i class="ri-loader-4-line spinner-border spinner-border-sm"></i> {{ __("admin.team.saving") }}';
 
             fetch('{{ route("admin.team.update", $team->slug) }}', {
                     method: 'POST',
@@ -634,7 +634,7 @@
                 })
                 .catch(error => {
                     console.error('Error:', error);
-                    let errorMessage = 'Có lỗi xảy ra';
+                    let errorMessage = '{{ __("admin.team.error_occurred") }}';
 
                     // Handle validation errors
                     if (error.errors) {
@@ -647,7 +647,7 @@
                     const alert = document.createElement('div');
                     alert.className = 'alert alert-danger alert-dismissible fade show';
                     alert.innerHTML = `
-                        <strong>Lỗi!</strong> ${errorMessage}
+                        <strong>{{ __("admin.team.error") }}</strong> ${errorMessage}
                         <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
                     `;
                     document.querySelector('.card-body').insertBefore(alert, document.querySelector('.card-body').firstChild);

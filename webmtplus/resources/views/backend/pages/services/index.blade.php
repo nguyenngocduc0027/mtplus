@@ -142,11 +142,11 @@
     @if($services->hasPages())
         <div class="d-flex justify-content-between align-items-center mt-4">
             <div>
-                Hiển thị {{ $services->firstItem() ?? 0 }} đến {{ $services->lastItem() ?? 0 }}
-                trong tổng số {{ $services->total() }} bản ghi
+                {{ __('admin.services.showing') }} {{ $services->firstItem() ?? 0 }} {{ __('admin.services.to') }} {{ $services->lastItem() ?? 0 }}
+                {{ __('admin.services.of') }} {{ $services->total() }} {{ __('admin.services.entries') }}
             </div>
             <div>
-                {{ $services->links() }}
+                {{ $services->links('pagination::bootstrap-4') }}
             </div>
         </div>
     @endif
