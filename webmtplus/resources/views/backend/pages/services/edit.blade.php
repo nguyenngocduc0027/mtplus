@@ -75,7 +75,7 @@
 
     @if ($errors->any())
         <div class="alert alert-danger alert-dismissible fade show" role="alert">
-            <strong>Lỗi!</strong> Vui lòng sửa các lỗi sau:
+            <strong>{{ __('admin.services.error_heading') }}</strong> {{ __('admin.services.please_fix_errors') }}
             <ul class="mb-0 mt-2">
                 @foreach ($errors->all() as $error)
                     <li>{{ $error }}</li>
@@ -98,13 +98,13 @@
                     <li class="nav-item" role="presentation">
                         <button class="nav-link active" id="vi-tab" data-bs-toggle="tab"
                             data-bs-target="#vi-content" type="button" role="tab">
-                            🇻🇳 Tiếng Việt
+                            🇻🇳 {{ __('admin.services.vietnamese') }}
                         </button>
                     </li>
                     <li class="nav-item" role="presentation">
                         <button class="nav-link" id="en-tab" data-bs-toggle="tab" data-bs-target="#en-content"
                             type="button" role="tab">
-                            🇬🇧 English
+                            🇬🇧 {{ __('admin.services.english') }}
                         </button>
                     </li>
                 </ul>
@@ -113,56 +113,56 @@
                     <!-- Vietnamese Content -->
                     <div class="tab-pane fade show active" id="vi-content" role="tabpanel">
                         <div class="mb-4">
-                            <label class="form-label fw-bold">Tiêu đề (Tiếng Việt) *</label>
+                            <label class="form-label fw-bold">{{ __('admin.services.title_vi') }} *</label>
                             <input type="text" class="form-control" id="title-vi" name="title_vi"
-                                value="{{ old('title_vi', $service->title_vi) }}" placeholder="Tư vấn xây dựng" required>
+                                value="{{ old('title_vi', $service->title_vi) }}" placeholder="{{ __('admin.services.title_vi_placeholder') }}" required>
                         </div>
 
                         <div class="mb-4">
-                            <label class="form-label fw-bold">Slug (tự động)</label>
+                            <label class="form-label fw-bold">{{ __('admin.services.slug_label') }}</label>
                             <input type="text" class="form-control bg-light" id="slug" name="slug"
-                                value="{{ old('slug', $service->slug) }}" placeholder="tu-van-xay-dung" readonly>
-                            <small class="text-muted">Tự động tạo từ tiêu đề tiếng Việt</small>
+                                value="{{ old('slug', $service->slug) }}" placeholder="{{ __('admin.services.slug_placeholder') }}" readonly>
+                            <small class="text-muted">{{ __('admin.services.slug_help') }}</small>
                         </div>
 
                         <div class="mb-4">
-                            <label class="form-label fw-bold">Mô tả ngắn (Tiếng Việt)</label>
+                            <label class="form-label fw-bold">{{ __('admin.services.short_description_vi') }}</label>
                             <input type="text" class="form-control" name="short_description_vi"
-                                value="{{ old('short_description_vi', $service->short_description_vi) }}" placeholder="Mô tả ngắn về dịch vụ..." maxlength="255">
-                            <small class="text-muted">Tối đa 255 ký tự</small>
+                                value="{{ old('short_description_vi', $service->short_description_vi) }}" placeholder="{{ __('admin.services.short_description_placeholder') }}" maxlength="255">
+                            <small class="text-muted">{{ __('admin.services.max_255_chars') }}</small>
                         </div>
 
                         <div class="mb-4">
-                            <label class="form-label fw-bold">Nội dung chi tiết (Tiếng Việt)</label>
-                            <textarea class="form-control " id="tyni-vi" name="content_vi" rows="10" placeholder="Nội dung chi tiết về dịch vụ...">{{ old('content_vi', $service->content_vi) }}</textarea>
+                            <label class="form-label fw-bold">{{ __('admin.services.content_vi') }}</label>
+                            <textarea class="form-control " id="tyni-vi" name="content_vi" rows="10" placeholder="{{ __('admin.services.content_placeholder') }}">{{ old('content_vi', $service->content_vi) }}</textarea>
                         </div>
                     </div>
 
                     <!-- English Content -->
                     <div class="tab-pane fade" id="en-content" role="tabpanel">
                         <div class="mb-4">
-                            <label class="form-label fw-bold">Title (English) *</label>
+                            <label class="form-label fw-bold">{{ __('admin.services.title_en') }} *</label>
                             <input type="text" class="form-control" name="title_en"
-                                value="{{ old('title_en', $service->title_en) }}" placeholder="Construction Consulting" required>
+                                value="{{ old('title_en', $service->title_en) }}" placeholder="{{ __('admin.services.title_en_placeholder') }}" required>
                         </div>
 
                         <div class="mb-4">
-                            <label class="form-label fw-bold">Short Description (English)</label>
+                            <label class="form-label fw-bold">{{ __('admin.services.short_description_en') }}</label>
                             <input type="text" class="form-control" name="short_description_en"
-                                value="{{ old('short_description_en', $service->short_description_en) }}" placeholder="Brief description of the service..." maxlength="255">
-                            <small class="text-muted">Maximum 255 characters</small>
+                                value="{{ old('short_description_en', $service->short_description_en) }}" placeholder="{{ __('admin.services.short_description_en_placeholder') }}" maxlength="255">
+                            <small class="text-muted">{{ __('admin.services.max_255_chars_en') }}</small>
                         </div>
 
                         <div class="mb-4">
-                            <label class="form-label fw-bold">Content (English)</label>
-                            <textarea class="form-control" id="tyni-en" name="content_en" rows="10" placeholder="Detailed content about the service...">{{ old('content_en', $service->content_en) }}</textarea>
+                            <label class="form-label fw-bold">{{ __('admin.services.content_en') }}</label>
+                            <textarea class="form-control" id="tyni-en" name="content_en" rows="10" placeholder="{{ __('admin.services.content_en_placeholder') }}">{{ old('content_en', $service->content_en) }}</textarea>
                         </div>
                     </div>
                 </div>
 
                 <!-- Settings -->
                 <hr class="my-4">
-                <h5 class="fw-bold mb-3">Cài đặt</h5>
+                <h5 class="fw-bold mb-3">{{ __('admin.services.settings') }}</h5>
 
                 <div class="row">
                     <div class="col-md-6 mb-4">
@@ -170,7 +170,7 @@
                             <input class="form-check-input" type="checkbox" name="is_featured" id="is_featured"
                                 {{ old('is_featured', $service->is_featured) ? 'checked' : '' }}>
                             <label class="form-check-label fw-bold" for="is_featured">
-                                <i class="ri-star-line"></i> Đánh dấu nổi bật
+                                <i class="ri-star-line"></i> {{ __('admin.services.mark_featured') }}
                             </label>
                         </div>
                     </div>
@@ -180,7 +180,7 @@
                             <input class="form-check-input" type="checkbox" name="is_active" id="is_active"
                                 {{ old('is_active', $service->is_active) ? 'checked' : '' }}>
                             <label class="form-check-label fw-bold" for="is_active">
-                                <i class="ri-checkbox-circle-line"></i> Trạng thái hoạt động
+                                <i class="ri-checkbox-circle-line"></i> {{ __('admin.services.active_status') }}
                             </label>
                         </div>
                     </div>
@@ -189,7 +189,7 @@
                 <!-- Submit Buttons -->
                 <div class="d-flex justify-content-end gap-2 mt-4">
                     <a href="{{ route('admin.services.index') }}" class="btn btn-secondary">
-                        <i class="ri-arrow-left-line"></i> Hủy
+                        <i class="ri-arrow-left-line"></i> {{ __('admin.services.cancel') }}
                     </a>
                     <button type="submit" class="btn btn-primary fw-normal text-white">
                         <i class="ri-save-line"></i> Cập nhật dịch vụ
@@ -293,12 +293,12 @@
                         window.location.href = '{{ route('admin.services.index') }}?success=' + encodeURIComponent(
                             data.message);
                     } else {
-                        throw new Error(data.message || 'Có lỗi xảy ra');
+                        throw new Error(data.message || '{{ __('admin.services.error_occurred') }}');
                     }
                 })
                 .catch(error => {
                     console.error('Error:', error);
-                    let errorMessage = 'Có lỗi xảy ra';
+                    let errorMessage = '{{ __('admin.services.error_occurred') }}';
 
                     // Handle validation errors
                     if (error.errors) {
@@ -312,7 +312,7 @@
                     const alert = document.createElement('div');
                     alert.className = 'alert alert-danger alert-dismissible fade show';
                     alert.innerHTML = `
-                        <strong>Lỗi!</strong> ${errorMessage}
+                        <strong>{{ __('admin.services.error_heading') }}</strong> ${errorMessage}
                         <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
                     `;
                     document.querySelector('.card-body').insertBefore(alert, document.querySelector(

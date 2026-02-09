@@ -75,7 +75,7 @@
                         <i class="ri-edit-line"></i> {{ __("admin.services.edit") }}
                     </a>
                     <a href="{{ route('admin.services.index') }}" class="btn btn-secondary">
-                        <i class="ri-arrow-left-line"></i> Quay lại
+                        <i class="ri-arrow-left-line"></i> {{ __('admin.services.back') }}
                     </a>
                 </div>
             </div>
@@ -86,7 +86,7 @@
             <div class="row mb-4">
                 <div class="col-md-6">
                     <div class="info-card">
-                        <div class="info-label">Slug</div>
+                        <div class="info-label">{{ __('admin.services.slug') }}</div>
                         <div class="info-value">
                             <span class="badge bg-info-10 text-info">{{ $service->slug }}</span>
                         </div>
@@ -94,15 +94,15 @@
                 </div>
                 <div class="col-md-3">
                     <div class="info-card">
-                        <div class="info-label">Trạng thái</div>
+                        <div class="info-label">{{ __('admin.services.status') }}</div>
                         <div class="info-value">
                             @if($service->is_active)
                                 <span class="badge bg-success badge-large">
-                                    <i class="ri-checkbox-circle-line"></i> Hoạt động
+                                    <i class="ri-checkbox-circle-line"></i> {{ __('admin.services.status_active') }}
                                 </span>
                             @else
                                 <span class="badge bg-danger badge-large">
-                                    <i class="ri-close-circle-line"></i> Tạm dừng
+                                    <i class="ri-close-circle-line"></i> {{ __('admin.services.status_inactive') }}
                                 </span>
                             @endif
                         </div>
@@ -110,14 +110,14 @@
                 </div>
                 <div class="col-md-3">
                     <div class="info-card">
-                        <div class="info-label">Nổi bật</div>
+                        <div class="info-label">{{ __('admin.services.featured') }}</div>
                         <div class="info-value">
                             @if($service->is_featured)
                                 <span class="badge bg-warning badge-large">
                                     <i class="ri-star-fill"></i> {{ __("admin.services.featured") }}
                                 </span>
                             @else
-                                <span class="badge bg-secondary badge-large">Không</span>
+                                <span class="badge bg-secondary badge-large">{{ __('admin.services.no') }}</span>
                             @endif
                         </div>
                     </div>
@@ -127,7 +127,7 @@
             <!-- Icon -->
             @if($service->icon_path)
                 <div class="mb-4">
-                    <h5 class="mb-3">Icon</h5>
+                    <h5 class="mb-3">{{ __('admin.services.icon') }}</h5>
                     <img src="{{ asset($service->icon_path) }}"
                          alt="{{ $service->title_vi }}"
                          class="service-icon-display">
@@ -137,24 +137,24 @@
             <!-- Vietnamese Content -->
             <div class="mb-4">
                 <h5 class="mb-3">
-                    <i class="ri-flag-line"></i> Nội dung Tiếng Việt
+                    <i class="ri-flag-line"></i> {{ __('admin.services.content_vi') }}
                 </h5>
 
                 <div class="info-card">
-                    <div class="info-label">Tiêu đề</div>
+                    <div class="info-label">{{ __('admin.services.title') }}</div>
                     <div class="info-value">{{ $service->title_vi }}</div>
                 </div>
 
                 @if($service->short_description_vi)
                     <div class="info-card">
-                        <div class="info-label">Mô tả ngắn</div>
+                        <div class="info-label">{{ __('admin.services.short_description') }}</div>
                         <div class="info-value">{{ $service->short_description_vi }}</div>
                     </div>
                 @endif
 
                 @if($service->content_vi)
                     <div class="info-card">
-                        <div class="info-label">Nội dung chi tiết</div>
+                        <div class="info-label">{{ __('admin.services.detailed_content') }}</div>
                         <div class="content-preview">
                             {!! $service->content_vi !!}
                         </div>
@@ -194,7 +194,7 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="info-card">
-                        <div class="info-label">Ngày tạo</div>
+                        <div class="info-label">{{ __('admin.services.created_date') }}</div>
                         <div class="info-value">
                             <i class="ri-calendar-line"></i>
                             {{ $service->created_at->format('d/m/Y H:i') }}
@@ -203,7 +203,7 @@
                 </div>
                 <div class="col-md-6">
                     <div class="info-card">
-                        <div class="info-label">Cập nhật lần cuối</div>
+                        <div class="info-label">{{ __('admin.services.last_updated') }}</div>
                         <div class="info-value">
                             <i class="ri-calendar-line"></i>
                             {{ $service->updated_at->format('d/m/Y H:i') }}
@@ -215,7 +215,7 @@
             <!-- Action Buttons -->
             <div class="d-flex justify-content-end gap-2 mt-4 pt-3 border-top">
                 <a href="{{ route('admin.services.index') }}" class="btn btn-secondary">
-                    <i class="ri-arrow-left-line"></i> Quay lại danh sách
+                    <i class="ri-arrow-left-line"></i> {{ __('admin.services.back_to_list') }}
                 </a>
                 <a href="{{ route('admin.services.edit', $service->slug) }}" class="btn btn-primary">
                     <i class="ri-edit-line"></i> {{ __("admin.services.edit") }}

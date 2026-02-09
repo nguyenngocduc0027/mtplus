@@ -20,7 +20,7 @@
                     <ul class="nav nav-tabs mb-3" id="basicInfoTabs" role="tablist">
                         <li class="nav-item" role="presentation">
                             <button class="nav-link active" id="vi-basic-tab" data-bs-toggle="tab" data-bs-target="#vi-basic" type="button" role="tab">
-                                Tiếng Việt
+                                {{ __('admin.projects.vietnamese') }}
                             </button>
                         </li>
                         <li class="nav-item" role="presentation">
@@ -45,7 +45,7 @@
                             <div class="mb-3">
                                 <label class="form-label fw-semibold">Loại dự án (VI)</label>
                                 <input type="text" name="project_type_vi" class="form-control @error('project_type_vi') is-invalid @enderror"
-                                       value="{{ old('project_type_vi', $project->project_type_vi) }}" placeholder="VD: Xây dựng">
+                                       value="{{ old('project_type_vi', $project->project_type_vi) }}" placeholder="{{ __('admin.projects.project_type_placeholder') }}">
                                 @error('project_type_vi')
                                     <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
@@ -83,7 +83,7 @@
                             <div class="mb-3">
                                 <label class="form-label fw-semibold">Loại dự án (EN)</label>
                                 <input type="text" name="project_type_en" class="form-control @error('project_type_en') is-invalid @enderror"
-                                       value="{{ old('project_type_en', $project->project_type_en) }}" placeholder="E.g: Building">
+                                       value="{{ old('project_type_en', $project->project_type_en) }}" placeholder="{{ __('admin.projects.project_type_placeholder_en') }}">
                                 @error('project_type_en')
                                     <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
@@ -163,7 +163,7 @@
                     <ul class="nav nav-tabs mb-3" id="descriptionTabs" role="tablist">
                         <li class="nav-item" role="presentation">
                             <button class="nav-link active" id="vi-desc-tab" data-bs-toggle="tab" data-bs-target="#vi-desc" type="button" role="tab">
-                                Tiếng Việt
+                                {{ __('admin.projects.vietnamese') }}
                             </button>
                         </li>
                         <li class="nav-item" role="presentation">
@@ -206,7 +206,7 @@
                     <ul class="nav nav-tabs mb-3" id="featuresTabs" role="tablist">
                         <li class="nav-item" role="presentation">
                             <button class="nav-link active" id="vi-features-tab" data-bs-toggle="tab" data-bs-target="#vi-features" type="button" role="tab">
-                                Tiếng Việt
+                                {{ __('admin.projects.vietnamese') }}
                             </button>
                         </li>
                         <li class="nav-item" role="presentation">
@@ -225,7 +225,7 @@
                                     @if($project->features_vi && count($project->features_vi) > 0)
                                         @foreach($project->features_vi as $feature)
                                             <div class="input-group mb-2">
-                                                <input type="text" name="features_vi[]" class="form-control" placeholder="Nhập đặc điểm" value="{{ $feature }}">
+                                                <input type="text" name="features_vi[]" class="form-control" placeholder="{{ __('admin.projects.enter_feature') }}" value="{{ $feature }}">
                                                 <button type="button" class="btn btn-danger" onclick="this.parentElement.remove()">
                                                     <i class="ri-delete-bin-line"></i>
                                                 </button>
@@ -233,7 +233,7 @@
                                         @endforeach
                                     @endif
                                     <div class="input-group mb-2">
-                                        <input type="text" name="features_vi[]" class="form-control" placeholder="Nhập đặc điểm">
+                                        <input type="text" name="features_vi[]" class="form-control" placeholder="{{ __('admin.projects.enter_feature') }}">
                                         <button type="button" class="btn btn-primary" onclick="addFeature('vi')">
                                             <i class="ri-add-line"></i>
                                         </button>
@@ -250,7 +250,7 @@
                                     @if($project->features_en && count($project->features_en) > 0)
                                         @foreach($project->features_en as $feature)
                                             <div class="input-group mb-2">
-                                                <input type="text" name="features_en[]" class="form-control" placeholder="Enter feature" value="{{ $feature }}">
+                                                <input type="text" name="features_en[]" class="form-control" placeholder="{{ __('admin.projects.enter_feature_en') }}" value="{{ $feature }}">
                                                 <button type="button" class="btn btn-danger" onclick="this.parentElement.remove()">
                                                     <i class="ri-delete-bin-line"></i>
                                                 </button>
@@ -258,7 +258,7 @@
                                         @endforeach
                                     @endif
                                     <div class="input-group mb-2">
-                                        <input type="text" name="features_en[]" class="form-control" placeholder="Enter feature">
+                                        <input type="text" name="features_en[]" class="form-control" placeholder="{{ __('admin.projects.enter_feature_en') }}">
                                         <button type="button" class="btn btn-primary" onclick="addFeature('en')">
                                             <i class="ri-add-line"></i>
                                         </button>
@@ -302,7 +302,7 @@
                                     </div>
                                 @endforeach
                             </div>
-                            <p class="text-muted small">Ảnh hiện tại</p>
+                            <p class="text-muted small">{{ __('admin.projects.current_images') }}</p>
                         @endif
                         <input type="file" name="gallery_images[]" class="form-control @error('gallery_images.*') is-invalid @enderror"
                                accept="image/*" multiple onchange="previewGallery(this)">

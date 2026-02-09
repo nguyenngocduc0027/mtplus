@@ -54,7 +54,7 @@
 
                     <!-- Content -->
                     <div class="single-para">
-                        {!! \Illuminate\Support\Str::of($news->content)->sanitizeHtml() !!}
+                        {!! $news->content !!}
                     </div>
                 </div>
 

@@ -83,9 +83,9 @@
                                 </td>
                                 <td>
                                     @if($service->is_active)
-                                        <span class="badge bg-success-10 text-success">Hoạt động</span>
+                                        <span class="badge bg-success-10 text-success">{{ __('admin.services.status_active') }}</span>
                                     @else
-                                        <span class="badge bg-danger-10 text-danger">Tạm dừng</span>
+                                        <span class="badge bg-danger-10 text-danger">{{ __('admin.services.status_inactive') }}</span>
                                     @endif
                                 </td>
                                 <td class="text-body">{{ $service->created_at->format('d M, Y') }}</td>
@@ -95,14 +95,14 @@
                                            class="bg-transparent p-0 border-0 hover-text-success"
                                            data-bs-toggle="tooltip"
                                            data-bs-placement="top"
-                                           data-bs-title="Xem chi tiết">
+                                           data-bs-title="{{ __('admin.services.view_details') }}">
                                             <i class="material-symbols-outlined fs-16 fw-normal text-primary">visibility</i>
                                         </a>
                                         <a href="{{ route('admin.services.edit', $service->slug) }}"
                                            class="bg-transparent p-0 border-0 hover-text-primary"
                                            data-bs-toggle="tooltip"
                                            data-bs-placement="top"
-                                           data-bs-title="Chỉnh sửa">
+                                           data-bs-title="{{ __('admin.services.edit_tooltip') }}">
                                             <i class="material-symbols-outlined fs-16 fw-normal text-body">edit</i>
                                         </a>
                                         <form action="{{ route('admin.services.destroy', $service->slug) }}"
@@ -114,7 +114,7 @@
                                                     class="bg-transparent p-0 border-0 hover-text-danger"
                                                     data-bs-toggle="tooltip"
                                                     data-bs-placement="top"
-                                                    data-bs-title="Xóa">
+                                                    data-bs-title="{{ __('admin.services.delete_tooltip') }}">
                                                 <i class="material-symbols-outlined fs-16 fw-normal text-body">delete</i>
                                             </button>
                                         </form>

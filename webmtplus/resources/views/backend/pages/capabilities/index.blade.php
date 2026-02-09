@@ -1,5 +1,5 @@
 @extends('backend.layouts.app')
-@props(['pageTitle' => 'Quản lý nội dung Năng lực & Kinh nghiệm'])
+@props(['pageTitle' => __('admin.capabilities.page_title')])
 @push('styles')
     <style>
         .language-tabs {
@@ -164,8 +164,8 @@
                 <div class="section-header">
                     <i class="ri-text"></i>
                     <div>
-                        <h5 class="mb-0">PHẦN 1: Tiêu đề chính</h5>
-                        <small class="opacity-90">Tiêu đề giới thiệu trang</small>
+                        <h5 class="mb-0">{{ __('admin.capabilities.section_1_heading') }}</h5>
+                        <small class="opacity-90">{{ __('admin.capabilities.section_1_description') }}</small>
                     </div>
                 </div>
                 <div class="section-body">
@@ -173,13 +173,13 @@
                         <li class="nav-item" role="presentation">
                             <button class="nav-link active" id="section1-vi-tab" data-bs-toggle="tab"
                                 data-bs-target="#section1-vi-content" type="button" role="tab">
-                                🇻🇳 Tiếng Việt
+                                🇻🇳 {{ __('admin.capabilities.vietnamese') }}
                             </button>
                         </li>
                         <li class="nav-item" role="presentation">
                             <button class="nav-link" id="section1-en-tab" data-bs-toggle="tab"
                                 data-bs-target="#section1-en-content" type="button" role="tab">
-                                🇬🇧 English
+                                🇬🇧 {{ __('admin.capabilities.english') }}
                             </button>
                         </li>
                     </ul>
@@ -187,7 +187,7 @@
                     <div class="tab-content">
                         <div class="tab-pane fade show active" id="section1-vi-content" role="tabpanel">
                             <div class="mb-3">
-                                <label class="form-label fw-semibold">Tiêu đề chính *</label>
+                                <label class="form-label fw-semibold">{{ __('admin.capabilities.main_title') }} *</label>
                                 <input type="text" class="form-control" name="section_1_title_vi"
                                     value="{{ old('section_1_title_vi', $capabilitiesContent->section_1_title_vi ?? '') }}"
                                     placeholder="Ví dụ: Đối tác chân thực trong mọi khía cạnh phát triển">
@@ -196,7 +196,7 @@
 
                         <div class="tab-pane fade" id="section1-en-content" role="tabpanel">
                             <div class="mb-3">
-                                <label class="form-label fw-semibold">Main Title *</label>
+                                <label class="form-label fw-semibold">{{ __('admin.capabilities.main_title_en') }} *</label>
                                 <input type="text" class="form-control" name="section_1_title_en"
                                     value="{{ old('section_1_title_en', $capabilitiesContent->section_1_title_en ?? '') }}"
                                     placeholder="Example: Genuine Partner In Every Aspect Of Development">
@@ -211,8 +211,8 @@
                 <div class="section-header">
                     <i class="ri-star-line"></i>
                     <div>
-                        <h5 class="mb-0">PHẦN 2: Tính năng nổi bật</h5>
-                        <small class="opacity-90">4 tính năng chính của công ty</small>
+                        <h5 class="mb-0">{{ __('admin.capabilities.section_2_heading') }}</h5>
+                        <small class="opacity-90">{{ __('admin.capabilities.section_2_description') }}</small>
                     </div>
                 </div>
                 <div class="section-body">
@@ -222,7 +222,7 @@
                                 <h2 class="accordion-header">
                                     <button class="accordion-button {{ $i == 1 ? '' : 'collapsed' }}" type="button" data-bs-toggle="collapse" data-bs-target="#feature{{ $i }}">
                                         <span class="feature-badge me-2">{{ $i }}</span>
-                                        <strong>Tính năng {{ $i }}</strong>
+                                        <strong>{{ __('admin.capabilities.feature') }} {{ $i }}</strong>
                                     </button>
                                 </h2>
                                 <div id="feature{{ $i }}" class="accordion-collapse collapse {{ $i == 1 ? 'show' : '' }}" data-bs-parent="#featuresAccordion">
@@ -231,13 +231,13 @@
                                             <!-- Icon Upload - Left Side -->
                                             <div class="col-md-4">
                                                 <label class="compact-upload-label">
-                                                    <i class="ri-image-line"></i> Biểu tượng (Icon)
+                                                    <i class="ri-image-line"></i> {{ __('admin.capabilities.icon_label') }}
                                                 </label>
                                                 <div class="upload-box-compact position-relative">
                                                     <div class="product-upload" id="default-feature-{{ $i }}-upload-ui">
                                                         <label class="file-upload mb-0 text-center">
                                                             <i class="ri-upload-cloud-line text-primary fs-32 d-block mb-2"></i>
-                                                            <span class="d-block text-body fs-13">Chọn hoặc kéo thả</span>
+                                                            <span class="d-block text-body fs-13">{{ __('admin.capabilities.choose_or_drag') }}</span>
                                                             <span class="d-block text-muted fs-11 mt-1">PNG, SVG (Max: 2MB)</span>
                                                         </label>
                                                         <label class="position-absolute top-0 bottom-0 start-0 end-0 cursor">
@@ -259,39 +259,39 @@
                                             <div class="col-md-8">
                                                 <ul class="nav nav-tabs language-tabs" role="tablist">
                                                     <li class="nav-item">
-                                                        <button type="button" class="nav-link active" data-bs-toggle="tab" data-bs-target="#feature-{{ $i }}-vi">🇻🇳 Tiếng Việt</button>
+                                                        <button type="button" class="nav-link active" data-bs-toggle="tab" data-bs-target="#feature-{{ $i }}-vi">🇻🇳 {{ __('admin.capabilities.vietnamese') }}</button>
                                                     </li>
                                                     <li class="nav-item">
-                                                        <button type="button" class="nav-link" data-bs-toggle="tab" data-bs-target="#feature-{{ $i }}-en">🇬🇧 English</button>
+                                                        <button type="button" class="nav-link" data-bs-toggle="tab" data-bs-target="#feature-{{ $i }}-en">🇬🇧 {{ __('admin.capabilities.english') }}</button>
                                                     </li>
                                                 </ul>
 
                                                 <div class="tab-content">
                                                     <div class="tab-pane fade show active" id="feature-{{ $i }}-vi">
                                                         <div class="mb-3">
-                                                            <label class="form-label fw-semibold">Tiêu đề</label>
+                                                            <label class="form-label fw-semibold">{{ __('admin.capabilities.title') }}</label>
                                                             <input type="text" class="form-control" name="feature_{{ $i }}_title_vi"
                                                                 value="{{ old('feature_' . $i . '_title_vi', $capabilitiesContent->{'feature_' . $i . '_title_vi'} ?? '') }}"
-                                                                placeholder="Nhập tiêu đề">
+                                                                placeholder="{{ __('admin.capabilities.enter_title') }}">
                                                         </div>
                                                         <div class="mb-3">
-                                                            <label class="form-label fw-semibold">Mô tả</label>
+                                                            <label class="form-label fw-semibold">{{ __('admin.capabilities.description') }}</label>
                                                             <textarea class="form-control" name="feature_{{ $i }}_description_vi" rows="3"
-                                                                placeholder="Nhập mô tả ngắn gọn...">{{ old('feature_' . $i . '_description_vi', $capabilitiesContent->{'feature_' . $i . '_description_vi'} ?? '') }}</textarea>
+                                                                placeholder="{{ __('admin.capabilities.enter_description') }}">{{ old('feature_' . $i . '_description_vi', $capabilitiesContent->{'feature_' . $i . '_description_vi'} ?? '') }}</textarea>
                                                         </div>
                                                     </div>
 
                                                     <div class="tab-pane fade" id="feature-{{ $i }}-en">
                                                         <div class="mb-3">
-                                                            <label class="form-label fw-semibold">Title</label>
+                                                            <label class="form-label fw-semibold">{{ __('admin.capabilities.title_en') }}</label>
                                                             <input type="text" class="form-control" name="feature_{{ $i }}_title_en"
                                                                 value="{{ old('feature_' . $i . '_title_en', $capabilitiesContent->{'feature_' . $i . '_title_en'} ?? '') }}"
-                                                                placeholder="Enter title">
+                                                                placeholder="{{ __('admin.capabilities.enter_title') }}">
                                                         </div>
                                                         <div class="mb-3">
-                                                            <label class="form-label fw-semibold">Description</label>
+                                                            <label class="form-label fw-semibold">{{ __('admin.capabilities.description_en') }}</label>
                                                             <textarea class="form-control" name="feature_{{ $i }}_description_en" rows="3"
-                                                                placeholder="Enter brief description...">{{ old('feature_' . $i . '_description_en', $capabilitiesContent->{'feature_' . $i . '_description_en'} ?? '') }}</textarea>
+                                                                placeholder="{{ __('admin.capabilities.enter_brief_description') }}">{{ old('feature_' . $i . '_description_en', $capabilitiesContent->{'feature_' . $i . '_description_en'} ?? '') }}</textarea>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -310,8 +310,8 @@
                 <div class="section-header">
                     <i class="ri-award-line"></i>
                     <div>
-                        <h5 class="mb-0">PHẦN 3: Kinh nghiệm</h5>
-                        <small class="opacity-90">Giới thiệu kinh nghiệm và năng lực</small>
+                        <h5 class="mb-0">{{ __('admin.capabilities.section_3_heading') }}</h5>
+                        <small class="opacity-90">{{ __('admin.capabilities.section_3_description') }}</small>
                     </div>
                 </div>
                 <div class="section-body">
@@ -319,13 +319,13 @@
                     <div class="row mb-4">
                         <div class="col-md-6 mb-3">
                             <label class="compact-upload-label">
-                                <i class="ri-image-2-line"></i> Ảnh chính
+                                <i class="ri-image-2-line"></i> {{ __('admin.capabilities.main_image') }}
                             </label>
                             <div class="upload-box-compact position-relative">
                                 <div class="product-upload" id="default-main-upload-ui">
                                     <label class="file-upload mb-0 text-center">
                                         <i class="ri-upload-cloud-line text-primary fs-32 d-block mb-2"></i>
-                                        <span class="d-block text-body fs-13">Chọn hoặc kéo thả file</span>
+                                        <span class="d-block text-body fs-13">{{ __('admin.capabilities.choose_or_drag_file') }}</span>
                                         <span class="d-block text-muted fs-11 mt-1">JPG, PNG (Max: 2MB)</span>
                                     </label>
                                     <label class="position-absolute top-0 bottom-0 start-0 end-0 cursor">
@@ -345,13 +345,13 @@
 
                         <div class="col-md-6 mb-3">
                             <label class="compact-upload-label">
-                                <i class="ri-gallery-line"></i> Ảnh thu nhỏ
+                                <i class="ri-gallery-line"></i> {{ __('admin.capabilities.thumbnail_image') }}
                             </label>
                             <div class="upload-box-compact position-relative">
                                 <div class="product-upload" id="default-thumbnail-upload-ui">
                                     <label class="file-upload mb-0 text-center">
                                         <i class="ri-upload-cloud-line text-primary fs-32 d-block mb-2"></i>
-                                        <span class="d-block text-body fs-13">Chọn hoặc kéo thả file</span>
+                                        <span class="d-block text-body fs-13">{{ __('admin.capabilities.choose_or_drag_file') }}</span>
                                         <span class="d-block text-muted fs-11 mt-1">JPG, PNG (Max: 2MB)</span>
                                     </label>
                                     <label class="position-absolute top-0 bottom-0 start-0 end-0 cursor">
@@ -373,63 +373,63 @@
                     <!-- Content Fields -->
                     <ul class="nav nav-tabs language-tabs" role="tablist">
                         <li class="nav-item">
-                            <button type="button" class="nav-link active" data-bs-toggle="tab" data-bs-target="#section3-vi">🇻🇳 Tiếng Việt</button>
+                            <button type="button" class="nav-link active" data-bs-toggle="tab" data-bs-target="#section3-vi">🇻🇳 {{ __('admin.capabilities.vietnamese') }}</button>
                         </li>
                         <li class="nav-item">
-                            <button type="button" class="nav-link" data-bs-toggle="tab" data-bs-target="#section3-en">🇬🇧 English</button>
+                            <button type="button" class="nav-link" data-bs-toggle="tab" data-bs-target="#section3-en">🇬🇧 {{ __('admin.capabilities.english') }}</button>
                         </li>
                     </ul>
 
                     <div class="tab-content mb-4">
                         <div class="tab-pane fade show active" id="section3-vi">
                             <div class="mb-3">
-                                <label class="form-label fw-semibold">Tiêu đề *</label>
+                                <label class="form-label fw-semibold">{{ __('admin.capabilities.title') }} *</label>
                                 <input type="text" class="form-control" name="section_3_title_vi"
                                     value="{{ old('section_3_title_vi', $capabilitiesContent->section_3_title_vi ?? '') }}"
-                                    placeholder="Nhập tiêu đề">
+                                    placeholder="{{ __('admin.capabilities.enter_title') }}">
                             </div>
                             <div class="mb-3">
-                                <label class="form-label fw-semibold">Mô tả *</label>
+                                <label class="form-label fw-semibold">{{ __('admin.capabilities.description') }} *</label>
                                 <textarea class="form-control" name="section_3_description_vi" rows="3"
-                                    placeholder="Nhập mô tả ngắn gọn...">{{ old('section_3_description_vi', $capabilitiesContent->section_3_description_vi ?? '') }}</textarea>
+                                    placeholder="{{ __('admin.capabilities.enter_description') }}">{{ old('section_3_description_vi', $capabilitiesContent->section_3_description_vi ?? '') }}</textarea>
                             </div>
                         </div>
 
                         <div class="tab-pane fade" id="section3-en">
                             <div class="mb-3">
-                                <label class="form-label fw-semibold">Title *</label>
+                                <label class="form-label fw-semibold">{{ __('admin.capabilities.title_en') }} *</label>
                                 <input type="text" class="form-control" name="section_3_title_en"
                                     value="{{ old('section_3_title_en', $capabilitiesContent->section_3_title_en ?? '') }}"
-                                    placeholder="Enter title">
+                                    placeholder="{{ __('admin.capabilities.enter_title') }}">
                             </div>
                             <div class="mb-3">
-                                <label class="form-label fw-semibold">Description *</label>
+                                <label class="form-label fw-semibold">{{ __('admin.capabilities.description_en') }} *</label>
                                 <textarea class="form-control" name="section_3_description_en" rows="3"
-                                    placeholder="Enter brief description...">{{ old('section_3_description_en', $capabilitiesContent->section_3_description_en ?? '') }}</textarea>
+                                    placeholder="{{ __('admin.capabilities.enter_brief_description') }}">{{ old('section_3_description_en', $capabilitiesContent->section_3_description_en ?? '') }}</textarea>
                             </div>
                         </div>
                     </div>
 
                     <!-- Progress Bars -->
                     <h6 class="fw-bold text-secondary mb-3">
-                        <i class="ri-bar-chart-horizontal-line"></i> Thanh tiến trình (3)
+                        <i class="ri-bar-chart-horizontal-line"></i> {{ __('admin.capabilities.progress_bars') }}
                     </h6>
                     @for ($j = 1; $j <= 3; $j++)
                         <div class="progress-bar-item">
                             <div class="d-flex align-items-center mb-2">
                                 <span class="feature-badge me-2" style="width: 24px; height: 24px; font-size: 12px;">{{ $j }}</span>
-                                <strong class="text-dark">Thanh tiến trình {{ $j }}</strong>
+                                <strong class="text-dark">{{ __('admin.capabilities.progress_bar') }} {{ $j }}</strong>
                             </div>
                             <div class="row">
                                 <div class="col-md-5">
                                     <input type="text" class="form-control form-control-sm" name="progress_{{ $j }}_title_vi"
                                         value="{{ old('progress_' . $j . '_title_vi', $capabilitiesContent->{'progress_' . $j . '_title_vi'} ?? '') }}"
-                                        placeholder="🇻🇳 Tiêu đề tiếng Việt">
+                                        placeholder="🇻🇳 {{ __('admin.capabilities.vietnamese_title') }}">
                                 </div>
                                 <div class="col-md-5">
                                     <input type="text" class="form-control form-control-sm" name="progress_{{ $j }}_title_en"
                                         value="{{ old('progress_' . $j . '_title_en', $capabilitiesContent->{'progress_' . $j . '_title_en'} ?? '') }}"
-                                        placeholder="🇬🇧 English title">
+                                        placeholder="🇬🇧 {{ __('admin.capabilities.english_title') }}">
                                 </div>
                                 <div class="col-md-2">
                                     <div class="input-group input-group-sm">
@@ -447,14 +447,14 @@
             <!-- Submit Button -->
             <div class="d-flex justify-content-between align-items-center mt-4 p-3 bg-light rounded">
                 <div class="text-muted">
-                    <i class="ri-information-line"></i> Nhớ kiểm tra kỹ trước khi lưu
+                    <i class="ri-information-line"></i> {{ __('admin.capabilities.check_before_save') }}
                 </div>
                 <div class="d-flex gap-2">
                     <button type="button" class="btn btn-secondary" onclick="location.reload()">
-                        <i class="ri-refresh-line"></i> Làm mới
+                        <i class="ri-refresh-line"></i> {{ __('admin.capabilities.refresh') }}
                     </button>
                     <button type="submit" class="btn btn-primary fw-normal text-white px-4">
-                        <i class="ri-save-line"></i> Lưu thay đổi
+                        <i class="ri-save-line"></i> {{ __('admin.capabilities.save_changes') }}
                     </button>
                 </div>
             </div>
@@ -471,14 +471,14 @@
                 // Validate file type
                 const validTypes = ['image/jpeg', 'image/png', 'image/jpg', 'image/gif', 'image/svg+xml'];
                 if (!validTypes.includes(file.type)) {
-                    alert('Vui lòng chọn file ảnh hợp lệ (JPG, PNG, GIF, SVG)');
+                    alert('{{ __('admin.capabilities.invalid_image_svg') }}');
                     input.value = '';
                     return;
                 }
 
                 // Validate file size (2MB)
                 if (file.size > 2048 * 1024) {
-                    alert('Kích thước file không được vượt quá 2MB');
+                    alert('{{ __('admin.capabilities.file_size_limit') }}');
                     input.value = '';
                     return;
                 }
@@ -510,14 +510,14 @@
                 // Validate file type
                 const validTypes = ['image/jpeg', 'image/png', 'image/jpg', 'image/gif'];
                 if (!validTypes.includes(file.type)) {
-                    alert('Vui lòng chọn file ảnh hợp lệ (JPG, PNG, GIF)');
+                    alert('{{ __('admin.capabilities.invalid_image') }}');
                     input.value = '';
                     return;
                 }
 
                 // Validate file size (2MB)
                 if (file.size > 2048 * 1024) {
-                    alert('Kích thước file không được vượt quá 2MB');
+                    alert('{{ __('admin.capabilities.file_size_limit') }}');
                     input.value = '';
                     return;
                 }
@@ -549,14 +549,14 @@
                 // Validate file type
                 const validTypes = ['image/jpeg', 'image/png', 'image/jpg', 'image/gif'];
                 if (!validTypes.includes(file.type)) {
-                    alert('Vui lòng chọn file ảnh hợp lệ (JPG, PNG, GIF)');
+                    alert('{{ __('admin.capabilities.invalid_image') }}');
                     input.value = '';
                     return;
                 }
 
                 // Validate file size (2MB)
                 if (file.size > 2048 * 1024) {
-                    alert('Kích thước file không được vượt quá 2MB');
+                    alert('{{ __('admin.capabilities.file_size_limit') }}');
                     input.value = '';
                     return;
                 }
@@ -613,7 +613,7 @@
 
             // Disable button and show loading
             submitBtn.disabled = true;
-            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Đang lưu...';
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> {{ __('admin.capabilities.saving') }}';
 
             fetch('{{ route('admin.capabilities.update') }}', {
                     method: 'POST',
@@ -630,21 +630,21 @@
                         // Show SweetAlert success message
                         Swal.fire({
                             icon: 'success',
-                            title: 'Thành công!',
+                            title: '{{ __('admin.capabilities.success') }}',
                             text: data.message,
                             timer: 2000,
                             showConfirmButton: false
                         });
                     } else {
-                        throw new Error(data.message || 'Có lỗi xảy ra');
+                        throw new Error(data.message || '{{ __('admin.capabilities.error_occurred') }}');
                     }
                 })
                 .catch(error => {
                     console.error('Error:', error);
                     Swal.fire({
                         icon: 'error',
-                        title: 'Lỗi!',
-                        text: error.message || 'Có lỗi xảy ra khi cập nhật',
+                        title: '{{ __('admin.capabilities.error') }}',
+                        text: error.message || '{{ __('admin.capabilities.update_error') }}',
                     });
                 })
                 .finally(() => {

@@ -56,7 +56,7 @@
                                 @if($member->is_featured)
                                     <div class="mt-1">
                                         <span class="badge badge-ceo">
-                                            <i class="ri-vip-crown-line"></i> CEO
+                                            <i class="ri-vip-crown-line"></i> {{ __('admin.team.ceo') }}
                                         </span>
                                     </div>
                                 @endif

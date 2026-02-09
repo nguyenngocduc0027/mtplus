@@ -1,5 +1,5 @@
 @extends('backend.layouts.app')
-@props(['pageTitle' => 'Quản lý nội dung Tầm nhìn'])
+@props(['pageTitle' => __('admin.vision.page_title')])
 @push('styles')
     <style>
         .language-tabs {
@@ -85,20 +85,20 @@
             @csrf
 
             <div class="alert alert-info mb-4">
-                <i class="fas fa-info-circle"></i> <strong>Trang Tầm nhìn</strong> - Quản lý nội dung trang Tầm nhìn của công ty
+                <i class="fas fa-info-circle"></i> <strong>{{ __('admin.vision.vision_page') }}</strong> - {{ __('admin.vision.page_management') }}
             </div>
 
             <!-- Main Image Section -->
             <div class="row mb-4">
                 <div class="col-lg-12">
                     <div class="form-group mb-4 only-file-upload" id="image-upload">
-                        <label class="label fs-16 fw-bold">Ảnh chính</label>
+                        <label class="label fs-16 fw-bold">{{ __('admin.vision.main_image') }}</label>
                         <div class="form-control text-center position-relative upload-box">
                             <div class="product-upload" id="default-upload-ui">
                                 <label class="file-upload mb-0">
                                     <i class="ri-image-line bg-primary bg-opacity-10 p-2 rounded-1 text-primary fs-24"></i>
-                                    <span class="d-block text-body fs-14 mt-2">Kéo thả ảnh vào đây hoặc <span
-                                            class="text-primary text-decoration-underline">Chọn file</span></span>
+                                    <span class="d-block text-body fs-14 mt-2">{{ __('admin.vision.drag_drop') }} <span
+                                            class="text-primary text-decoration-underline">{{ __('admin.vision.choose_file') }}</span></span>
                                     <span class="d-block text-muted fs-12 mt-1">JPG, PNG, GIF (Max: 2MB) - 800x600px</span>
                                 </label>
                                 <label class="position-absolute top-0 bottom-0 start-0 end-0 cursor" id="upload-container">
@@ -108,13 +108,13 @@
                             <div id="image-preview-container" style="display: {{ $visionContent->image_path ? 'flex' : 'none' }};">
                                 <div class="position-relative">
                                     <img id="image-preview" src="{{ $visionContent->image_path ? asset($visionContent->image_path) : '' }}" alt="Preview" class="rounded cursor-pointer" onclick="document.getElementById('image-input').click()">
-                                    <button type="button" class="btn btn-danger remove-photo-btn position-absolute" style="top: 10px; right: 10px;" onclick="removeImage()" title="Xóa ảnh">
+                                    <button type="button" class="btn btn-danger remove-photo-btn position-absolute" style="top: 10px; right: 10px;" onclick="removeImage()" title="{{ __('admin.vision.delete_image') }}">
                                         <i class="ri-close-line fs-18"></i>
                                     </button>
                                 </div>
                                 <div class="position-absolute bottom-0 start-0 end-0 text-center mb-3">
                                     <span class="badge bg-dark bg-opacity-75 text-white px-3 py-2">
-                                        <i class="ri-edit-line me-1"></i> Click vào ảnh để thay đổi
+                                        <i class="ri-edit-line me-1"></i> {{ __('admin.vision.click_to_change') }}
                                     </span>
                                 </div>
                             </div>
@@ -130,13 +130,13 @@
                 <li class="nav-item" role="presentation">
                     <button class="nav-link active" id="vi-tab" data-bs-toggle="tab"
                         data-bs-target="#vi-content" type="button" role="tab">
-                        🇻🇳 Tiếng Việt
+                        🇻🇳 {{ __('admin.vision.vietnamese') }}
                     </button>
                 </li>
                 <li class="nav-item" role="presentation">
                     <button class="nav-link" id="en-tab" data-bs-toggle="tab"
                         data-bs-target="#en-content" type="button" role="tab">
-                        🇬🇧 English
+                        🇬🇧 {{ __('admin.vision.english') }}
                     </button>
                 </li>
             </ul>
@@ -146,45 +146,45 @@
                 <div class="tab-pane fade show active" id="vi-content" role="tabpanel">
                     <div class="row">
                         <div class="col-md-12 mb-4">
-                            <label class="form-label fw-bold">Tiêu đề (Tiếng Việt) *</label>
+                            <label class="form-label fw-bold">{{ __('admin.vision.title_vi') }} *</label>
                             <input type="text" class="form-control" name="title_vi"
                                 value="{{ old('title_vi', $visionContent->title_vi ?? '') }}"
                                 placeholder="Ví dụ: Tầm nhìn của chúng tôi">
                         </div>
 
                         <div class="col-md-12 mb-4">
-                            <label class="form-label fw-bold">Mô tả (Tiếng Việt) *</label>
+                            <label class="form-label fw-bold">{{ __('admin.vision.description_vi') }} *</label>
                             <textarea class="form-control" name="description_vi" rows="5"
                                 placeholder="Nhập mô tả chi tiết về tầm nhìn...">{{ old('description_vi', $visionContent->description_vi ?? '') }}</textarea>
                         </div>
 
                         <div class="col-md-12 mb-4">
-                            <h6 class="fw-bold">4 Điểm mốc thời gian (Tiếng Việt)</h6>
+                            <h6 class="fw-bold">{{ __('admin.vision.timelines_vi') }}</h6>
                         </div>
 
                         <div class="col-md-12 mb-3">
-                            <label class="form-label">Điểm mốc 1</label>
+                            <label class="form-label">{{ __('admin.vision.timeline_1') }}</label>
                             <input type="text" class="form-control" name="timeline_1_vi"
                                 value="{{ old('timeline_1_vi', $visionContent->timeline_1_vi ?? '') }}"
                                 placeholder="Ví dụ: Trở thành công ty xây dựng hàng đầu Việt Nam">
                         </div>
 
                         <div class="col-md-12 mb-3">
-                            <label class="form-label">Điểm mốc 2</label>
+                            <label class="form-label">{{ __('admin.vision.timeline_2') }}</label>
                             <input type="text" class="form-control" name="timeline_2_vi"
                                 value="{{ old('timeline_2_vi', $visionContent->timeline_2_vi ?? '') }}"
                                 placeholder="Ví dụ: Mở rộng hoạt động ra khu vực Đông Nam Á">
                         </div>
 
                         <div class="col-md-12 mb-3">
-                            <label class="form-label">Điểm mốc 3</label>
+                            <label class="form-label">{{ __('admin.vision.timeline_3') }}</label>
                             <input type="text" class="form-control" name="timeline_3_vi"
                                 value="{{ old('timeline_3_vi', $visionContent->timeline_3_vi ?? '') }}"
                                 placeholder="Ví dụ: Phát triển công nghệ xây dựng xanh và bền vững">
                         </div>
 
                         <div class="col-md-12 mb-3">
-                            <label class="form-label">Điểm mốc 4</label>
+                            <label class="form-label">{{ __('admin.vision.timeline_4') }}</label>
                             <input type="text" class="form-control" name="timeline_4_vi"
                                 value="{{ old('timeline_4_vi', $visionContent->timeline_4_vi ?? '') }}"
                                 placeholder="Ví dụ: Đào tạo nguồn nhân lực chuyên nghiệp hàng đầu">
@@ -196,45 +196,45 @@
                 <div class="tab-pane fade" id="en-content" role="tabpanel">
                     <div class="row">
                         <div class="col-md-12 mb-4">
-                            <label class="form-label fw-bold">Title (English) *</label>
+                            <label class="form-label fw-bold">{{ __('admin.vision.title_en') }} *</label>
                             <input type="text" class="form-control" name="title_en"
                                 value="{{ old('title_en', $visionContent->title_en ?? '') }}"
                                 placeholder="Example: Our Vision">
                         </div>
 
                         <div class="col-md-12 mb-4">
-                            <label class="form-label fw-bold">Description (English) *</label>
+                            <label class="form-label fw-bold">{{ __('admin.vision.description_en') }} *</label>
                             <textarea class="form-control" name="description_en" rows="5"
                                 placeholder="Enter detailed description about the vision...">{{ old('description_en', $visionContent->description_en ?? '') }}</textarea>
                         </div>
 
                         <div class="col-md-12 mb-4">
-                            <h6 class="fw-bold">4 Timeline Points (English)</h6>
+                            <h6 class="fw-bold">{{ __('admin.vision.timelines_en') }}</h6>
                         </div>
 
                         <div class="col-md-12 mb-3">
-                            <label class="form-label">Timeline Point 1</label>
+                            <label class="form-label">{{ __('admin.vision.timeline_point_1') }}</label>
                             <input type="text" class="form-control" name="timeline_1_en"
                                 value="{{ old('timeline_1_en', $visionContent->timeline_1_en ?? '') }}"
                                 placeholder="Example: Become the leading construction company in Vietnam">
                         </div>
 
                         <div class="col-md-12 mb-3">
-                            <label class="form-label">Timeline Point 2</label>
+                            <label class="form-label">{{ __('admin.vision.timeline_point_2') }}</label>
                             <input type="text" class="form-control" name="timeline_2_en"
                                 value="{{ old('timeline_2_en', $visionContent->timeline_2_en ?? '') }}"
                                 placeholder="Example: Expand operations to Southeast Asia">
                         </div>
 
                         <div class="col-md-12 mb-3">
-                            <label class="form-label">Timeline Point 3</label>
+                            <label class="form-label">{{ __('admin.vision.timeline_point_3') }}</label>
                             <input type="text" class="form-control" name="timeline_3_en"
                                 value="{{ old('timeline_3_en', $visionContent->timeline_3_en ?? '') }}"
                                 placeholder="Example: Develop green and sustainable construction technology">
                         </div>
 
                         <div class="col-md-12 mb-3">
-                            <label class="form-label">Timeline Point 4</label>
+                            <label class="form-label">{{ __('admin.vision.timeline_point_4') }}</label>
                             <input type="text" class="form-control" name="timeline_4_en"
                                 value="{{ old('timeline_4_en', $visionContent->timeline_4_en ?? '') }}"
                                 placeholder="Example: Train leading professional workforce">
@@ -246,10 +246,10 @@
             <!-- Submit Button -->
             <div class="d-flex justify-content-end gap-2 mt-4">
                 <button type="button" class="btn btn-secondary" onclick="location.reload()">
-                    <i class="fas fa-redo"></i> Reset
+                    <i class="fas fa-redo"></i> {{ __('admin.vision.reset') }}
                 </button>
                 <button type="submit" class="btn btn-primary fw-normal text-white">
-                    <i class="fas fa-save"></i> Lưu thay đổi
+                    <i class="fas fa-save"></i> {{ __('admin.vision.save_changes') }}
                 </button>
             </div>
         </form>
@@ -265,14 +265,14 @@
                 // Validate file type
                 const validTypes = ['image/jpeg', 'image/png', 'image/jpg', 'image/gif'];
                 if (!validTypes.includes(file.type)) {
-                    alert('Vui lòng chọn file ảnh hợp lệ (JPG, PNG, GIF)');
+                    alert('{{ __('admin.vision.invalid_image') }}');
                     input.value = '';
                     return;
                 }
 
                 // Validate file size (2MB)
                 if (file.size > 2048 * 1024) {
-                    alert('Kích thước file không được vượt quá 2MB');
+                    alert('{{ __('admin.vision.file_size_limit') }}');
                     input.value = '';
                     return;
                 }
@@ -315,7 +315,7 @@
 
             // Disable button and show loading
             submitBtn.disabled = true;
-            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Đang lưu...';
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> {{ __('admin.vision.saving') }}';
 
             fetch('{{ route('admin.vision.update') }}', {
                     method: 'POST',
@@ -332,21 +332,21 @@
                         // Show SweetAlert success message
                         Swal.fire({
                             icon: 'success',
-                            title: 'Thành công!',
+                            title: '{{ __('admin.vision.success') }}',
                             text: data.message,
                             timer: 2000,
                             showConfirmButton: false
                         });
                     } else {
-                        throw new Error(data.message || 'Có lỗi xảy ra');
+                        throw new Error(data.message || '{{ __('admin.vision.error_occurred') }}');
                     }
                 })
                 .catch(error => {
                     console.error('Error:', error);
                     Swal.fire({
                         icon: 'error',
-                        title: 'Lỗi!',
-                        text: error.message || 'Có lỗi xảy ra khi cập nhật',
+                        title: '{{ __('admin.vision.error') }}',
+                        text: error.message || '{{ __('admin.vision.update_error') }}',
                     });
                 })
                 .finally(() => {

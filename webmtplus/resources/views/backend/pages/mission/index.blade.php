@@ -1,5 +1,5 @@
 @extends('backend.layouts.app')
-@props(['pageTitle' => 'Quản lý nội dung Sứ mệnh'])
+@props(['pageTitle' => __('admin.mission.page_title')])
 @push('styles')
     <style>
         .language-tabs {
@@ -85,7 +85,7 @@
             @csrf
 
             <div class="alert alert-info mb-4">
-                <i class="fas fa-info-circle"></i> <strong>Trang Sứ mệnh</strong> - Quản lý nội dung trang Sứ mệnh của công ty
+                <i class="fas fa-info-circle"></i> <strong>{{ __('admin.mission.mission_page') }}</strong> - {{ __('admin.mission.page_management') }}
             </div>
 
             <!-- Background Image Section -->
@@ -93,13 +93,13 @@
             <div class="row mb-4">
                 <div class="col-lg-12">
                     <div class="form-group mb-4 only-file-upload" id="background-image-upload">
-                        <label class="label fs-16 fw-bold">Ảnh nền</label>
+                        <label class="label fs-16 fw-bold">{{ __('admin.mission.background_image') }}</label>
                         <div class="form-control text-center position-relative upload-box">
                             <div class="product-upload" id="default-background-upload-ui">
                                 <label class="file-upload mb-0">
                                     <i class="ri-image-line bg-primary bg-opacity-10 p-2 rounded-1 text-primary fs-24"></i>
-                                    <span class="d-block text-body fs-14 mt-2">Kéo thả ảnh vào đây hoặc <span
-                                            class="text-primary text-decoration-underline">Chọn file</span></span>
+                                    <span class="d-block text-body fs-14 mt-2">{{ __('admin.mission.drag_drop') }} <span
+                                            class="text-primary text-decoration-underline">{{ __('admin.mission.choose_file') }}</span></span>
                                     <span class="d-block text-muted fs-12 mt-1">JPG, PNG, GIF (Max: 2MB) - 1920x1080px</span>
                                 </label>
                                 <label class="position-absolute top-0 bottom-0 start-0 end-0 cursor" id="background-upload-container">
@@ -109,13 +109,13 @@
                             <div id="background-image-preview-container" style="display: {{ $missionContent->background_image_path ? 'flex' : 'none' }};">
                                 <div class="position-relative">
                                     <img id="background-image-preview" src="{{ $missionContent->background_image_path ? asset($missionContent->background_image_path) : '' }}" alt="Preview" class="rounded cursor-pointer" onclick="document.getElementById('background-image-input').click()">
-                                    <button type="button" class="btn btn-danger remove-photo-btn position-absolute" style="top: 10px; right: 10px;" onclick="removeBackgroundImage()" title="Xóa ảnh">
+                                    <button type="button" class="btn btn-danger remove-photo-btn position-absolute" style="top: 10px; right: 10px;" onclick="removeBackgroundImage()" title="{{ __('admin.mission.delete_image') }}">
                                         <i class="ri-close-line fs-18"></i>
                                     </button>
                                 </div>
                                 <div class="position-absolute bottom-0 start-0 end-0 text-center mb-3">
                                     <span class="badge bg-dark bg-opacity-75 text-white px-3 py-2">
-                                        <i class="ri-edit-line me-1"></i> Click vào ảnh để thay đổi
+                                        <i class="ri-edit-line me-1"></i> {{ __('admin.mission.click_to_change') }}
                                     </span>
                                 </div>
                             </div>
@@ -131,13 +131,13 @@
                 <li class="nav-item" role="presentation">
                     <button class="nav-link active" id="vi-tab" data-bs-toggle="tab"
                         data-bs-target="#vi-content" type="button" role="tab">
-                        🇻🇳 Tiếng Việt
+                        🇻🇳 {{ __('admin.mission.vietnamese') }}
                     </button>
                 </li>
                 <li class="nav-item" role="presentation">
                     <button class="nav-link" id="en-tab" data-bs-toggle="tab"
                         data-bs-target="#en-content" type="button" role="tab">
-                        English
+                        {{ __('admin.mission.english') }}
                     </button>
                 </li>
             </ul>
@@ -147,45 +147,45 @@
                 <div class="tab-pane fade show active" id="vi-content" role="tabpanel">
                     <div class="row">
                         <div class="col-md-12 mb-4">
-                            <label class="form-label fw-bold">Tiêu đề (Tiếng Việt) *</label>
+                            <label class="form-label fw-bold">{{ __('admin.mission.title_vi') }} *</label>
                             <input type="text" class="form-control" name="title_vi"
                                 value="{{ old('title_vi', $missionContent->title_vi ?? '') }}"
                                 placeholder="Ví dụ: Sứ mệnh của chúng tôi">
                         </div>
 
                         <div class="col-md-12 mb-4">
-                            <label class="form-label fw-bold">Mô tả (Tiếng Việt) *</label>
+                            <label class="form-label fw-bold">{{ __('admin.mission.description_vi') }} *</label>
                             <textarea class="form-control" name="description_vi" rows="5"
                                 placeholder="Nhập mô tả chi tiết về sứ mệnh...">{{ old('description_vi', $missionContent->description_vi ?? '') }}</textarea>
                         </div>
 
                         <div class="col-md-12 mb-4">
-                            <h6 class="fw-bold">4 Điểm nổi bật (Tiếng Việt)</h6>
+                            <h6 class="fw-bold">{{ __('admin.mission.highlights_vi') }}</h6>
                         </div>
 
                         <div class="col-md-12 mb-3">
-                            <label class="form-label">Điểm nổi bật 1</label>
+                            <label class="form-label">{{ __('admin.mission.highlight_1') }}</label>
                             <input type="text" class="form-control" name="feature_1_vi"
                                 value="{{ old('feature_1_vi', $missionContent->feature_1_vi ?? '') }}"
                                 placeholder="Ví dụ: Có giấy phép, bảo hiểm và tập trung vào an toàn">
                         </div>
 
                         <div class="col-md-12 mb-3">
-                            <label class="form-label">Điểm nổi bật 2</label>
+                            <label class="form-label">{{ __('admin.mission.highlight_2') }}</label>
                             <input type="text" class="form-control" name="feature_2_vi"
                                 value="{{ old('feature_2_vi', $missionContent->feature_2_vi ?? '') }}"
                                 placeholder="Ví dụ: 10 năm kinh nghiệm trong ngành">
                         </div>
 
                         <div class="col-md-12 mb-3">
-                            <label class="form-label">Điểm nổi bật 3</label>
+                            <label class="form-label">{{ __('admin.mission.highlight_3') }}</label>
                             <input type="text" class="form-control" name="feature_3_vi"
                                 value="{{ old('feature_3_vi', $missionContent->feature_3_vi ?? '') }}"
                                 placeholder="Ví dụ: Phương pháp tiếp cận lấy khách hàng làm trung tâm">
                         </div>
 
                         <div class="col-md-12 mb-3">
-                            <label class="form-label">Điểm nổi bật 4</label>
+                            <label class="form-label">{{ __('admin.mission.highlight_4') }}</label>
                             <input type="text" class="form-control" name="feature_4_vi"
                                 value="{{ old('feature_4_vi', $missionContent->feature_4_vi ?? '') }}"
                                 placeholder="Ví dụ: Quản lý dự án toàn diện từ đầu đến cuối">
@@ -197,45 +197,45 @@
                 <div class="tab-pane fade" id="en-content" role="tabpanel">
                     <div class="row">
                         <div class="col-md-12 mb-4">
-                            <label class="form-label fw-bold">Title (English) *</label>
+                            <label class="form-label fw-bold">{{ __('admin.mission.title_en') }} *</label>
                             <input type="text" class="form-control" name="title_en"
                                 value="{{ old('title_en', $missionContent->title_en ?? '') }}"
                                 placeholder="Example: Our Mission">
                         </div>
 
                         <div class="col-md-12 mb-4">
-                            <label class="form-label fw-bold">Description (English) *</label>
+                            <label class="form-label fw-bold">{{ __('admin.mission.description_en') }} *</label>
                             <textarea class="form-control" name="description_en" rows="5"
                                 placeholder="Enter detailed description about the mission...">{{ old('description_en', $missionContent->description_en ?? '') }}</textarea>
                         </div>
 
                         <div class="col-md-12 mb-4">
-                            <h6 class="fw-bold">4 Key Features (English)</h6>
+                            <h6 class="fw-bold">{{ __('admin.mission.features_en') }}</h6>
                         </div>
 
                         <div class="col-md-12 mb-3">
-                            <label class="form-label">Key Feature 1</label>
+                            <label class="form-label">{{ __('admin.mission.feature_1') }}</label>
                             <input type="text" class="form-control" name="feature_1_en"
                                 value="{{ old('feature_1_en', $missionContent->feature_1_en ?? '') }}"
                                 placeholder="Example: Licensed, Insured, And Safety-Focused">
                         </div>
 
                         <div class="col-md-12 mb-3">
-                            <label class="form-label">Key Feature 2</label>
+                            <label class="form-label">{{ __('admin.mission.feature_2') }}</label>
                             <input type="text" class="form-control" name="feature_2_en"
                                 value="{{ old('feature_2_en', $missionContent->feature_2_en ?? '') }}"
                                 placeholder="Example: 10 Years Of Industry Experience">
                         </div>
 
                         <div class="col-md-12 mb-3">
-                            <label class="form-label">Key Feature 3</label>
+                            <label class="form-label">{{ __('admin.mission.feature_3') }}</label>
                             <input type="text" class="form-control" name="feature_3_en"
                                 value="{{ old('feature_3_en', $missionContent->feature_3_en ?? '') }}"
                                 placeholder="Example: Client-Centered Approach">
                         </div>
 
                         <div class="col-md-12 mb-3">
-                            <label class="form-label">Key Feature 4</label>
+                            <label class="form-label">{{ __('admin.mission.feature_4') }}</label>
                             <input type="text" class="form-control" name="feature_4_en"
                                 value="{{ old('feature_4_en', $missionContent->feature_4_en ?? '') }}"
                                 placeholder="Example: End-to-End Project Management">
@@ -247,10 +247,10 @@
             <!-- Submit Button -->
             <div class="d-flex justify-content-end gap-2 mt-4">
                 <button type="button" class="btn btn-secondary" onclick="location.reload()">
-                    <i class="fas fa-redo"></i> Reset
+                    <i class="fas fa-redo"></i> {{ __('admin.mission.reset') }}
                 </button>
                 <button type="submit" class="btn btn-primary fw-normal text-white">
-                    <i class="fas fa-save"></i> Lưu thay đổi
+                    <i class="fas fa-save"></i> {{ __('admin.mission.save_changes') }}
                 </button>
             </div>
         </form>
@@ -266,14 +266,14 @@
                 // Validate file type
                 const validTypes = ['image/jpeg', 'image/png', 'image/jpg', 'image/gif'];
                 if (!validTypes.includes(file.type)) {
-                    alert('Vui lòng chọn file ảnh hợp lệ (JPG, PNG, GIF)');
+                    alert('{{ __('admin.mission.invalid_image') }}');
                     input.value = '';
                     return;
                 }
 
                 // Validate file size (2MB)
                 if (file.size > 2048 * 1024) {
-                    alert('Kích thước file không được vượt quá 2MB');
+                    alert('{{ __('admin.mission.file_size_limit') }}');
                     input.value = '';
                     return;
                 }
@@ -316,7 +316,7 @@
 
             // Disable button and show loading
             submitBtn.disabled = true;
-            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Đang lưu...';
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> {{ __('admin.mission.saving') }}';
 
             fetch('{{ route('admin.mission.update') }}', {
                     method: 'POST',
@@ -333,21 +333,21 @@
                         // Show SweetAlert success message
                         Swal.fire({
                             icon: 'success',
-                            title: 'Thành công!',
+                            title: '{{ __('admin.mission.success') }}',
                             text: data.message,
                             timer: 2000,
                             showConfirmButton: false
                         });
                     } else {
-                        throw new Error(data.message || 'Có lỗi xảy ra');
+                        throw new Error(data.message || '{{ __('admin.mission.error_occurred') }}');
                     }
                 })
                 .catch(error => {
                     console.error('Error:', error);
                     Swal.fire({
                         icon: 'error',
-                        title: 'Lỗi!',
-                        text: error.message || 'Có lỗi xảy ra khi cập nhật',
+                        title: '{{ __('admin.mission.error') }}',
+                        text: error.message || '{{ __('admin.mission.update_error') }}',
                     });
                 })
                 .finally(() => {

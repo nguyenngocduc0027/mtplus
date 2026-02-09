@@ -44,7 +44,7 @@
                             <div class="mb-3">
                                 <label class="form-label fw-semibold">{{ __('admin.projects.project_type') }}</label>
                                 <input type="text" name="project_type_vi" class="form-control @error('project_type_vi') is-invalid @enderror"
-                                       value="{{ old('project_type_vi') }}" placeholder="VD: Xây dựng">
+                                       value="{{ old('project_type_vi') }}" placeholder="{{ __('admin.projects.project_type_placeholder') }}">
                                 @error('project_type_vi')
                                     <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
@@ -82,7 +82,7 @@
                             <div class="mb-3">
                                 <label class="form-label fw-semibold">{{ __('admin.projects.project_type') }}</label>
                                 <input type="text" name="project_type_en" class="form-control @error('project_type_en') is-invalid @enderror"
-                                       value="{{ old('project_type_en') }}" placeholder="E.g: Building">
+                                       value="{{ old('project_type_en') }}" placeholder="{{ __('admin.projects.project_type_placeholder_en') }}">
                                 @error('project_type_en')
                                     <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
@@ -162,12 +162,12 @@
                     <ul class="nav nav-tabs mb-3" id="descriptionTabs" role="tablist">
                         <li class="nav-item" role="presentation">
                             <button class="nav-link active" id="vi-desc-tab" data-bs-toggle="tab" data-bs-target="#vi-desc" type="button">
-                                <i class="ri-translate me-1"></i> Tiếng Việt
+                                <i class="ri-translate me-1"></i> {{ __('admin.projects.vietnamese') }}
                             </button>
                         </li>
                         <li class="nav-item" role="presentation">
                             <button class="nav-link" id="en-desc-tab" data-bs-toggle="tab" data-bs-target="#en-desc" type="button">
-                                <i class="ri-global-line me-1"></i> English
+                                <i class="ri-global-line me-1"></i> {{ __('admin.projects.english') }}
                             </button>
                         </li>
                     </ul>
@@ -205,12 +205,12 @@
                     <ul class="nav nav-tabs mb-3" id="featuresTabs" role="tablist">
                         <li class="nav-item" role="presentation">
                             <button class="nav-link active" id="vi-features-tab" data-bs-toggle="tab" data-bs-target="#vi-features" type="button">
-                                <i class="ri-translate me-1"></i> Tiếng Việt
+                                <i class="ri-translate me-1"></i> {{ __('admin.projects.vietnamese') }}
                             </button>
                         </li>
                         <li class="nav-item" role="presentation">
                             <button class="nav-link" id="en-features-tab" data-bs-toggle="tab" data-bs-target="#en-features" type="button">
-                                <i class="ri-global-line me-1"></i> English
+                                <i class="ri-global-line me-1"></i> {{ __('admin.projects.english') }}
                             </button>
                         </li>
                     </ul>
@@ -222,7 +222,7 @@
                                 <label class="form-label fw-semibold">Đặc điểm</label>
                                 <div id="features_vi_container">
                                     <div class="input-group mb-2">
-                                        <input type="text" name="features_vi[]" class="form-control" placeholder="Nhập đặc điểm">
+                                        <input type="text" name="features_vi[]" class="form-control" placeholder="{{ __('admin.projects.enter_feature') }}">
                                         <button type="button" class="btn btn-primary" onclick="addFeature('vi')">
                                             <i class="ri-add-line"></i>
                                         </button>
@@ -237,7 +237,7 @@
                                 <label class="form-label fw-semibold">Features</label>
                                 <div id="features_en_container">
                                     <div class="input-group mb-2">
-                                        <input type="text" name="features_en[]" class="form-control" placeholder="Enter feature">
+                                        <input type="text" name="features_en[]" class="form-control" placeholder="{{ __('admin.projects.enter_feature_en') }}">
                                         <button type="button" class="btn btn-primary" onclick="addFeature('en')">
                                             <i class="ri-add-line"></i>
                                         </button>
@@ -390,7 +390,7 @@
             const div = document.createElement('div');
             div.className = 'input-group mb-2';
             div.innerHTML = `
-                <input type="text" name="features_${lang}[]" class="form-control" placeholder="${lang === 'vi' ? 'Nhập đặc điểm' : 'Enter feature'}">
+                <input type="text" name="features_${lang}[]" class="form-control" placeholder="${lang === 'vi' ? '{{ __('admin.projects.enter_feature') }}' : '{{ __('admin.projects.enter_feature_en') }}'}">
                 <button type="button" class="btn btn-danger" onclick="this.parentElement.remove()">
                     <i class="ri-delete-bin-line"></i>
                 </button>

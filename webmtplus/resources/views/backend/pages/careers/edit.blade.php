@@ -45,7 +45,7 @@
                             <div class="mb-3">
                                 <label class="form-label fw-semibold">{{ __('admin.careers.location') }}</label>
                                 <input type="text" name="location_vi" class="form-control @error('location_vi') is-invalid @enderror"
-                                       value="{{ old('location_vi', $career->location_vi) }}" placeholder="VD: Hà Nội, Việt Nam">
+                                       value="{{ old('location_vi', $career->location_vi) }}" placeholder="{{ __('admin.careers.location_placeholder') }}">
                                 @error('location_vi')
                                     <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
@@ -54,7 +54,7 @@
                             <div class="mb-3">
                                 <label class="form-label fw-semibold">{{ __('admin.careers.department') }}</label>
                                 <input type="text" name="department_vi" class="form-control @error('department_vi') is-invalid @enderror"
-                                       value="{{ old('department_vi', $career->department_vi) }}" placeholder="VD: Phòng Nhân sự">
+                                       value="{{ old('department_vi', $career->department_vi) }}" placeholder="{{ __('admin.careers.department_placeholder') }}">
                                 @error('department_vi')
                                     <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
@@ -83,7 +83,7 @@
                             <div class="mb-3">
                                 <label class="form-label fw-semibold">{{ __('admin.careers.location') }}</label>
                                 <input type="text" name="location_en" class="form-control @error('location_en') is-invalid @enderror"
-                                       value="{{ old('location_en', $career->location_en) }}" placeholder="E.g: Hanoi, Vietnam">
+                                       value="{{ old('location_en', $career->location_en) }}" placeholder="{{ __('admin.careers.location_placeholder_en') }}">
                                 @error('location_en')
                                     <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
@@ -92,7 +92,7 @@
                             <div class="mb-3">
                                 <label class="form-label fw-semibold">{{ __('admin.careers.department') }}</label>
                                 <input type="text" name="department_en" class="form-control @error('department_en') is-invalid @enderror"
-                                       value="{{ old('department_en', $career->department_en) }}" placeholder="E.g: Human Resources">
+                                       value="{{ old('department_en', $career->department_en) }}" placeholder="{{ __('admin.careers.department_placeholder_en') }}">
                                 @error('department_en')
                                     <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
@@ -128,7 +128,7 @@
                         <div class="col-md-6 mb-3">
                             <label class="form-label fw-semibold">{{ __('admin.careers.experience_required') }}</label>
                             <input type="text" name="experience_required" class="form-control @error('experience_required') is-invalid @enderror"
-                                   value="{{ old('experience_required', $career->experience_required) }}" placeholder="VD: 2+ Years, 3-5 Years">
+                                   value="{{ old('experience_required', $career->experience_required) }}" placeholder="{{ __('admin.careers.experience_placeholder') }}">
                             @error('experience_required')
                                 <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
@@ -139,7 +139,7 @@
                         <div class="col-md-12 mb-3">
                             <label class="form-label fw-semibold">{{ __('admin.careers.salary_display') }}</label>
                             <input type="text" name="salary_display" class="form-control @error('salary_display') is-invalid @enderror"
-                                   value="{{ old('salary_display', $career->salary_display) }}" placeholder="VD: 50K, Negotiable, Thỏa thuận">
+                                   value="{{ old('salary_display', $career->salary_display) }}" placeholder="{{ __('admin.careers.salary_display_placeholder') }}">
                             <small class="text-muted">{{ __('admin.careers.salary_display_help') }}</small>
                             @error('salary_display')
                                 <div class="invalid-feedback">{{ $message }}</div>

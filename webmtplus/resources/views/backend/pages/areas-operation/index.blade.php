@@ -1,5 +1,5 @@
 @extends('backend.layouts.app')
-@props(['pageTitle' => 'Areas of Operation Management'])
+@props(['pageTitle' => __('admin.areas_operation.page_title')])
 @push('styles')
     <style>
         .language-tabs {
@@ -47,15 +47,15 @@
         <ul class="nav nav-tabs mb-4" id="myTab" role="tablist">
             <li class="nav-item" role="presentation">
                 <button class="nav-link active" id="section1-tab" data-bs-toggle="tab" data-bs-target="#section1-tab-pane"
-                    type="button" role="tab" aria-controls="section1-tab-pane" aria-selected="true">Section 1</button>
+                    type="button" role="tab" aria-controls="section1-tab-pane" aria-selected="true">{{ __('admin.areas_operation.section_1') }}</button>
             </li>
             <li class="nav-item" role="presentation">
                 <button class="nav-link" id="section2-tab" data-bs-toggle="tab" data-bs-target="#section2-tab-pane"
-                    type="button" role="tab" aria-controls="section2-tab-pane" aria-selected="false">Section 2</button>
+                    type="button" role="tab" aria-controls="section2-tab-pane" aria-selected="false">{{ __('admin.areas_operation.section_2') }}</button>
             </li>
             <li class="nav-item" role="presentation">
                 <button class="nav-link" id="section3-tab" data-bs-toggle="tab" data-bs-target="#section3-tab-pane"
-                    type="button" role="tab" aria-controls="section3-tab-pane" aria-selected="false">Section 3</button>
+                    type="button" role="tab" aria-controls="section3-tab-pane" aria-selected="false">{{ __('admin.areas_operation.section_3') }}</button>
             </li>
         </ul>
 
