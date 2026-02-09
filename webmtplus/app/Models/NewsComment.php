@@ -16,9 +16,13 @@ class NewsComment extends Model
         'author_email',
         'author_website',
         'content',
-        'is_approved',
         'ip_address',
         'user_agent',
+    ];
+
+    // Protect sensitive fields from mass assignment
+    protected $guarded = [
+        'is_approved',
     ];
 
     protected $casts = [

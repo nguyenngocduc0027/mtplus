@@ -111,9 +111,11 @@ class HomeController extends Controller
             });
         }
 
-        // Search
+        // Search - Sanitize input to prevent SQL injection
         if ($request->filled('search')) {
-            $search = $request->search;
+            $search = $request->input('search');
+            // Remove special SQL characters
+            $search = str_replace(['%', '_'], ['\\%', '\\_'], $search);
             $query->where(function($q) use ($search) {
                 $q->where('title_vi', 'like', "%{$search}%")
                   ->orWhere('title_en', 'like', "%{$search}%")
@@ -125,39 +127,61 @@ class HomeController extends Controller
         $news = $query->latest('published_at')->paginate(9);
         $categories = \App\Models\NewsCategory::active()->ordered()->get();
         $tags = \App\Models\NewsTag::all();
-        $featuredNews = \App\Models\News::active()->published()->featured()->latest('published_at')->take(3)->get();
+        // Add eager loading for featured news
+        $featuredNews = \App\Models\News::with(['category', 'tags'])
+            ->active()
+            ->published()
+            ->featured()
+            ->latest('published_at')
+            ->take(3)
+            ->get();
 
         return view('frontend.pages.news.index', compact('news', 'categories', 'tags', 'featuredNews'));
     }
 
     public function detailNews($slug)
     {
+        // Load news with all relationships in one query
         $news = \App\Models\News::where('slug', $slug)
             ->active()
             ->published()
+            ->with([
+                'category',
+                'tags',
+                'comments' => function($query) {
+                    $query->approved()
+                          ->topLevel()
+                          ->recent()
+                          ->with('approvedReplies'); // Eager load replies to avoid N+1
+                }
+            ])
             ->firstOrFail();
 
         // Increment view count
         $news->incrementViewCount();
 
-        // Load relationships
-        $news->load(['category', 'tags', 'comments' => function($query) {
-            $query->approved()->topLevel()->recent();
-        }]);
+        // Get related news (same category) - Add null check
+        $relatedNews = collect();
+        if ($news->category_id) {
+            $relatedNews = \App\Models\News::where('category_id', $news->category_id)
+                ->where('id', '!=', $news->id)
+                ->active()
+                ->published()
+                ->latest('published_at')
+                ->take(3)
+                ->get();
+        }
 
-        // Get related news (same category)
-        $relatedNews = \App\Models\News::where('category_id', $news->category_id)
-            ->where('id', '!=', $news->id)
-            ->active()
-            ->published()
-            ->latest('published_at')
-            ->take(3)
-            ->get();
-
-        // Get data for sidebar
+        // Get data for sidebar with eager loading
         $categories = \App\Models\NewsCategory::active()->ordered()->get();
         $tags = \App\Models\NewsTag::all();
-        $featuredNews = \App\Models\News::active()->published()->featured()->latest('published_at')->take(5)->get();
+        $featuredNews = \App\Models\News::with(['category', 'tags'])
+            ->active()
+            ->published()
+            ->featured()
+            ->latest('published_at')
+            ->take(5)
+            ->get();
 
         return view('frontend.pages.news.detail-news', compact('news', 'relatedNews', 'categories', 'tags', 'featuredNews'));
     }

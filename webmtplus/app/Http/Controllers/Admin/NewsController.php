@@ -25,16 +25,18 @@ class NewsController extends Controller
             $query->where('status', $request->status);
         }
 
-        // Search
+        // Search - Sanitize input to prevent SQL injection
         if ($request->filled('search')) {
-            $search = $request->search;
+            $search = $request->input('search');
+            // Remove special SQL characters
+            $search = str_replace(['%', '_'], ['\\%', '\\_'], $search);
             $query->where(function($q) use ($search) {
                 $q->where('title_vi', 'like', "%{$search}%")
                   ->orWhere('title_en', 'like', "%{$search}%");
             });
         }
 
-        $news = $query->latest()->paginate(20);
+        $news = $query->latest()->paginate(20)->withQueryString();
         $categories = NewsCategory::active()->ordered()->get();
 
         return view('backend.pages.news.index', compact('news', 'categories'));
@@ -75,10 +77,7 @@ class NewsController extends Controller
 
         // Handle featured image upload
         if ($request->hasFile('featured_image')) {
-            $file = $request->file('featured_image');
-            $filename = time() . '_featured_' . $file->getClientOriginalName();
-            $file->move(public_path('uploads/news'), $filename);
-            $validated['featured_image'] = '/uploads/news/' . $filename;
+            $validated['featured_image'] = $this->handleImageUpload($request->file('featured_image'));
         }
 
         // Handle checkboxes
@@ -162,17 +161,10 @@ class NewsController extends Controller
 
         // Handle featured image upload
         if ($request->hasFile('featured_image')) {
-            if ($news->featured_image && str_starts_with($news->featured_image, '/uploads/')) {
-                $oldPath = public_path($news->featured_image);
-                if (file_exists($oldPath)) {
-                    unlink($oldPath);
-                }
-            }
-
-            $file = $request->file('featured_image');
-            $filename = time() . '_featured_' . $file->getClientOriginalName();
-            $file->move(public_path('uploads/news'), $filename);
-            $validated['featured_image'] = '/uploads/news/' . $filename;
+            $validated['featured_image'] = $this->handleImageUpload(
+                $request->file('featured_image'),
+                $news->featured_image
+            );
         }
 
         // Handle checkboxes
@@ -181,8 +173,8 @@ class NewsController extends Controller
         $validated['is_active'] = $request->has('is_active');
         $validated['allow_comments'] = $request->has('allow_comments');
 
-        // Update slug if title changed
-        if ($request->title_en != $news->title_en && empty($validated['slug'])) {
+        // Update slug if title changed and slug is empty
+        if ($validated['title_en'] != $news->title_en && empty($validated['slug'])) {
             $validated['slug'] = \Str::slug($validated['title_en']);
         }
 
@@ -214,16 +206,40 @@ class NewsController extends Controller
     public function destroy(News $news)
     {
         // Delete featured image
-        if ($news->featured_image && str_starts_with($news->featured_image, '/uploads/')) {
-            $path = public_path($news->featured_image);
-            if (file_exists($path)) {
-                unlink($path);
-            }
-        }
+        $this->deleteImageIfExists($news->featured_image);
 
         $news->delete();
 
         return redirect()->route('admin.news.index')
             ->with('success', __('admin.news.delete_success'));
+    }
+
+    /**
+     * Helper method to handle image upload
+     */
+    private function handleImageUpload($file, $existingPath = null)
+    {
+        // Delete old image if exists
+        if ($existingPath) {
+            $this->deleteImageIfExists($existingPath);
+        }
+
+        // Upload new image
+        $filename = time() . '_featured_' . $file->getClientOriginalName();
+        $file->move(public_path('uploads/news'), $filename);
+        return '/uploads/news/' . $filename;
+    }
+
+    /**
+     * Helper method to delete image if it exists
+     */
+    private function deleteImageIfExists($imagePath)
+    {
+        if ($imagePath && str_starts_with($imagePath, '/uploads/')) {
+            $path = public_path($imagePath);
+            if (file_exists($path)) {
+                unlink($path);
+            }
+        }
     }
 }
