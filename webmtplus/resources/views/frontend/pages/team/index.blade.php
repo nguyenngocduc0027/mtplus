@@ -71,8 +71,8 @@
                                 <div class="team-info d-flex flex-wrap justify-content-between">
                                     <div>
                                         <h3 class="fw-bold mb-1">
-                                            <a href="{{ route('team.detail', $member->slug) }}"
-                                               class="text-title link-hover-primary transition">{{ $member->name }}</a>
+                                           <di
+                                               class="text-title link-hover-primary transition">{{ $member->name }}</di>
                                         </h3>
                                         <span>{{ $member->getPosition() }}</span>
                                     </div>

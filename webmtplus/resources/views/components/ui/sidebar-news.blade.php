@@ -40,11 +40,13 @@
                 <div class="rp-post-wrap">
                     @foreach ($featuredNews as $post)
                         <div class="rp-post-card d-flex flex-wrap align-items-center">
-                            <div class="rp-post-img">
+                            <div class="rp-post-img" style="width: 80px; height: 80px; overflow: hidden; border-radius: 8px; flex-shrink: 0;">
                                 @if($post->featured_image)
-                                    <img src="{{ $post->featured_image }}" alt="{{ $post->title }}">
+                                    <img src="{{ $post->featured_image }}" alt="{{ $post->title }}"
+                                        style="width: 100%; height: 100%; object-fit: cover; object-position: center;">
                                 @else
-                                    <img src="/frontend/assets/img/blog/post-thumb-1.jpg" alt="{{ $post->title }}">
+                                    <img src="/frontend/assets/img/blog/post-thumb-1.jpg" alt="{{ $post->title }}"
+                                        style="width: 100%; height: 100%; object-fit: cover; object-position: center;">
                                 @endif
                             </div>
                             <div class="rp-post-info">

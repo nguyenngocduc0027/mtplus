@@ -34,7 +34,7 @@
                         <span class="service-counter fw-semibold d-block transition">01</span>
                         <h3 class="fw-semibold"><a href="javaScript:void(0)"
                                 class="text-title link-hover-primary transition">{{ $coreValuesContent ? $coreValuesContent->getValueTitle(1) : 'Lorem, ipsum dolor sit' }}</a></h3>
-                        <img src="{{ $coreValuesContent && $coreValuesContent->getValueIcon(1) ? (str_starts_with($coreValuesContent->getValueIcon(1), '/') ? asset($coreValuesContent->getValueIcon(1)) : asset('storage/' . $coreValuesContent->getValueIcon(1))) : asset('/frontend/assets/img/services/service-icon-1.png') }}" alt="Icon" class="service-icon d-block">
+                        <img src="{{ $coreValuesContent && $coreValuesContent->getValueIcon(1) ? (str_starts_with($coreValuesContent->getValueIcon(1), '/') ? asset($coreValuesContent->getValueIcon(1)) : asset('storage/' . $coreValuesContent->getValueIcon(1))) : asset('/frontend/assets/img/services/service-icon-1.png') }}" alt="Icon" class="service-icon d-block" style="width: 80px; height: 80px; object-fit: contain;">
                         <div class="service-para d-flex flex-wrap align-items-center justify-content-between"
                             >
                             <p class="mb-0">{{ $coreValuesContent ? $coreValuesContent->getValueDescription(1) : 'Lorem, ipsum dolor sit amet consectetur adipisicing elit.' }}</p>
@@ -47,7 +47,7 @@
                         <span class="service-counter fw-semibold d-block transition">02</span>
                         <h3 class="fw-semibold"><a href="javaScript:void(0)"
                                 class="text-title link-hover-primary transition">{{ $coreValuesContent ? $coreValuesContent->getValueTitle(2) : 'Lorem, ipsum dolor sit' }}</a></h3>
-                        <img src="{{ $coreValuesContent && $coreValuesContent->getValueIcon(2) ? (str_starts_with($coreValuesContent->getValueIcon(2), '/') ? asset($coreValuesContent->getValueIcon(2)) : asset('storage/' . $coreValuesContent->getValueIcon(2))) : asset('/frontend/assets/img/services/service-icon-2.png') }}" alt="Icon" class="service-icon d-block">
+                        <img src="{{ $coreValuesContent && $coreValuesContent->getValueIcon(2) ? (str_starts_with($coreValuesContent->getValueIcon(2), '/') ? asset($coreValuesContent->getValueIcon(2)) : asset('storage/' . $coreValuesContent->getValueIcon(2))) : asset('/frontend/assets/img/services/service-icon-2.png') }}" alt="Icon" class="service-icon d-block" style="width: 80px; height: 80px; object-fit: contain;">
                         <div class="service-para d-flex flex-wrap align-items-center justify-content-between"
                             >
                             <p class="mb-0">{{ $coreValuesContent ? $coreValuesContent->getValueDescription(2) : 'Lorem, ipsum dolor sit amet consectetur adipisicing elit.' }}</p>
@@ -60,7 +60,7 @@
                         <span class="service-counter fw-semibold d-block transition">03</span>
                         <h3 class="fw-semibold"><a href="javaScript:void(0)"
                                 class="text-title link-hover-primary transition">{{ $coreValuesContent ? $coreValuesContent->getValueTitle(3) : 'Lorem, ipsum dolor sit' }}</a></h3>
-                        <img src="{{ $coreValuesContent && $coreValuesContent->getValueIcon(3) ? (str_starts_with($coreValuesContent->getValueIcon(3), '/') ? asset($coreValuesContent->getValueIcon(3)) : asset('storage/' . $coreValuesContent->getValueIcon(3))) : asset('/frontend/assets/img/services/service-icon-3.png') }}" alt="Icon" class="service-icon d-block">
+                        <img src="{{ $coreValuesContent && $coreValuesContent->getValueIcon(3) ? (str_starts_with($coreValuesContent->getValueIcon(3), '/') ? asset($coreValuesContent->getValueIcon(3)) : asset('storage/' . $coreValuesContent->getValueIcon(3))) : asset('/frontend/assets/img/services/service-icon-3.png') }}" alt="Icon" class="service-icon d-block" style="width: 80px; height: 80px; object-fit: contain;">
                         <div class="service-para d-flex flex-wrap align-items-center justify-content-between"
                             >
                             <p class="mb-0">{{ $coreValuesContent ? $coreValuesContent->getValueDescription(3) : 'Lorem, ipsum dolor sit amet consectetur adipisicing elit.' }}</p>
@@ -73,7 +73,7 @@
                         <span class="service-counter fw-semibold d-block transition">04</span>
                         <h3 class="fw-semibold"><a href="javaScript:void(0)"
                                 class="text-title link-hover-primary transition">{{ $coreValuesContent ? $coreValuesContent->getValueTitle(4) : 'Deck Renovation' }}</a></h3>
-                        <img src="{{ $coreValuesContent && $coreValuesContent->getValueIcon(4) ? (str_starts_with($coreValuesContent->getValueIcon(4), '/') ? asset($coreValuesContent->getValueIcon(4)) : asset('storage/' . $coreValuesContent->getValueIcon(4))) : asset('/frontend/assets/img/services/service-icon-4.png') }}" alt="Icon" class="service-icon d-block">
+                        <img src="{{ $coreValuesContent && $coreValuesContent->getValueIcon(4) ? (str_starts_with($coreValuesContent->getValueIcon(4), '/') ? asset($coreValuesContent->getValueIcon(4)) : asset('storage/' . $coreValuesContent->getValueIcon(4))) : asset('/frontend/assets/img/services/service-icon-4.png') }}" alt="Icon" class="service-icon d-block" style="width: 80px; height: 80px; object-fit: contain;">
                         <div class="service-para d-flex flex-wrap align-items-center justify-content-between"
                             >
                             <p class="mb-0">{{ $coreValuesContent ? $coreValuesContent->getValueDescription(4) : 'Lorem, ipsum dolor sit amet consectetur adipisicing elit.' }}</p>

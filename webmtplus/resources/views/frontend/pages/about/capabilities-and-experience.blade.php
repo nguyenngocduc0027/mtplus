@@ -30,7 +30,8 @@
                     style="animation-name: slideInUp; animation-duration: 600ms; animation-timing-function: ease; animation-delay: {{ $delay }}ms; animation-direction: normal; animation-fill-mode: both;">
                     <div class="feature-card style-one mb-30" >
                         @if($capabilitiesContent && $capabilitiesContent->getFeatureIcon($i))
-                            <img src="{{ asset($capabilitiesContent->getFeatureIcon($i)) }}" alt="Icon">
+                            <img src="{{ asset($capabilitiesContent->getFeatureIcon($i)) }}" alt="Icon"
+                                style="width: 80px; height: 80px; object-fit: contain;">
                         @endif
                         <h3 class="fs-24 fw-semibold">{{ $capabilitiesContent ? $capabilitiesContent->getFeatureTitle($i) : '' }}</h3>
                         <p class="pe-xxl-4 pe-1 mb-0">{{ $capabilitiesContent ? $capabilitiesContent->getFeatureDescription($i) : '' }}</p>
@@ -47,12 +48,14 @@
                         data-show="true"
                         style="animation-name: slideInUp; animation-duration: 600ms; animation-timing-function: ease; animation-delay: 0ms; animation-direction: normal; animation-fill-mode: both;">
                         @if($capabilitiesContent && $capabilitiesContent->main_image_path)
-                            <img src="{{ asset($capabilitiesContent->main_image_path) }}" alt="Image" class="wh-img round-10">
+                            <img src="{{ asset($capabilitiesContent->main_image_path) }}" alt="Image"
+                                class="wh-img round-10 w-100"
+                                style="height: 500px; object-fit: cover; object-position: center;">
                         @endif
                         @if($capabilitiesContent && $capabilitiesContent->thumbnail_image_path)
                             <img src="{{ asset($capabilitiesContent->thumbnail_image_path) }}" alt="Image"
                                 class="wh-thumb move-right round-10 position-absolute start-0 bottom-0"
-                                style="translate: none; rotate: none; scale: none; transform: translate(70%, 0%);">
+                                style="translate: none; rotate: none; scale: none; transform: translate(70%, 0%); width: 250px; height: 200px; object-fit: cover; object-position: center;">
                         @endif
                     </div>
                 </div>

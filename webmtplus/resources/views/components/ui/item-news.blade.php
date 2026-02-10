@@ -1,7 +1,9 @@
 <div class="col-xl-4 col-md-6">
     <div class="blog-card style-one position-relative mb-30" data-cue="slideInUp">
-        <div class="blog-img position-relative overflow-hidden round-20">
-            <img src="{{ asset($image) }}" alt="Blog" class="round-20" style="width: 570px; height: 438px; object-fit: cover;">
+        <div class="blog-img position-relative overflow-hidden round-20" style="height: 280px;">
+            <img src="{{ asset($image) }}" alt="Blog"
+                class="round-20 w-100 h-100"
+                style="object-fit: cover; object-position: center;">
             <a href="{{ $linkNews }}"
                 class="blog-date bg_secondary text-title position-absolute d-flex flex-column align-items-center justify-content-center round-10"><span
                     class="font-secondary fs-24 fw-black d-block">{{ $date }}</span> {{ $month }}</a>

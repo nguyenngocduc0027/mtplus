@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\User;
 use App\Models\HomeHeroSection;
+use Illuminate\Container\Attributes\Tag;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -69,6 +70,7 @@ class DatabaseSeeder extends Seeder
 
             // Projects
             ProjectSeeder::class,
+            NewsSeeder::class,
         ]);
     }
 }

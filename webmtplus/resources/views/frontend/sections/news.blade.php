@@ -13,48 +13,53 @@
         </div>
         <div class="row gx-xxl-25 justify-content-center">
             @php
-                // Example static data; replace with dynamic data as needed
-                $newsItems = [
-                    [
-                        'image' => 'frontend/assets/img/blog/blog-1.jpg',
-                        'date' => '12',
-                        'month' => 'Jul',
-                        'author' => 'Admin',
-                        'title' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-                        'linkNews' => 'javaScript:void(0)',
-                        'linkAuthor' => 'javaScript:void(0)',
-                    ],
-                    [
-                        'image' => 'frontend/assets/img/blog/blog-2.jpg',
-                        'date' => '16',
-                        'month' => 'Jul',
-                        'author' => 'Admin',
-                        'title' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-                        'linkNews' => 'javaScript:void(0)',
-                        'linkAuthor' => 'javaScript:void(0)',
-                    ],
-                    [
-                        'image' => 'frontend/assets/img/blog/blog-3.jpg',
-                        'date' => '19',
-                        'month' => 'Jul',
-                        'author' => 'Admin',
-                        'title' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-                        'linkNews' => 'javaScript:void(0)',
-                        'linkAuthor' => 'javaScript:void(0)',
-                    ],
-                ];
+                // Get latest 3 news from database
+                $latestNews = \App\Models\News::where('status', 'published')
+                    ->where('published_at', '<=', now())
+                    ->orderBy('published_at', 'desc')
+                    ->take(3)
+                    ->get();
             @endphp
-            @foreach ($newsItems as $item)
+            @forelse ($latestNews as $newsItem)
                 <x-ui.item-news
-                    :image="$item['image']"
-                    :date="$item['date']"
-                    :month="$item['month']"
-                    :author="$item['author']"
-                    :title="$item['title']"
-                    :linkNews="$item['linkNews']"
-                    :linkAuthor="$item['linkAuthor']"
+                    :image="$newsItem->featured_image ?? 'frontend/assets/img/blog/blog-1.jpg'"
+                    :date="$newsItem->published_at ? $newsItem->published_at->format('d') : date('d')"
+                    :month="$newsItem->published_at ? $newsItem->published_at->format('M') : date('M')"
+                    :author="$newsItem->author_name ?? 'Admin'"
+                    :title="$newsItem->title"
+                    :linkNews="route('detail-news', $newsItem->slug)"
+                    :linkAuthor="'javascript:void(0)'"
                 />
-            @endforeach
+            @empty
+                {{-- Show default if no news --}}
+                <x-ui.item-news
+                    image="frontend/assets/img/blog/blog-1.jpg"
+                    date="12"
+                    month="Jul"
+                    author="Admin"
+                    title="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+                    linkNews="javascript:void(0)"
+                    linkAuthor="javascript:void(0)"
+                />
+                <x-ui.item-news
+                    image="frontend/assets/img/blog/blog-2.jpg"
+                    date="16"
+                    month="Jul"
+                    author="Admin"
+                    title="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+                    linkNews="javascript:void(0)"
+                    linkAuthor="javascript:void(0)"
+                />
+                <x-ui.item-news
+                    image="frontend/assets/img/blog/blog-3.jpg"
+                    date="19"
+                    month="Jul"
+                    author="Admin"
+                    title="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+                    linkNews="javascript:void(0)"
+                    linkAuthor="javascript:void(0)"
+                />
+            @endforelse
         </div>
     </div>
 </div>

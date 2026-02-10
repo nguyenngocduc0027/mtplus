@@ -7,10 +7,13 @@
 
 <div class="col-xl-4 col-md-6">
     <div class="job-card style-one position-relative img-hover-zoom z-1 round-10 mb-30">
-        <div class="job-img position-relative overflow-hidden img-zoom z-1 round-10">
+        <div class="job-img position-relative overflow-hidden img-zoom z-1 round-10" style="height: 280px;">
             <img src="{{ $careerImage }}" alt="{{ $title }}"
-                class="position-absolute top-0 start-0 w-100 h-100 transition round-10">
-            <img src="{{ $careerImage }}" alt="{{ $title }}" class="transition round-10">
+                class="position-absolute top-0 start-0 w-100 h-100 transition round-10"
+                style="object-fit: cover;">
+            <img src="{{ $careerImage }}" alt="{{ $title }}"
+                class="transition round-10 w-100 h-100"
+                style="object-fit: cover; object-position: center;">
             @if($salary)
                 <div class="job-salary fs-15 text-title bg-white position-absolute end-0">{{ __('common.salary') }}: <span
                         class="fw-bold">{{ $salary }}</span></div>
