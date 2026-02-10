@@ -149,6 +149,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('admin/contacts', [\App\Http\Controllers\Admin\ContactController::class, 'index'])->name('admin.contacts.index');
     Route::get('admin/contacts/{contact}', [\App\Http\Controllers\Admin\ContactController::class, 'show'])->name('admin.contacts.show');
     Route::put('admin/contacts/{contact}/status', [\App\Http\Controllers\Admin\ContactController::class, 'updateStatus'])->name('admin.contacts.update-status');
+    Route::post('admin/contacts/{contact}/status', [\App\Http\Controllers\Admin\ContactController::class, 'updateStatus'])->name('admin.contacts.update-status-post');
     Route::delete('admin/contacts/{contact}', [\App\Http\Controllers\Admin\ContactController::class, 'destroy'])->name('admin.contacts.destroy');
     Route::post('admin/contacts/bulk-delete', [\App\Http\Controllers\Admin\ContactController::class, 'bulkDelete'])->name('admin.contacts.bulk-delete');
 });

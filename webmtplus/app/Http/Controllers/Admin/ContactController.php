@@ -53,25 +53,49 @@ class ContactController extends Controller
 
     public function updateStatus(Request $request, Contact $contact)
     {
-        $validated = $request->validate([
-            'status' => 'required|in:new,read,replied,archived',
-        ]);
-
-        $contact->update($validated);
-
-        if ($validated['status'] === 'read' && !$contact->read_at) {
-            $contact->update(['read_at' => now()]);
-        }
-
-        if ($request->ajax()) {
-            return response()->json([
-                'success' => true,
-                'message' => __('admin.contacts.status_updated'),
+        try {
+            \Log::info('UpdateStatus called', [
+                'contact_id' => $contact->id,
+                'new_status' => $request->input('status'),
+                'is_ajax' => $request->ajax(),
+                'wants_json' => $request->wantsJson(),
             ]);
-        }
 
-        return redirect()->route('admin.contacts.index')
-            ->with('success', __('admin.contacts.status_updated'));
+            $validated = $request->validate([
+                'status' => 'required|in:new,read,replied,archived',
+            ]);
+
+            $contact->update($validated);
+
+            if ($validated['status'] === 'read' && !$contact->read_at) {
+                $contact->update(['read_at' => now()]);
+            }
+
+            if ($request->ajax() || $request->wantsJson()) {
+                return response()->json([
+                    'success' => true,
+                    'message' => __('admin.contacts.status_updated'),
+                ]);
+            }
+
+            return redirect()->route('admin.contacts.index')
+                ->with('success', __('admin.contacts.status_updated'));
+
+        } catch (\Exception $e) {
+            \Log::error('UpdateStatus error', [
+                'error' => $e->getMessage(),
+                'trace' => $e->getTraceAsString()
+            ]);
+
+            if ($request->ajax() || $request->wantsJson()) {
+                return response()->json([
+                    'success' => false,
+                    'message' => $e->getMessage(),
+                ], 422);
+            }
+
+            return redirect()->back()->with('error', $e->getMessage());
+        }
     }
 
     public function destroy(Contact $contact)
