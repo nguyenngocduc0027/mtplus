@@ -40,9 +40,8 @@
                                             $services = \App\Models\Service::active()->get();
                                         @endphp
                                         @forelse($services as $service)
-                                            <li><a href="{{ route('services.index', ['slug' => $service->slug]) }">{{ $service->getTitle() }}</a></li>
-                                        @empty
-                                            <li><a href="{{ route('services.index') }}">Services</a></li>
+                                            <li><a href="{{ route('services.index', ['slug' => $service->slug]) }}">{{ $service->getTitle() }}</a></li>
+                        
                                         @endforelse
                                     </ul>
                                 </li>
