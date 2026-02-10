@@ -25,15 +25,6 @@
     </div>
     <!--  Preloader End -->
 
-    <!-- Theme Switcher Start -->
-    <div class="switch-theme-mode">
-        <label id="switch" class="switch">
-            <input type="checkbox" onchange="toggleTheme()" id="slider">
-            <span class="slider round"></span>
-        </label>
-    </div>
-    <!-- Theme Switcher End -->
-
 
     <!-- Custom Cursor -->
     <div class="cursor"><span class="cursor-text"></span></div>
