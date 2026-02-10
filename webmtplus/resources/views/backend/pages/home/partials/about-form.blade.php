@@ -192,7 +192,7 @@
     <div class="row">
         <div class="col-md-6 mb-4">
             <label class="form-label fw-bold">Hình ảnh Chính About</label>
-            <input type="file" class="form-control" name="about_main_image" accept="image/*"
+            <input type="file" class="form-control" name="about_main_image" accept="image/*,image/svg+xml,.svg"
                 onchange="previewImage(this, 'about_main_preview')">
             @if ($aboutSection && $aboutSection->about_main_image)
                 <img id="about_main_preview" src="{{ asset($aboutSection->about_main_image) }}" alt="Preview"
@@ -205,7 +205,7 @@
 
         <div class="col-md-6 mb-4">
             <label class="form-label fw-bold">Hình ảnh Phụ About</label>
-            <input type="file" class="form-control" name="about_thumb_image" accept="image/*"
+            <input type="file" class="form-control" name="about_thumb_image" accept="image/*,image/svg+xml,.svg"
                 onchange="previewImage(this, 'about_thumb_preview')">
             @if ($aboutSection && $aboutSection->about_thumb_image)
                 <img id="about_thumb_preview" src="{{ asset($aboutSection->about_thumb_image) }}" alt="Preview"

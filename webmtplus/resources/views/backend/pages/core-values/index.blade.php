@@ -283,7 +283,7 @@
                                         <span class="d-block text-muted fs-12 mt-1">JPG, PNG, GIF (Max: 2MB) - 200x200px</span>
                                     </label>
                                     <label class="position-absolute top-0 bottom-0 start-0 end-0 cursor" id="icon-{{ $i }}-upload-container">
-                                        <input class="form__file bottom-0" id="icon-{{ $i }}-input" name="value_{{ $i }}_icon" type="file" accept="image/*" onchange="handleIconUpload(this, {{ $i }})">
+                                        <input class="form__file bottom-0" id="icon-{{ $i }}-input" name="value_{{ $i }}_icon" type="file" accept="image/*,image/svg+xml,.svg" onchange="handleIconUpload(this, {{ $i }})">
                                     </label>
                                 </div>
                                 <div id="icon-{{ $i }}-preview-container" class="icon-preview-container" style="display: {{ $coreValuesContent->{'value_' . $i . '_icon'} ? 'flex' : 'none' }};">

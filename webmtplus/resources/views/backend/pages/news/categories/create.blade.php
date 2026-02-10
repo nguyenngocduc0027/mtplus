@@ -103,7 +103,7 @@
                     <div class="card-body p-20">
                         <div class="mb-0">
                             <label class="form-label">{{ __('admin.news_categories.icon_label') }}</label>
-                            <input type="file" name="icon" class="form-control @error('icon') is-invalid @enderror" accept="image/*" onchange="previewImage(this, 'icon-preview')">
+                            <input type="file" name="icon" class="form-control @error('icon') is-invalid @enderror" accept="image/*,image/svg+xml,.svg" onchange="previewImage(this, 'icon-preview')">
                             <small class="text-muted">{{ __('admin.news_categories.icon_help') }}</small>
                             <div id="icon-preview" class="mt-2"></div>
                             @error('icon')

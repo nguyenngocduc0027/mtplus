@@ -78,7 +78,7 @@
         <div class="row">
             <div class="col-md-3 mb-3">
                 <label class="form-label">Icon</label>
-                <input type="file" class="form-control" name="award_{{ $i }}_icon" accept="image/*"
+                <input type="file" class="form-control" name="award_{{ $i }}_icon" accept="image/*,image/svg+xml,.svg"
                     onchange="previewImage(this, 'award_{{ $i }}_icon_preview')">
                 @if($awardsSection && $awardsSection->{'award_' . $i . '_icon'})
                 <img id="award_{{ $i }}_icon_preview" src="{{ asset($awardsSection->{'award_' . $i . '_icon'}) }}"

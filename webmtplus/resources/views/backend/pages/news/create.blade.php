@@ -261,7 +261,7 @@
                     <div class="card-body p-20">
                         <div class="mb-0">
                             <label class="form-label">{{ __('admin.news.featured_image') }}</label>
-                            <input type="file" name="featured_image" class="form-control @error('featured_image') is-invalid @enderror" accept="image/*" onchange="previewImage(this, 'featured-preview')">
+                            <input type="file" name="featured_image" class="form-control @error('featured_image') is-invalid @enderror" accept="image/*,image/svg+xml,.svg" onchange="previewImage(this, 'featured-preview')">
                             <div id="featured-preview" class="mt-2"></div>
                             @error('featured_image')
                                 <div class="invalid-feedback">{{ $message }}</div>

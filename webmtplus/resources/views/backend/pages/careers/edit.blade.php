@@ -353,7 +353,7 @@
 
                     <div class="mb-3">
                         <label class="form-label fw-semibold">{{ $career->image ? __('admin.careers.select_new_image') : __('admin.careers.main_image') }}</label>
-                        <input type="file" name="image" class="form-control @error('image') is-invalid @enderror" accept="image/*" onchange="previewImage(event)">
+                        <input type="file" name="image" class="form-control @error('image') is-invalid @enderror" accept="image/*,image/svg+xml,.svg" onchange="previewImage(event)">
                         <small class="text-muted">{{ __('admin.careers.image_help') }}</small>
                         @error('image')
                             <div class="invalid-feedback">{{ $message }}</div>

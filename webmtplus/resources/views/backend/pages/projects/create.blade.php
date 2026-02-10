@@ -257,7 +257,7 @@
                     <div class="mb-3">
                         <label class="form-label fw-semibold">{{ __('admin.projects.main_image') }}</label>
                         <input type="file" name="main_image" class="form-control @error('main_image') is-invalid @enderror"
-                               accept="image/*" onchange="previewImage(this, 'mainImagePreview')">
+                               accept="image/*,image/svg+xml,.svg" onchange="previewImage(this, 'mainImagePreview')">
                         <div id="mainImagePreview" class="mt-2"></div>
                         @error('main_image')
                             <div class="invalid-feedback d-block">{{ $message }}</div>
@@ -267,7 +267,7 @@
                     <div class="mb-3">
                         <label class="form-label fw-semibold">{{ __('admin.projects.gallery_images') }}</label>
                         <input type="file" name="gallery_images[]" class="form-control @error('gallery_images.*') is-invalid @enderror"
-                               accept="image/*" multiple onchange="previewGallery(this)">
+                               accept="image/*,image/svg+xml,.svg" multiple onchange="previewGallery(this)">
                         <div id="galleryPreview" class="mt-2 row g-2"></div>
                         @error('gallery_images.*')
                             <div class="invalid-feedback d-block">{{ $message }}</div>

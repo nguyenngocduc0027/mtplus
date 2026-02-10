@@ -22,7 +22,7 @@
                 <div class="feature-img rounded-circle position-relative z-1 d-block mx-auto">
                     <img src="{{ asset('/frontend/assets/img/features/zigzag-shape.svg') }}" alt="Shape"
                         class="position-absolute top-0 start-0 w-100 h-100 z-1">
-                    <img src="{{ asset($servicesSection->service_1_image ?? '/frontend/assets/img/features/feature-img-1.jpg') }}" alt="Image" class="rounded-circle">
+                    <img src="{{ asset($servicesSection->service_1_image ?? '/frontend/assets/img/features/feature-img-1.jpg') }}" alt="Image" class="rounded-circle w-100 h-100" style="object-fit: cover;">
                 </div>
                 <h3 class="fs-24 font-primary fw-black">
                     {{ app()->getLocale() == 'en' ? $servicesSection->service_1_title_en : $servicesSection->service_1_title_vi }}
@@ -45,11 +45,11 @@
                     <x-ui.read-more-button href="{{ $servicesSection->service_2_url ?? 'javascript:void(0)' }}" />
                 </div>
                 <img src="{{ asset($servicesSection->service_2_image ?? '/frontend/assets/img/features/feature-img-2.jpg') }}" alt="Image"
-                    class="position-absolute bottom-0 start-0 z-n1 transition">
+                    class="position-absolute bottom-0 start-0 z-n1 transition w-100 h-100" style="object-fit: cover;">
             </div>
         </div>
         <div class="col-xl-4 col-md-6" data-cue="slideInUp">
-            <div
+            <div style="background-image: url('{{ asset($servicesSection->service_3_image ?? '/frontend/assets/img/backgrounds/feature-bg-3.jpg') }}'); background-size: cover; background-position: center;"
                 class="feature-card style-five bg-f position-relative overflow-hidden d-flex flex-column align-items-end justify-content-end round-20 z-1 mb-30">
                 <div class="feature-info">
                     <h3 class="fs-24 font-primary fw-black text-white">

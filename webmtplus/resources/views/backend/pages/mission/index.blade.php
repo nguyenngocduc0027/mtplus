@@ -103,7 +103,7 @@
                                     <span class="d-block text-muted fs-12 mt-1">JPG, PNG, GIF (Max: 2MB) - 1920x1080px</span>
                                 </label>
                                 <label class="position-absolute top-0 bottom-0 start-0 end-0 cursor" id="background-upload-container">
-                                    <input class="form__file bottom-0" id="background-image-input" name="background_image" type="file" accept="image/*" onchange="handleBackgroundImageUpload(this)">
+                                    <input class="form__file bottom-0" id="background-image-input" name="background_image" type="file" accept="image/*,image/svg+xml,.svg" onchange="handleBackgroundImageUpload(this)">
                                 </label>
                             </div>
                             <div id="background-image-preview-container" style="display: {{ $missionContent->background_image_path ? 'flex' : 'none' }};">

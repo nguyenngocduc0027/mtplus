@@ -99,7 +99,7 @@
     <div class="row">
         <div class="col-md-6 mb-4">
             <label class="form-label fw-bold">Hình ảnh Slide Hero</label>
-            <input type="file" class="form-control" name="hero_slide_image" accept="image/*"
+            <input type="file" class="form-control" name="hero_slide_image" accept="image/*,image/svg+xml,.svg"
                 onchange="previewImage(this, 'hero_slide_preview')">
             @if ($heroSection && $heroSection->hero_slide_image)
                 <img id="hero_slide_preview" src="{{ asset($heroSection->hero_slide_image) }}" alt="Preview"
@@ -112,7 +112,7 @@
 
         <div class="col-md-6 mb-4">
             <label class="form-label fw-bold">Hình ảnh Chính Hero</label>
-            <input type="file" class="form-control" name="hero_main_image" accept="image/*"
+            <input type="file" class="form-control" name="hero_main_image" accept="image/*,image/svg+xml,.svg"
                 onchange="previewImage(this, 'hero_main_preview')">
             @if ($heroSection && $heroSection->hero_main_image)
                 <img id="hero_main_preview" src="{{ asset($heroSection->hero_main_image) }}" alt="Preview"

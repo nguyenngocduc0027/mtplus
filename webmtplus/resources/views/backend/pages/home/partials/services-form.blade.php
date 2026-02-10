@@ -95,7 +95,7 @@
             </div>
             <div class="col-md-6 mb-3">
                 <label class="form-label">Hình ảnh</label>
-                <input type="file" class="form-control" name="service_1_image" accept="image/*"
+                <input type="file" class="form-control" name="service_1_image" accept="image/*,image/svg+xml,.svg"
                     onchange="previewImage(this, 'service_1_preview')">
                 @if($servicesSection && $servicesSection->service_1_image)
                 <img id="service_1_preview" src="{{ asset($servicesSection->service_1_image) }}"
@@ -138,7 +138,7 @@
             </div>
             <div class="col-md-6 mb-3">
                 <label class="form-label">Hình ảnh</label>
-                <input type="file" class="form-control" name="service_2_image" accept="image/*"
+                <input type="file" class="form-control" name="service_2_image" accept="image/*,image/svg+xml,.svg"
                     onchange="previewImage(this, 'service_2_preview')">
                 @if($servicesSection && $servicesSection->service_2_image)
                 <img id="service_2_preview" src="{{ asset($servicesSection->service_2_image) }}"
@@ -181,7 +181,7 @@
             </div>
             <div class="col-md-6 mb-3">
                 <label class="form-label">Hình ảnh</label>
-                <input type="file" class="form-control" name="service_3_image" accept="image/*"
+                <input type="file" class="form-control" name="service_3_image" accept="image/*,image/svg+xml,.svg"
                     onchange="previewImage(this, 'service_3_preview')">
                 @if($servicesSection && $servicesSection->service_3_image)
                 <img id="service_3_preview" src="{{ asset($servicesSection->service_3_image) }}"

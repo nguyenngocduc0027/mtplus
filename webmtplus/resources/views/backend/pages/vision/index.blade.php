@@ -102,7 +102,7 @@
                                     <span class="d-block text-muted fs-12 mt-1">JPG, PNG, GIF (Max: 2MB) - 800x600px</span>
                                 </label>
                                 <label class="position-absolute top-0 bottom-0 start-0 end-0 cursor" id="upload-container">
-                                    <input class="form__file bottom-0" id="image-input" name="image" type="file" accept="image/*" onchange="handleImageUpload(this)">
+                                    <input class="form__file bottom-0" id="image-input" name="image" type="file" accept="image/*,image/svg+xml,.svg" onchange="handleImageUpload(this)">
                                 </label>
                             </div>
                             <div id="image-preview-container" style="display: {{ $visionContent->image_path ? 'flex' : 'none' }};">

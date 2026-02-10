@@ -241,7 +241,7 @@
                                                             <span class="d-block text-muted fs-11 mt-1">PNG, SVG (Max: 2MB)</span>
                                                         </label>
                                                         <label class="position-absolute top-0 bottom-0 start-0 end-0 cursor">
-                                                            <input class="form__file" id="feature-{{ $i }}-icon-input" name="feature_{{ $i }}_icon" type="file" accept="image/*" onchange="handleImageUpload(this, {{ $i }}, 'feature')">
+                                                            <input class="form__file" id="feature-{{ $i }}-icon-input" name="feature_{{ $i }}_icon" type="file" accept="image/*,image/svg+xml,.svg" onchange="handleImageUpload(this, {{ $i }}, 'feature')">
                                                         </label>
                                                     </div>
                                                     <div class="image-preview-container" id="feature-{{ $i }}-preview-container" style="display: {{ $capabilitiesContent->{'feature_' . $i . '_icon_path'} ? 'flex' : 'none' }};">
@@ -329,7 +329,7 @@
                                         <span class="d-block text-muted fs-11 mt-1">JPG, PNG (Max: 2MB)</span>
                                     </label>
                                     <label class="position-absolute top-0 bottom-0 start-0 end-0 cursor">
-                                        <input class="form__file" id="main-image-input" name="main_image" type="file" accept="image/*" onchange="handleMainImageUpload(this)">
+                                        <input class="form__file" id="main-image-input" name="main_image" type="file" accept="image/*,image/svg+xml,.svg" onchange="handleMainImageUpload(this)">
                                     </label>
                                 </div>
                                 <div class="image-preview-container" id="main-preview-container" style="display: {{ $capabilitiesContent->main_image_path ? 'flex' : 'none' }};">
@@ -355,7 +355,7 @@
                                         <span class="d-block text-muted fs-11 mt-1">JPG, PNG (Max: 2MB)</span>
                                     </label>
                                     <label class="position-absolute top-0 bottom-0 start-0 end-0 cursor">
-                                        <input class="form__file" id="thumbnail-image-input" name="thumbnail_image" type="file" accept="image/*" onchange="handleThumbnailImageUpload(this)">
+                                        <input class="form__file" id="thumbnail-image-input" name="thumbnail_image" type="file" accept="image/*,image/svg+xml,.svg" onchange="handleThumbnailImageUpload(this)">
                                     </label>
                                 </div>
                                 <div class="image-preview-container" id="thumbnail-preview-container" style="display: {{ $capabilitiesContent->thumbnail_image_path ? 'flex' : 'none' }};">

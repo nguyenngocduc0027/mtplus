@@ -89,7 +89,7 @@
         <div class="row">
             <div class="col-md-4 mb-3">
                 <label class="form-label">Icon</label>
-                <input type="file" class="form-control" name="feature_1_icon" accept="image/*"
+                <input type="file" class="form-control" name="feature_1_icon" accept="image/*,image/svg+xml,.svg"
                     onchange="previewImage(this, 'feature_1_icon_preview')">
                 @if($whyChooseSection && $whyChooseSection->feature_1_icon)
                 <img id="feature_1_icon_preview" src="{{ asset($whyChooseSection->feature_1_icon) }}"
@@ -118,7 +118,7 @@
         <div class="row">
             <div class="col-md-4 mb-3">
                 <label class="form-label">Icon</label>
-                <input type="file" class="form-control" name="feature_2_icon" accept="image/*"
+                <input type="file" class="form-control" name="feature_2_icon" accept="image/*,image/svg+xml,.svg"
                     onchange="previewImage(this, 'feature_2_icon_preview')">
                 @if($whyChooseSection && $whyChooseSection->feature_2_icon)
                 <img id="feature_2_icon_preview" src="{{ asset($whyChooseSection->feature_2_icon) }}"
@@ -147,7 +147,7 @@
         <div class="row">
             <div class="col-md-4 mb-3">
                 <label class="form-label">Icon</label>
-                <input type="file" class="form-control" name="feature_3_icon" accept="image/*"
+                <input type="file" class="form-control" name="feature_3_icon" accept="image/*,image/svg+xml,.svg"
                     onchange="previewImage(this, 'feature_3_icon_preview')">
                 @if($whyChooseSection && $whyChooseSection->feature_3_icon)
                 <img id="feature_3_icon_preview" src="{{ asset($whyChooseSection->feature_3_icon) }}"
@@ -176,7 +176,7 @@
         <div class="row">
             <div class="col-md-4 mb-3">
                 <label class="form-label">Icon</label>
-                <input type="file" class="form-control" name="feature_4_icon" accept="image/*"
+                <input type="file" class="form-control" name="feature_4_icon" accept="image/*,image/svg+xml,.svg"
                     onchange="previewImage(this, 'feature_4_icon_preview')">
                 @if($whyChooseSection && $whyChooseSection->feature_4_icon)
                 <img id="feature_4_icon_preview" src="{{ asset($whyChooseSection->feature_4_icon) }}"
@@ -219,7 +219,7 @@
     <div class="row">
         <div class="col-md-6 mb-4">
             <label class="form-label fw-bold">Ảnh đại diện CEO</label>
-            <input type="file" class="form-control" name="ceo_avatar" accept="image/*"
+            <input type="file" class="form-control" name="ceo_avatar" accept="image/*,image/svg+xml,.svg"
                 onchange="previewImage(this, 'ceo_avatar_preview')">
             @if($whyChooseSection && $whyChooseSection->ceo_avatar)
             <img id="ceo_avatar_preview" src="{{ asset($whyChooseSection->ceo_avatar) }}"
@@ -266,7 +266,7 @@
     <div class="row">
         <div class="col-md-6 mb-4">
             <label class="form-label fw-bold">Hình ảnh Chính</label>
-            <input type="file" class="form-control" name="main_image" accept="image/*"
+            <input type="file" class="form-control" name="main_image" accept="image/*,image/svg+xml,.svg"
                 onchange="previewImage(this, 'main_image_preview')">
             @if($whyChooseSection && $whyChooseSection->main_image)
             <img id="main_image_preview" src="{{ asset($whyChooseSection->main_image) }}"
@@ -279,7 +279,7 @@
 
         <div class="col-md-6 mb-4">
             <label class="form-label fw-bold">Hình ảnh Phụ</label>
-            <input type="file" class="form-control" name="thumb_image" accept="image/*"
+            <input type="file" class="form-control" name="thumb_image" accept="image/*,image/svg+xml,.svg"
                 onchange="previewImage(this, 'thumb_image_preview')">
             @if($whyChooseSection && $whyChooseSection->thumb_image)
             <img id="thumb_image_preview" src="{{ asset($whyChooseSection->thumb_image) }}"

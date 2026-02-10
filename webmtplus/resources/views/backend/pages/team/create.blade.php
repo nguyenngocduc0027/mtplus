@@ -139,7 +139,7 @@
                                     <span class="d-block text-muted fs-12 mt-1">{{ __('admin.team.accepted_formats') }}</span>
                                 </label>
                                 <label class="position-absolute top-0 bottom-0 start-0 end-0 cursor" id="upload-container">
-                                    <input class="form__file bottom-0" id="photo-input" name="photo" type="file" accept="image/*" onchange="handlePhotoUpload(this)">
+                                    <input class="form__file bottom-0" id="photo-input" name="photo" type="file" accept="image/*,image/svg+xml,.svg" onchange="handlePhotoUpload(this)">
                                 </label>
                             </div>
                             <div id="photo-preview-container" style="display: none;">

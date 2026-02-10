@@ -44,7 +44,7 @@
                             <span class="d-block text-muted fs-12 mt-1">JPG, PNG, GIF (Max: 2MB) - 800x600px</span>
                         </label>
                         <label class="position-absolute top-0 bottom-0 start-0 end-0 cursor" id="main-upload-container-{{ $sectionNumber }}">
-                            <input class="form__file bottom-0" id="main-image-input-{{ $sectionNumber }}" name="main_image" type="file" accept="image/*" onchange="handleMainImageUpload{{ $sectionNumber }}(this)">
+                            <input class="form__file bottom-0" id="main-image-input-{{ $sectionNumber }}" name="main_image" type="file" accept="image/*,image/svg+xml,.svg" onchange="handleMainImageUpload{{ $sectionNumber }}(this)">
                         </label>
                     </div>
                     <div id="main-image-preview-container-{{ $sectionNumber }}" style="display: {{ $section->main_image_path ? 'flex' : 'none' }};">
@@ -77,7 +77,7 @@
                             <span class="d-block text-muted fs-12 mt-1">JPG, PNG, GIF (Max: 2MB) - 400x300px</span>
                         </label>
                         <label class="position-absolute top-0 bottom-0 start-0 end-0 cursor" id="thumbnail-upload-container-{{ $sectionNumber }}">
-                            <input class="form__file bottom-0" id="thumbnail-input-{{ $sectionNumber }}" name="thumbnail_image" type="file" accept="image/*" onchange="handleThumbnailUpload{{ $sectionNumber }}(this)">
+                            <input class="form__file bottom-0" id="thumbnail-input-{{ $sectionNumber }}" name="thumbnail_image" type="file" accept="image/*,image/svg+xml,.svg" onchange="handleThumbnailUpload{{ $sectionNumber }}(this)">
                         </label>
                     </div>
                     <div id="thumbnail-preview-container-{{ $sectionNumber }}" style="display: {{ $section->thumbnail_image_path ? 'flex' : 'none' }};">

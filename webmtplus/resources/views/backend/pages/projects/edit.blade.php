@@ -284,7 +284,7 @@
                             </div>
                         @endif
                         <input type="file" name="main_image" class="form-control @error('main_image') is-invalid @enderror"
-                               accept="image/*" onchange="previewImage(this, 'mainImagePreview')">
+                               accept="image/*,image/svg+xml,.svg" onchange="previewImage(this, 'mainImagePreview')">
                         <small class="text-muted">{{ __("admin.projects.select_new_image") }}</small>
                         <div id="mainImagePreview" class="mt-2"></div>
                         @error('main_image')
@@ -305,7 +305,7 @@
                             <p class="text-muted small">{{ __('admin.projects.current_images') }}</p>
                         @endif
                         <input type="file" name="gallery_images[]" class="form-control @error('gallery_images.*') is-invalid @enderror"
-                               accept="image/*" multiple onchange="previewGallery(this)">
+                               accept="image/*,image/svg+xml,.svg" multiple onchange="previewGallery(this)">
                         <small class="text-muted">{{ __("admin.projects.select_new_image") }}</small>
                         <div class="form-check mt-2">
                             <input type="checkbox" name="delete_gallery_images" id="delete_gallery" class="form-check-input">
