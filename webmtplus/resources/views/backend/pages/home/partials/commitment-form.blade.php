@@ -90,12 +90,12 @@
             <div class="col-md-4 mb-3">
                 <label class="form-label">Icon</label>
                 <input type="file" class="form-control" name="feature_1_icon" accept="image/*,image/svg+xml,.svg"
-                    onchange="previewImage(this, 'feature_1_icon_preview')">
+                    onchange="previewImage(this, 'feature_1_icon_preview2')">
                 @if($commitmentSection && $commitmentSection->feature_1_icon)
-                <img id="feature_1_icon_preview" src="{{ asset($commitmentSection->feature_1_icon) }}"
+                <img id="feature_1_icon_preview2" src="{{ asset($commitmentSection->feature_1_icon) }}"
                     alt="Preview" class="image-preview img-fluid" style="max-width: 100px;">
                 @else
-                <img id="feature_1_icon_preview" src="{{ asset('/frontend/assets/img/about/feature-icon-5.png') }}"
+                <img id="feature_1_icon_preview2" src="{{ asset('/frontend/assets/img/about/feature-icon-5.png') }}"
                     alt="Preview" class="image-preview img-fluid" style="max-width: 100px;">
                 @endif
             </div>
@@ -119,12 +119,12 @@
             <div class="col-md-4 mb-3">
                 <label class="form-label">Icon</label>
                 <input type="file" class="form-control" name="feature_2_icon" accept="image/*,image/svg+xml,.svg"
-                    onchange="previewImage(this, 'feature_2_icon_preview')">
+                    onchange="previewImage(this, 'feature_2_icon_preview2')">
                 @if($commitmentSection && $commitmentSection->feature_2_icon)
-                <img id="feature_2_icon_preview" src="{{ asset($commitmentSection->feature_2_icon) }}"
+                <img id="feature_2_icon_preview2" src="{{ asset($commitmentSection->feature_2_icon) }}"
                     alt="Preview" class="image-preview img-fluid" style="max-width: 100px;">
                 @else
-                <img id="feature_2_icon_preview" src="{{ asset('/frontend/assets/img/about/feature-icon-6.png') }}"
+                <img id="feature_2_icon_preview2" src="{{ asset('/frontend/assets/img/about/feature-icon-6.png') }}"
                     alt="Preview" class="image-preview img-fluid" style="max-width: 100px;">
                 @endif
             </div>
@@ -148,12 +148,12 @@
             <div class="col-md-4 mb-3">
                 <label class="form-label">Icon</label>
                 <input type="file" class="form-control" name="feature_3_icon" accept="image/*,image/svg+xml,.svg"
-                    onchange="previewImage(this, 'feature_3_icon_preview')">
+                    onchange="previewImage(this, 'feature_3_icon_preview3')">
                 @if($commitmentSection && $commitmentSection->feature_3_icon)
-                <img id="feature_3_icon_preview" src="{{ asset($commitmentSection->feature_3_icon) }}"
+                <img id="feature_3_icon_preview3" src="{{ asset($commitmentSection->feature_3_icon) }}"
                     alt="Preview" class="image-preview img-fluid" style="max-width: 100px;">
                 @else
-                <img id="feature_3_icon_preview" src="{{ asset('/frontend/assets/img/about/feature-icon-7.png') }}"
+                <img id="feature_3_icon_preview3" src="{{ asset('/frontend/assets/img/about/feature-icon-7.png') }}"
                     alt="Preview" class="image-preview img-fluid" style="max-width: 100px;">
                 @endif
             </div>
@@ -177,12 +177,12 @@
             <div class="col-md-4 mb-3">
                 <label class="form-label">Icon</label>
                 <input type="file" class="form-control" name="feature_4_icon" accept="image/*,image/svg+xml,.svg"
-                    onchange="previewImage(this, 'feature_4_icon_preview')">
+                    onchange="previewImage(this, 'feature_4_icon_preview1')">
                 @if($commitmentSection && $commitmentSection->feature_4_icon)
-                <img id="feature_4_icon_preview" src="{{ asset($commitmentSection->feature_4_icon) }}"
+                <img id="feature_4_icon_preview1" src="{{ asset($commitmentSection->feature_4_icon) }}"
                     alt="Preview" class="image-preview img-fluid" style="max-width: 100px;">
                 @else
-                <img id="feature_4_icon_preview" src="{{ asset('/frontend/assets/img/about/feature-icon-8.png') }}"
+                <img id="feature_4_icon_preview1" src="{{ asset('/frontend/assets/img/about/feature-icon-8.png') }}"
                     alt="Preview" class="image-preview img-fluid" style="max-width: 100px;">
                 @endif
             </div>
@@ -251,12 +251,12 @@
         <div class="col-md-6 mb-4">
             <label class="form-label fw-bold">Hình ảnh Chính</label>
             <input type="file" class="form-control" name="main_image" accept="image/*,image/svg+xml,.svg"
-                onchange="previewImage(this, 'main_image_preview')">
+                onchange="previewImage(this, 'main_image_preview2')">
             @if($commitmentSection && $commitmentSection->main_image)
-            <img id="main_image_preview" src="{{ asset($commitmentSection->main_image) }}"
+            <img id="main_image_preview2" src="{{ asset($commitmentSection->main_image) }}"
                 alt="Preview" class="image-preview img-fluid">
             @else
-            <img id="main_image_preview" src="{{ asset('/frontend/assets/img/about/wh-img-3.jpg') }}"
+            <img id="main_image_preview2" src="{{ asset('/frontend/assets/img/about/wh-img-3.jpg') }}"
                 alt="Preview" class="image-preview img-fluid">
             @endif
         </div>
@@ -264,12 +264,12 @@
         <div class="col-md-6 mb-4">
             <label class="form-label fw-bold">Hình ảnh Phụ</label>
             <input type="file" class="form-control" name="thumb_image" accept="image/*,image/svg+xml,.svg"
-                onchange="previewImage(this, 'thumb_image_preview')">
+                onchange="previewImage(this, 'thumb_image_preview2')">
             @if($commitmentSection && $commitmentSection->thumb_image)
-            <img id="thumb_image_preview" src="{{ asset($commitmentSection->thumb_image) }}"
+            <img id="thumb_image_preview2" src="{{ asset($commitmentSection->thumb_image) }}"
                 alt="Preview" class="image-preview img-fluid">
             @else
-            <img id="thumb_image_preview" src="{{ asset('/frontend/assets/img/about/wh-thumb-3.jpg') }}"
+            <img id="thumb_image_preview2" src="{{ asset('/frontend/assets/img/about/wh-thumb-3.jpg') }}"
                 alt="Preview" class="image-preview img-fluid">
             @endif
         </div>

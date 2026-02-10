@@ -145,11 +145,29 @@
     <script>
         function previewImage(input, previewId) {
             if (input.files && input.files[0]) {
-                var reader = new FileReader();
-                reader.onload = function(e) {
-                    document.getElementById(previewId).src = e.target.result;
+                const file = input.files[0];
+
+                // Validate image
+                if (!file.type.startsWith('image/')) {
+                    alert('File không phải là ảnh!');
+                    return;
                 }
-                reader.readAsDataURL(input.files[0]);
+
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const img = document.getElementById(previewId);
+                    if (img) {
+                        img.src = e.target.result;
+                        img.style.display = 'block';
+
+                        // Highlight effect
+                        img.style.outline = '3px solid #28a745';
+                        setTimeout(() => {
+                            img.style.outline = '';
+                        }, 2000);
+                    }
+                }
+                reader.readAsDataURL(file);
             }
         }
     </script>
