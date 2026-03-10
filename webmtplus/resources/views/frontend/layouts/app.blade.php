@@ -6,6 +6,13 @@
 </head>
 
 <body>
+    <!-- Facebook SDK -->
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous"
+            src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v18.0&appId=4234539646821029"
+            nonce="YOUR_NONCE">
+    </script>
+
     <!--  Preloader Start -->
     <div class="preloader-area" id="preloader">
         <div class="spinner">
@@ -17,15 +24,6 @@
         </div>
     </div>
     <!--  Preloader End -->
-
-    <!-- Theme Switcher Start -->
-    <div class="switch-theme-mode">
-        <label id="switch" class="switch">
-            <input type="checkbox" onchange="toggleTheme()" id="slider">
-            <span class="slider round"></span>
-        </label>
-    </div>
-    <!-- Theme Switcher End -->
 
 
     <!-- Custom Cursor -->

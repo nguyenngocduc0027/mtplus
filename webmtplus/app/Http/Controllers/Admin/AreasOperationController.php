@@ -1,0 +1,105 @@
+<?php
+
+namespace App\Http\Controllers\Admin;
+
+use App\Http\Controllers\Controller;
+use App\Models\AreasOperationSection;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+
+class AreasOperationController extends Controller
+{
+    /**
+     * Display the admin form with tabs for each section
+     */
+    public function index()
+    {
+        // Get or create all 3 sections
+        $section1 = AreasOperationSection::firstOrCreate(['section_number' => 1]);
+        $section2 = AreasOperationSection::firstOrCreate(['section_number' => 2]);
+        $section3 = AreasOperationSection::firstOrCreate(['section_number' => 3]);
+
+        return view('backend.pages.areas-operation.index', compact('section1', 'section2', 'section3'));
+    }
+
+    /**
+     * Update a specific section
+     */
+    public function update(Request $request, $section)
+    {
+        try {
+            $validated = $request->validate([
+                'image_layout' => 'required|in:left,right',
+                'subtitle_vi' => 'nullable|string|max:255',
+                'subtitle_en' => 'nullable|string|max:255',
+                'title_vi' => 'nullable|string|max:255',
+                'title_en' => 'nullable|string|max:255',
+                'description_vi' => 'nullable|string',
+                'description_en' => 'nullable|string',
+                'card_1_text_vi' => 'nullable|string|max:255',
+                'card_1_text_en' => 'nullable|string|max:255',
+                'card_2_text_vi' => 'nullable|string|max:255',
+                'card_2_text_en' => 'nullable|string|max:255',
+                'card_3_text_vi' => 'nullable|string|max:255',
+                'card_3_text_en' => 'nullable|string|max:255',
+                'main_image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp,avif,bmp,ico,tiff',
+                'thumbnail_image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp,avif,bmp,ico,tiff',
+            ]);
+        } catch (\Illuminate\Validation\ValidationException $e) {
+            if ($request->wantsJson() || $request->expectsJson() || $request->ajax()) {
+                return response()->json([
+                    'success' => false,
+                    'message' => 'Dữ liệu không hợp lệ',
+                    'errors' => $e->errors()
+                ], 422);
+            }
+            throw $e;
+        }
+
+        $sectionModel = AreasOperationSection::where('section_number', $section)->firstOrFail();
+
+        // Remove image fields from validated data to avoid setting them to null
+        unset($validated['main_image']);
+        unset($validated['thumbnail_image']);
+
+        // Handle main image upload
+        if ($request->hasFile('main_image')) {
+            // Delete old image if exists
+            if ($sectionModel->main_image_path && file_exists(public_path($sectionModel->main_image_path))) {
+                unlink(public_path($sectionModel->main_image_path));
+            }
+
+            $file = $request->file('main_image');
+            $filename = time() . '_main_' . $file->getClientOriginalName();
+            $file->move(public_path('uploads/areas-operation'), $filename);
+            $validated['main_image_path'] = '/uploads/areas-operation/' . $filename;
+        }
+
+        // Handle thumbnail image upload
+        if ($request->hasFile('thumbnail_image')) {
+            // Delete old image if exists
+            if ($sectionModel->thumbnail_image_path && file_exists(public_path($sectionModel->thumbnail_image_path))) {
+                unlink(public_path($sectionModel->thumbnail_image_path));
+            }
+
+            $file = $request->file('thumbnail_image');
+            $filename = time() . '_thumb_' . $file->getClientOriginalName();
+            $file->move(public_path('uploads/areas-operation'), $filename);
+            $validated['thumbnail_image_path'] = '/uploads/areas-operation/' . $filename;
+        }
+
+        // Update section
+        $sectionModel->update($validated);
+
+        // Return JSON response for AJAX
+        if ($request->wantsJson() || $request->expectsJson() || $request->ajax()) {
+            return response()->json([
+                'success' => true,
+                'message' => 'Cập nhật Section ' . $section . ' thành công!',
+                'data' => $sectionModel
+            ]);
+        }
+
+        return redirect()->route('admin.areas-operation.index')->with('success', 'Cập nhật Section ' . $section . ' thành công!');
+    }
+}

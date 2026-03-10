@@ -36,15 +36,20 @@
                             </ul>
                         </li>
                         <li class="menu-item-has-children">
-                            <a href="javascript:void(0)" class="">{{ __('common.service') }}<i
-                                    class="ri-add-line"></i></a>
+                            <a href="javascript:void(0)" class="">{{ __('common.service') }}<i class="ri-add-line"></i></a>
                             <ul class="menu-subs menu-column-1">
-                                <li class="list-item"><a href="{{ route('service') }}"
-                                        class="">{{ __('common.investment_consulting') }}</a></li>
-                                <li class="list-item"><a href="{{ route('service') }}"
-                                        class="">{{ __('common.trade_and_distribution') }}</a></li>
-                                <li class="list-item"><a href="{{ route('service') }}"
-                                        class="">{{ __('common.technology_solution') }}</a></li>
+                                @php
+                                    $services = \App\Models\Service::active()->get();
+                                @endphp
+                                @forelse($services as $service)
+                                    <li class="list-item">
+                                        <a href="{{ route('services.index', $service->slug) }}" class="">{{ $service->getTitle() }}</a>
+                                    </li>
+                                @empty
+                                    <li class="list-item">
+                                        <a href="{{ route('services.index') }}" class="">{{ __('common.service') }}</a>
+                                    </li>
+                                @endforelse
                             </ul>
                         </li>
                         <li><a href="{{ route('project') }}" class="">{{ __('common.project') }}</a></li>

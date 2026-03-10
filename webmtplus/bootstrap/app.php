@@ -17,7 +17,9 @@ return Application::configure(basePath: dirname(__DIR__))
         $middleware->appendToGroup('web', [
             SetLocale::class,
         ]);
-
+   $middleware->validateCsrfTokens(except: [
+            'admin/upload-image',
+        ]);
         // ✅ Alias auth middleware (Laravel 12)
         $middleware->alias([
             'auth' => AuthMiddleware::class,

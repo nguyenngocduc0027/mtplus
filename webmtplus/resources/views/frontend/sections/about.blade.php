@@ -1,12 +1,17 @@
+@php
+    $aboutSection = \App\Models\HomeAboutSection::where('is_active', true)->first();
+@endphp
+
 <!-- About Us Section Start -->
+@if($aboutSection)
 <div class="about-area style-one pb-120">
     <div class="container">
         <div class="row align-items-center">
             <div class="col-xl-5 col-lg-6">
                 <div class="about-img-wrap position-relative pe-xxl-4 mb-md-30">
-                    <img src="{{ asset('/frontend/assets/img/about/about-img-1.jpg') }}" alt="Image"
+                    <img src="{{ asset($aboutSection->about_main_image ?? '/frontend/assets/img/about/about-img-1.jpg') }}" alt="Image"
                         class="about-img round-30 tilt-img" style="width: 571px; height: 688px; object-fit: cover;">
-                    <img src="{{ asset('/frontend/assets/img/about/about-bg-1.jpg') }}" alt="Image"
+                    <img src="{{ asset($aboutSection->about_thumb_image ?? '/frontend/assets/img/about/about-bg-1.jpg') }}" alt="Image"
                         style="width: 164px; height: 170px; object-fit: cover;"
                         class="about-thumb move-bottom position-absolute">
                 </div>
@@ -17,23 +22,34 @@
                         data-cue="slideInUp"><img src="{{ asset('/frontend/assets/img/icons/star-2.svg') }}"
                             alt="Icon">{{ __('common.about') }}</h6>
                     <h2 class="section-title style-one text-title line-3" data-cue="slideInUp" data-delay="300"><span
-                            class="fw-black">
-                            {{ app()->getLocale() == 'en'
-                                ? 'MT Plus provides reliable trade and service solutions, transparency & long-term value for sustainable growth.'
-                                : 'MT Plus cung cấp giải pháp thương mại, dịch vụ tin cậy, lấy sự minh bạch và giá trị thực làm nền tảng phát triển.' }}</span>
+                            class="fw-black">{{ $aboutSection->getHeading() }}</span>
                     </h2>
                     <div class="about-subcontent" data-cue="slideInUp" data-delay="400">
-                        <p class="pe-xxl-5 line-3">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veniam consequuntur earum nemo alias! Delectus dolorum magni quos vero facere est autem tenetur provident praesentium adipisci, nemo sunt mollitia odio a!</p>
+                        <p class="pe-xxl-5 line-3">{{ $aboutSection->getDescription() }}</p>
                         <div class="row justify-content-center">
                             <div class="col-xl-4 col-lg-6 col-md-6">
                                 <div class="counter-card style-one bg-1 position-relative z-1 round-10"
                                     data-cue="slideInUp">
                                     <img src="{{ asset('/frontend/assets/img/about/star-group.png') }}" alt="Icon"
                                         class="position-absolute card-shape z-1">
-                                    <h6 class="fs-12 font-primary fw-semibold text-title ls-1 text-uppercase">{{ app()->getLocale() == 'en' ? 'STRATEGIC PARTNERS' : 'ĐỐI TÁC CHIẾN LƯỢC' }}</h6>
-                                    <h4 class="font-secondary fw-black fs-36 text-title"><span
-                                            class="counter ls-1 transition">20</span>+</h4>
-                                    <p class="fw-medium d-block mb-0">{{ app()->getLocale() == 'en' ? 'Corporations and companies' : 'Tập đoàn và công ty hàng đầu' }}</p>
+                                    <h6 class="fs-12 font-primary fw-semibold text-title ls-1 text-uppercase">
+                                        {{ app()->getLocale() == 'en' ? $aboutSection->counter_1_title_en : $aboutSection->counter_1_title_vi }}
+                                    </h6>
+                                    <h4 class="font-secondary fw-black fs-36 text-title">
+                                        <span class="counter ls-1 transition">{{ $aboutSection->counter_1_number }}</span>
+                                        @php
+                                            $suffix = $aboutSection->counter_1_suffix;
+                                            if (str_contains($suffix, '|')) {
+                                                $parts = explode('|', $suffix);
+                                                echo app()->getLocale() == 'en' ? $parts[1] : $parts[0];
+                                            } else {
+                                                echo $suffix;
+                                            }
+                                        @endphp
+                                    </h4>
+                                    <p class="fw-medium d-block mb-0">
+                                        {{ app()->getLocale() == 'en' ? $aboutSection->counter_1_desc_en : $aboutSection->counter_1_desc_vi }}
+                                    </p>
                                 </div>
                             </div>
                             <div class="col-xl-4 col-lg-6 col-md-6">
@@ -41,10 +57,24 @@
                                     data-cue="slideInUp">
                                     <img src="{{ asset('/frontend/assets/img/about/star-group.png') }}" alt="Icon"
                                         class="position-absolute card-shape z-1">
-                                    <h6 class="fs-12 font-primary fw-semibold text-title ls-1 text-uppercase">{{ app()->getLocale() == 'en' ? 'CONSULTING EXPERTS' : 'CHUYÊN GIA TƯ VẤN' }}</h6>
-                                    <h4 class="font-secondary fw-black fs-36 text-title"><span
-                                            class="counter ls-1 transition">10</span> {{ app()->getLocale() == 'en' ? 'year' : 'năm' }}</h4>
-                                    <p class="fw-medium d-block mb-0">{{ app()->getLocale() == 'en' ? 'Extensive experience' : 'Kinh nghiệm chuyên sâu' }}</p>
+                                    <h6 class="fs-12 font-primary fw-semibold text-title ls-1 text-uppercase">
+                                        {{ app()->getLocale() == 'en' ? $aboutSection->counter_2_title_en : $aboutSection->counter_2_title_vi }}
+                                    </h6>
+                                    <h4 class="font-secondary fw-black fs-36 text-title">
+                                        <span class="counter ls-1 transition">{{ $aboutSection->counter_2_number }}</span>
+                                        @php
+                                            $suffix = $aboutSection->counter_2_suffix;
+                                            if (str_contains($suffix, '|')) {
+                                                $parts = explode('|', $suffix);
+                                                echo app()->getLocale() == 'en' ? ' ' . $parts[1] : ' ' . $parts[0];
+                                            } else {
+                                                echo $suffix;
+                                            }
+                                        @endphp
+                                    </h4>
+                                    <p class="fw-medium d-block mb-0">
+                                        {{ app()->getLocale() == 'en' ? $aboutSection->counter_2_desc_en : $aboutSection->counter_2_desc_vi }}
+                                    </p>
                                 </div>
                             </div>
                             <div class="col-xl-4 col-lg-6 col-md-6">
@@ -52,16 +82,30 @@
                                     data-cue="slideInUp">
                                     <img src="{{ asset('/frontend/assets/img/about/star-group.png') }}" alt="Icon"
                                         class="position-absolute card-shape z-1">
-                                    <h6 class="fs-12 font-primary fw-semibold text-title ls-1 text-uppercase">{{ app()->getLocale() == 'en' ? 'ANNUAL GROWTH RATE' : 'TĂNG TRƯỞNG Trong NĂM' }}</h6>
-                                    <h4 class="font-secondary fw-black fs-36 text-title"><span
-                                            class="counter ls-1 transition">20</span>%</h4>
-                                    <p class="fw-medium d-block mb-0">{{ app()->getLocale() == 'en' ? 'Expected growth rate of the year' : 'Mức tăng trưởng kì vọng' }}</p>
+                                    <h6 class="fs-12 font-primary fw-semibold text-title ls-1 text-uppercase">
+                                        {{ app()->getLocale() == 'en' ? $aboutSection->counter_3_title_en : $aboutSection->counter_3_title_vi }}
+                                    </h6>
+                                    <h4 class="font-secondary fw-black fs-36 text-title">
+                                        <span class="counter ls-1 transition">{{ $aboutSection->counter_3_number }}</span>
+                                        @php
+                                            $suffix = $aboutSection->counter_3_suffix;
+                                            if (str_contains($suffix, '|')) {
+                                                $parts = explode('|', $suffix);
+                                                echo app()->getLocale() == 'en' ? $parts[1] : $parts[0];
+                                            } else {
+                                                echo $suffix;
+                                            }
+                                        @endphp
+                                    </h4>
+                                    <p class="fw-medium d-block mb-0">
+                                        {{ app()->getLocale() == 'en' ? $aboutSection->counter_3_desc_en : $aboutSection->counter_3_desc_vi }}
+                                    </p>
                                 </div>
                             </div>
                         </div>
                         <div class="mt-3">
                             @if ($hidden == false)
-                                <x-ui.learn-more-button href="{{ route('areas-of-operation') }}" />
+                                <x-ui.learn-more-button href="{{ $aboutSection->button_url ?? route('areas-of-operation') }}" />
                             @endif
                         </div>
                     </div>
@@ -70,4 +114,5 @@
         </div>
     </div>
 </div>
+@endif
 <!-- About Us Section End -->

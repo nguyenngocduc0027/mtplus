@@ -5,11 +5,11 @@
             <div class="col-xxl-12 col-md-8 mb-sm-20">
                 <h6 class="section-subtitle style-one d-inline-block fs-13 ls-1 font-optional fw-semibold position-relative text_primary mb-20"
                     data-cue="slideInUp"><img src="/frontend/assets/img/icons/star-3.svg"
-                        alt="Icon">{{ __('common.contact') }}
+                        alt="Icon">{{ $contactSection?->getSubtitle() ?? __('common.contact') }}
                 </h6>
                 <h2 class="section-title style-one text-title mb-0" data-cue="slideInUp" data-delay="300">
                     <span
-                        class="fw-black">{{ app()->getLocale() == 'en' ? 'CONNECT WITH MT PLUS – WHERE OPPORTUNITIES BEGIN' : 'KẾT NỐI CÙNG MT PLUS – KHỞI ĐẦU MỌI CƠ HỘI' }}</span>
+                        class="fw-black">{{ $contactSection?->getHeading() ?? (app()->getLocale() == 'en' ? 'CONNECT WITH MT PLUS – WHERE OPPORTUNITIES BEGIN' : 'KẾT NỐI CÙNG MT PLUS – KHỞI ĐẦU MỌI CƠ HỘI') }}</span>
                 </h2>
             </div>
         </div>
@@ -17,9 +17,9 @@
             <div class="row">
                 <div class="col-xxl-6 col-xl-6 col-lg-6 mb-md-20">
                     <p class="fw-semibold text-title text-title mb-20">
-                        {{ app()->getLocale() == 'en'
+                        {{ $contactSection?->getDescription() ?? (app()->getLocale() == 'en'
                             ? "Don't hesitate to contact our expert team to start your future breakthrough plan today."
-                            : 'Đừng ngần ngại liên hệ với đội ngũ chuyên gia của chúng tôi để bắt đầu kế hoạch bứt phá tương lai ngay hôm nay.' }}
+                            : 'Đừng ngần ngại liên hệ với đội ngũ chuyên gia của chúng tôi để bắt đầu kế hoạch bứt phá tương lai ngay hôm nay.') }}
                     </p>
                     <!-- Wrapper container -->
                     <div class="col-lg-12 mb-md-20">
@@ -72,7 +72,7 @@
                 <div class="col-xxl-6 col-xl-6 col-lg-6">
                     <div id="iframe-map" class="map-wrap round-10">
                         <div class="map-wrap">
-                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4418.547012515451!2d105.80019557584068!3d20.993992088970764!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ab24c5621439%3A0xed7a32c6a7340f8e!2zQ8O0bmcgVHkgVE5ISCBHaeG6o2kgUGjDoXAgQ8O0bmcgTmdo4buHIE1ldGFTb2Z0!5e1!3m2!1svi!2s!4v1769661751238!5m2!1svi!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                            <iframe src="{{ $contactSection?->map_url ?? 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4418.547012515451!2d105.80019557584068!3d20.993992088970764!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ab24c5621439%3A0xed7a32c6a7340f8e!2zQ8O0bmcgVHkgVE5ISCBHaeG6o2kgUGjDoXAgQ8O0bmcgTmdo4buHIE1ldGFTb2Z0!5e1!3m2!1svi!2s!4v1769661751238!5m2!1svi!2s' }}" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                         </div>
                     </div>
                 </div>

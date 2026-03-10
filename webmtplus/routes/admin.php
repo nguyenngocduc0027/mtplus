@@ -16,6 +16,7 @@ Route::post('/admin/upload-image', [ImageUploadController::class, 'upload'])->na
 
 Route::middleware('auth')->prefix('admin')->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('admin.dashboard');
+
     // Service Routes
     Route::get('/services', [ServiceController::class, 'index'])->name('admin.services.index');
     Route::get('/services/create', [ServiceController::class, 'create'])->name('admin.services.create');

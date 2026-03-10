@@ -10,68 +10,28 @@
     <!-- Career Section Start -->
     <div class="container ptb-120">
         <div class="row justify-content-center">
-            @php
-                $careers = [
-                    [
-                        'title' => 'Real Estate Sales Associates',
-                        'location' => 'Lagos, Nigeria',
-                        'type' => 'Full-Time',
-                        'experience' => '4+ Years',
-                        'salary' => '50K',
-                        'linkCareer' => route('detail-career'),
-                    ],
-                    [
-                        'title' => 'Marketing Manager',
-                        'location' => 'Abuja, Nigeria',
-                        'type' => 'Part-Time',
-                        'experience' => '3+ Years',
-                        'salary' => '40K',
-                        'linkCareer' => route('detail-career'),
-                    ],
-                    [
-                        'title' => 'Software Developer',
-                        'location' => 'Remote',
-                        'type' => 'Contract',
-                        'experience' => '5+ Years',
-                        'salary' => '60K',
-                        'linkCareer' => route('detail-career'),
-                    ],
-                ];
-            @endphp
-            @foreach ($careers as $career)
+            @forelse ($careers as $career)
                 <x-ui.item-career
-                    :title="$career['title']"
-                    :location="$career['location']"
-                    :type="$career['type']"
-                    :experience="$career['experience']"
-                    :salary="$career['salary']"
-                    :linkCareer="$career['linkCareer']"
+                    :title="$career->title"
+                    :location="$career->location ?? ''"
+                    :type="$career->job_type_label"
+                    :experience="$career->experience_required ?? ''"
+                    :salary="$career->salary_display ?? ''"
+                    :image="$career->image"
+                    :linkCareer="route('detail-career', $career->slug)"
                 />
-            @endforeach
+            @empty
+                <div class="col-12 text-center py-5">
+                    <p class="text-muted">{{ __('common.no_careers_available') }}</p>
+                </div>
+            @endforelse
         </div>
-        {{-- <ul class="page-nav pagination justify-content-center mb-0 mt-lg-5">
-            <li class="page-item">
-                <a class="page-link d-flex flex-column align-items-center justify-content-center rounded-circle"
-                    href="careers.html" aria-label="Previous">
-                    <img src="/frontend/assets/img/icons/left-long-arrow-gray.svg" alt="Icon">
-                </a>
-            </li>
-            <li class="page-item"><a
-                    class="page-link d-flex flex-column align-items-center justify-content-center rounded-circle active"
-                    href="careers.html">01</a></li>
-            <li class="page-item"><a
-                    class="page-link d-flex flex-column align-items-center justify-content-center rounded-circle"
-                    href="careers.html">02</a></li>
-            <li class="page-item"><a
-                    class="page-link d-flex flex-column align-items-center justify-content-center rounded-circle"
-                    href="careers.html">03</a></li>
-            <li class="page-item">
-                <a class="page-link d-flex flex-column align-items-center justify-content-center rounded-circle"
-                    href="careers.html" aria-label="Next">
-                    <img src="/frontend/assets/img/icons/right-long-arrow-gray.svg" alt="Icon">
-                </a>
-            </li>
-        </ul> --}}
+
+        @if($careers->hasPages())
+            <div class="d-flex justify-content-center mt-5">
+                {{ $careers->links() }}
+            </div>
+        @endif
     </div>
     <!-- Career Section End -->
 @endsection

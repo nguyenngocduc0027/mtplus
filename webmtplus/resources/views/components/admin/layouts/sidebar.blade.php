@@ -94,8 +94,8 @@
                     </li>
                 </ul>
             </li> --}}
-            <li class="menu-item">
-                <a href="{{ route('dashboard') }}" class="menu-link">
+            <li class="menu-item {{ request()->routeIs('dashboard') ? 'active' : '' }}">
+                <a href="{{ route('dashboard') }}" class="menu-link {{ request()->routeIs('dashboard') ? 'active' : '' }}">
                     <span class="material-symbols-outlined menu-icon">dashboard</span>
                     <span class="title">Dashboard</span>
                 </a>
@@ -103,19 +103,122 @@
             <li class="menu-title small text-uppercase">
                 <span class="menu-title-text">PAGES</span>
             </li>
-            <li class=" text-capitalize menu-item ">
-                <a href="javascript:void(0);" class="menu-link menu-toggle active">
+            <li class="text-capitalize menu-item {{ request()->routeIs('content-setup.*') ? 'open' : '' }}">
+                <a href="javascript:void(0);" class="menu-link menu-toggle {{ request()->routeIs('content-setup.*') ? 'active' : '' }}">
                     <span class="material-symbols-outlined menu-icon">dashboard</span>
                     <span class="title">{{ __('admin.content-setup.title') }}</span>
                 </a>
 
                 <ul class="menu-sub">
-                    <li class="menu-item">
-                        <a href="{{ route('content-setup.home') }}" class="menu-link active">
+                    <li class="menu-item {{ request()->routeIs('content-setup.home') ? 'open' : '' }}">
+                        <a href="{{ route('content-setup.home') }}" class="menu-link {{ request()->routeIs('content-setup.home') ? 'active' : '' }}">
                             {{ __('admin.content-setup.home') }}
                         </a>
                     </li>
                 </ul>
+            </li>
+
+
+            <li class="menu-item {{ request()->routeIs('admin.areas-operation.*') || request()->routeIs('admin.mission.*') || request()->routeIs('admin.vision.*') || request()->routeIs('admin.core-values.*') || request()->routeIs('admin.capabilities.*') || request()->routeIs('admin.team.*') ? 'open' : '' }}">
+                <a href="javascript:void(0);" class="menu-link menu-toggle {{ request()->routeIs('admin.areas-operation.*') || request()->routeIs('admin.mission.*') || request()->routeIs('admin.vision.*') || request()->routeIs('admin.core-values.*') || request()->routeIs('admin.capabilities.*') || request()->routeIs('admin.team.*') ? 'active' : '' }}">
+                    <span class="material-symbols-outlined menu-icon">business</span>
+                    <span class="title">{{ __('admin.introduction') }}</span>
+                </a>
+                <ul class="menu-sub">
+                    <li class="menu-item after-sub-menu menu-level {{ request()->routeIs('admin.areas-operation.*') || request()->routeIs('admin.mission.*') || request()->routeIs('admin.vision.*') || request()->routeIs('admin.core-values.*') || request()->routeIs('admin.capabilities.*') ? 'open' : '' }}">
+                        <a href="javascript:void(0);" class="menu-link menu-toggle {{ request()->routeIs('admin.areas-operation.*') || request()->routeIs('admin.mission.*') || request()->routeIs('admin.vision.*') || request()->routeIs('admin.core-values.*') || request()->routeIs('admin.capabilities.*') ? 'active' : '' }}">
+                            <span class="title">{{ __('admin.company_overview') }}</span>
+                        </a>
+                        <ul class="menu-sub">
+                            <li class="menu-item {{ request()->routeIs('admin.areas-operation.*') ? 'open' : '' }}">
+                                <a href="{{ route('admin.areas-operation.index') }}" class="menu-link {{ request()->routeIs('admin.areas-operation.*') ? 'active' : '' }}">
+                                    {{ __('admin.about.operation') }}
+                                </a>
+                            </li>
+                            <li class="menu-item {{ request()->routeIs('admin.mission.*') ? 'open' : '' }}">
+                                <a href="{{ route('admin.mission.index') }}" class="menu-link {{ request()->routeIs('admin.mission.*') ? 'active' : '' }}">
+                                    {{ __('admin.about.mission') }}
+                                </a>
+                            </li>
+                            <li class="menu-item {{ request()->routeIs('admin.vision.*') ? 'open' : '' }}">
+                                <a href="{{ route('admin.vision.index') }}" class="menu-link {{ request()->routeIs('admin.vision.*') ? 'active' : '' }}">
+
+                                    {{ __('admin.about.vision') }}
+                                </a>
+                            </li>
+                            <li class="menu-item {{ request()->routeIs('admin.core-values.*') ? 'open' : '' }}">
+                                <a href="{{ route('admin.core-values.index') }}" class="menu-link {{ request()->routeIs('admin.core-values.*') ? 'active' : '' }}">
+
+                                    {{ __('admin.about.core_values') }}
+                                </a>
+                            </li>
+                            <li class="menu-item {{ request()->routeIs('admin.capabilities.*') ? 'open' : '' }}">
+                                <a href="{{ route('admin.capabilities.index') }}" class="menu-link {{ request()->routeIs('admin.capabilities.*') ? 'active' : '' }}">
+
+                                    {{ __('admin.about.capabilities') }}
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="menu-item {{ request()->routeIs('admin.team.*') ? 'open' : '' }}">
+                        <a href="{{ route('admin.team.index') }}" class="menu-link {{ request()->routeIs('admin.team.*') ? 'active' : '' }}">
+                            {{ __('admin.team.members') }}
+                        </a>
+                    </li>
+                </ul>
+            </li>
+              <li class="menu-item {{ request()->routeIs('admin.services.*') ? 'open' : '' }}">
+                <a href="{{ route('admin.services.index') }}" class="menu-link {{ request()->routeIs('admin.services.*') ? 'active' : '' }}">
+                    <span class="material-symbols-outlined menu-icon">design_services</span>
+                    <span class="title">{{ __('admin.services.all_services') }}</span>
+                </a>
+            </li>
+            <li class="menu-item {{ request()->routeIs('admin.projects.*') ? 'open' : '' }}">
+                <a href="{{ route('admin.projects.index') }}" class="menu-link {{ request()->routeIs('admin.projects.*') ? 'active' : '' }}">
+                    <span class="material-symbols-outlined menu-icon">apartment</span>
+                    <span class="title">{{ __('admin.projects.all_projects') }}</span>
+                </a>
+            </li>
+            <li class="menu-item {{ request()->routeIs('admin.careers.*') ? 'open' : '' }}">
+                <a href="{{ route('admin.careers.index') }}" class="menu-link {{ request()->routeIs('admin.careers.*') ? 'active' : '' }}">
+                    <span class="material-symbols-outlined menu-icon">work</span>
+                    <span class="title">{{ __('admin.careers.all_careers') }}</span>
+                </a>
+            </li>
+            <li class="menu-item {{ request()->routeIs('admin.news.*') ? 'open' : '' }}">
+                <a href="javascript:void(0);" class="menu-link menu-toggle {{ request()->routeIs('admin.news.*') ? 'active' : '' }}">
+                    <span class="material-symbols-outlined menu-icon">article</span>
+                    <span class="title">{{ __('admin.news.news_siderbar') }}</span>
+                </a>
+                <ul class="menu-sub">
+                    <li class="menu-item {{ request()->routeIs('admin.news.index') || request()->routeIs('admin.news.create') || request()->routeIs('admin.news.edit') || request()->routeIs('admin.news.show') ? 'open' : '' }}">
+                        <a href="{{ route('admin.news.index') }}" class="menu-link {{ request()->routeIs('admin.news.index') || request()->routeIs('admin.news.create') || request()->routeIs('admin.news.edit') || request()->routeIs('admin.news.show') ? 'active' : '' }}">
+                            {{ __('admin.news.all_news') }}
+                        </a>
+                    </li>
+                    <li class="menu-item {{ request()->routeIs('admin.news.categories.*') ? 'open' : '' }}">
+                        <a href="{{ route('admin.news.categories.index') }}" class="menu-link {{ request()->routeIs('admin.news.categories.*') ? 'active' : '' }}">
+                            {{ __('admin.news_categories.all_categories') }}
+                        </a>
+                    </li>
+                    <li class="menu-item {{ request()->routeIs('admin.news.tags.*') ? 'open' : '' }}">
+                        <a href="{{ route('admin.news.tags.index') }}" class="menu-link {{ request()->routeIs('admin.news.tags.*') ? 'active' : '' }}">
+                            {{ __('admin.news_tags.all_tags') }}
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li class="menu-item {{ request()->routeIs('admin.contacts.*') ? 'open' : '' }}">
+                <a href="{{ route('admin.contacts.index') }}" class="menu-link {{ request()->routeIs('admin.contacts.*') ? 'active' : '' }}">
+                    <span class="material-symbols-outlined menu-icon">mail</span>
+                    <span class="title">{{ __('admin.contacts.all_contacts') }}</span>
+                    @php
+                        $newContactsCount = \App\Models\Contact::new()->count();
+                    @endphp
+                    @if($newContactsCount > 0)
+                        <span class="badge bg-danger ms-2">{{ $newContactsCount }}</span>
+                    @endif
+                </a>
             </li>
         </ul>
     </aside>
